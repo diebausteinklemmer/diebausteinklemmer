@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Impressum · Die Bausteinklemmer</title>
+  <meta name="description" content="Impressum der Website Die Bausteinklemmer." />
+  <link rel="icon" href="images/logo.png" />
+
+  <!-- eigenes Styling nur für diese Seite -->
+  <style>
+    :root{
+      --bg:#f6b042; 
+      --panel:#111827; 
+      --panel2:#0f172a;
+      --text:#e5e7eb; 
+      --muted:#9ca3af; 
+      --radius:18px; 
+      --shadow:0 10px 30px rgba(2,8,23,.45);
+    }
+
+    *{box-sizing:border-box}
+
+    html,body{
+      margin:0;
+      padding:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    .wrap{
+      max-width:1100px;
+      margin:0 auto;
+      padding:18px;
+    }
+
+    .card{
+      background:linear-gradient(180deg,var(--panel),var(--panel2));
+      border:1px solid rgba(148,163,184,.15);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:18px;
+      margin:22px 0;
+    }
+
+    h2{
+      text-align:center;
+      margin:4px 0 12px;
+    }
+
+    h3{
+      margin-top:18px;
+      margin-bottom:6px;
+    }
+
+    .muted{
+      color:var(--muted);
+    }
+
+    footer{
+      margin:24px 0 40px 0;
+      text-align:center;
+      color:var(--muted);
+      font-size:14px;
+    }
+  </style>
+</head>
+<body>
+
+  <main class="wrap">
+
+    <section class="card">
+      <h2>Impressum</h2>
+
+      <h3>Angaben gemäß § 5 TMG</h3>
+      <p>
+        Die Bausteinklemmer<br>
+        Inhaber: Denny Ringmann<br>
+        Leschnitzer Straße 16<br>
+        12526 Berlin<br>
+        Deutschland
+      </p>
+
+      <h3>Kontakt</h3>
+      <p>
+        E-Mail allgemein: 
+        <a href="mailto:info@diebausteinklemmer.de">info@diebausteinklemmer.de</a><br>
+        E-Mail für Kooperationen &amp; geschäftliche Anfragen: 
+        <a href="mailto:kooperation@diebausteinklemmer.de">kooperation@diebausteinklemmer.de</a>
+      </p>
+
+      <h3>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h3>
+      <p>
+        Denny Ringmann<br>
+        Leschnitzer Straße 16<br>
+        12526 Berlin
+      </p>
+
+      <h3>Hinweis nach § 19 UStG (Kleinunternehmerregelung)</h3>
+      <p>
+        Der Betreiber dieses Angebots nimmt die Kleinunternehmerregelung nach § 19 UStG in Anspruch.
+        Daher wird auf Rechnungen keine Umsatzsteuer ausgewiesen.
+      </p>
+
+      <h3>Haftung für Inhalte</h3>
+      <p>
+        Die Inhalte dieser Website wurden mit größter Sorgfalt erstellt. Für die Richtigkeit,
+        Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen.
+        Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten
+        nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als
+        Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde
+        Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige
+        Tätigkeit hinweisen.
+      </p>
+
+      <h3>Haftung für Links</h3>
+      <p>
+        Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen
+        Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr
+        übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder
+        Betreiber der Seiten verantwortlich. Zum Zeitpunkt der Verlinkung waren keine
+        rechtswidrigen Inhalte erkennbar.
+      </p>
+
+      <h3>Urheberrecht</h3>
+      <p>
+        Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten
+        (insbesondere Fotos, Videos, Texte, Grafiken und Layout) unterliegen dem deutschen
+        Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der
+        Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen
+        Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite
+        sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.
+      </p>
+
+      <p class="muted" style="margin-top:18px;font-size:13px">
+        Hinweis: Dieses Impressum ist eine allgemeine Vorlage und ersetzt keine individuelle
+        Rechtsberatung.
+      </p>
+    </section>
+
+    <footer>
+      © <span id="y"></span> Die Bausteinklemmer ·
+      <a href="index.html">Startseite</a> ·
+      <a href="datenschutz.html">Datenschutz</a>
+    </footer>
+
+  </main>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
