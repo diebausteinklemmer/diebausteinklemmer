@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- ===== SEO: Title / Description ===== -->
+  <title>Beleuchtung · Die Bausteinklemmer</title>
+  <meta name="description" content="Beleuchtung, Strom, Adapter, Kabelmanagement und unsere Lösungen: Magnet-Adapter, LED-Setups, Verkabelung & Tipps für deine Klemmbaustein-Stadt." />
+
+  <!-- ===== SEO: Robots / Canonical ===== -->
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link rel="canonical" href="https://diebausteinklemmer.de/beleuchtung.html" />
+
+  <meta name="theme-color" content="#0ea5e9" />
+  <link rel="icon" href="images/logo.png" />
+
+  <!-- ===== Social Preview (OG / Twitter) ===== -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="de_DE" />
+  <meta property="og:title" content="Beleuchtung · Die Bausteinklemmer" />
+  <meta property="og:description" content="Beleuchtung, Strom, Adapter, Kabelmanagement & unsere Lösungen für BeanVillage und deine Klemmbaustein-Projekte." />
+  <meta property="og:url" content="https://diebausteinklemmer.de/beleuchtung.html" />
+  <meta property="og:image" content="https://diebausteinklemmer.de/images/logo.png" />
+  <meta property="og:image:alt" content="Die Bausteinklemmer – Logo" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Beleuchtung · Die Bausteinklemmer" />
+  <meta name="twitter:description" content="Beleuchtung, Strom, Adapter, Kabelmanagement & unsere Lösungen." />
+  <meta name="twitter:image" content="https://diebausteinklemmer.de/images/logo.png" />
+
+  <!-- ===== Structured Data (JSON-LD) ===== -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"Organization",
+        "name":"Die Bausteinklemmer",
+        "url":"https://diebausteinklemmer.de/",
+        "logo":"https://diebausteinklemmer.de/images/logo.png"
+      },
+      {
+        "@type":"WebPage",
+        "name":"Beleuchtung · Die Bausteinklemmer",
+        "url":"https://diebausteinklemmer.de/beleuchtung.html",
+        "inLanguage":"de",
+        "isPartOf":{
+          "@type":"WebSite",
+          "name":"Die Bausteinklemmer",
+          "url":"https://diebausteinklemmer.de/"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root{
+      --bg:#f6b042; --panel:#111827; --panel2:#0f172a;
+      --text:#e5e7eb; --muted:#9ca3af;
+      --brand:#0ea5e9; --brand2:#38bdf8;
+      --radius:18px; --shadow:0 10px 30px rgba(2,8,23,.45);
+
+      --chip-bg: rgba(255,255,255,0.08);
+      --chip-border: rgba(148,163,184,.18);
+      --card-hover: 0 22px 60px rgba(2,8,23,.65);
+      --yellow-outline: 2px solid rgba(246,176,66,.95);
+
+      --btn-home:#f6b042;
+      --btn-home-text:#111827;
+      --btn-mail:#7dd3fc;
+      --btn-coop:#86efac;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;}
+    html,body{
+      margin:0;padding:0;background:var(--bg);color:var(--text);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif
+    }
+    a{text-decoration:none;color:inherit}
+    .wrap{max-width:1100px;margin:0 auto;padding:18px}
+    .muted{color:var(--muted)}
+
+    /* ===== HEADER (wie Vorlage) ===== */
+    .site-header{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:blur(10px) saturate(130%);
+      background:linear-gradient(180deg,rgba(2,6,23,.92),rgba(2,6,23,.62));
+      border-bottom:1px solid rgba(148,163,184,.15);
+      box-shadow:0 10px 18px rgba(2,8,23,.22);
+    }
+    .headbar{
+      display:grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items:center;
+      gap:14px;
+      padding:10px 0;
+    }
+    .brand-center{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:6px;
+      font-weight:900;
+      letter-spacing:.2px;
+      text-align:center;
+    }
+    .brand-center img{
+      width:64px;height:64px;border-radius:50%;
+      object-fit:cover;box-shadow:var(--shadow)
+    }
+    .brand-text{display:flex;flex-direction:column;line-height:1.05}
+    .brand-top{font-size:1.05rem;font-weight:950;letter-spacing:.2px}
+
+    .header-block{display:flex;align-items:flex-start;justify-content:flex-start}
+    .header-block.right{justify-content:flex-end}
+
+    .header-title{
+      font-size:.82rem;
+      font-weight:950;
+      color:rgba(229,231,235,.92);
+      opacity:.92;
+      margin:0 0 6px 0;
+      white-space:nowrap;
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+    .header-list{display:grid;gap:8px;align-items:center}
+    .header-list.hubs{ grid-template-columns: repeat(3, max-content); }
+    .header-list.partners{ grid-template-columns: repeat(3, max-content); }
+
+    .header-chip{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:7px 10px;
+      border-radius:999px;
+      background:var(--chip-bg);
+      border:1px solid var(--chip-border);
+      font-weight:800;
+      font-size:.84rem;
+      opacity:.95;
+      transition:transform .14s ease, filter .14s ease, opacity .14s ease, box-shadow .14s ease, outline-color .14s ease;
+      transform-origin:center;
+      white-space:nowrap;
+    }
+    .header-chip:hover{
+      filter:brightness(1.10);
+      opacity:1;
+      transform:scale(1.07);
+      outline: 2px solid rgba(246,176,66,.65);
+      outline-offset:2px;
+    }
+    .header-chip.active{
+      background:rgba(255,255,255,0.16);
+      border-color:rgba(255,255,255,0.30);
+      opacity:1;
+      outline:1px solid rgba(246,176,66,.95);
+      outline-offset:2px;
+      box-shadow:
+        0 0 0 2px rgba(2,6,23,.65),
+        0 10px 26px rgba(2,8,23,.35),
+        0 0 18px rgba(246,176,66,.45);
+    }
+
+    .header-chip.partner img{
+      width:20px;height:20px;
+      border-radius:8px;
+      object-fit:contain;
+      background:#fff;
+      padding:2px;
+      box-shadow:0 6px 14px rgba(2,8,23,.25);
+    }
+
+    @media (max-width: 1180px){
+      .header-chip{font-size:.80rem;padding:7px 9px}
+    }
+    @media (max-width: 980px){
+      .headbar{grid-template-columns: 1fr; justify-items:center;}
+      .header-block, .header-block.right{justify-content:center; text-align:center}
+      .header-list.hubs, .header-list.partners{grid-template-columns: repeat(2, max-content); justify-content:center;}
+    }
+
+    /* ===== CARDS ===== */
+    .card{
+      background:linear-gradient(180deg,var(--panel),var(--panel2));
+      border:1px solid rgba(148,163,184,.15);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:18px;
+      margin:22px 0;
+      transition:transform .16s ease, box-shadow .16s ease, filter .16s ease, outline-color .16s ease;
+    }
+    .card:hover{
+      transform:translateY(-4px) scale(1.006);
+      box-shadow:var(--card-hover);
+      filter:brightness(1.05);
+      outline:var(--yellow-outline);
+      outline-offset:2px;
+    }
+    .card:focus-within{
+      box-shadow:var(--card-hover);
+      outline:var(--yellow-outline);
+      outline-offset:2px;
+    }
+
+    footer{margin:24px 0 40px 0;text-align:center;color:var(--muted);font-size:14px}
+
+    .inline-link{
+      text-decoration:underline;
+      text-underline-offset:3px;
+      opacity:.95;
+    }
+    .inline-link:hover{opacity:1}
+
+    /* ===== HERO (kurz, passend zum HUB) ===== */
+    .hero{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:18px;
+      align-items:center;
+    }
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr;}
+    }
+    .hero h1{margin:0;font-size:2rem;letter-spacing:.2px}
+    .hero p{margin:10px 0 0 0; line-height:1.55}
+
+    .hero-actions{
+      margin-top:14px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:14px 22px;
+      border-radius:999px;
+      font-weight:950;
+      border:1px solid rgba(255,255,255,0.12);
+      background:rgba(255,255,255,0.12);
+      box-shadow:0 10px 22px rgba(2,8,23,.25);
+      font-size:1.05rem;
+      transition:transform .14s ease, filter .14s ease, outline-color .14s ease;
+    }
+    .btn:hover{filter:brightness(1.10); transform:scale(1.04); outline:2px solid rgba(246,176,66,.45); outline-offset:2px;}
+    .btn.home{background:var(--btn-home); color:var(--btn-home-text); border-color:transparent}
+    .btn.mail{background:var(--btn-mail); color:#04131f; border-color:transparent}
+    .btn.coop{background:var(--btn-coop); color:#052013; border-color:transparent}
+
+    .hero-img{
+      border-radius:18px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(148,163,184,.14);
+      padding:18px;
+      display:grid;
+      place-items:center;
+      min-height:240px;
+      overflow:hidden;
+    }
+    .hero-img img{
+      width:100%;
+      max-width:520px;
+      height:auto;
+      filter:drop-shadow(0 18px 28px rgba(0,0,0,.55));
+      display:block;
+    }
+
+    .hero-badges{
+      margin-top:14px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .badge{
+      font-size:12px; font-weight:900;
+      padding:7px 12px; border-radius:999px;
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.12);
+      opacity:.95;
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="wrap headbar">
+
+    <!-- LINKS: HUBS -->
+    <div class="header-block" aria-label="Hubs">
+      <div>
+        <div class="header-title">📌 Profil</div>
+        <div class="header-list hubs">
+          <a class="header-chip" href="ueber-uns.html">Über uns</a>
+          <a class="header-chip" href="videos.html">Videos</a>
+          <a class="header-chip" href="unsere-stadt.html">Unsere Stadt</a>
+          <a class="header-chip" href="eisenbahn.html">Eisenbahn</a>
+          <a class="header-chip active" href="beleuchtung.html">Beleuchtung</a>
+          <a class="header-chip" href="merch.html">Merch</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- MITTE -->
+    <a class="brand-center" href="index.html" aria-label="Zur Startseite">
+      <img src="images/logo.png" alt="Die Bausteinklemmer Logo">
+      <span class="brand-text">
+        <span class="brand-top">Die Bausteinklemmer</span>
+      </span>
+    </a>
+
+    <!-- RECHTS: PARTNER -->
+    <div class="header-block right" aria-label="Partner">
+      <div>
+        <div class="header-title">🏭 Hersteller</div>
+        <div class="header-list partners">
+          <a class="header-chip partner" href="partner-lesdiy.html">
+            <img src="images/lesdiy_logo.jpg" alt="LESDIY"><span>LESDIY</span>
+          </a>
+          <a class="header-chip partner" href="partner-lumibricks.html">
+            <img src="images/Lumibricks.png" alt="Lumibricks"><span>Lumibricks</span>
+          </a>
+          <a class="header-chip partner" href="partner-briksmax.html">
+            <img src="images/briksmax.png" alt="Briksmax"><span>Briksmax</span>
+          </a>
+          <a class="header-chip partner" href="partner-jmbricklayer.html">
+            <img src="images/jmbricklayer_logo.jpg" alt="JMBricklayer"><span>JMBricklayer</span>
+          </a>
+          <a class="header-chip partner" href="partner-bluebrixx.html">
+            <img src="images/blue_brixx_logo.png" alt="BlueBrixx"><span>BlueBrixx</span>
+          </a>
+          <a class="header-chip partner" href="partner-lego.html">
+            <img src="images/lego_logo.png" alt="LEGO"><span>LEGO®</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- HERO: BELEUCHTUNG -->
+  <section class="card">
+    <div class="hero">
+      <div>
+        <h1>Beleuchtung: unsere Lösungen</h1>
+        <p class="muted">
+          Hier sammeln wir alles rund um <strong>LED-Beleuchtung</strong>, <strong>Stromversorgung</strong>,
+          <strong>Magnet-Adapter</strong> und <strong>Kabelmanagement</strong> – so wie wir es in BeanVillage umsetzen.
+          <br><br>
+          Weitere Hubs: <a class="inline-link" href="eisenbahn.html">Eisenbahn</a> ·
+          <a class="inline-link" href="unsere-stadt.html">Unsere Stadt</a> ·
+          <a class="inline-link" href="videos.html">Videos</a>
+        </p>
+
+        <div class="hero-badges">
+          <span class="badge">💡 LED-Setups</span>
+          <span class="badge">🧲 Magnet-Adapter</span>
+          <span class="badge">🧰 Kabelmanagement</span>
+        </div>
+
+        <div class="hero-actions">
+          <a class="btn home" href="index.html">← Zur Startseite</a>
+          <a class="btn mail" href="mailto:info@diebausteinklemmer.de">✉️ Kontakt</a>
+          <a class="btn coop" href="mailto:kooperation@diebausteinklemmer.de">🤝 Kooperation</a>
+        </div>
+      </div>
+
+      <div class="hero-img" aria-label="Beleuchtung Visual">
+        <!-- Optional: tausche das Bild aus (z.B. LED/Magnet-Adapter Visual). Logo geht immer. -->
+        <img src="images/logo.png" alt="Die Bausteinklemmer Logo">
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTENT (kurz, wie gewünscht) -->
+  <section class="card">
+    <h2 style="margin:0 0 8px 0">Was du hier bald findest</h2>
+    <p class="muted" style="margin:0; line-height:1.55">
+      • Unsere Standard-Stromverteilung (z.B. pro Modul / pro Straße) <br>
+      • Adapter-Prinzip (Magnet-Kupplung für Licht in Waggons & Gebäuden) <br>
+      • Kabelwege, Verteiler, Sicherung & “unsichtbare” Führung <br>
+      • Partner-Lösungen (Briksmax, Lumibricks, Lightailing/Briksmax-Style etc.) <br>
+      • Video-Links + Teilelisten / Empfehlungen
+    </p>
+  </section>
+
+  <footer>
+    © <span id="y"></span> Die Bausteinklemmer ·
+    <a href="impressum.html">Impressum</a> ·
+    <a href="datenschutz.html">Datenschutz</a>
+  </footer>
+
+</main>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- ===== SEO: Title / Description ===== -->
+  <title>Unsere Stadt · Die Bausteinklemmer</title>
+  <meta name="description" content="BeanVillage – unsere LEGO®/Klemmbaustein-Stadt: Module, Stadt-Updates, Baufortschritt, Detailshots und Highlights." />
+
+  <!-- ===== SEO: Robots / Canonical ===== -->
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link rel="canonical" href="https://diebausteinklemmer.de/unsere-stadt.html" />
+
+  <meta name="theme-color" content="#0ea5e9" />
+  <link rel="icon" href="images/logo.png" />
+
+  <!-- ===== Social Preview (OG / Twitter) ===== -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="de_DE" />
+  <meta property="og:title" content="Unsere Stadt · Die Bausteinklemmer" />
+  <meta property="og:description" content="BeanVillage – unsere LEGO®/Klemmbaustein-Stadt: Module, Stadt-Updates, Baufortschritt & Highlights." />
+  <meta property="og:url" content="https://diebausteinklemmer.de/unsere-stadt.html" />
+  <meta property="og:image" content="https://diebausteinklemmer.de/images/logo.png" />
+  <meta property="og:image:alt" content="Die Bausteinklemmer – Logo" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Unsere Stadt · Die Bausteinklemmer" />
+  <meta name="twitter:description" content="BeanVillage – unsere LEGO®/Klemmbaustein-Stadt: Module, Stadt-Updates, Baufortschritt & Highlights." />
+  <meta name="twitter:image" content="https://diebausteinklemmer.de/images/logo.png" />
+
+  <!-- ===== Structured Data (JSON-LD) ===== -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"Organization",
+        "name":"Die Bausteinklemmer",
+        "url":"https://diebausteinklemmer.de/",
+        "logo":"https://diebausteinklemmer.de/images/logo.png"
+      },
+      {
+        "@type":"WebPage",
+        "name":"Unsere Stadt · Die Bausteinklemmer",
+        "url":"https://diebausteinklemmer.de/unsere-stadt.html",
+        "inLanguage":"de",
+        "isPartOf":{
+          "@type":"WebSite",
+          "name":"Die Bausteinklemmer",
+          "url":"https://diebausteinklemmer.de/"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root{
+      --bg:#f6b042; --panel:#111827; --panel2:#0f172a;
+      --text:#e5e7eb; --muted:#9ca3af;
+      --brand:#0ea5e9; --brand2:#38bdf8;
+      --radius:18px; --shadow:0 10px 30px rgba(2,8,23,.45);
+
+      --chip-bg: rgba(255,255,255,0.08);
+      --chip-border: rgba(148,163,184,.18);
+      --card-hover: 0 22px 60px rgba(2,8,23,.65);
+      --yellow-outline: 2px solid rgba(246,176,66,.95);
+      --glow: 0 0 0 2px rgba(246,176,66,.85), 0 0 0 8px rgba(255,255,255,.06);
+
+      --btn-home:#f6b042;
+      --btn-home-text:#111827;
+      --btn-mail:#7dd3fc;
+      --btn-coop:#86efac;
+
+      --ok:#22c55e;
+      --todo:rgba(148,163,184,.95);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;}
+    html,body{
+      margin:0;padding:0;background:var(--bg);color:var(--text);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif
+    }
+    a{text-decoration:none;color:inherit}
+    .wrap{max-width:1100px;margin:0 auto;padding:18px}
+    .muted{color:var(--muted)}
+    .center{text-align:center}
+    h2{margin:4px 0 10px}
+
+    /* ===== HEADER ===== */
+    .site-header{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:blur(10px) saturate(130%);
+      background:linear-gradient(180deg,rgba(2,6,23,.92),rgba(2,6,23,.62));
+      border-bottom:1px solid rgba(148,163,184,.15);
+      box-shadow:0 10px 18px rgba(2,8,23,.22);
+    }
+    .headbar{
+      display:grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items:center;
+      gap:14px;
+      padding:10px 0;
+    }
+    .brand-center{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:6px;
+      font-weight:900;
+      letter-spacing:.2px;
+      text-align:center;
+    }
+    .brand-center img{
+      width:64px;height:64px;border-radius:50%;
+      object-fit:cover;box-shadow:var(--shadow)
+    }
+    .brand-text{display:flex;flex-direction:column;line-height:1.05}
+    .brand-top{font-size:1.05rem;font-weight:950;letter-spacing:.2px}
+
+    .header-block{display:flex;align-items:flex-start;justify-content:flex-start}
+    .header-block.right{justify-content:flex-end}
+    .header-title{
+      font-size:.82rem;
+      font-weight:950;
+      color:rgba(229,231,235,.92);
+      opacity:.92;
+      margin:0 0 6px 0;
+      white-space:nowrap;
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+    .header-list{display:grid;gap:8px;align-items:center}
+    .header-list.hubs{ grid-template-columns: repeat(3, max-content); }
+    .header-list.partners{ grid-template-columns: repeat(3, max-content); }
+
+    .header-chip{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:7px 10px;
+      border-radius:999px;
+      background:var(--chip-bg);
+      border:1px solid var(--chip-border);
+      font-weight:800;
+      font-size:.84rem;
+      opacity:.95;
+      transition:transform .14s ease, filter .14s ease, opacity .14s ease, box-shadow .14s ease, outline-color .14s ease;
+      transform-origin:center;
+      white-space:nowrap;
+    }
+    .header-chip:hover{
+      filter:brightness(1.10);
+      opacity:1;
+      transform:scale(1.07);
+      outline: 2px solid rgba(246,176,66,.65);
+      outline-offset:2px;
+    }
+    .header-chip.active{
+      background:rgba(255,255,255,0.16);
+      border-color:rgba(255,255,255,0.30);
+      opacity:1;
+      outline:1px solid rgba(246,176,66,.95);
+      outline-offset:2px;
+      box-shadow:
+        0 0 0 2px rgba(2,6,23,.65),
+        0 10px 26px rgba(2,8,23,.35),
+        0 0 18px rgba(246,176,66,.45);
+    }
+    .header-chip.partner img{
+      width:20px;height:20px;
+      border-radius:8px;
+      object-fit:contain;
+      background:#fff;
+      padding:2px;
+      box-shadow:0 6px 14px rgba(2,8,23,.25);
+    }
+
+    @media (max-width: 1180px){
+      .header-chip{font-size:.80rem;padding:7px 9px}
+    }
+    @media (max-width: 980px){
+      .headbar{grid-template-columns: 1fr; justify-items:center;}
+      .header-block, .header-block.right{justify-content:center; text-align:center}
+      .header-list.hubs, .header-list.partners{grid-template-columns: repeat(2, max-content); justify-content:center;}
+    }
+
+    /* ===== CARDS ===== */
+    .card{
+      background:linear-gradient(180deg,var(--panel),var(--panel2));
+      border:1px solid rgba(148,163,184,.15);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:18px;
+      margin:22px 0;
+      transition:transform .16s ease, box-shadow .16s ease, filter .16s ease, outline-color .16s ease;
+    }
+    .card:hover{
+      transform:translateY(-4px) scale(1.006);
+      box-shadow:var(--card-hover);
+      filter:brightness(1.05);
+      outline:var(--yellow-outline);
+      outline-offset:2px;
+    }
+    .card:focus-within{
+      box-shadow:var(--card-hover);
+      outline:var(--yellow-outline);
+      outline-offset:2px;
+    }
+
+    footer{margin:24px 0 40px 0;text-align:center;color:var(--muted);font-size:14px}
+
+    .inline-link{
+      text-decoration:underline;
+      text-underline-offset:3px;
+      opacity:.95;
+    }
+    .inline-link:hover{opacity:1}
+
+    /* ===== HERO ===== */
+    .hero{
+      display:grid;
+      grid-template-columns: 1.2fr .9fr;
+      gap:18px;
+      align-items:center;
+    }
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr;}
+    }
+
+    .hero h1{margin:0;font-size:2rem;letter-spacing:.2px}
+    .hero p{margin:10px 0 0 0; line-height:1.55}
+
+    .hero-actions{
+      margin-top:14px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:14px 22px;
+      border-radius:999px;
+      font-weight:950;
+      border:1px solid rgba(255,255,255,0.12);
+      background:rgba(255,255,255,0.12);
+      box-shadow:0 10px 22px rgba(2,8,23,.25);
+      font-size:1.05rem;
+      transition:transform .14s ease, filter .14s ease, outline-color .14s ease;
+    }
+    .btn:hover{filter:brightness(1.10); transform:scale(1.04); outline:2px solid rgba(246,176,66,.45); outline-offset:2px;}
+    .btn.home{background:var(--btn-home); color:var(--btn-home-text); border-color:transparent}
+    .btn.mail{background:var(--btn-mail); color:#04131f; border-color:transparent}
+    .btn.coop{background:var(--btn-coop); color:#052013; border-color:transparent}
+
+    .hero-badges{
+      margin-top:14px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .badge{
+      font-size:12px; font-weight:900;
+      padding:7px 12px; border-radius:999px;
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.12);
+      opacity:.95;
+    }
+
+    .hero-img{
+      border-radius:18px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(148,163,184,.14);
+      padding:18px;
+      display:grid;
+      place-items:center;
+      min-height:260px;
+      overflow:hidden;
+    }
+    .hero-img img{
+      width:100%;
+      max-width:520px;
+      height:auto;
+      filter:drop-shadow(0 18px 28px rgba(0,0,0,.55));
+      display:block;
+    }
+
+    /* Anchor spacing for sticky header */
+    .anchor{scroll-margin-top:120px}
+
+    /* ===== ROADMAP ===== */
+    .roadmap-head{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-bottom:10px;
+    }
+
+    .roadmap-grid{
+      display:grid;
+      grid-template-columns: 1.25fr repeat(4, 1fr);
+      gap:12px;
+      align-items:stretch;
+    }
+    @media (max-width: 1050px){
+      .roadmap-grid{ grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 620px){
+      .roadmap-grid{ grid-template-columns: 1fr; }
+    }
+
+    .road-col{
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(148,163,184,.14);
+      border-radius:16px;
+      padding:14px;
+    }
+    .road-col h3{
+      margin:0 0 10px 0;
+      font-size:1.02rem;
+      letter-spacing:.2px;
+    }
+    .road-col p{margin:0 0 10px 0; line-height:1.45}
+
+    .milestones{
+      list-style:none;
+      padding:0;margin:0;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+    .milestones a{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      padding:9px 10px;
+      border-radius:12px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(148,163,184,.14);
+      font-weight:900;
+      opacity:.96;
+      transition:transform .14s ease, filter .14s ease, outline-color .14s ease;
+    }
+    .milestones a:hover{
+      filter:brightness(1.08);
+      transform:translateY(-1px);
+      outline:2px solid rgba(246,176,66,.25);
+      outline-offset:2px;
+    }
+
+    .ms-left{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      white-space:nowrap;
+    }
+    .check{
+      width:22px;height:22px;border-radius:7px;
+      display:grid;place-items:center;
+      font-size:14px;line-height:1;
+      border:1px solid rgba(148,163,184,.30);
+      background:rgba(255,255,255,.03);
+      flex:0 0 auto;
+    }
+    .check.ok{
+      border-color:rgba(34,197,94,.55);
+      background:rgba(34,197,94,.14);
+      color:#b7f7c8;
+    }
+    .check.todo{
+      border-color:rgba(148,163,184,.35);
+      background:rgba(148,163,184,.10);
+      color:rgba(229,231,235,.85);
+    }
+    .ms-right{
+      font-size:12px;
+      color:var(--muted);
+      font-weight:900;
+      opacity:.95;
+      white-space:nowrap;
+    }
+
+    /* ===== PROJECT CARDS ===== */
+    .project-grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:16px;
+      align-items:start;
+    }
+    @media (max-width: 900px){ .project-grid{grid-template-columns:1fr;} }
+
+    .project-text{
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(148,163,184,.14);
+      border-radius:16px;
+      padding:14px;
+    }
+    .project-stats{
+      display:grid;
+      gap:10px;
+      margin-top:12px;
+    }
+    .stat{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      align-items:center;
+      padding:10px 12px;
+      border-radius:14px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(148,163,184,.14);
+      font-weight:900;
+    }
+    .stat span{color:var(--muted);font-weight:900}
+    .stat b{font-weight:950}
+
+    .thumb-wrap{
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid rgba(148,163,184,.22);
+      background:#0a1220;
+      box-shadow:var(--shadow);
+      display:block;
+      transition:transform .16s ease, filter .16s ease, box-shadow .16s ease, outline-color .16s ease;
+    }
+    .thumb-wrap:hover{
+      transform:translateY(-4px) scale(1.01);
+      filter:brightness(1.06);
+      box-shadow:0 22px 60px rgba(2,8,23,.62);
+      outline:var(--yellow-outline);
+      outline-offset:2px;
+    }
+    .video-thumb{
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: #0a1220;
+    }
+    .video-thumb::after{
+      content:"▶";
+      position:absolute; inset:0;
+      display:grid; place-items:center;
+      font-size:52px; color:#fff;
+      text-shadow:0 8px 22px rgba(0,0,0,.75);
+      opacity:.85;
+    }
+
+    /* ===== NEU: BeanVillage Bild statt "Player" + Glow ===== */
+    .video-thumb.no-play::after{ content:""; }
+    .video-thumb.city-glow{
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.06);
+    }
+    .video-thumb.city-glow::before{
+      content:"";
+      position:absolute; inset:-1px;
+      border-radius:0;
+      pointer-events:none;
+      box-shadow:
+        0 0 0 2px rgba(246,176,66,.45),
+        0 0 28px rgba(246,176,66,.20),
+        0 18px 60px rgba(2,8,23,.55);
+      opacity:.95;
+    }
+
+    .thumb-caption{
+      padding:10px 12px;
+      color:var(--muted);
+      font-weight:800;
+      font-size:.9rem;
+    }
+    .more-links{
+      margin-top:10px;
+      display:flex;
+      gap:10px;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+    .more-links .header-chip{
+      font-size:.82rem;
+      padding:6px 10px;
+      opacity:.92;
+    }
+    .more-links .header-chip:hover{opacity:1;}
+
+    .jump-line{
+      margin-top:14px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+      font-size:0.95rem;
+      font-weight:900;
+      letter-spacing:.25px;
+      color:rgba(229,231,235,.78);
+    }
+    .jump-line a{
+      font-weight:900;
+      color:rgba(229,231,235,.88);
+      text-decoration:none;
+      text-underline-offset:3px;
+    }
+    .jump-line a:hover{ color:#fff; }
+
+    /* ===== MODUL-GRID (für Stadt-Abschnitte) ===== */
+    .module-grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+    }
+    @media (max-width: 980px){ .module-grid{grid-template-columns: repeat(2, 1fr);} }
+    @media (max-width: 620px){ .module-grid{grid-template-columns: 1fr;} }
+
+    .module-card{
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid rgba(148,163,184,.16);
+      background:rgba(255,255,255,.04);
+      transition:transform .16s ease, filter .16s ease, box-shadow .16s ease, outline-color .16s ease;
+    }
+    .module-card:hover{
+      transform:translateY(-3px);
+      filter:brightness(1.05);
+      outline:2px solid rgba(246,176,66,.35);
+      outline-offset:2px;
+      box-shadow:0 18px 50px rgba(2,8,23,.45);
+    }
+    .module-img{
+      width:100%;
+      padding-top:56.25%;
+      background:#0a1220;
+      background-size:cover;
+      background-position:center;
+      border-bottom:1px solid rgba(148,163,184,.16);
+    }
+    .module-body{padding:12px 12px 14px}
+    .module-title{margin:0 0 6px 0; font-weight:950; letter-spacing:.2px}
+    .module-text{margin:0; color:var(--muted); font-weight:800; line-height:1.45; font-size:.92rem}
+  </style>
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="wrap headbar">
+
+    <!-- LINKS: HUBS -->
+    <div class="header-block" aria-label="Hubs">
+      <div>
+        <div class="header-title">📌 Profil</div>
+        <div class="header-list hubs">
+          <a class="header-chip" href="ueber-uns.html">Über uns</a>
+          <a class="header-chip" href="videos.html">Videos</a>
+          <a class="header-chip active" href="unsere-stadt.html">Unsere Stadt</a>
+          <a class="header-chip" href="eisenbahn.html">Eisenbahn</a>
+          <a class="header-chip" href="beleuchtung.html">Beleuchtung</a>
+          <a class="header-chip" href="merch.html">Merch</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- MITTE -->
+    <a class="brand-center" href="index.html" aria-label="Zur Startseite">
+      <img src="images/logo.png" alt="Die Bausteinklemmer Logo">
+      <span class="brand-text">
+        <span class="brand-top">Die Bausteinklemmer</span>
+      </span>
+    </a>
+
+    <!-- RECHTS: PARTNER -->
+    <div class="header-block right" aria-label="Partner">
+      <div>
+        <div class="header-title">🏭 Hersteller</div>
+        <div class="header-list partners">
+          <a class="header-chip partner" href="partner-lesdiy.html">
+            <img src="images/lesdiy_logo.jpg" alt="LESDIY"><span>LESDIY</span>
+          </a>
+          <a class="header-chip partner" href="partner-lumibricks.html">
+            <img src="images/Lumibricks.png" alt="Lumibricks"><span>Lumibricks</span>
+          </a>
+          <a class="header-chip partner" href="partner-briksmax.html">
+            <img src="images/briksmax.png" alt="Briksmax"><span>Briksmax</span>
+          </a>
+          <a class="header-chip partner" href="partner-jmbricklayer.html">
+            <img src="images/jmbricklayer_logo.jpg" alt="JMBricklayer"><span>JMBricklayer</span>
+          </a>
+          <a class="header-chip partner" href="partner-bluebrixx.html">
+            <img src="images/blue_brixx_logo.png" alt="BlueBrixx"><span>BlueBrixx</span>
+          </a>
+          <a class="header-chip partner" href="partner-lego.html">
+            <img src="images/lego_logo.png" alt="LEGO"><span>LEGO®</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- HERO: UNSERE STADT -->
+  <section class="card">
+    <div class="hero">
+      <div>
+        <h1>Unsere Stadt: BeanVillage</h1>
+        <p>
+          Willkommen in <strong>BeanVillage</strong> – unserer wachsenden <strong>LEGO®/Klemmbaustein-Stadt</strong>.
+          Hier sammeln wir Module, Highlights, Baustellen und alles, was zwischen <strong>City</strong>, <strong>Eisenbahn</strong>
+          und <strong>Beleuchtung</strong> passiert.
+          <br><br>
+          Wenn du direkt Videos sehen willst: <a class="inline-link" href="videos.html">Videos & Playlists</a>.
+        </p>
+
+        <div class="hero-badges">
+          <span class="badge">🏙️ BeanVillage</span>
+          <span class="badge">🧩 Modular</span>
+          <span class="badge">💡 Beleuchtet</span>
+        </div>
+
+        <div class="hero-actions">
+          <a class="btn home" href="index.html">← Zur Startseite</a>
+          <a class="btn mail" href="mailto:info@diebausteinklemmer.de">✉️ Kontakt</a>
+          <a class="btn coop" href="mailto:kooperation@diebausteinklemmer.de">🤝 Kooperation</a>
+        </div>
+
+        <!-- SMART JUMP LINKS -->
+        <p class="jump-line">
+          Direkt springen zu:
+          <a class="inline-link toc-jump" href="#highlights">Highlights</a> ·
+          <a class="inline-link toc-jump" href="#module">Module</a> ·
+          <a class="inline-link toc-jump" href="#stadtupdates">Stadt-Updates</a> ·
+          <a class="inline-link toc-jump" href="#comingsoon">Coming Soon</a> ·
+        </p>
+      </div>
+
+      <div class="hero-img" aria-label="BeanVillage Preview">
+        <!-- Tausche das Bild/Datei einfach aus -->
+        <img src="images/stadtmitGLOW.png" alt="BeanVillage – Stadtansicht">
+      </div>
+    </div>
+  </section>
+
+  <!-- HIGHLIGHTS -->
+  <section id="highlights" class="card anchor">
+    <div class="roadmap-head">
+      <div>
+        <h2 style="margin:0">✨ Highlights</h2>
+        <p class="muted" style="margin:6px 0 0 0">
+          Kleine „Ankerpunkte“, die BeanVillage ausmachen.
+        </p>
+      </div>
+      <div class="badge">🧱 Detail-Liebe</div>
+    </div>
+
+    <div class="roadmap-grid">
+      <!-- Links: Info/Übersicht -->
+      <div class="road-col">
+        <h3>🏙️ Was dich hier erwartet</h3>
+        <p class="muted" style="margin-top:-2px">
+          Diese Seite ist unser Stadt-Hub: schnell reinfinden, weiterklicken, stöbern.
+        </p>
+
+        <ul class="milestones" aria-label="Schnellzugriff">
+          <li>
+            <a href="videos.html">
+              <span class="ms-left"><span class="check ok">✓</span> Stadt-Updates (Videos)</span>
+              <span class="ms-right">Playlist</span>
+            </a>
+          </li>
+          <li>
+            <a href="eisenbahn.html">
+              <span class="ms-left"><span class="check ok">✓</span> Züge & Fahrbetrieb</span>
+              <span class="ms-right">Hub</span>
+            </a>
+          </li>
+          <li>
+            <a href="beleuchtung.html">
+              <span class="ms-left"><span class="check ok">✓</span> Beleuchtung & Strom</span>
+              <span class="ms-right">Hub</span>
+            </a>
+          </li>
+          <li>
+            <a href="#comingsoon" title="Coming Soon">
+              <span class="ms-left"><span class="check todo">⬜</span> Interaktive Karte</span>
+              <span class="ms-right">später</span>
+            </a>
+          </li>
+          <li>
+            <a href="#comingsoon" title="Coming Soon">
+              <span class="ms-left"><span class="check todo">⬜</span> Modul-Lexikon</span>
+              <span class="ms-right">später</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 4 Spalten: frei anpassbar -->
+      <div class="road-col">
+        <h3>🧩 Module</h3>
+        <p class="muted" style="margin-top:-2px">Was gerade wächst</p>
+        <ul class="milestones" aria-label="Module">
+          <li><a href="#module"><span class="ms-left"><span class="check ok">✓</span> Übersicht</span></a></li>
+          <li><a href="#comingsoon"><span class="ms-left"><span class="check todo">⬜</span> Berg / Tunnel</span></a></li>
+          <li><a href="#comingsoon"><span class="ms-left"><span class="check todo">⬜</span> Hafen / Wasser</span></a></li>
+          <li><a href="#comingsoon"><span class="ms-left"><span class="check todo">⬜</span> Innenstadt</span></a></li>
+        </ul>
+      </div>
+
+      <div class="road-col">
+        <h3>🚆 Eisenbahn</h3>
+        <p class="muted" style="margin-top:-2px">Fahrbetrieb & Strecken</p>
+        <ul class="milestones" aria-label="Eisenbahn">
+          <li><a href="eisenbahn.html"><span class="ms-left"><span class="check ok">✓</span> Hub öffnen</span></a></li>
+          <li><a href="#comingsoon"><span class="ms-left"><span class="check todo">⬜</span> Streckenplan</span></a></li>
+          <li><a href="#comingsoon"><span class="ms-left"><span class="check todo">⬜</span> Bahnhof-Infos</span></a></li>
+          <li><a href="#comingsoon"><span class="ms-left"><span class="check todo">⬜</span> Rangierbereich</span></a></li>
+        </ul>
+      </div>
+
+      <div class="road-col">
+        <h3>💡 Beleuchtung</h3>
+        <p class="muted" style="margin-top:-2px">Licht & Atmosphäre</p>
+        <ul class="milestones" aria-label="Beleuchtung">
+          <li><a href="beleuchtung.html"><span class="ms-left"><span class="check ok">✓</span> Hub öffnen</span></a></li>
+          <li><a href="#comingsoon"><span class="ms-left"><span class="check todo">⬜</span> Nightshots</span></a></li>
+          <li><a href="#comingsoon"><span class="ms-left"><span class="check todo">⬜</span> Kabelmanagement</span></a></li>
+          <li><a href="#comingsoon"><span class="ms-left"><span class="check todo">⬜</span> Adapter-System</span></a></li>
+        </ul>
+      </div>
+
+      <div class="road-col">
+        <h3>📸 Galerie</h3>
+        <p class="muted" style="margin-top:-2px">Bilder & Momentaufnahmen</p>
+        <ul class="milestones" aria-label="Galerie">
+          <li><a href="#module"><span class="ms-left"><span class="check ok">✓</span> Teaser-Kacheln</span></a></li>
+          <li><a href="#comingsoon"><span class="ms-left"><span class="check todo">⬜</span> Vorher/Nachher</span></a></li>
+          <li><a href="#comingsoon"><span class="ms-left"><span class="check todo">⬜</span> Makro-Details</span></a></li>
+          <li><a href="#comingsoon"><span class="ms-left"><span class="check todo">⬜</span> Winter/Season</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULE / BEREICHE -->
+  <section id="module" class="card anchor">
+    <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:flex-end;margin-bottom:10px">
+      <div>
+        <h2 style="margin:0">🧩 Module & Bereiche</h2>
+        <p class="muted" style="margin:6px 0 0 0">
+          Hier kannst du nach und nach Module ergänzen (jede Kachel ist ein Platzhalter).
+        </p>
+      </div>
+      <div class="badge">➕ erweiterbar</div>
+    </div>
+
+    <div class="module-grid" aria-label="Module Kacheln">
+      <!-- Kachel 1 -->
+      <a class="module-card" href="#comingsoon" aria-label="Modul: Innenstadt (Platzhalter)">
+        <div class="module-img" style="background-image:linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.02));"></div>
+        <div class="module-body">
+          <h3 class="module-title">🏢 Innenstadt</h3>
+          <p class="module-text">Platzhalter – hier später Bild + Kurztext + Link.</p>
+        </div>
+      </a>
+
+      <!-- Kachel 2 -->
+      <a class="module-card" href="#comingsoon" aria-label="Modul: Bahnhof & Gleise (Platzhalter)">
+        <div class="module-img" style="background-image:linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.02));"></div>
+        <div class="module-body">
+          <h3 class="module-title">🚉 Bahnhof & Gleise</h3>
+          <p class="module-text">Platzhalter – Strecken, Weichen, Details, Müll & Unkraut 😉</p>
+        </div>
+      </a>
+
+      <!-- Kachel 3 -->
+      <a class="module-card" href="#comingsoon" aria-label="Modul: Berg / Tunnel (Platzhalter)">
+        <div class="module-img" style="background-image:linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.02));"></div>
+        <div class="module-body">
+          <h3 class="module-title">⛰️ Berg / Tunnel</h3>
+          <p class="module-text">Platzhalter – modulare Bergmodule & Tunneleinfahrten.</p>
+        </div>
+      </a>
+
+      <!-- Kachel 4 -->
+      <a class="module-card" href="#comingsoon" aria-label="Modul: Hafen / Wasser (Platzhalter)">
+        <div class="module-img" style="background-image:linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.02));"></div>
+        <div class="module-body">
+          <h3 class="module-title">⚓ Hafen / Wasser</h3>
+          <p class="module-text">Platzhalter – später Schiffe, Docks, Wasserfläche.</p>
+        </div>
+      </a>
+
+      <!-- Kachel 5 -->
+      <a class="module-card" href="#comingsoon" aria-label="Modul: Industrie / Gewerbe (Platzhalter)">
+        <div class="module-img" style="background-image:linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.02));"></div>
+        <div class="module-body">
+          <h3 class="module-title">🏭 Industrie / Gewerbe</h3>
+          <p class="module-text">Platzhalter – Fabrik, Lager, Rangierbereich.</p>
+        </div>
+      </a>
+
+      <!-- Kachel 6 -->
+      <a class="module-card" href="#comingsoon" aria-label="Modul: Special Builds (Platzhalter)">
+        <div class="module-img" style="background-image:linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.02));"></div>
+        <div class="module-body">
+          <h3 class="module-title">🐉 Special Builds</h3>
+          <p class="module-text">Platzhalter – z. B. Schatzkammer, Events, Seasons.</p>
+        </div>
+      </a>
+    </div>
+
+    <div class="more-links" aria-label="Mehr entdecken">
+      <a class="header-chip" href="videos.html">▶ Videos & Playlists</a>
+      <a class="header-chip" href="eisenbahn.html">🚆 Eisenbahn Hub</a>
+      <a class="header-chip" href="beleuchtung.html">💡 Beleuchtung Hub</a>
+    </div>
+  </section>
+
+  <!-- STADT-UPDATES -->
+  <section id="stadtupdates" class="card anchor">
+    <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:flex-end;margin-bottom:10px">
+      <div>
+        <h2 style="margin:0">🎥 Stadt-Updates</h2>
+        <p class="muted" style="margin:6px 0 0 0">
+          Hier kannst du später eine Playlist oder einzelne Updates verlinken.
+        </p>
+      </div>
+      <div class="badge">🧩 Update-Log</div>
+    </div>
+
+    <div class="project-grid">
+      <div class="project-text">
+        <p style="margin:0;line-height:1.55">
+          Die <strong>Stadt-Updates</strong> sind das Herz unserer Doku: neue Module, Umbauten, kleine Details
+          und natürlich Fahrbetrieb. Du kannst hier entweder eine <strong>Playlist</strong> einbinden
+          oder pro Update eine Kachel anlegen.
+          <br><br>
+          👉 Schnellster Weg: <a class="inline-link" href="videos.html">Videos</a> öffnen und die Stadt-Playlist verlinken.
+        </p>
+
+        <div class="project-stats" aria-label="Stadt Update Fakten">
+          <div class="stat"><span>Status</span><b>läuft</b></div>
+          <div class="stat"><span>Format</span><b>Updates / Vlogs</b></div>
+          <div class="stat"><span>Schwerpunkt</span><b>Module + Details</b></div>
+          <div class="stat"><span>Bonus</span><b>Nightshots möglich 😄</b></div>
+        </div>
+      </div>
+
+      <div>
+        <!-- Thumbnail/Playlist-Link -->
+        <a class="thumb-wrap" href="videos.html" aria-label="Zu Videos & Playlists">
+          <div class="video-thumb" style="background-image:linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.02));"></div>
+          <div class="thumb-caption">zu den Videos →</div>
+        </a>
+
+        <div class="more-links" aria-label="Mehr entdecken">
+          <a class="header-chip" href="videos.html">▶ Mehr Videos</a>
+          <a class="header-chip" href="#module">🧩 Module</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMING SOON -->
+  <section id="comingsoon" class="card anchor">
+    <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:flex-end;margin-bottom:10px">
+      <div>
+        <h2 style="margin:0">🚧 Coming Soon</h2>
+        <p class="muted" style="margin:6px 0 0 0">
+          Platz für zukünftige Features: Stadt-Karte, Modul-Lexikon, „vorher/nachher“, Live-Fahrplan, etc.
+        </p>
+      </div>
+      <div class="badge">🧩 wird gebaut</div>
+    </div>
+
+    <div class="project-grid">
+      <div class="project-stats" aria-label="Coming Soon Fakten">
+        <div class="stat"><span>Interaktive Stadt-Karte</span><b>geplant</b></div>
+        <div class="stat"><span>Modul-Lexikon</span><b>geplant</b></div>
+        <div class="stat"><span>Galerie / Nightshots</span><b>geplant</b></div>
+        <div class="stat"><span>„Update“-Archiv</span><b>geplant</b></div>
+      </div>
+
+      <div>
+        <div class="thumb-wrap" aria-label="Coming Soon Placeholder">
+          <div class="video-thumb no-play" style="background-image:linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.02));"></div>
+          <div class="thumb-caption">Mehr folgt…</div>
+        </div>
+
+        <div class="more-links" aria-label="Mehr entdecken">
+          <a class="header-chip" href="unsere-stadt.html">🏙️ Stadt</a>
+          <a class="header-chip" href="beleuchtung.html">💡 Beleuchtung</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="y"></span> Die Bausteinklemmer ·
+    <a href="impressum.html">Impressum</a> ·
+    <a href="datenschutz.html">Datenschutz</a>
+  </footer>
+
+</main>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- ===== SEO: Title / Description ===== -->
+  <title>Briksmax Partner-Projekte: Licht-Kits, Shorts & Links · Die Bausteinklemmer</title>
+  <meta name="description" content="Briksmax x Die Bausteinklemmer: Light-Kits für LEGO®-Sets – unsere Shorts/Reels, Bilder & Links, übersichtlich sortiert." />
+
+  <!-- ===== SEO: Robots / Canonical ===== -->
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link rel="canonical" href="https://diebausteinklemmer.de/partner-briksmax.html" />
+
+  <link rel="icon" href="images/logo.png" />
+
+  <!-- ===== Social Preview (OG / Twitter) ===== -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="de_DE" />
+  <meta property="og:title" content="Briksmax Partner-Projekte · Die Bausteinklemmer" />
+  <meta property="og:description" content="Briksmax: Light-Kits – unsere Shorts/Reels, Bilder & Links." />
+  <meta property="og:url" content="https://diebausteinklemmer.de/partner-briksmax.html" />
+  <meta property="og:image" content="https://diebausteinklemmer.de/images/logo.png" />
+  <meta property="og:image:alt" content="Die Bausteinklemmer – Logo" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Briksmax Partner-Projekte · Die Bausteinklemmer" />
+  <meta name="twitter:description" content="Briksmax: Light-Kits – unsere Shorts/Reels, Bilder & Links." />
+  <meta name="twitter:image" content="https://diebausteinklemmer.de/images/logo.png" />
+
+  <!-- ===== Structured Data (JSON-LD) ===== -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"Organization",
+        "name":"Die Bausteinklemmer",
+        "url":"https://diebausteinklemmer.de/",
+        "logo":"https://diebausteinklemmer.de/images/logo.png"
+      },
+      {
+        "@type":"WebPage",
+        "name":"Partner: Briksmax · Die Bausteinklemmer",
+        "url":"https://diebausteinklemmer.de/partner-briksmax.html",
+        "inLanguage":"de",
+        "isPartOf":{
+          "@type":"WebSite",
+          "name":"Die Bausteinklemmer",
+          "url":"https://diebausteinklemmer.de/"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+:root{
+  --bg:#f6b042;
+  --panel:#111827;
+  --panel2:#0f172a;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+  --radius:18px;
+  --shadow:0 10px 30px rgba(2,8,23,.45);
+
+  --btn-briksmax:#9ae6b4;
+  --btn-youtube:#ff0033;
+  --btn-home:#f6b042;
+  --btn-home-text:#111827;
+
+  --chip-bg: rgba(255,255,255,0.08);
+  --chip-border: rgba(148,163,184,.18);
+
+  --card-hover: 0 22px 60px rgba(2,8,23,.65);
+  --yellow-outline: 2px solid rgba(246,176,66,.95);
+  --glow: 0 0 0 2px rgba(246,176,66,.85), 0 0 0 8px rgba(255,255,255,.06);
+
+  --hero-logo-size: 130px;
+  --hero-klemmer-size: 130px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;}
+html,body{
+  margin:0;padding:0;background:var(--bg);color:var(--text);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif
+}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:1100px;margin:0 auto;padding:18px}
+.muted{color:var(--muted)}
+
+/* ===== HEADER ===== */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  backdrop-filter:blur(10px) saturate(130%);
+  background:linear-gradient(180deg,rgba(2,6,23,.92),rgba(2,6,23,.62));
+  border-bottom:1px solid rgba(148,163,184,.15);
+  box-shadow:0 10px 18px rgba(2,8,23,.22);
+}
+.headbar{
+  display:grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items:center;
+  gap:14px;
+  padding:10px 0;
+}
+
+.brand-center{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  font-weight:900;
+  letter-spacing:.2px;
+  text-align:center;
+}
+.brand-center img{
+  width:64px;height:64px;border-radius:50%;
+  object-fit:cover;
+  box-shadow:var(--shadow);
+}
+.brand-text{display:flex;flex-direction:column;line-height:1.05;}
+.brand-top{font-size:1.05rem;font-weight:950;letter-spacing:.2px;}
+
+.header-block{display:flex;align-items:flex-start;justify-content:flex-start}
+.header-block.right{justify-content:flex-end}
+
+.header-title{
+  font-size:.82rem;
+  font-weight:950;
+  color:rgba(229,231,235,.92);
+  opacity:.92;
+  margin:0 0 6px 0;
+  white-space:nowrap;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.header-list{display:grid;gap:8px;align-items:center;}
+.header-list.hubs{ grid-template-columns: repeat(3, max-content); }
+.header-list.partners{ grid-template-columns: repeat(3, max-content); }
+
+.header-chip{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:7px 10px;
+  border-radius:999px;
+  background:var(--chip-bg);
+  border:1px solid var(--chip-border);
+  font-weight:800;
+  font-size:.84rem;
+  opacity:.95;
+  transition:transform .14s ease, filter .14s ease, opacity .14s ease, box-shadow .14s ease, outline-color .14s ease;
+  transform-origin:center;
+  white-space:nowrap;
+}
+.header-chip:hover{
+  filter:brightness(1.10);
+  opacity:1;
+  transform:scale(1.07);
+  outline: 2px solid rgba(246,176,66,.65);
+  outline-offset:2px;
+}
+.header-chip.active{
+  background:rgba(255,255,255,0.16);
+  border-color:rgba(255,255,255,0.30);
+  opacity:1;
+  outline:1px solid rgba(246,176,66,.95);
+  outline-offset:2px;
+  box-shadow:
+    0 0 0 2px rgba(2,6,23,.65),
+    0 10px 26px rgba(2,8,23,.35),
+    0 0 18px rgba(246,176,66,.45);
+}
+
+.header-chip.partner img{
+  width:20px;height:20px;
+  border-radius:8px;
+  object-fit:contain;
+  background:#fff;
+  padding:2px;
+  box-shadow:0 6px 14px rgba(2,8,23,.25);
+}
+
+@media (max-width: 1180px){
+  .header-chip{font-size:.80rem;padding:7px 9px}
+}
+@media (max-width: 980px){
+  .headbar{grid-template-columns: 1fr; justify-items:center;}
+  .header-block, .header-block.right{justify-content:center; text-align:center}
+  .header-list.hubs, .header-list.partners{grid-template-columns: repeat(2, max-content); justify-content:center;}
+}
+
+/* ===== CARDS ===== */
+.card{
+  background:linear-gradient(180deg,var(--panel),var(--panel2));
+  border:1px solid rgba(148,163,184,.15);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:18px;
+  margin:22px 0;
+  transition:transform .16s ease, box-shadow .16s ease, filter .16s ease, outline-color .16s ease;
+}
+.card:hover{
+  transform:translateY(-4px) scale(1.006);
+  box-shadow:var(--card-hover);
+  filter:brightness(1.05);
+  outline:var(--yellow-outline);
+  outline-offset:2px;
+}
+.card:focus-within{
+  box-shadow:var(--card-hover);
+  outline:var(--yellow-outline);
+  outline-offset:2px;
+}
+.card.flash{
+  box-shadow: var(--shadow), var(--glow);
+  outline: 2px solid rgba(246,176,66,.95);
+  outline-offset:2px;
+}
+
+footer{margin:24px 0 40px 0;text-align:center;color:var(--muted);font-size:14px}
+
+/* ===== HERO ===== */
+.hero{
+  display:grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items:center;
+  gap:16px;
+}
+@media (max-width: 900px){
+  .hero{grid-template-columns:1fr; text-align:center}
+  .hero-left,.hero-right{justify-content:center}
+}
+.hero-left,.hero-right{display:flex;align-items:center;justify-content:center}
+
+.partner-logo{
+  height:var(--hero-logo-size);
+  width:auto;
+  background:#fff;
+  border-radius:18px;
+  padding:8px 12px;
+  box-shadow:var(--shadow);
+}
+.klemmer-logo{
+  height:var(--hero-klemmer-size);
+  width:auto;
+  border-radius:20px;
+  box-shadow:var(--shadow);
+}
+
+.hero-center{text-align:center;}
+.hero-center h1{margin:0;font-size:1.85rem;letter-spacing:.2px}
+.hero-center p{margin:8px 0 0 0; font-size:1.05rem}
+
+.hero-actions{
+  margin-top:14px;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  padding:14px 22px;
+  border-radius:999px;
+  font-weight:950;
+  border:1px solid rgba(255,255,255,0.12);
+  background:rgba(255,255,255,0.12);
+  box-shadow:0 10px 22px rgba(2,8,23,.25);
+  font-size:1.05rem;
+  transition:transform .14s ease, filter .14s ease, outline-color .14s ease;
+}
+.btn:hover{filter:brightness(1.10); transform:scale(1.04); outline:2px solid rgba(246,176,66,.45); outline-offset:2px;}
+.btn.briksmax{background:var(--btn-briksmax); color:#111827; border-color:transparent}
+.btn.youtube{background:var(--btn-youtube); color:#fff; border-color:transparent}
+.btn.home{background:var(--btn-home); color:var(--btn-home-text); border-color:transparent}
+
+hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
+
+.inline-link{
+  text-decoration:underline;
+  text-underline-offset:3px;
+  opacity:.95;
+}
+.inline-link:hover{opacity:1}
+
+.jump-line{
+  margin:12px 0 0 0;
+  text-align:center;
+  color:var(--muted);
+  font-weight:800;
+}
+
+/* ===== TOC ===== */
+.toc-title{text-align:center;margin:0 0 8px 0}
+.toc-sub{text-align:center;margin:0 0 14px 0;color:var(--muted)}
+
+.toc{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap:12px;
+}
+@media (max-width: 800px){ .toc{grid-template-columns:1fr;} }
+
+.toc-card{
+  display:block;
+  border-radius:16px;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(148,163,184,.18);
+  overflow:hidden;
+  transition:transform .16s ease, filter .16s ease, box-shadow .16s ease, outline-color .16s ease;
+}
+.toc-card:hover{
+  filter:brightness(1.10);
+  transform:translateY(-3px) scale(1.01);
+  box-shadow:0 18px 42px rgba(2,8,23,.48);
+  outline:2px solid rgba(246,176,66,.95);
+  outline-offset:2px;
+}
+
+.toc-img{
+  width:100%;
+  height:140px;
+  background:rgba(255,255,255,0.08);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+.toc-img img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
+}
+
+.toc-body{
+  padding:12px 14px;
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  align-items:flex-start;
+}
+.toc-body strong{display:block}
+.toc-body small{color:var(--muted); font-weight:800}
+
+/* ===== PROJECT SECTIONS ===== */
+.project-head{
+  display:flex; justify-content:space-between; align-items:flex-start; gap:12px; flex-wrap:wrap;
+  margin-bottom:10px;
+}
+.badges{display:flex; gap:8px; flex-wrap:wrap}
+.badge{
+  font-size:12px; font-weight:900;
+  padding:6px 10px; border-radius:999px;
+  background:rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.12);
+}
+.badge.note{background:rgba(56,189,248,.14); border-color:rgba(56,189,248,.22)}
+.badge.warn{background:rgba(251,191,36,.14); border-color:rgba(251,191,36,.22)}
+
+.project-grid{
+  display:grid;
+  grid-template-columns: 1.25fr .95fr;
+  gap:16px;
+  align-items:stretch;
+}
+@media (max-width: 900px){ .project-grid{grid-template-columns:1fr;} }
+
+.project-text{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(148,163,184,.14);
+  border-radius:16px;
+  padding:14px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.project-text p{margin:0}
+
+.btn-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:0}
+
+.amazon-btn, .briksmax-btn, .youtube-btn, .altlight-btn, .disabled-btn{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:9px 14px; border-radius:999px;
+  font-weight:950; font-size:.92rem;
+  transition:transform .14s ease, filter .14s ease, outline-color .14s ease;
+}
+.amazon-btn{background:#ff9900; color:#111}
+.briksmax-btn{background:var(--btn-briksmax); color:#111827; border:1px solid rgba(255,255,255,.10)}
+.youtube-btn{background:var(--btn-youtube); color:#fff; border:1px solid rgba(255,255,255,.10)}
+.altlight-btn{background:rgba(255,255,255,0.14); color:#fff; border:1px solid rgba(255,255,255,.16)}
+.disabled-btn{
+  background:rgba(255,255,255,0.10);
+  border:1px solid rgba(148,163,184,.22);
+  color:rgba(229,231,235,.80);
+  cursor:not-allowed;
+  opacity:.85;
+}
+.amazon-btn:hover,.briksmax-btn:hover,.youtube-btn:hover,.altlight-btn:hover{
+  filter:brightness(1.10);
+  transform:scale(1.04);
+  outline:2px solid rgba(246,176,66,.45);
+  outline-offset:2px;
+}
+
+.anchor{scroll-margin-top:120px}
+
+/* ===== Rabattcode ===== */
+.coupon{
+  margin:0;
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  gap:10px;
+  flex-wrap:nowrap;
+  padding:8px 10px;
+  border-radius:12px;
+  background:rgba(255,255,255,0.035);
+  border:1px solid rgba(148,163,184,.14);
+}
+.coupon .tag{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-weight:900;
+  color:rgba(229,231,235,.90);
+  opacity:.88;
+  white-space:nowrap;
+}
+.coupon code{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+  font-weight:950;
+  font-size:.92rem;
+  padding:3px 10px;
+  border-radius:999px;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(148,163,184,.18);
+  color:rgba(229,231,235,.95);
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.coupon .coupon-link{
+  margin-left:auto;
+  font-weight:900;
+  font-size:.88rem;
+  color:rgba(154,230,180,.95);
+  opacity:.92;
+  white-space:nowrap;
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+.coupon .coupon-link:hover{opacity:1;}
+.copy-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:5px 7px;
+  border-radius:999px;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(148,163,184,.18);
+  color:rgba(229,231,235,.95);
+  cursor:pointer;
+  transition:transform .14s ease, filter .14s ease, outline-color .14s ease;
+  flex:0 0 auto;
+  line-height:1;
+}
+.copy-btn:hover{
+  filter:brightness(1.10);
+  transform:scale(1.04);
+  outline:2px solid rgba(246,176,66,.35);
+  outline-offset:2px;
+}
+.copy-btn svg{width:15px;height:15px;opacity:.95;}
+.copy-btn .sr-only{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0,0,0,0);white-space:nowrap;border:0;
+}
+.hero-center .coupon{
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+}
+.hero-center .coupon .coupon-link{margin-left:0;}
+@media (max-width: 420px){
+  .coupon{flex-wrap:wrap;}
+  .coupon .coupon-link{margin-left:0; max-width:150px; overflow:hidden; text-overflow:ellipsis;}
+}
+
+/* ===== Mini-Galerie ===== */
+.gallery{
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid rgba(148,163,184,.22);
+  background:#0a1220;
+  box-shadow:var(--shadow);
+}
+.gallery-main{
+  display:block;
+  position:relative;
+  background:#0a1220;
+}
+.gallery-main::after{
+  content:"🖼️";
+  position:absolute;
+  right:10px; top:10px;
+  font-size:18px;
+  opacity:.85;
+  background:rgba(2,6,23,.55);
+  border:1px solid rgba(148,163,184,.18);
+  border-radius:999px;
+  padding:6px 10px;
+}
+.gallery-main-img{
+  width:100%;
+  height:300px;
+  object-fit:contain;
+  object-position:center;
+  display:block;
+  background:#0a1220;
+}
+@media (max-width: 900px){
+  .gallery-main-img{height:280px;}
+}
+.gallery-cap{
+  padding:10px 12px;
+  color:var(--muted);
+  font-weight:800;
+  font-size:.9rem;
+  border-top:1px solid rgba(148,163,184,.15);
+}
+.gallery-thumbs{
+  display:flex;
+  gap:10px;
+  padding:12px;
+  overflow:auto;
+  border-top:1px solid rgba(148,163,184,.12);
+  background:rgba(255,255,255,0.02);
+}
+.gthumb{
+  border:1px solid rgba(148,163,184,.22);
+  background:rgba(255,255,255,0.04);
+  border-radius:12px;
+  padding:0;
+  cursor:pointer;
+  flex:0 0 auto;
+  width:78px;
+  height:58px;
+  overflow:hidden;
+  transition:transform .14s ease, filter .14s ease, outline-color .14s ease, border-color .14s ease;
+}
+.gthumb img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center;
+  display:block;
+  background:#0a1220;
+}
+.gthumb:hover{
+  filter:brightness(1.10);
+  transform:scale(1.04);
+  outline:2px solid rgba(246,176,66,.35);
+  outline-offset:2px;
+}
+.gthumb.active{
+  border-color:rgba(154,230,180,.65);
+  outline:2px solid rgba(154,230,180,.35);
+  outline-offset:2px;
+}
+
+/* ===== Rechts: 9:16 Short Preview ===== */
+.reel-wrap{
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid rgba(148,163,184,.22);
+  background:#0a1220;
+  box-shadow:var(--shadow);
+  display:block;
+}
+.reel-thumb{
+  position:relative;
+  width:100%;
+  padding-top:177.78%;
+  background-size:cover;
+  background-position:center;
+  background-color:#0a1220;
+}
+.reel-thumb::after{
+  content:"▶";
+  position:absolute; inset:0;
+  display:grid; place-items:center;
+  font-size:56px; color:#fff;
+  text-shadow:0 8px 22px rgba(0,0,0,.75);
+}
+.reel-cap{
+  padding:10px 12px;
+  color:var(--muted);
+  font-weight:800;
+  font-size:.9rem;
+}
+.right-col{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  align-items:stretch;
+}
+.more-links{
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+.more-links .header-chip{
+  font-size:.82rem;
+  padding:6px 10px;
+  opacity:.92;
+}
+.more-links .header-chip:hover{opacity:1;}
+  
+  .affiliate-note{
+  margin-top:12px;
+  text-align:center;
+  font-size:.9rem;
+  color:rgba(229,231,235,.75);
+  font-weight:800;
+}
+
+  </style>
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="wrap headbar">
+
+    <!-- LINKS: HUBS -->
+    <div class="header-block" aria-label="Hubs">
+      <div>
+        <div class="header-title">📌 Profil</div>
+        <div class="header-list hubs">
+          <a class="header-chip" href="ueber-uns.html">Über uns</a>
+          <a class="header-chip" href="videos.html">Videos</a>
+          <a class="header-chip" href="unsere-stadt.html">Unsere Stadt</a>
+          <a class="header-chip" href="eisenbahn.html">Eisenbahn</a>
+          <a class="header-chip" href="beleuchtung.html">Beleuchtung</a>
+          <a class="header-chip" href="merch.html">Merch</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- MITTE -->
+    <a class="brand-center" href="index.html" aria-label="Zur Startseite">
+      <img src="images/logo.png" alt="Die Bausteinklemmer Logo">
+      <span class="brand-text">
+        <span class="brand-top">Die Bausteinklemmer</span>
+      </span>
+    </a>
+
+    <!-- RECHTS: PARTNER -->
+    <div class="header-block right" aria-label="Partner">
+      <div>
+        <div class="header-title">🤝 Partner</div>
+        <div class="header-list partners">
+          <a class="header-chip partner" href="partner-lesdiy.html">
+            <img src="images/lesdiy_logo.jpg" alt="LESDIY"><span>LESDIY</span>
+          </a>
+          <a class="header-chip partner" href="partner-lumibricks.html">
+            <img src="images/Lumibricks.png" alt="Lumibricks"><span>Lumibricks</span>
+          </a>
+          <a class="header-chip partner active" href="partner-briksmax.html">
+            <img src="images/briksmax.png" alt="Briksmax"><span>Briksmax</span>
+          </a>
+          <a class="header-chip partner" href="partner-jmbricklayer.html">
+            <img src="images/jmbricklayer_logo.jpg" alt="JMBricklayer"><span>JMBricklayer</span>
+          </a>
+          <a class="header-chip partner" href="partner-bluebrixx.html">
+            <img src="images/blue_brixx_logo.png" alt="BlueBrixx"><span>BlueBrixx</span>
+          </a>
+          <a class="header-chip partner" href="partner-lego.html">
+            <img src="images/lego_logo.png" alt="LEGO"><span>LEGO®</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- HERO -->
+  <section class="card">
+    <div class="hero">
+      <div class="hero-left">
+        <img class="partner-logo" src="images/briksmax.png" alt="Briksmax Logo">
+      </div>
+
+      <div class="hero-center">
+        <h1>Partner: Briksmax</h1>
+        <p class="muted">
+          die perfekten Light-Kits für eure LEGO®-Sets: Wir zeigen <strong>Shorts</strong> + <strong>Bilder</strong> + <strong>Links</strong>.
+          
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn briksmax" href="https://www.briksmax.com/de/?ref=PLACEHOLDER_AFFILIATE" target="_blank" rel="noopener noreferrer sponsored nofollow">💡 Briksmax Shop</a>
+          <a class="btn youtube" href="https://youtube.com/playlist?list=PLNn6aDPjB4S2ieiqyz2ootUPqVdXcuYxb&si=G3J_XqYlvNYG2tBb" target="_blank" rel="noopener noreferrer">▶YouTube Playlist</a>
+          <a class="btn home" href="index.html">← Zur Startseite</a>
+        </div>
+
+        <div class="coupon" aria-label="Rabattcode">
+          <span class="tag">🎟️ Code:</span>
+          <code>NO-CODE-YET</code>
+
+          <button class="copy-btn" type="button" data-copy="NO-CODE-YET" aria-label="Rabattcode kopieren" title="Code kopieren">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M9 9V6.8c0-.93 0-1.4.18-1.76.16-.31.41-.56.72-.72C10.26 4 10.74 4 11.67 4h5.53c.93 0 1.4 0 1.76.18.31.16.56.41.72.72.18.36.18.83.18 1.76v5.53c0 .93 0 1.4-.18 1.76-.16.31-.41.56-.72.72-.36.18-.83.18-1.76.18H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M4 11.67c0-.93 0-1.4.18-1.76.16-.31.41-.56.72-.72C5.26 9 5.74 9 6.67 9h5.53c.93 0 1.4 0 1.76.18.31.16.56.41.72.72.18.36.18.83.18 1.76v5.53c0 .93 0 1.4-.18 1.76-.16.31-.41.56-.72.72-.36.18-.83.18-1.76.18H6.67c-.93 0-1.4 0-1.76-.18-.31-.16-.56-.41-.72-.72C4 18.6 4 18.13 4 17.2v-5.53Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="sr-only">Kopieren</span>
+          </button>
+
+          <a class="coupon-link" href="https://www.briksmax.com/de/?ref=PLACEHOLDER_AFFILIATE" target="_blank" rel="noopener noreferrer sponsored nofollow">
+            bei Briksmax einlösen → (Platzhalter)
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <img class="klemmer-logo" src="images/logo.png" alt="Die Bausteinklemmer">
+      </div>
+    </div>
+
+    <hr class="sep">
+
+    <p style="margin:0; text-align:center">
+      Hier findest du unsere <strong>Briksmax</strong>-Highlights: schnelle <strong>Shorts</strong>, eine kleine <strong>Bildergalerie</strong>
+      und die wichtigsten <strong>Links</strong> (Amazon + Light-Kit).
+    </p>
+
+    <p class="jump-line">
+      Direkt springen zu:
+      <a class="inline-link toc-jump" href="#dried">10314 Trockenblumengesteck</a> ·
+      <a class="inline-link toc-jump" href="#trex">76964 T.-Rex-Kopf</a>
+    </p>
+  </section>
+
+  <!-- TOC -->
+  <section class="card" id="toc">
+    <h2 class="toc-title">📌 Inhaltsverzeichnis</h2>
+    <p class="toc-sub">Spring direkt zum Set:</p>
+
+    <div class="toc">
+      <a class="toc-card toc-jump" href="#dried">
+        <div class="toc-img">
+          <img src="images/blume3.jpg" alt="10314 Trockenblumengesteck (Bild 1)">
+        </div>
+        <div class="toc-body">
+          <div>
+            <strong>🌸 LEGO® 10314 Trockenblumengesteck</strong>
+            <small>Light-Kit</small>
+          </div>
+          <small>→</small>
+        </div>
+      </a>
+
+      <a class="toc-card toc-jump" href="#trex">
+        <div class="toc-img">
+          <img src="images/rex3.jpg" alt="76964 T.-rex-Kopf (Bild 1)">
+        </div>
+        <div class="toc-body">
+          <div>
+            <strong>🦖LEGO® 76964 T.-rex-Kopf</strong>
+            <small>Light-Kit</small>
+          </div>
+          <small>→</small>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ========== 10314 ========== -->
+  <section id="dried" class="card anchor">
+    <div class="project-head">
+      <div>
+        <h2 style="margin:0">LEGO® 10314 Trockenblumengesteck</h2>
+        <p class="muted" style="margin:6px 0 0 0">Briksmax Light-Kit + unsere Shorts/Bilder & Links.</p>
+      </div>
+      <div class="badges">
+        <span class="badge note">💡 Briksmax Light-Kit verfügbar</span>
+      </div>
+    </div>
+
+    <div class="project-grid">
+      <div class="project-text">
+        <p>
+          <strong>Beschreibung:</strong><br>
+          Das LEGO®<strong>Trockenblumengesteck (10314)</strong> ist schon ohne Licht ein echter Hingucker.
+          Mit dem <strong>Briksmax Light-Kit</strong> wirkt’s abends nochmal deutlich „wärmer“, hochwertiger und sogar etwas romantisch.
+        </p>
+
+        <div class="gallery" data-gallery="dried">
+          <a class="gallery-main" href="https://www.briksmax.com/de/products/briksmax-light-kit-for-dried-flower-centerpiece-10314?_pos=1&_psq=10314&_ss=e&_v=1.0&ref=qjztsomr" target="_blank" rel="noopener noreferrer sponsored nofollow" aria-label="Briksmax Produkt öffnen">
+            <img class="gallery-main-img" src="images/blume3.jpg" alt="10314 – Bild 1">
+            <div class="gallery-cap">Bildergalerie (klicken = Briksmax öffnen)</div>
+          </a>
+          <div class="gallery-thumbs" aria-label="10314 Bilder">
+            <button class="gthumb active" type="button" data-target="dried" data-src="images/blume3.jpg" data-alt="10314 – Bild 1"><img src="images/blume3.jpg" alt=""></button>
+            <button class="gthumb" type="button" data-target="dried" data-src="images/blume1.jpg" data-alt="10314 – Bild 2"><img src="images/blume1.jpg" alt=""></button>
+            <button class="gthumb" type="button" data-target="dried" data-src="images/blume4.jpg" data-alt="10314 – Bild 3"><img src="images/blume4.jpg" alt=""></button>
+            <button class="gthumb" type="button" data-target="dried" data-src="images/blume2.jpg" data-alt="10314 – Bild 4"><img src="images/blume2.jpg" alt=""></button>
+          </div>
+        </div>
+
+        <div class="coupon" aria-label="Rabattcode">
+          <span class="tag">🎟️ Code:</span>
+          <code>NO-CODE-YET</code>
+
+          <button class="copy-btn" type="button" data-copy="NO-CODE-YET" aria-label="Rabattcode kopieren" title="Code kopieren">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M9 9V6.8c0-.93 0-1.4.18-1.76.16-.31.41-.56.72-.72C10.26 4 10.74 4 11.67 4h5.53c.93 0 1.4 0 1.76.18.31.16.56.41.72.72.18.36.18.83.18 1.76v5.53c0 .93 0 1.4-.18 1.76-.16.31-.41.56-.72.72-.36.18-.83.18-1.76.18H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M4 11.67c0-.93 0-1.4.18-1.76.16-.31.41-.56.72-.72C5.26 9 5.74 9 6.67 9h5.53c.93 0 1.4 0 1.76.18.31.16.56.41.72.72.18.36.18.83.18 1.76v5.53c0 .93 0 1.4-.18 1.76-.16.31-.41.56-.72.72-.36.18-.83.18-1.76.18H6.67c-.93 0-1.4 0-1.76-.18-.31-.16-.56-.41-.72-.72C4 18.6 4 18.13 4 17.2v-5.53Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="sr-only">Kopieren</span>
+          </button>
+
+          <a class="coupon-link" href="https://www.briksmax.com/de/?ref=PLACEHOLDER_AFFILIATE" target="_blank" rel="noopener noreferrer sponsored nofollow">
+            bei Briksmax einlösen → (Platzhalter)
+          </a>
+        </div>
+
+        <div class="btn-row">
+          <a class="youtube-btn" href="https://www.youtube.com/shorts/3V-r2hCgxK8" target="_blank" rel="noopener noreferrer">▶ YouTube Short</a>
+          <a class="amazon-btn" href="https://amzn.to/44Y0LAZ" target="_blank" rel="noopener noreferrer sponsored nofollow">🛒 Amazon*</a>
+          <a class="briksmax-btn" href="https://www.briksmax.com/de/products/briksmax-light-kit-for-dried-flower-centerpiece-10314?_pos=1&_psq=10314&_ss=e&_v=1.0&ref=qjztsomr" target="_blank" rel="noopener noreferrer sponsored nofollow">💡 Briksmax/ Lightailing*</a>
+        
+      </div>
+<p class="affiliate-note">
+  * Affiliate-Link: Für dich bleibt der Preis gleich.
+</p></div>
+      <div class="right-col">
+        <a class="reel-wrap" href="https://www.youtube.com/shorts/3V-r2hCgxK8" target="_blank" rel="noopener noreferrer" aria-label="YouTube Short öffnen">
+          <div class="reel-thumb" style="background-image:url('https://img.youtube.com/vi/3V-r2hCgxK8/hqdefault.jpg')"></div>
+          <div class="reel-cap">YouTube Short</div>
+        </a>
+
+        <div class="more-links" aria-label="Mehr entdecken">
+          <a class="header-chip" href="beleuchtung.html">💡 Mehr Beleuchtung</a>
+          <a class="header-chip" href="unsere-stadt.html">🏙️ Mehr Stadt</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 76964 ========== -->
+  <section id="trex" class="card anchor">
+    <div class="project-head">
+      <div>
+        <h2 style="margin:0">LEGO® 76964 T.-rex-Kopf</h2>
+        <p class="muted" style="margin:6px 0 0 0">Set-Link + Short/Bilder - Light-Kit über Briksmax/Lightailing Shop.</p>
+      </div>
+      <div class="badges">
+        <span class="badge note">✅ Shop-Familie: Briksmax × Lightailing</span>
+        <span class="badge warn">ℹ️ Briksmax-Link aktuell nicht gelistet</span>
+      </div>
+    </div>
+
+    <div class="project-grid">
+      <div class="project-text">
+        <p>
+          <strong>Beschreibung:</strong><br>
+          Der LEGO®<strong>T.-rex-Kopf (76964)</strong> ist als Display/ Deko schon der Wahnsinn, mit der Beleuchtung noch besser!
+          Das Briksmax-Kit ist aktuell auf der Briksmax-Seite <strong>nicht gelistet</strong>.
+          Da <strong>Briksmax &amp; Lightailing</strong> zur gleichen Shop-Familie gehören (wie z.B.: MediaMarkt/Saturn),
+          findest du das passende Light-Kit hier über den offiziellen Partner-Shop.
+        </p>
+
+        <div class="gallery" data-gallery="trex">
+          <a class="gallery-main" href="https://amzn.to/49gYfHm" target="_blank" rel="noopener noreferrer sponsored nofollow" aria-label="Amazon Produkt öffnen">
+            <img class="gallery-main-img" src="images/rex3.jpg" alt="76964 – Bild 1">
+            <div class="gallery-cap">Bildergalerie (klicken = Amazon öffnen)</div>
+          </a>
+          <div class="gallery-thumbs" aria-label="76964 Bilder">
+            <button class="gthumb active" type="button" data-target="trex" data-src="images/rex3.jpg" data-alt="76964 – Bild 1"><img src="images/rex3.jpg" alt=""></button>
+            <button class="gthumb" type="button" data-target="trex" data-src="images/rex1.jpg" data-alt="76964 – Bild 2"><img src="images/rex1.jpg" alt=""></button>
+            <button class="gthumb" type="button" data-target="trex" data-src="images/rex2.jpg" data-alt="76964 – Bild 3"><img src="images/rex2.jpg" alt=""></button>
+            <button class="gthumb" type="button" data-target="trex" data-src="images/rex4.jpg" data-alt="76964 – Bild 4"><img src="images/rex4.jpg" alt=""></button>
+          </div>
+        </div>
+                  <div class="coupon" aria-label="Rabattcode">
+          <span class="tag">🎟️ Code:</span>
+          <code>NO-CODE-YET</code>
+
+          <button class="copy-btn" type="button" data-copy="NO-CODE-YET" aria-label="Rabattcode kopieren" title="Code kopieren">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M9 9V6.8c0-.93 0-1.4.18-1.76.16-.31.41-.56.72-.72C10.26 4 10.74 4 11.67 4h5.53c.93 0 1.4 0 1.76.18.31.16.56.41.72.72.18.36.18.83.18 1.76v5.53c0 .93 0 1.4-.18 1.76-.16.31-.41.56-.72.72-.36.18-.83.18-1.76.18H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M4 11.67c0-.93 0-1.4.18-1.76.16-.31.41-.56.72-.72C5.26 9 5.74 9 6.67 9h5.53c.93 0 1.4 0 1.76.18.31.16.56.41.72.72.18.36.18.83.18 1.76v5.53c0 .93 0 1.4-.18 1.76-.16.31-.41.56-.72.72-.36.18-.83.18-1.76.18H6.67c-.93 0-1.4 0-1.76-.18-.31-.16-.56-.41-.72-.72C4 18.6 4 18.13 4 17.2v-5.53Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="sr-only">Kopieren</span>
+          </button>
+
+          <a class="coupon-link" href="https://www.briksmax.com/de/?ref=PLACEHOLDER_AFFILIATE" target="_blank" rel="noopener noreferrer sponsored nofollow">
+            bei Briksmax einlösen → (Platzhalter)
+          </a>
+        </div>
+        <div class="btn-row">
+          <a class="youtube-btn" href="https://www.youtube.com/shorts/UFIeQVUuISo" target="_blank" rel="noopener noreferrer">▶ YouTube Short</a>
+          <a class="amazon-btn" href="https://amzn.to/49gYfHm" target="_blank" rel="noopener noreferrer sponsored nofollow">🛒 Amazon*</a>
+          <a class="briksmax-btn" href="https://www.lightailing.com/de/products/lightailing-light-kit-for-lego-dinosaur-fossils-t-rex-skull-76964?_pos=1&_sid=1c0345e0c&_ss=r&ref=qjztsomr" target="_blank" rel="noopener noreferrer sponsored nofollow">💡 Briksmax/ Lightailing*</a>
+         
+        
+      </div>
+<p class="affiliate-note">
+         * Affiliate-Link: Für dich bleibt der Preis gleich.
+        </p></div>
+      <div class="right-col">
+        <a class="reel-wrap" href="https://www.youtube.com/shorts/UFIeQVUuISo" target="_blank" rel="noopener noreferrer" aria-label="YouTube Short öffnen">
+          <div class="reel-thumb" style="background-image:url('https://img.youtube.com/vi/UFIeQVUuISo/hqdefault.jpg')"></div>
+          <div class="reel-cap">YouTube Short</div>
+        </a>
+
+        <div class="more-links" aria-label="Mehr entdecken">
+          <a class="header-chip" href="videos.html">▶ Mehr Videos</a>
+          <a class="header-chip" href="beleuchtung.html">💡 Mehr Beleuchtung</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="y"></span> Die Bausteinklemmer ·
+    <a href="impressum.html">Impressum</a> ·
+    <a href="datenschutz.html">Datenschutz</a>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    function flashTargetFromHash(hash){
+      if(!hash) return;
+      const el = document.querySelector(hash);
+      if(!el) return;
+      el.classList.add('flash');
+      window.setTimeout(()=>el.classList.remove('flash'), 1200);
+    }
+
+    document.querySelectorAll('a.toc-jump').forEach(a=>{
+      a.addEventListener('click', ()=>{
+        const href = a.getAttribute('href') || '';
+        if(!href.startsWith('#')) return;
+        window.setTimeout(()=>flashTargetFromHash(href), 260);
+      });
+    });
+
+    window.addEventListener('load', ()=>{
+      flashTargetFromHash(location.hash);
+    });
+
+    // ===== Copy-to-Clipboard (Coupon) =====
+    async function copyText(text){
+      try{
+        if(navigator.clipboard && window.isSecureContext){
+          await navigator.clipboard.writeText(text);
+          return true;
+        }
+      }catch(e){}
+      try{
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.left = '-9999px';
+        ta.setAttribute('readonly','');
+        document.body.appendChild(ta);
+        ta.select();
+        const ok = document.execCommand('copy');
+        document.body.removeChild(ta);
+        return ok;
+      }catch(e){
+        return false;
+      }
+    }
+
+    function tempTitle(btn, ok){
+      const old = btn.getAttribute('title') || '';
+      btn.setAttribute('title', ok ? 'Kopiert!' : 'Fehler');
+      setTimeout(()=>btn.setAttribute('title', old), 900);
+    }
+
+    document.querySelectorAll('.copy-btn[data-copy]').forEach(btn=>{
+      btn.addEventListener('click', async ()=>{
+        const text = btn.getAttribute('data-copy') || '';
+        const ok = await copyText(text);
+        tempTitle(btn, ok);
+      });
+    });
+
+    // ===== Mini-Galerie (Thumbnails -> Main) =====
+    document.querySelectorAll('.gthumb[data-target][data-src]').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const target = btn.getAttribute('data-target');
+        const src = btn.getAttribute('data-src');
+        const alt = btn.getAttribute('data-alt') || '';
+
+        const gallery = document.querySelector('.gallery[data-gallery="'+target+'"]');
+        if(!gallery) return;
+
+        const mainImg = gallery.querySelector('.gallery-main-img');
+        if(!mainImg) return;
+
+        mainImg.src = src;
+        if(alt) mainImg.alt = alt;
+
+        gallery.querySelectorAll('.gthumb').forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+  </script>
+
+</main>
+</body>
+</html>

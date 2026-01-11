@@ -1,469 +1,797 @@
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Die Bausteinklemmer – Offizielle Seite</title>
-  <meta name="description" content="Die Bausteinklemmer – Livestreams, Stadt-Playlist, Beleuchtungs-Playlist, häufig bestellte Tools und bald Merch." />
+
+  <!-- ===== SEO: Title / Description ===== -->
+  <title>Die Bausteinklemmer – Offizielle Seite · Links, Playlists & Tools</title>
+  <meta name="description" content="Die Bausteinklemmer – alle wichtigen Links: Stadt-Playlist, Beleuchtungs-Playlist, Eisenbahn/Züge, Socials, häufig bestellte Tools und bald Merch." />
+
+  <!-- ===== SEO: Robots / Canonical ===== -->
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link rel="canonical" href="https://diebausteinklemmer.de/" />
+
   <meta name="theme-color" content="#0ea5e9" />
   <link rel="icon" href="images/logo.png" />
+
+  <!-- ===== Social Preview (OG / Twitter) ===== -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="de_DE" />
+  <meta property="og:title" content="Die Bausteinklemmer – Offizielle Seite" />
+  <meta property="og:description" content="Links, Playlists, Tools & bald Merch – alles an einem Ort." />
+  <meta property="og:url" content="https://diebausteinklemmer.de/" />
+  <meta property="og:image" content="https://diebausteinklemmer.de/images/logo.png" />
+  <meta property="og:image:alt" content="Die Bausteinklemmer – Logo" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Die Bausteinklemmer – Offizielle Seite" />
+  <meta name="twitter:description" content="Links, Playlists, Tools & bald Merch – alles an einem Ort." />
+  <meta name="twitter:image" content="https://diebausteinklemmer.de/images/logo.png" />
+
+  <!-- ===== Structured Data (JSON-LD) ===== -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"Organization",
+        "name":"Die Bausteinklemmer",
+        "url":"https://diebausteinklemmer.de/",
+        "logo":"https://diebausteinklemmer.de/images/logo.png",
+        "email":[
+          "mailto:info@diebausteinklemmer.de",
+          "mailto:kooperation@diebausteinklemmer.de"
+        ],
+        "sameAs":[
+          "https://www.youtube.com/@diebausteinklemmer",
+          "https://www.instagram.com/diebausteinklemmer/",
+          "https://www.tiktok.com/@diebausteinklemmer?lang=de-DE",
+          "https://www.facebook.com/DieBausteinklemmer/",
+          "https://rebrickable.com/users/DieBausteinklemmer/"
+        ]
+      },
+      {
+        "@type":"WebSite",
+        "name":"Die Bausteinklemmer",
+        "url":"https://diebausteinklemmer.de/",
+        "inLanguage":"de"
+      },
+      {
+        "@type":"WebPage",
+        "name":"Startseite · Die Bausteinklemmer",
+        "url":"https://diebausteinklemmer.de/",
+        "inLanguage":"de",
+        "isPartOf":{
+          "@type":"WebSite",
+          "name":"Die Bausteinklemmer",
+          "url":"https://diebausteinklemmer.de/"
+        }
+      }
+    ]
+  }
+  </script>
+
   <style>
     :root{
       --bg:#f6b042; --panel:#111827; --panel2:#0f172a;
       --text:#e5e7eb; --muted:#9ca3af; --brand:#0ea5e9; --brand2:#38bdf8;
       --radius:18px; --shadow:0 10px 30px rgba(2,8,23,.45);
+
+      /* Header/Chip look wie LESDIY */
+      --chip-bg: rgba(255,255,255,0.08);
+      --chip-border: rgba(148,163,184,.18);
+      --card-hover: 0 22px 60px rgba(2,8,23,.65);
+      --yellow-outline: 2px solid rgba(246,176,66,.95);
+      --glow: 0 0 0 2px rgba(246,176,66,.85), 0 0 0 8px rgba(255,255,255,.06);
     }
+
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif}
+    html{scroll-behavior:smooth;}
+    html,body{
+      margin:0;padding:0;background:var(--bg);color:var(--text);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif
+    }
     a{text-decoration:none;color:inherit}
     .wrap{max-width:1100px;margin:0 auto;padding:18px}
-    header{position:sticky;top:0;z-index:10;backdrop-filter:blur(8px) saturate(120%);background:linear-gradient(180deg,rgba(2,6,23,.88),rgba(2,6,23,.55));border-bottom:1px solid rgba(148,163,184,.15)}
-    .head{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
-    .brand{display:flex;gap:10px;align-items:center}
-    .brand img{width:42px;height:42px;border-radius:12px;object-fit:cover;box-shadow:var(--shadow)}
-    .title{font-weight:800;letter-spacing:.2px}
-    .card{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid rgba(148,163,184,.15);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px;margin:22px 0}
-h2{text-align:center;margin:4px 0 10px}
-.center{text-align:center}
+    .muted{color:var(--muted)}
+    .center{text-align:center}
+    h2{text-align:center;margin:4px 0 10px}
 
-/* Logo + Glow */
-.logo-wrap {
-  position: relative;
-  display: inline-block;
-}
+    /* ===== HEADER (wie LESDIY) ===== */
+    .site-header{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:blur(10px) saturate(130%);
+      background:linear-gradient(180deg,rgba(2,6,23,.92),rgba(2,6,23,.62));
+      border-bottom:1px solid rgba(148,163,184,.15);
+      box-shadow:0 10px 18px rgba(2,8,23,.22);
+    }
+    .headbar{
+      display:grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items:center;
+      gap:14px;
+      padding:10px 0;
+    }
 
-.logo-wrap::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 220px;
-  height: 220px;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(255,255,255,0.27), rgba(0,0,0,0));
-  filter: blur(28px);
-  z-index: -1;
-}
+    .brand-center{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:6px;
+      font-weight:900;
+      letter-spacing:.2px;
+      text-align:center;
+    }
+    .brand-center img{
+      width:64px;height:64px;border-radius:50%;
+      object-fit:cover;box-shadow:var(--shadow)
+    }
+    .brand-text{display:flex;flex-direction:column;line-height:1.05}
+    .brand-top{font-size:1.05rem;font-weight:950;letter-spacing:.2px}
 
-.logo-img {
-  width:160px;
-  height:160px;
-  border-radius:50%;
-  object-fit:cover;
+    .header-block{display:flex;align-items:flex-start;justify-content:flex-start}
+    .header-block.right{justify-content:flex-end}
 
-  /* Haupt-Outline */
-  border:2px solid #ffffff;
+    .header-title{
+      font-size:.82rem;
+      font-weight:950;
+      color:rgba(229,231,235,.92);
+      opacity:.92;
+      margin:0 0 6px 0;
+      white-space:nowrap;
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
 
-  /* Schatten + leichter orangefarbener Außenring */
-  box-shadow:
-    0 0 8px rgba(255,165,0,0.28),
-    0 10px 25px rgba(0,0,0,0.45);
-}
-/* Subline unter dem Logo */
-.subline {
-  text-align:center;
-  margin-top:14px;
-  font-size:22px;
-  font-weight:700;
-  color:#ffffff;
-  text-shadow:0 3px 8px rgba(0,0,0,.45);
-  position:relative;
-  opacity:0.95;
-}
+    .header-list{display:grid;gap:8px;align-items:center}
+    .header-list.hubs{ grid-template-columns: repeat(3, max-content); }
+    .header-list.partners{ grid-template-columns: repeat(3, max-content); }
 
-.subline::after {
-  content:"";
-  display:block;
-  width:160px;
-  height:3px;
-  margin:10px auto 0;
-  background:rgba(255,255,255,0.75);
-  border-radius:999px;
-}
+    .header-chip{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:7px 10px;
+      border-radius:999px;
+      background:var(--chip-bg);
+      border:1px solid var(--chip-border);
+      font-weight:800;
+      font-size:.84rem;
+      opacity:.95;
+      transition:transform .14s ease, filter .14s ease, opacity .14s ease, box-shadow .14s ease, outline-color .14s ease;
+      transform-origin:center;
+      white-space:nowrap;
+    }
+    .header-chip:hover{
+      filter:brightness(1.10);
+      opacity:1;
+      transform:scale(1.07);
+      outline: 2px solid rgba(246,176,66,.65);
+      outline-offset:2px;
+    }
+    .header-chip.active{
+      background:rgba(255,255,255,0.16);
+      border-color:rgba(255,255,255,0.30);
+      opacity:1;
+      outline:1px solid rgba(246,176,66,.95);
+      outline-offset:2px;
+      box-shadow:
+        0 0 0 2px rgba(2,6,23,.65),
+        0 10px 26px rgba(2,8,23,.35),
+        0 0 18px rgba(246,176,66,.45);
+    }
+    .header-chip.partner img{
+      width:20px;height:20px;
+      border-radius:8px;
+      object-fit:contain;
+      background:#fff;
+      padding:2px;
+      box-shadow:0 6px 14px rgba(2,8,23,.25);
+    }
 
-/* Mobile optimierung */
-@media (max-width: 500px) {
-  .subline {
-    font-size:17px;
-  }
-  .subline::after {
-    width:120px;
-  }
-}
+    @media (max-width: 1180px){
+      .header-chip{font-size:.80rem;padding:7px 9px}
+    }
+    @media (max-width: 980px){
+      .headbar{grid-template-columns: 1fr; justify-items:center;}
+      .header-block, .header-block.right{justify-content:center; text-align:center}
+      .header-list.hubs, .header-list.partners{grid-template-columns: repeat(2, max-content); justify-content:center;}
+    }
 
-.muted{color:var(--muted)}
+    /* ===== CARDS ===== */
+    .card{
+      background:linear-gradient(180deg,var(--panel),var(--panel2));
+      border:1px solid rgba(148,163,184,.15);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:18px;
+      margin:22px 0;
+      transition:transform .16s ease, box-shadow .16s ease, filter .16s ease, outline-color .16s ease;
+    }
+    .card:hover{
+      transform:translateY(-4px) scale(1.006);
+      box-shadow:var(--card-hover);
+      filter:brightness(1.05);
+      outline:var(--yellow-outline);
+      outline-offset:2px;
+    }
+    .card:focus-within{
+      box-shadow:var(--card-hover);
+      outline:var(--yellow-outline);
+      outline-offset:2px;
+    }
+
+    /* Logo + Glow */
+    .logo-wrap{position:relative;display:inline-block}
+    .logo-wrap::before{
+      content:"";
+      position:absolute;top:50%;left:50%;
+      width:220px;height:220px;
+      transform:translate(-50%,-50%);
+      background:radial-gradient(circle, rgba(255,255,255,0.27), rgba(0,0,0,0));
+      filter:blur(28px);
+      z-index:-1;
+    }
+    .logo-img{
+      width:160px;height:160px;border-radius:50%;object-fit:cover;
+      border:2px solid #ffffff;
+      box-shadow:
+        0 0 8px rgba(255,165,0,0.28),
+        0 10px 25px rgba(0,0,0,0.45);
+    }
+    .subline{
+      text-align:center;
+      margin-top:14px;
+      font-size:22px;
+      font-weight:700;
+      color:#ffffff;
+      text-shadow:0 3px 8px rgba(0,0,0,.45);
+      position:relative;
+      opacity:0.95;
+    }
+    .subline::after{
+      content:"";
+      display:block;
+      width:160px;height:3px;
+      margin:10px auto 0;
+      background:rgba(255,255,255,0.75);
+      border-radius:999px;
+    }
+    @media (max-width: 500px){
+      .subline{font-size:17px}
+      .subline::after{width:120px}
+    }
 
     /* quick chips */
     .quick{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:8px 0 12px}
     .chip{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:8px 16px;
-  border-radius:999px;
-  background:var(--brand);              /* nutzt dein Cyan aus :root */
-  color:#ffffff;
-  font-weight:600;
-  font-size:.95rem;
-  border:1px solid var(--brand2);
-  box-shadow:0 4px 12px rgba(15,23,42,.6);
-  cursor:pointer;
-  transition:
-    background-color .15s ease,
-    transform .1s ease,
-    box-shadow .15s ease;
-}
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:8px 16px;border-radius:999px;
+      background:var(--brand);
+      color:#ffffff;font-weight:600;font-size:.95rem;
+      border:1px solid var(--brand2);
+      box-shadow:0 4px 12px rgba(15,23,42,.6);
+      cursor:pointer;
+      transition:background-color .15s ease, transform .1s ease, box-shadow .15s ease;
+    }
+    .chip:hover{background:var(--brand2);transform:translateY(-1px);box-shadow:0 6px 16px rgba(15,23,42,.75)}
+    .chip:active{transform:translateY(0);box-shadow:0 2px 6px rgba(15,23,42,.6)}
 
-.chip:hover{
-  background:var(--brand2);
-  transform:translateY(-1px);
-  box-shadow:0 6px 16px rgba(15,23,42,.75);
-}
-
-.chip:active{
-  transform:translateY(0);
-  box-shadow:0 2px 6px rgba(15,23,42,.6);
-}
     .live-split{display:grid;grid-template-columns:1fr 260px;gap:16px;align-items:center}
     @media(max-width:900px){.live-split{grid-template-columns:1fr}}
     .links{display:grid;gap:12px}
-.link-btn{
-  display:flex;
-  flex-direction:row;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  gap:12px;
-  background:#0a1220;
-  border:1px solid rgba(148,163,184,.22);
-  padding:14px 16px;
-  border-radius:14px;
-  transition:.15s;
-}
 
-.link-btn:hover{
-  transform:translateY(-1px);
-  border-color:rgba(56,189,248,.6);
-  box-shadow:0 12px 22px rgba(8,47,73,.35);
-}
+    .link-btn{
+      display:flex;flex-direction:row;
+      align-items:center;justify-content:center;
+      text-align:center;gap:12px;
+      background:#0a1220;
+      border:1px solid rgba(148,163,184,.22);
+      padding:14px 16px;border-radius:14px;
+      transition:.15s;
+    }
+    .link-btn:hover{
+      transform:translateY(-1px);
+      border-color:rgba(56,189,248,.6);
+      box-shadow:0 12px 22px rgba(8,47,73,.35);
+    }
+    .emoji-round{
+      width:30px;height:30px;border-radius:50%;
+      background:#0b1628;border:1px solid rgba(148,163,184,.25);
+      display:grid;place-items:center;font-size:16px;line-height:1;
+    }
+    .mini-fig{
+      width:100%;
+      max-width:260px;
+      height:auto;
+      filter:drop-shadow(0 12px 22px rgba(0,0,0,.45));
+      display:block;
+      margin:0 auto;
+    }
 
-/* emoji round "icons" */
-.emoji-round{
-  width:30px;
-  height:30px;
-  border-radius:50%;
-  background:#0b1628;
-  border:1px solid rgba(148,163,184,.25);
-  display:grid;
-  place-items:center;
-  font-size:16px;
-  line-height:1;
-}
+    /* carousel */
+    .carousel{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px}
+    .product{
+      scroll-snap-align:start;
+      min-width:240px;
+      background:#091224;
+      border:1px solid rgba(148,163,184,.22);
+      border-radius:16px;
+      box-shadow:var(--shadow);
+      text-decoration:none;
+      color:var(--text);
+      overflow:hidden;
+    }
+    .pimg{
+      height:170px;
+      background-size:contain;
+      background-position:center;
+      background-repeat:no-repeat;
+      background-color:#020617;
+      transition:transform .2s;
+    }
+    .product:hover .pimg{transform:scale(1.02)}
+    .ptext{padding:10px 12px}
+    .ptext b{display:block}
+    .ptext small{color:#cbd5e1}
 
-/* Minifiguren – einheitliche Größe */
-.mini-fig{
-  width:100%;
-  max-width:260px;
-  height:auto;
-  filter:drop-shadow(0 12px 22px rgba(0,0,0,.45));
-  display:block;
-}
+    /* Playlist Teaser Image Block */
+    .tag-wrap{
+      display:block;width:100%;
+      max-width:900px;margin:0 auto;
+      border-radius:18px;overflow:hidden;
+      box-shadow:var(--shadow);
+    }
+    .tag-image{
+      width:100%;
+      padding-top:56.25%;
+      background-image:url('images/city.jpg');
+      background-size:cover;
+      background-position:center;
+      border-radius:18px;
+    }
+    @media (max-width: 600px){
+      .tag-image{background-position:center top}
+    }
 
-/* carousel */
-.carousel{
-  display:flex;
-  gap:16px;
-  overflow-x:auto;
-  scroll-snap-type:x mandatory;
-  padding:6px;
-}
-.product{
-  scroll-snap-align:start;
-  min-width:240px;
-  background:#091224;
-  border:1px solid rgba(148,163,184,.22);
-  border-radius:16px;
-  box-shadow:var(--shadow);
-  text-decoration:none;
-  color:var(--text);
-  overflow:hidden;
-}
-.pimg{
-  height:170px;
-  background-size:contain;
-  background-position:center;
-  background-repeat:no-repeat;
-  background-color:#020617;
-  transition:transform .2s;
-}
-.product:hover .pimg{transform:scale(1.02)}
-.ptext{padding:10px 12px}
-.ptext b{display:block}
-.ptext small{color:#cbd5e1}
-
-    /* YouTube-Player für Highlight-Video */
-.yt-wrapper{
-  position:relative;
-  width:100%;
-  padding-top:56.25%;  /* 16:9 */
-  border-radius:14px;
-  overflow:hidden;
-  box-shadow:var(--shadow);
-}
-
-.yt-wrapper iframe{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  border:0;
-}
-
-/* Playlist-Teaser (Thumbnail-Brett) unter dem Player */
-.playlist-teaser-inner{
-  display:inline-block;
-  text-align:center;
-  color:var(--text);
-}
-
-.playlist-thumb{
-  width:100%;
-  max-width:420px;
-  padding-top:56.25%; /* 16:9 */
-  border-radius:14px;
-  overflow:hidden;
-  box-shadow:var(--shadow);
-  background-image:url('https://img.youtube.com/vi/MG-xcBTHXi0/hqdefault.jpg');
-  background-size:cover;
-  background-position:center;
-  background-repeat:no-repeat;
-  position:relative;
-}
-
-/* Play-Button in der Mitte vom Teaser */
-.playlist-thumb::after{
-  content:"";
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%, -50%);
-  width:68px;
-  height:48px;
-  border-radius:12px;
-  background:rgba(0,0,0,0.75);
-  box-shadow:0 8px 20px rgba(0,0,0,0.6);
-}
-
-.playlist-thumb::before{
-  content:"";
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-45%, -50%);
-  width:0;
-  height:0;
-  border-top:10px solid transparent;
-  border-bottom:10px solid transparent;
-  border-left:18px solid #ffffff;
-}
-
-    /* hero image card */
-    .heroimg{display:block;overflow:hidden;padding:0}
-    .heroimg img{width:100%;height:360px;object-fit:cover;object-position:center;border-radius:14px;box-shadow:var(--shadow)}
     /* collage */
-    .collage{width:100%;height:auto;border-radius:12px;box-shadow:0 12px 24px rgba(0,0,0,.35);margin:6px 0 10px}
+    .collage{
+      width:100%;height:auto;border-radius:12px;
+      box-shadow:0 12px 24px rgba(0,0,0,.35);
+      margin:6px 0 10px;
+    }
+
     /* merch */
     .merch{display:grid;grid-template-columns:1fr 1fr;gap:14px}
     @media(max-width:700px){.merch{grid-template-columns:1fr}}
-    .tile{display:flex;gap:10px;align-items:center;justify-content:center;background:#0a1220;border:1px solid rgba(148,163,184,.22);border-radius:14px;padding:14px 16px}
+    .tile{
+      display:flex;gap:10px;align-items:center;justify-content:center;
+      background:#0a1220;border:1px solid rgba(148,163,184,.22);
+      border-radius:14px;padding:14px 16px
+    }
+
     footer{margin:24px 0 40px 0;text-align:center;color:var(--muted);font-size:14px}
-  /* Tag/Nacht Image Block */
-.tag-wrap {
-  display: block;
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: var(--shadow);
-}
 
-/* 16:9 Format */
-.tag-image {
-  width: 100%;
-  padding-top: 56.25%; /* 16:9 Format */
-  background-image: url('images/city.jpg'); /* dein Tag/Nacht-Bild */
-  background-size: cover;
-  background-position: center;
-  border-radius: 18px;
-}
-
-/* Fine-Tuning für Mobil */
-@media (max-width: 600px) {
-  .tag-image {
-    background-position: center top;
-  }
-}
+    /* ===== Gästebuch ===== */
+    .gb-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    @media (max-width:900px){.gb-grid{grid-template-columns:1fr}}
+    .gb-card{
+      background:linear-gradient(180deg,var(--panel),var(--panel2));
+      border:1px solid rgba(148,163,184,.15);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:18px;
+    }
+    .gb-muted{color:var(--muted)}
+    .gb-rules{
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:14px;
+      padding:12px;
+      margin:12px 0;
+    }
+    .gb-rules ul{margin:8px 0 0 18px}
+    .gb-check{display:flex;gap:10px;align-items:center;margin:12px 0}
+    .gb-form input,.gb-form textarea{
+      width:100%;
+      border-radius:12px;
+      border:1px solid rgba(148,163,184,.22);
+      background:#0a1220;
+      color:var(--text);
+      padding:10px;
+      margin:8px 0;
+    }
+    .gb-form button{
+      width:100%;
+      border-radius:12px;
+      border:1px solid rgba(56,189,248,.35);
+      background:var(--brand);
+      color:#fff;
+      padding:12px;
+      font-weight:800;
+      cursor:pointer;
+      transition:.15s;
+    }
+    .gb-form button:hover{background:var(--brand2)}
+    .gb-status{margin:10px 0 0}
+    #gb-website{position:absolute;left:-9999px;opacity:0}
+    .gb-list{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+    .gb-entry{
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:14px;
+      padding:12px;
+    }
+    .gb-entry-head{display:flex;justify-content:space-between;gap:12px;margin-bottom:6px}
+    .gb-entry-name{font-weight:900}
+    .gb-entry-date{color:var(--muted);font-size:12px}
+    .gb-entry-msg{color:var(--text)}
   </style>
 </head>
+
 <body>
-  
 
-  <main class="wrap">
+<header class="site-header">
+  <div class="wrap headbar">
 
-    <!-- Profil -->
+    <!-- LINKS: HUBS -->
+    <div class="header-block" aria-label="Hubs">
+      <div>
+        <div class="header-title">📌 Profil</div>
+        <div class="header-list hubs">
+          <a class="header-chip" href="ueber-uns.html">Über uns</a>
+          <a class="header-chip" href="videos.html">Videos</a>
+          <a class="header-chip" href="unsere-stadt.html">Unsere Stadt</a>
+          <a class="header-chip" href="eisenbahn.html">Eisenbahn</a>
+          <a class="header-chip" href="beleuchtung.html">Beleuchtung</a>
+          <a class="header-chip" href="merch.html">Merch</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- MITTE -->
+    <a class="brand-center" href="index.html" aria-label="Zur Startseite">
+      <img src="images/logo.png" alt="Die Bausteinklemmer Logo">
+      <span class="brand-text">
+        <span class="brand-top">Die Bausteinklemmer</span>
+      </span>
+    </a>
+
+    <!-- RECHTS: PARTNER -->
+    <div class="header-block right" aria-label="Partner">
+      <div>
+        <div class="header-title">🏭 Hersteller</div>
+        <div class="header-list partners">
+          <a class="header-chip partner" href="partner-lesdiy.html">
+            <img src="images/lesdiy_logo.jpg" alt="LESDIY"><span>LESDIY</span>
+          </a>
+          <a class="header-chip partner" href="partner-lumibricks.html">
+            <img src="images/Lumibricks.png" alt="Lumibricks"><span>Lumibricks</span>
+          </a>
+          <a class="header-chip partner" href="partner-briksmax.html">
+            <img src="images/briksmax.png" alt="Briksmax"><span>Briksmax</span>
+          </a>
+          <a class="header-chip partner" href="partner-jmbricklayer.html">
+            <img src="images/jmbricklayer_logo.jpg" alt="JMBricklayer"><span>JMBricklayer</span>
+          </a>
+          <a class="header-chip partner" href="partner-bluebrixx.html">
+            <img src="images/blue_brixx_logo.png" alt="BlueBrixx"><span>BlueBrixx</span>
+          </a>
+          <a class="header-chip partner" href="partner-lego.html">
+            <img src="images/lego_logo.png" alt="LEGO"><span>LEGO®</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- Profil -->
   <section class="center" style="margin-top:12px">
-  <div class="logo-wrap">
-    <img src="images/profil.jpg" alt="Profil" class="logo-img">
-  </div>
-  <p class="subline">Guckst du nur 👀 oder BRIXX'st du schon?</p>
-</section>
-    <!-- LIVE & SOCIAL -->
-    <section class="card">
-      <h2>🎥 Alle wichtigen Links auf einen Blick</h2>
-      <div class="quick">
-        <a class="chip" href="https://www.youtube.com/playlist?list=PLNn6aDPjB4S3whqwyzUL3iq_5kAcJ5XlU" target="_blank" rel="noopener">🏙️ Stadt</a>
-        <a class="chip" href="https://www.youtube.com/playlist?list=PLNn6aDPjB4S1pRdsN_dlBsAAJ3iYjnkQb" target="_blank" rel="noopener">💡 Beleuchten</a>
-        <a class="chip" href="https://www.youtube.com/playlist?list=PLNn6aDPjB4S3CCRWvOOMZBW3V2-W5wVLN" target="_blank" rel="noopener">🚆 Züge/Eisenbahn</a>
-      </div>
+    <div class="logo-wrap">
+      <img src="images/profil.jpg" alt="Profil" class="logo-img">
+    </div>
+    <p class="subline">Guckst du nur 👀 oder BRIXX'st du schon?</p>
+  </section>
 
-      <div class="live-split">
-        <div class="links">
-          <a class="link-btn" href="https://whatsapp.com/channel/0029VamIHRz3mFYCt57qrV2D" target="_blank" rel="noopener">
-            <span class="emoji-round">💬</span><strong>WhatsApp‑Kanal (Infos)</strong>
-          </a>
-          <a class="link-btn" href="https://www.youtube.com/@diebausteinklemmer" target="_blank" rel="noopener">
-            <span class="emoji-round">▶️</span><strong>YouTube</strong>
-          </a>
-          <a class="link-btn" href="https://www.youtube.com/channel/UC4kphj89-nvQ94HDwJF0A8A/join" target="_blank" rel="noopener">
-            <span class="emoji-round">⭐</span><strong>Kanal-Mitgliedschaft</strong>
-          </a>
-          <a class="link-btn" href="https://www.youtube.com/@diebausteinklemmer/live" target="_blank" rel="noopener">
-            <span class="emoji-round">🔴</span><strong>YouTube-LIVE</strong>
-          </a>
-          <a class="link-btn" href="https://www.instagram.com/diebausteinklemmer/" target="_blank" rel="noopener">
-            <span class="emoji-round">📷</span><strong>Instagram</strong>
-          </a>
-          <a class="link-btn" href="https://www.tiktok.com/@diebausteinklemmer?lang=de-DE" target="_blank" rel="noopener">
-            <span class="emoji-round">🎵</span><strong>TikTok</strong>
-          </a>
-          <a class="link-btn" href="https://www.facebook.com/DieBausteinklemmer/" target="_blank" rel="noopener">
-            <span class="emoji-round">👥</span><strong>Facebook</strong>
-          </a>
-          <a class="link-btn" href="https://brickpod.podigee.io/51-bausteinklemmer" target="_blank" rel="noopener">
-            <span class="emoji-round">🎙️</span><strong>Podcast (Brickpod)</strong>
-          </a>
-          <a class="link-btn" href="https://rebrickable.com/users/DieBausteinklemmer/" target="_blank" rel="noopener">
-            <span class="emoji-round">🧱</span><strong>Rebrickable (Anleitungen)</strong>
-          </a>
-          <a class="link-btn" href="mailto:info@diebausteinklemmer.de">
-            <span class="emoji-round">✉️</span><strong>Kontakt E-Mail</strong>
-          </a>
-        </div>
-        <div class="center">
-          <!-- Nur EINE Minifigur hier -->
-          <img src="images/denny.png" alt="Denny" class="mini-fig">
-        </div>
-      </div>
-    </section>
-
-    <!-- Häufig bestellt -->
-    <section class="card">
-      <h2>⭐ Häufig bestellt – unsere Favoriten</h2>
-      <div class="carousel">
-        <a class="product" href="https://amzn.to/3U6ldd7" target="_blank" rel="noopener">
-          <div class="pimg" style="background-image:url('https://m.media-amazon.com/images/I/714k0G8QjlL._AC_SL1500_.jpg')"></div>
-          <div class="ptext"><b>Etikettenfolie *</b><small>Perfekt für Graffitis</small></div>
-        </a>
-        <a class="product" href="https://amzn.to/3LM3N13" target="_blank" rel="noopener">
-          <div class="pimg" style="background-image:url('https://m.media-amazon.com/images/I/61nmE5UgHjS._AC_SL1500_.jpg')"></div>
-          <div class="ptext"><b>Akku‑Staubsauger *</b><small>Unser City‑Monster</small></div>
-        </a>
-        <a class="product" href="https://amzn.to/43g3aqu" target="_blank" rel="noopener">
-          <div class="pimg" style="background-image:url('https://m.media-amazon.com/images/I/61ICAGD47oL._AC_SL1500_.jpg')"></div>
-          <div class="ptext"><b>Ersatz‑Magneten 8×5 *</b><small>Für Zug‑Kupplungen</small></div>
-        </a>
-        <a class="product" href="https://amzn.to/4441NcY" target="_blank" rel="noopener">
-          <div class="pimg" style="background-image:url('https://m.media-amazon.com/images/I/61jrmczh8pL._AC_SL1500_.jpg')"></div>
-          <div class="ptext"><b>Mould King 4.0 *</b><small>Controller + Akku</small></div>
-        </a>
-        <a class="product" href="https://amzn.to/3QaOWjE" target="_blank" rel="noopener">
-          <div class="pimg" style="background-image:url('https://m.media-amazon.com/images/I/41n3yFYXUjL._AC_SL1100_.jpg')"></div>
-          <div class="ptext"><b>Klemmbaustein Zugmotor *</b><small>Solider Antrieb</small></div>
-        </a>
-        <a class="product" href="https://amzn.to/45TBFRs" target="_blank" rel="noopener">
-          <div class="pimg" style="background-image:url('https://m.media-amazon.com/images/I/81NMGfOmREL._SL1500_.jpg')"></div>
-          <div class="ptext"><b>Magnete 5×10 *</b><small>Für Adapter & Beleuchtung</small></div>
-        </a>
-      </div>
-      <p class="muted center" style="font-size:13px;margin-top:8px">* Affiliate‑Link: Für dich bleibt der Preis gleich.</p>
-    </section>
-    
-    <!-- Tag/Nacht – Beleuchtungs-Playlist -->
-<section class="card center">
-
-  <a href="https://www.youtube.com/playlist?list=PLNn6aDPjB4S1pRdsN_dlBsAAJ3iYjnkQb"
-     target="_blank"
-     rel="noopener"
-     class="tag-wrap">
-
-    <div class="tag-image"></div>
-  </a>
-
-  <p class="muted" style="margin-top:12px; font-size:15px;">
-    👉 Tipp: Drück auf das Bild für deine eigene Magie!
-  </p>
-
-</section>
-
-    <!-- Beleuchtungs Starter Set -->
-    <section class="card">
-      <h2>🔧 Beleuchtungs‑Starter‑Set (unsere Basics)</h2>
-      <img src="images/lighting-collage.jpg" alt="Beleuchtungs‑Collage" class="collage">
-      <p class="muted center">Das nutzen wir selbst. Schnellstart‑Liste zum Nachkaufen:</p>
-        <div class="live-split">
-    <div class="links">
-      <!-- deine ganzen link-btns ... -->
-      <a class="link-btn" href="https://amzn.to/41HTFhb" target="_blank" rel="noopener"><span class="emoji-round">🔥</span><strong>Lötstation (60W) *</strong></a>
-      <a class="link-btn" href="https://amzn.to/49eUyBf" target="_blank" rel="noopener"><span class="emoji-round">🌈</span><strong>LED/Dioden-Set *</strong></a>
-      <a class="link-btn" href="https://amzn.to/3Tlosgb" target="_blank" rel="noopener"><span class="emoji-round">❄️</span><strong>LED-SMD 3,2×1,6 – kaltweiß *</strong></a>
-      <a class="link-btn" href="https://amzn.to/3Tlot3J" target="_blank" rel="noopener"><span class="emoji-round">🔥</span><strong>LED-SMD 3,2×1,6 – warmweiß *</strong></a>
-      <a class="link-btn" href="https://amzn.to/3RKkYmm" target="_blank" rel="noopener"><span class="emoji-round">⚡</span><strong>Widerstände 470 Ω *</strong></a>
-      <a class="link-btn" href="https://amzn.to/4aQ59n4" target="_blank" rel="noopener"><span class="emoji-round">⚡</span><strong>Widerstände 560 Ω *</strong></a>
-      <a class="link-btn" href="https://amzn.to/3Mkzy1V" target="_blank" rel="noopener"><span class="emoji-round">🧵</span><strong>Schaltlitze 0,14 mm² – schwarz *</strong></a>
-      <a class="link-btn" href="https://amzn.to/3Sn9g2V" target="_blank" rel="noopener"><span class="emoji-round">🧵</span><strong>Schaltlitze 0,14 mm² – rot *</strong></a>
-      <a class="link-btn" href="https://amzn.to/3QEuJTH" target="_blank" rel="noopener"><span class="emoji-round">🧰</span><strong>Schrumpfschlauch 1,6 mm *</strong></a>
-      <a class="link-btn" href="https://amzn.to/3SoOTmg" target="_blank" rel="noopener"><span class="emoji-round">🔋</span><strong>Batterie-Box 12 V *</strong></a>
+  <!-- LIVE & SOCIAL -->
+  <section class="card">
+    <h2>🎥 Alle wichtigen Links auf einen Blick</h2>
+    <div class="quick">
+      <a class="chip" href="https://www.youtube.com/playlist?list=PLNn6aDPjB4S3whqwyzUL3iq_5kAcJ5XlU" target="_blank" rel="noopener">🏙️ Stadt</a>
+      <a class="chip" href="https://www.youtube.com/playlist?list=PLNn6aDPjB4S1pRdsN_dlBsAAJ3iYjnkQb" target="_blank" rel="noopener">💡 Beleuchten</a>
+      <a class="chip" href="https://www.youtube.com/playlist?list=PLNn6aDPjB4S3CCRWvOOMZBW3V2-W5wVLN" target="_blank" rel="noopener">🚆 Züge/Eisenbahn</a>
     </div>
 
-    <div class="center">
-      <img src="images/sophie.png" alt="Sophie" class="mini-fig">
+    <div class="live-split">
+      <div class="links">
+        <a class="link-btn" href="https://whatsapp.com/channel/0029VamIHRz3mFYCt57qrV2D" target="_blank" rel="noopener">
+          <span class="emoji-round">💬</span><strong>WhatsApp-Kanal (Infos)</strong>
+        </a>
+        <a class="link-btn" href="https://www.youtube.com/@diebausteinklemmer" target="_blank" rel="noopener">
+          <span class="emoji-round">▶️</span><strong>YouTube</strong>
+        </a>
+        <a class="link-btn" href="https://www.youtube.com/channel/UC4kphj89-nvQ94HDwJF0A8A/join" target="_blank" rel="noopener">
+          <span class="emoji-round">⭐</span><strong>Kanal-Mitgliedschaft</strong>
+        </a>
+        <a class="link-btn" href="https://www.youtube.com/@diebausteinklemmer/live" target="_blank" rel="noopener">
+          <span class="emoji-round">🔴</span><strong>YouTube-LIVE</strong>
+        </a>
+        <a class="link-btn" href="https://www.instagram.com/diebausteinklemmer/" target="_blank" rel="noopener">
+          <span class="emoji-round">📷</span><strong>Instagram</strong>
+        </a>
+        <a class="link-btn" href="https://www.tiktok.com/@diebausteinklemmer?lang=de-DE" target="_blank" rel="noopener">
+          <span class="emoji-round">🎵</span><strong>TikTok</strong>
+        </a>
+        <a class="link-btn" href="https://www.facebook.com/DieBausteinklemmer/" target="_blank" rel="noopener">
+          <span class="emoji-round">👥</span><strong>Facebook</strong>
+        </a>
+        <a class="link-btn" href="https://brickpod.podigee.io/51-bausteinklemmer" target="_blank" rel="noopener">
+          <span class="emoji-round">🎙️</span><strong>Podcast (Brickpod)</strong>
+        </a>
+        <a class="link-btn" href="https://rebrickable.com/users/DieBausteinklemmer/" target="_blank" rel="noopener">
+          <span class="emoji-round">🧱</span><strong>Rebrickable (Anleitungen)</strong>
+        </a>
+
+        <!-- NEU: beide Mails -->
+        <a class="link-btn" href="mailto:info@diebausteinklemmer.de">
+          <span class="emoji-round">✉️</span><strong>Kontakt: info@diebausteinklemmer.de</strong>
+        </a>
+        <a class="link-btn" href="mailto:kooperation@diebausteinklemmer.de">
+          <span class="emoji-round">🤝</span><strong>Kooperation: kooperation@diebausteinklemmer.de</strong>
+        </a>
+      </div>
+
+      <div class="center">
+        <img src="images/denny.png" alt="Denny" class="mini-fig">
+      </div>
     </div>
-  </div>
+  </section>
 
-      <p class="muted center" style="font-size:13px">* Affiliate‑Links / Werbelinks: Wir erhalten eine kleine Provision. Für dich bleibt der Preis gleich.</p>
-    </section>
+  <!-- Häufig bestellt -->
+  <section class="card">
+    <h2>⭐ Häufig bestellt – unsere Favoriten</h2>
+    <div class="carousel">
+      <a class="product" href="https://amzn.to/3U6ldd7" target="_blank" rel="noopener">
+        <div class="pimg" style="background-image:url('https://m.media-amazon.com/images/I/714k0G8QjlL._AC_SL1500_.jpg')"></div>
+        <div class="ptext"><b>Etikettenfolie *</b><small>Perfekt für Graffitis</small></div>
+      </a>
+      <a class="product" href="https://amzn.to/3LM3N13" target="_blank" rel="noopener">
+        <div class="pimg" style="background-image:url('https://m.media-amazon.com/images/I/61nmE5UgHjS._AC_SL1500_.jpg')"></div>
+        <div class="ptext"><b>Akku-Staubsauger *</b><small>Unser City-Monster</small></div>
+      </a>
+      <a class="product" href="https://amzn.to/43g3aqu" target="_blank" rel="noopener">
+        <div class="pimg" style="background-image:url('https://m.media-amazon.com/images/I/61ICAGD47oL._AC_SL1500_.jpg')"></div>
+        <div class="ptext"><b>Ersatz-Magneten 8×5 *</b><small>Für Zug-Kupplungen</small></div>
+      </a>
+      <a class="product" href="https://amzn.to/4441NcY" target="_blank" rel="noopener">
+        <div class="pimg" style="background-image:url('https://m.media-amazon.com/images/I/61jrmczh8pL._AC_SL1500_.jpg')"></div>
+        <div class="ptext"><b>Mould King 4.0 *</b><small>Controller + Akku</small></div>
+      </a>
+      <a class="product" href="https://amzn.to/3QaOWjE" target="_blank" rel="noopener">
+        <div class="pimg" style="background-image:url('https://m.media-amazon.com/images/I/41n3yFYXUjL._AC_SL1100_.jpg')"></div>
+        <div class="ptext"><b>Klemmbaustein Zugmotor *</b><small>Solider Antrieb</small></div>
+      </a>
+      <a class="product" href="https://amzn.to/45TBFRs" target="_blank" rel="noopener">
+        <div class="pimg" style="background-image:url('https://m.media-amazon.com/images/I/81NMGfOmREL._SL1500_.jpg')"></div>
+        <div class="ptext"><b>Magnete 5×10 *</b><small>Für Adapter & Beleuchtung</small></div>
+      </a>
+    </div>
+    <p class="muted center" style="font-size:13px;margin-top:8px">* Affiliate-Link: Für dich bleibt der Preis gleich.</p>
+  </section>
 
-    <!-- Merch -->
-    <section class="card">
-      <h2>🛒 Merch – bald verfügbar</h2>
-      <div class="merch">
-        <a class="tile" href="#"><span>👕</span>Klamotten</a>
-        <a class="tile" href="#"><span>🖊️</span>Autogrammkarten</a>
+  <!-- Tag/Nacht – Beleuchtungs-Playlist -->
+  <section class="card center">
+    <a href="https://www.youtube.com/playlist?list=PLNn6aDPjB4S1pRdsN_dlBsAAJ3iYjnkQb"
+       target="_blank"
+       rel="noopener"
+       class="tag-wrap">
+      <div class="tag-image"></div>
+    </a>
+    <p class="muted" style="margin-top:12px; font-size:15px;">
+      👉 Tipp: Drück auf das Bild für deine eigene Magie!
+    </p>
+  </section>
+
+  <!-- Beleuchtungs Starter Set -->
+  <section class="card">
+    <h2>🔧 Beleuchtungs-Starter-Set (unsere Basics)</h2>
+    <img src="images/lighting-collage.jpg" alt="Beleuchtungs-Collage" class="collage">
+    <p class="muted center">Das nutzen wir selbst. Schnellstart-Liste zum Nachkaufen:</p>
+
+    <div class="live-split">
+      <div class="links">
+        <a class="link-btn" href="https://amzn.to/41HTFhb" target="_blank" rel="noopener"><span class="emoji-round">🔥</span><strong>Lötstation (60W) *</strong></a>
+        <a class="link-btn" href="https://amzn.to/49eUyBf" target="_blank" rel="noopener"><span class="emoji-round">🌈</span><strong>LED/Dioden-Set *</strong></a>
+        <a class="link-btn" href="https://amzn.to/3Tlosgb" target="_blank" rel="noopener"><span class="emoji-round">❄️</span><strong>LED-SMD 3,2×1,6 – kaltweiß *</strong></a>
+        <a class="link-btn" href="https://amzn.to/3Tlot3J" target="_blank" rel="noopener"><span class="emoji-round">🔥</span><strong>LED-SMD 3,2×1,6 – warmweiß *</strong></a>
+        <a class="link-btn" href="https://amzn.to/3RKkYmm" target="_blank" rel="noopener"><span class="emoji-round">⚡</span><strong>Widerstände 470 Ω *</strong></a>
+        <a class="link-btn" href="https://amzn.to/4aQ59n4" target="_blank" rel="noopener"><span class="emoji-round">⚡</span><strong>Widerstände 560 Ω *</strong></a>
+        <a class="link-btn" href="https://amzn.to/3Mkzy1V" target="_blank" rel="noopener"><span class="emoji-round">🧵</span><strong>Schaltlitze 0,14 mm² – schwarz *</strong></a>
+        <a class="link-btn" href="https://amzn.to/3Sn9g2V" target="_blank" rel="noopener"><span class="emoji-round">🧵</span><strong>Schaltlitze 0,14 mm² – rot *</strong></a>
+        <a class="link-btn" href="https://amzn.to/3QEuJTH" target="_blank" rel="noopener"><span class="emoji-round">🧰</span><strong>Schrumpfschlauch 1,6 mm *</strong></a>
+        <a class="link-btn" href="https://amzn.to/3SoOTmg" target="_blank" rel="noopener"><span class="emoji-round">🔋</span><strong>Batterie-Box 12 V *</strong></a>
       </div>
-      <div class="center" style="margin-top:12px">
-        <img src="images/denny_shock.png" alt="Denny erschrocken" class="mini-fig">
+
+      <div class="center">
+        <img src="images/sophie.png" alt="Sophie" class="mini-fig">
       </div>
-    </section>
+    </div>
 
-<footer>
-  © <span id="y"></span> Die Bausteinklemmer ·
-  <a href="impressum.html">Impressum</a> ·
-  <a href="datenschutz.html">Datenschutz</a>
-</footer>
-  </main>
+    <p class="muted center" style="font-size:13px">* Affiliate-Links / Werbelinks: Wir erhalten eine kleine Provision. Für dich bleibt der Preis gleich.</p>
+  </section>
 
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  <!-- Merch -->
+  <section class="card">
+    <h2>🛒 Merch – bald verfügbar</h2>
+    <div class="merch">
+      <a class="tile" href="#"><span>👕</span>Klamotten</a>
+      <a class="tile" href="#"><span>🖊️</span>Autogrammkarten</a>
+    </div>
+    <div class="center" style="margin-top:12px">
+      <img src="images/denny_shock.png" alt="Denny erschrocken" class="mini-fig">
+    </div>
+  </section>
+
+  <!-- Gästebuch -->
+  <section class="card" id="gaestebuch">
+    <h2>📖 Gästebuch</h2>
+    <p class="muted center" style="margin-top:-6px">Lass einen Gruß da – Einträge erscheinen erst nach Freigabe.</p>
+
+    <div class="gb-grid" style="margin-top:14px">
+
+      <div class="gb-card">
+        <h3 style="margin:0 0 6px 0">📜 Regeln</h3>
+        <div class="gb-rules">
+          <ul>
+            <li>Kein Hass, keine Beleidigungen, keine Diskriminierung</li>
+            <li>Keine Werbung / keine Links</li>
+            <li>Max. 220 Zeichen</li>
+            <li>Einträge werden moderiert</li>
+          </ul>
+        </div>
+
+        <label class="gb-check">
+          <input type="checkbox" id="gb-accept" />
+          <span>Ich akzeptiere die Regeln.</span>
+        </label>
+
+        <form id="gb-form" class="gb-form">
+          <!-- Honeypot -->
+          <input type="text" name="website" id="gb-website" autocomplete="off" tabindex="-1" aria-hidden="true"/>
+
+          <input type="text" id="gb-name" maxlength="40" placeholder="Dein Name (z. B. Muchacho Max)" required />
+          <textarea id="gb-message" maxlength="220" rows="4" placeholder="Dein Gruß (max. 220 Zeichen)" required></textarea>
+
+          <!-- Turnstile -->
+          <div class="cf-turnstile" data-sitekey="DEIN_TURNSTILE_SITEKEY" data-theme="light"></div>
+
+          <button type="submit" id="gb-submit">Gruß abschicken</button>
+          <p class="gb-status muted" id="gb-status"></p>
+        </form>
+      </div>
+
+      <div class="gb-card">
+        <h3 style="margin:0 0 6px 0">🧱 Letzte Grüße</h3>
+        <div id="gb-list" class="gb-list">
+          <p class="gb-muted">Lade Einträge…</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    © <span id="y"></span> Die Bausteinklemmer ·
+    <a href="impressum.html">Impressum</a> ·
+    <a href="datenschutz.html">Datenschutz</a>
+  </footer>
+
+</main>
+
+<!-- Turnstile Script -->
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+
+  (async function(){
+    const listEl = document.getElementById("gb-list");
+    const statusEl = document.getElementById("gb-status");
+    const form = document.getElementById("gb-form");
+
+    async function loadEntries(){
+      try{
+        const r = await fetch("/api/guestbook/list", { cache: "no-store" });
+        const data = await r.json();
+        if(!data.ok) throw new Error("load failed");
+
+        if(!data.entries || data.entries.length === 0){
+          listEl.innerHTML = '<p class="gb-muted">Noch keine Einträge – sei der Erste 🙂</p>';
+          return;
+        }
+
+        listEl.innerHTML = data.entries.map(e => `
+          <div class="gb-entry">
+            <div class="gb-entry-head">
+              <span class="gb-entry-name">${escapeHtml(e.name)}</span>
+              <span class="gb-entry-date">${new Date(e.created_at).toLocaleDateString("de-DE")}</span>
+            </div>
+            <div class="gb-entry-msg">${escapeHtml(e.message).replace(/\\n/g,"<br/>")}</div>
+          </div>
+        `).join("");
+      }catch(e){
+        listEl.innerHTML = '<p class="gb-muted">Konnte Einträge gerade nicht laden.</p>';
+      }
+    }
+
+    function escapeHtml(s){
+      return String(s)
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#39;");
+    }
+
+    form.addEventListener("submit", async (ev) => {
+      ev.preventDefault();
+      statusEl.textContent = "";
+
+      const accepted = document.getElementById("gb-accept").checked;
+      if(!accepted){
+        statusEl.textContent = "Bitte erst die Regeln akzeptieren 🙂";
+        return;
+      }
+
+      const name = document.getElementById("gb-name").value.trim();
+      const message = document.getElementById("gb-message").value.trim();
+      const website = document.getElementById("gb-website").value.trim();
+
+      const tokenEl = document.querySelector('input[name="cf-turnstile-response"]');
+      const turnstileToken = tokenEl ? tokenEl.value : "";
+
+      if(!turnstileToken){
+        statusEl.textContent = "Bitte Turnstile bestätigen 🙂";
+        return;
+      }
+
+      document.getElementById("gb-submit").disabled = true;
+      statusEl.textContent = "Sende…";
+
+      try{
+        const r = await fetch("/api/guestbook/submit", {
+          method: "POST",
+          headers: {"Content-Type":"application/json"},
+          body: JSON.stringify({ name, message, website, turnstileToken })
+        });
+
+        const data = await r.json().catch(()=>({ok:false,error:"Fehler"}));
+        if(!r.ok || !data.ok) throw new Error(data.error || "Fehler");
+
+        statusEl.textContent = data.message || "Danke! 🙂";
+        form.reset();
+
+        if(window.turnstile) window.turnstile.reset();
+
+      }catch(e){
+        statusEl.textContent = e.message || "Konnte nicht senden.";
+        if(window.turnstile) window.turnstile.reset();
+      }finally{
+        document.getElementById("gb-submit").disabled = false;
+      }
+    });
+
+    await loadEntries();
+  })();
+</script>
+
 </body>
 </html>

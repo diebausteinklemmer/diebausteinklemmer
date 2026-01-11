@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- ===== SEO: Title / Description ===== -->
+  <title>Videos & Playlists: Stadt, Eisenbahn & Beleuchtung · Die Bausteinklemmer</title>
+  <meta name="description" content="Alle Videos, Playlists & Highlights von Die Bausteinklemmer: LEGO®/Klemmbaustein-Stadt, Eisenbahn, Beleuchtung, Updates & Shorts – alles an einem Ort." />
+
+  <!-- ===== SEO: Robots / Canonical ===== -->
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link rel="canonical" href="https://diebausteinklemmer.de/videos.html" />
+
+  <link rel="icon" href="images/logo.png" />
+
+  <!-- ===== Social Preview (OG / Twitter) ===== -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="de_DE" />
+  <meta property="og:title" content="Videos & Playlists · Die Bausteinklemmer" />
+  <meta property="og:description" content="Alle Videos, Playlists & Highlights: Stadt, Eisenbahn, Beleuchtung, Updates & Shorts – übersichtlich an einem Ort." />
+  <meta property="og:url" content="https://diebausteinklemmer.de/videos.html" />
+  <meta property="og:image" content="https://diebausteinklemmer.de/images/logo.png" />
+  <meta property="og:image:alt" content="Die Bausteinklemmer – Logo" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Videos & Playlists · Die Bausteinklemmer" />
+  <meta name="twitter:description" content="Alle Videos, Playlists & Highlights: Stadt, Eisenbahn, Beleuchtung, Updates & Shorts." />
+  <meta name="twitter:image" content="https://diebausteinklemmer.de/images/logo.png" />
+
+  <!-- ===== Structured Data (JSON-LD) ===== -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"Organization",
+        "name":"Die Bausteinklemmer",
+        "url":"https://diebausteinklemmer.de/",
+        "logo":"https://diebausteinklemmer.de/images/logo.png"
+      },
+      {
+        "@type":"WebPage",
+        "name":"Videos & Playlists · Die Bausteinklemmer",
+        "url":"https://diebausteinklemmer.de/videos.html",
+        "inLanguage":"de",
+        "isPartOf":{
+          "@type":"WebSite",
+          "name":"Die Bausteinklemmer",
+          "url":"https://diebausteinklemmer.de/"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+:root{
+  --bg:#f6b042;
+  --panel:#111827;
+  --panel2:#0f172a;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+  --radius:18px;
+  --shadow:0 10px 30px rgba(2,8,23,.45);
+
+  --chip-bg: rgba(255,255,255,0.08);
+  --chip-border: rgba(148,163,184,.18);
+
+  --card-hover: 0 22px 60px rgba(2,8,23,.65);
+  --yellow-outline: 2px solid rgba(246,176,66,.95);
+  --glow: 0 0 0 2px rgba(246,176,66,.85), 0 0 0 8px rgba(255,255,255,.06);
+
+  --hero-klemmer-size: 110px;
+
+  --btn-youtube:#ff0033;
+  --btn-home:#f6b042;
+  --btn-home-text:#111827;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;}
+html,body{
+  margin:0;padding:0;background:var(--bg);color:var(--text);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif
+}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:1100px;margin:0 auto;padding:18px}
+.muted{color:var(--muted)}
+
+.inline-link{
+  text-decoration:underline;
+  text-underline-offset:3px;
+  opacity:.95;
+}
+.inline-link:hover{opacity:1}
+
+/* ===== HEADER ===== */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  backdrop-filter:blur(10px) saturate(130%);
+  background:linear-gradient(180deg,rgba(2,6,23,.92),rgba(2,6,23,.62));
+  border-bottom:1px solid rgba(148,163,184,.15);
+  box-shadow:0 10px 18px rgba(2,8,23,.22);
+}
+.headbar{
+  display:grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items:center;
+  gap:14px;
+  padding:10px 0;
+}
+
+.brand-center{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  font-weight:900;
+  letter-spacing:.2px;
+  text-align:center;
+}
+.brand-center img{
+  width:64px;
+  height:64px;
+  border-radius:50%;
+  object-fit:cover;
+  box-shadow:var(--shadow);
+}
+.brand-text{display:flex;flex-direction:column;line-height:1.05;}
+.brand-top{font-size:1.05rem;font-weight:950;letter-spacing:.2px;}
+
+.header-block{display:flex;align-items:flex-start;justify-content:flex-start}
+.header-block.right{justify-content:flex-end}
+
+.header-title{
+  font-size:.82rem;
+  font-weight:950;
+  color:rgba(229,231,235,.92);
+  opacity:.92;
+  margin:0 0 6px 0;
+  white-space:nowrap;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.header-list{display:grid;gap:8px;align-items:center;}
+.header-list.hubs{ grid-template-columns: repeat(3, max-content); }
+.header-list.partners{ grid-template-columns: repeat(3, max-content); }
+
+.header-chip{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:7px 10px;
+  border-radius:999px;
+  background:var(--chip-bg);
+  border:1px solid var(--chip-border);
+  font-weight:800;
+  font-size:.84rem;
+  opacity:.95;
+  transition:transform .14s ease, filter .14s ease, opacity .14s ease, box-shadow .14s ease, outline-color .14s ease;
+  transform-origin:center;
+  white-space:nowrap;
+}
+.header-chip:hover{
+  filter:brightness(1.10);
+  opacity:1;
+  transform:scale(1.07);
+  outline: 2px solid rgba(246,176,66,.65);
+  outline-offset:2px;
+}
+.header-chip.active{
+  background:rgba(255,255,255,0.16);
+  border-color:rgba(255,255,255,0.30);
+  opacity:1;
+  outline:1px solid rgba(246,176,66,.95);
+  outline-offset:2px;
+  box-shadow:
+    0 0 0 2px rgba(2,6,23,.65),
+    0 10px 26px rgba(2,8,23,.35),
+    0 0 18px rgba(246,176,66,.45);
+}
+.header-chip.partner img{
+  width:20px;height:20px;
+  border-radius:8px;
+  object-fit:contain;
+  background:#fff;
+  padding:2px;
+  box-shadow:0 6px 14px rgba(2,8,23,.25);
+}
+
+@media (max-width: 1180px){
+  .header-chip{font-size:.80rem;padding:7px 9px}
+}
+@media (max-width: 980px){
+  .headbar{grid-template-columns: 1fr; justify-items:center;}
+  .header-block, .header-block.right{justify-content:center; text-align:center}
+  .header-list.hubs, .header-list.partners{grid-template-columns: repeat(2, max-content); justify-content:center;}
+}
+
+/* ===== CARDS ===== */
+.card{
+  background:linear-gradient(180deg,var(--panel),var(--panel2));
+  border:1px solid rgba(148,163,184,.15);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:18px;
+  margin:22px 0;
+  transition:transform .16s ease, box-shadow .16s ease, filter .16s ease, outline-color .16s ease;
+}
+.card:hover{
+  transform:translateY(-4px) scale(1.006);
+  box-shadow:var(--card-hover);
+  filter:brightness(1.05);
+  outline:var(--yellow-outline);
+  outline-offset:2px;
+}
+footer{margin:24px 0 40px 0;text-align:center;color:var(--muted);font-size:14px}
+
+/* ===== HERO (behalten) ===== */
+.hero{
+  display:grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items:center;
+  gap:16px;
+}
+@media (max-width: 900px){
+  .hero{grid-template-columns:1fr; text-align:center}
+  .hero-left,.hero-right{justify-content:center}
+}
+.hero-left,.hero-right{display:flex;align-items:center;justify-content:center}
+
+.klemmer-logo{
+  height:var(--hero-klemmer-size);
+  width:auto;
+  border-radius:25px;
+  box-shadow:var(--shadow);
+}
+
+.hero-center{text-align:center;}
+.hero-center h1{margin:0;font-size:1.85rem;letter-spacing:.2px}
+.hero-center p{margin:8px 0 0 0; font-size:1.05rem}
+
+.hero-actions{
+  margin-top:14px;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  padding:14px 22px;
+  border-radius:999px;
+  font-weight:950;
+  border:1px solid rgba(255,255,255,0.12);
+  background:rgba(255,255,255,0.12);
+  box-shadow:0 10px 22px rgba(2,8,23,.25);
+  font-size:1.05rem;
+  transition:transform .14s ease, filter .14s ease, outline-color .14s ease;
+}
+.btn:hover{filter:brightness(1.10); transform:scale(1.04); outline:2px solid rgba(246,176,66,.45); outline-offset:2px;}
+.btn.youtube{background:var(--btn-youtube); color:#fff; border-color:transparent}
+.btn.home{background:var(--btn-home); color:var(--btn-home-text); border-color:transparent}
+
+hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
+.jump-line{
+  margin:12px 0 0 0;
+  text-align:center;
+  color:var(--muted);
+  font-weight:800;
+}
+
+/* ===== Pills ===== */
+.pill{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:9px 14px; border-radius:999px;
+  font-weight:950; font-size:.92rem;
+  background:rgba(255,255,255,0.10);
+  border:1px solid rgba(255,255,255,0.12);
+  transition:transform .14s ease, filter .14s ease, outline-color .14s ease;
+}
+.pill:hover{filter:brightness(1.10); transform:scale(1.04); outline:2px solid rgba(246,176,66,.35); outline-offset:2px;}
+.pill.youtube{background:var(--btn-youtube); color:#fff; border-color:transparent}
+
+/* ===== Playlist Sections ===== */
+.section-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.section-head h2{margin:0}
+.section-head p{margin:6px 0 0 0;color:var(--muted);font-weight:800}
+.section-actions{display:flex;gap:10px;flex-wrap:wrap}
+
+.player-wrap{
+  margin-top:14px;
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid rgba(148,163,184,.22);
+  background:#0a1220;
+  box-shadow:var(--shadow);
+}
+.player{
+  width:100%;
+  aspect-ratio:16/9;
+  border:0;
+  display:block;
+}
+
+/* ===== Video Carousel (Thumbnails) ===== */
+.carousel{
+  position:relative;
+  margin-top:14px;
+}
+.carousel-track{
+  display:flex;
+  gap:12px;
+  overflow:auto;
+  scroll-snap-type:x mandatory;
+  scroll-padding: 12px;
+  padding: 6px 6px 10px 6px;
+  scrollbar-width: thin;
+}
+.carousel-track::-webkit-scrollbar{height:10px}
+.carousel-track::-webkit-scrollbar-thumb{
+  background:rgba(255,255,255,0.18);
+  border-radius:999px;
+}
+.carousel-track::-webkit-scrollbar-track{
+  background:rgba(255,255,255,0.06);
+  border-radius:999px;
+}
+
+.vcard{
+  scroll-snap-align:start;
+  min-width: 240px;
+  width: 240px;
+  border-radius:16px;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(148,163,184,.14);
+  overflow:hidden;
+  box-shadow: 0 12px 24px rgba(2,8,23,.18);
+  transition:transform .14s ease, filter .14s ease, outline-color .14s ease, box-shadow .14s ease;
+  cursor:pointer;
+  text-align:left;
+  color:inherit;
+}
+.vcard:hover{
+  filter:brightness(1.08);
+  transform:translateY(-3px);
+  outline:2px solid rgba(246,176,66,.35);
+  outline-offset:2px;
+  box-shadow:0 18px 42px rgba(2,8,23,.45);
+}
+.vthumb{
+  width:100%;
+  height:135px;
+  background:rgba(255,255,255,0.06);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+}
+.vthumb img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.play-badge{
+  position:absolute;
+  inset:auto auto 10px 10px;
+  display:inline-flex;
+  gap:8px;
+  align-items:center;
+  padding:8px 10px;
+  border-radius:999px;
+  background:rgba(2,6,23,.72);
+  border:1px solid rgba(255,255,255,.16);
+  font-weight:950;
+  font-size:.86rem;
+  box-shadow:0 10px 20px rgba(2,8,23,.25);
+}
+.vbody{
+  padding:10px 12px 12px 12px;
+  display:grid;
+  gap:6px;
+}
+.vtitle{
+  font-weight:950;
+  font-size:.95rem;
+  line-height:1.2;
+  display:-webkit-box;
+  -webkit-line-clamp:3;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+.vmeta{
+  color:var(--muted);
+  font-weight:800;
+  font-size:.82rem;
+}
+
+.carousel-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  border:1px solid rgba(255,255,255,0.14);
+  background:rgba(2,6,23,.55);
+  color:rgba(229,231,235,.95);
+  border-radius:999px;
+  padding:10px 12px;
+  cursor:pointer;
+  box-shadow:0 12px 24px rgba(2,8,23,.25);
+  transition:transform .14s ease, filter .14s ease, outline-color .14s ease, opacity .14s ease;
+  opacity:.92;
+}
+.carousel-btn:hover{
+  filter:brightness(1.15);
+  transform:translateY(-50%) scale(1.06);
+  outline:2px solid rgba(246,176,66,.35);
+  outline-offset:2px;
+  opacity:1;
+}
+.carousel-btn.prev{left:-6px}
+.carousel-btn.next{right:-6px}
+@media (max-width: 900px){
+  .carousel-btn{display:none;}
+}
+
+.carousel-hint{
+  margin-top:10px;
+  text-align:center;
+  color:rgba(229,231,235,.72);
+  font-weight:800;
+  font-size:.92rem;
+}
+
+.notice{
+  margin-top:12px;
+  padding:10px 12px;
+  border-radius:14px;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(148,163,184,.16);
+  color:rgba(229,231,235,.86);
+  font-weight:800;
+  font-size:.92rem;
+}
+.notice strong{color:#fff}
+  </style>
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="wrap headbar">
+
+    <!-- LINKS: HUBS -->
+    <div class="header-block" aria-label="Hubs">
+      <div>
+        <div class="header-title">📌 Profil</div>
+        <div class="header-list hubs">
+          <a class="header-chip" href="ueber-uns.html">Über uns</a>
+          <a class="header-chip active" href="videos.html">Videos</a>
+          <a class="header-chip" href="unsere-stadt.html">Unsere Stadt</a>
+          <a class="header-chip" href="eisenbahn.html">Eisenbahn</a>
+          <a class="header-chip" href="beleuchtung.html">Beleuchtung</a>
+          <a class="header-chip" href="merch.html">Merch</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- MITTE -->
+    <a class="brand-center" href="index.html" aria-label="Zur Startseite">
+      <img src="images/logo.png" alt="Die Bausteinklemmer Logo">
+      <span class="brand-text">
+        <span class="brand-top">Die Bausteinklemmer</span>
+      </span>
+    </a>
+
+    <!-- RECHTS: PARTNER -->
+    <div class="header-block right" aria-label="Partner">
+      <div>
+        <div class="header-title">🏭 Hersteller</div>
+        <div class="header-list partners">
+          <a class="header-chip partner" href="partner-lesdiy.html">
+            <img src="images/lesdiy_logo.jpg" alt="LESDIY"><span>LESDIY</span>
+          </a>
+          <a class="header-chip partner" href="partner-lumibricks.html">
+            <img src="images/Lumibricks.png" alt="Lumibricks"><span>Lumibricks</span>
+          </a>
+          <a class="header-chip partner" href="partner-briksmax.html">
+            <img src="images/briksmax.png" alt="Briksmax"><span>Briksmax</span>
+          </a>
+          <a class="header-chip partner" href="partner-jmbricklayer.html">
+            <img src="images/jmbricklayer_logo.jpg" alt="JMBricklayer"><span>JMBricklayer</span>
+          </a>
+          <a class="header-chip partner" href="partner-bluebrixx.html">
+            <img src="images/blue_brixx_logo.png" alt="BlueBrixx"><span>BlueBrixx</span>
+          </a>
+          <a class="header-chip partner" href="partner-lego.html">
+            <img src="images/lego_logo.png" alt="LEGO"><span>LEGO®</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- HERO (behalten) -->
+  <section class="card">
+    <div class="hero">
+      <div class="hero-left"></div>
+
+      <div class="hero-center">
+        <h1>Videos & Playlists</h1>
+        <p class="muted">
+          Alles an einem Ort: Stadt, Eisenbahn, Beleuchtung, Updates & Highlights –
+          inklusive Shorts für den schnellen Kick.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn youtube" href="https://www.youtube.com/@DieBausteinklemmer" target="_blank" rel="noopener noreferrer">▶ YouTube Kanal</a>
+          <a class="btn home" href="index.html">← Zur Startseite</a>
+        </div>
+
+        <p class="jump-line">
+          Direkt springen zu:
+          <a class="inline-link" href="#highlights">Highlights</a> ·
+          <a class="inline-link" href="#stadt">LEGO®/Klemmbaustein Stadt</a> ·
+          <a class="inline-link" href="#beleuchten">Selbst Beleuchten</a> ·
+          <a class="inline-link" href="#eisenbahn">Eisenbahn</a>
+        </p>
+      </div>
+
+      <div class="hero-right">
+        <img class="klemmer-logo" src="images/logo.png" alt="Die Bausteinklemmer">
+      </div>
+    </div>
+
+    <hr class="sep">
+
+    <p style="margin:0; text-align:center">
+      Tipp: Wenn du neu bist – starte bei <strong><a class="inline-link" href="unsere-stadt.html">Unsere Stadt</a></strong> (BeanVillage),
+      oder geh direkt zur <strong><a class="inline-link" href="eisenbahn.html">Eisenbahn</a></strong> & <strong><a class="inline-link" href="beleuchtung.html">Beleuchtung</a></strong>.
+    </p>
+  </section>
+
+  <!-- =======================
+       1) HIGHLIGHTS (Top 5)
+       ======================= -->
+  <section id="highlights" class="card">
+    <div class="section-head">
+      <div>
+        <h2>⭐ Highlights (Top 5)</h2>
+        <p>Deine besten Einstiegs-Videos - per Klick sofort abspielen.</p>
+      </div>
+      <div class="section-actions"></div>
+    </div>
+
+    <div class="player-wrap">
+      <iframe class="player" id="player-highlights"
+        src=""
+        title="Highlights Player"
+        loading="lazy"
+        referrerpolicy="origin-when-cross-origin"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+    </div>
+
+    <div class="carousel" aria-label="Highlights Karussell">
+      <button class="carousel-btn prev" type="button" data-track="track-highlights" aria-label="Vorherige">←</button>
+      <button class="carousel-btn next" type="button" data-track="track-highlights" aria-label="Nächste">→</button>
+      <div class="carousel-track" id="track-highlights"></div>
+      <div class="carousel-hint">Tipp: Handy = wischen → Desktop = Pfeile/Scroll</div>
+    </div>
+  </section>
+
+  <!-- =======================
+       2) STADT (Playlist Auto)
+       ======================= -->
+  <section id="stadt" class="card">
+    <div class="section-head">
+      <div>
+        <h2>🏙️ LEGO®/Klemmbaustein Stadt – Stadt Updates</h2>
+        <p>Videos werden automatisch aus der Playlist geladen (neue Videos kommen von selbst dazu).</p>
+      </div>
+      <div class="section-actions">
+        <a class="pill youtube" id="open-stadt" href="#" target="_blank" rel="noopener noreferrer">▶ Playlist öffnen</a>
+        <button class="pill" id="playall-stadt" type="button">▶ Ab Video 1</button>
+      </div>
+    </div>
+
+    <div class="player-wrap">
+      <iframe class="player" id="player-stadt"
+        src=""
+        title="Stadt Updates Player"
+        loading="lazy"
+        referrerpolicy="origin-when-cross-origin"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+    </div>
+
+    <div class="carousel" aria-label="Stadt Playlist Videos">
+      <button class="carousel-btn prev" type="button" data-track="track-stadt" aria-label="Vorherige">←</button>
+      <button class="carousel-btn next" type="button" data-track="track-stadt" aria-label="Nächste">→</button>
+      <div class="carousel-track" id="track-stadt"></div>
+      <div class="carousel-hint">Tipp: Klick auf ein Thumbnail → Player springt ins Video (mit Playlist-Weiterlauf).</div>
+    </div>
+  </section>
+
+  <!-- =======================
+       3) SELBST BELEUCHTEN
+       ======================= -->
+  <section id="beleuchten" class="card">
+    <div class="section-head">
+      <div>
+        <h2>💡 Selbst Beleuchten</h2>
+        <p>Automatisch aus der Playlist geladen – ideal zum Binge-Watchen.</p>
+      </div>
+      <div class="section-actions">
+        <a class="pill youtube" id="open-licht" href="#" target="_blank" rel="noopener noreferrer">▶ Playlist öffnen</a>
+        <button class="pill" id="playall-licht" type="button">▶ Ab Video 1</button>
+      </div>
+    </div>
+
+    <div class="player-wrap">
+      <iframe class="player" id="player-licht"
+        src=""
+        title="Selbst Beleuchten Player"
+        loading="lazy"
+        referrerpolicy="origin-when-cross-origin"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+    </div>
+
+    <div class="carousel" aria-label="Selbst Beleuchten Playlist Videos">
+      <button class="carousel-btn prev" type="button" data-track="track-licht" aria-label="Vorherige">←</button>
+      <button class="carousel-btn next" type="button" data-track="track-licht" aria-label="Nächste">→</button>
+      <div class="carousel-track" id="track-licht"></div>
+      <div class="carousel-hint">Tipp: Klick auf ein Thumbnail → Player springt ins Video (mit Playlist-Weiterlauf).</div>
+    </div>
+  </section>
+
+  <!-- =======================
+       4) EISENBAHN
+       ======================= -->
+  <section id="eisenbahn" class="card">
+    <div class="section-head">
+      <div>
+        <h2>🚆 Eisenbahn</h2>
+        <p>Alle Videos automatisch aus der Playlist geladen.</p>
+      </div>
+      <div class="section-actions">
+        <a class="pill youtube" id="open-zug" href="#" target="_blank" rel="noopener noreferrer">▶ Playlist öffnen</a>
+        <button class="pill" id="playall-zug" type="button">▶ Ab Video 1</button>
+      </div>
+    </div>
+
+    <div class="player-wrap">
+      <iframe class="player" id="player-zug"
+        src=""
+        title="Eisenbahn Player"
+        loading="lazy"
+        referrerpolicy="origin-when-cross-origin"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+    </div>
+
+    <div class="carousel" aria-label="Eisenbahn Playlist Videos">
+      <button class="carousel-btn prev" type="button" data-track="track-zug" aria-label="Vorherige">←</button>
+      <button class="carousel-btn next" type="button" data-track="track-zug" aria-label="Nächste">→</button>
+      <div class="carousel-track" id="track-zug"></div>
+      <div class="carousel-hint">Tipp: Klick auf ein Thumbnail → Player springt ins Video (mit Playlist-Weiterlauf).</div>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="y"></span> Die Bausteinklemmer ·
+    <a href="impressum.html">Impressum</a> ·
+    <a href="datenschutz.html">Datenschutz</a>
+  </footer>
+
+  <script>
+    // =========================================================
+    // 1) API KEY HIER EINTRAGEN (YouTube Data API v3)
+    // =========================================================
+    const YT_API_KEY = "AIzaSyBklNNJb22j-M1PKi4c-WGjGGy26kp9ytM"; // <-- HIER echten Key rein (lokal), nicht öffentlich posten
+
+    // =========================================================
+    // 2) PLAYLIST-IDs
+    // =========================================================
+    const CITY_PLAYLIST_ID  = "PLNn6aDPjB4S3whqwyzUL3iq_5kAcJ5XlU";
+    const LIGHT_PLAYLIST_ID = "PLNn6aDPjB4S2zXoXOnfngjE91cENYaOT0";
+    const TRAIN_PLAYLIST_ID = "PLNn6aDPjB4S3CCRWvOOMZBW3V2-W5wVLN";
+
+    // =========================================================
+    // 3) HIGHLIGHTS (Top 5) – einfach austauschen
+    // =========================================================
+    const HIGHLIGHTS = [
+      "https://youtu.be/sMwF_vJnM4Q",
+      "https://youtu.be/Qw7U9OAzU00",
+      "https://youtu.be/MG-xcBTHXi0",
+      "https://youtu.be/hmqVL7onbdw",
+      "https://youtu.be/h9RZR4KfpPU"
+    ];
+
+    // ---------- Helpers ----------
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    function escapeHtml(str){
+      return String(str || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    function parseVideoId(input){
+      if(!input) return "";
+      const s = String(input).trim();
+      if(/^[a-zA-Z0-9_-]{11}$/.test(s)) return s;
+
+      try{
+        const u = new URL(s);
+        if(u.hostname.includes("youtu.be")){
+          const id = u.pathname.replace("/","").slice(0,11);
+          return id;
+        }
+        const v = u.searchParams.get("v");
+        if(v) return v.slice(0,11);
+        const m = u.pathname.match(/\/embed\/([a-zA-Z0-9_-]{11})/);
+        if(m && m[1]) return m[1];
+      }catch(e){}
+      return "";
+    }
+function getSafeOrigin(){
+  if (location.protocol === "file:" || !location.origin || location.origin === "null") {
+    return null;
+  }
+  return location.origin;
+}
+
+function ytEmbedUrlVideo(videoId, { autoplay=false, playlistId=null, index=null } = {}){
+  const base = `https://www.youtube-nocookie.com/embed/${videoId}`;
+  const params = new URLSearchParams();
+
+  params.set("rel","0");
+  params.set("modestbranding","1");
+  params.set("playsinline","1");
+
+  const safeOrigin = getSafeOrigin();
+  if (safeOrigin) params.set("origin", safeOrigin);
+
+  if (autoplay) params.set("autoplay","1");
+
+  if (playlistId){
+    params.set("list", playlistId);
+    if (index != null) params.set("index", String(index));
+  }
+
+  return `${base}?${params.toString()}`;
+}
+
+
+    function ytEmbedUrlPlaylist(playlistId, { autoplay=false } = {}){
+      const origin = encodeURIComponent(location.origin);
+      const base = `https://www.youtube-nocookie.com/embed/videoseries`;
+      const params = new URLSearchParams();
+      params.set("list", playlistId);
+      params.set("rel","0");
+      params.set("modestbranding","1");
+      params.set("playsinline","1");
+      params.set("origin", origin);
+      if(autoplay) params.set("autoplay","1");
+      return `${base}?${params.toString()}`;
+    }
+
+    function truncate(s, n){
+      const t = String(s || "");
+      return t.length > n ? t.slice(0, n-1) + "…" : t;
+    }
+
+    function setPlayer(iframeEl, url){
+      if(!iframeEl) return;
+      iframeEl.src = url;
+    }
+
+    // ---------- Carousel Buttons (FIX: .vcard statt .yt-card) ----------
+    (function(){
+      document.querySelectorAll('.carousel-btn').forEach(btn=>{
+        btn.addEventListener('click', ()=>{
+          const trackId = btn.getAttribute('data-track');
+          const track = document.getElementById(trackId);
+          if(!track) return;
+
+          const dir = btn.classList.contains('prev') ? -1 : 1;
+
+          const card = track.querySelector('.vcard');
+          const step = card ? (card.getBoundingClientRect().width + 12) : 280;
+          track.scrollBy({ left: dir * step, behavior: 'smooth' });
+        });
+      });
+    })();
+
+    // =========================================================
+    // 4) HIGHLIGHTS bauen (kein API nötig)
+    // =========================================================
+    (function initHighlights(){
+      const track = document.getElementById("track-highlights");
+      const player = document.getElementById("player-highlights");
+      if(!track || !player) return;
+
+      const ids = HIGHLIGHTS.map(parseVideoId).filter(Boolean);
+
+      if(ids[0]){
+        setPlayer(player, ytEmbedUrlVideo(ids[0], { autoplay:false }));
+      }
+
+      track.innerHTML = ids.map((id, i)=>`
+        <button class="vcard" type="button" data-vid="${id}" aria-label="${escapeHtml("Highlight " + (i+1))}">
+          <div class="vthumb">
+            <img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" alt="Thumbnail">
+            <span class="play-badge">▶ Play</span>
+          </div>
+          <div class="vbody">
+            <div class="vtitle">Highlight ${i+1}</div>
+            <div class="vmeta">Klick = abspielen</div>
+          </div>
+        </button>
+      `).join("");
+
+      track.querySelectorAll('.vcard').forEach(card=>{
+        card.addEventListener('click', ()=>{
+          const vid = card.getAttribute('data-vid');
+          if(!vid) return;
+          setPlayer(player, ytEmbedUrlVideo(vid, { autoplay:true }));
+          player.scrollIntoView({ behavior:'smooth', block:'center' });
+        });
+      });
+    })();
+
+    // =========================================================
+    // 5) Playlists automatisch laden (YouTube Data API v3)
+    // =========================================================
+    async function fetchAllPlaylistItems(playlistId){
+      const all = [];
+      let pageToken = "";
+
+      while(true){
+        const url = new URL("https://www.googleapis.com/youtube/v3/playlistItems");
+        url.searchParams.set("part", "snippet,contentDetails");
+        url.searchParams.set("maxResults", "50");
+        url.searchParams.set("playlistId", playlistId);
+        url.searchParams.set("key", YT_API_KEY);
+        if(pageToken) url.searchParams.set("pageToken", pageToken);
+
+        const res = await fetch(url.toString());
+        if(!res.ok){
+          const txt = await res.text().catch(()=> "");
+          throw new Error(`YouTube API Fehler (${res.status}): ${txt.slice(0,220)}`);
+        }
+
+        const data = await res.json();
+        const items = (data.items || []).map(it=>{
+          const sn = it.snippet || {};
+          const cd = it.contentDetails || {};
+          const vid = (cd.videoId) || (sn.resourceId && sn.resourceId.videoId) || "";
+          const thumbs = sn.thumbnails || {};
+          const thumb =
+            (thumbs.maxres && thumbs.maxres.url) ||
+            (thumbs.standard && thumbs.standard.url) ||
+            (thumbs.high && thumbs.high.url) ||
+            (thumbs.medium && thumbs.medium.url) ||
+            (thumbs.default && thumbs.default.url) ||
+            (vid ? `https://i.ytimg.com/vi/${vid}/hqdefault.jpg` : "");
+
+          return {
+            videoId: vid,
+            title: sn.title || "Video",
+            thumbnail: thumb
+          };
+        }).filter(x=>x.videoId);
+
+        all.push(...items);
+        pageToken = data.nextPageToken || "";
+        if(!pageToken) break;
+      }
+
+      return all;
+    }
+
+    function renderPlaylistSection({
+      playlistId,
+      openLinkElId,
+      playAllBtnId,
+      playerElId,
+      trackElId,
+      sectionName
+    }){
+      const openA = document.getElementById(openLinkElId);
+      const playAllBtn = document.getElementById(playAllBtnId);
+      const player = document.getElementById(playerElId);
+      const track = document.getElementById(trackElId);
+
+      if(openA) openA.href = `https://www.youtube.com/playlist?list=${playlistId}`;
+
+      if(player){
+        setPlayer(player, ytEmbedUrlPlaylist(playlistId, { autoplay:false }));
+      }
+
+      if(playAllBtn && player){
+        playAllBtn.addEventListener('click', ()=>{
+          setPlayer(player, ytEmbedUrlPlaylist(playlistId, { autoplay:true }));
+          player.scrollIntoView({ behavior:'smooth', block:'center' });
+        });
+      }
+
+      if(!track) return;
+
+      track.innerHTML = Array.from({length:6}).map(()=>`
+        <div class="vcard" style="opacity:.55">
+          <div class="vthumb"></div>
+          <div class="vbody">
+            <div class="vtitle">Lade…</div>
+            <div class="vmeta">${escapeHtml(sectionName)}</div>
+          </div>
+        </div>
+      `).join("");
+
+      return fetchAllPlaylistItems(playlistId).then(items=>{
+        track.innerHTML = items.map((it, idx)=>`
+          <button class="vcard" type="button"
+            data-vid="${it.videoId}"
+            data-index="${idx+1}"
+            aria-label="${escapeHtml(it.title)}">
+            <div class="vthumb">
+              <img src="${escapeHtml(it.thumbnail)}" alt="Thumbnail">
+              <span class="play-badge">▶ Play</span>
+            </div>
+            <div class="vbody">
+              <div class="vtitle">${escapeHtml(truncate(it.title, 78))}</div>
+              <div class="vmeta">Video ${idx+1}</div>
+            </div>
+          </button>
+        `).join("");
+
+        track.querySelectorAll('.vcard').forEach(card=>{
+          card.addEventListener('click', ()=>{
+            if(!player) return;
+            const vid = card.getAttribute('data-vid');
+            const index = Number(card.getAttribute('data-index') || "1");
+            setPlayer(player, ytEmbedUrlVideo(vid, { autoplay:true, playlistId, index }));
+            player.scrollIntoView({ behavior:'smooth', block:'center' });
+          });
+        });
+      }).catch(err=>{
+        console.error(err);
+        track.innerHTML = `
+          <div class="notice">
+            <strong>Ups:</strong> Playlist konnte nicht geladen werden.<br>
+            <span style="opacity:.9">${escapeHtml(err.message || String(err))}</span><br><br>
+            Prüfe: <strong>API Key</strong> eingesetzt? Referrer-Restriktion korrekt? YouTube Data API v3 aktiviert? Playlist öffentlich?
+          </div>
+        `;
+      });
+    }
+
+    // =========================================================
+    // 6) Start: Playlists rendern
+    // =========================================================
+    (function initPlaylists(){
+      if(!YT_API_KEY || YT_API_KEY.includes("AIzaSyBklNNJb22j-M1PKi4c-WGjGGy26kp9ytM")){
+        console.warn("YouTube API Key fehlt noch.");
+        document.getElementById("open-stadt").href = `https://www.youtube.com/playlist?list=${CITY_PLAYLIST_ID}`;
+        document.getElementById("open-licht").href = `https://www.youtube.com/playlist?list=${LIGHT_PLAYLIST_ID}`;
+        document.getElementById("open-zug").href   = `https://www.youtube.com/playlist?list=${TRAIN_PLAYLIST_ID}`;
+
+        setPlayer(document.getElementById("player-stadt"), ytEmbedUrlPlaylist(CITY_PLAYLIST_ID));
+        setPlayer(document.getElementById("player-licht"), ytEmbedUrlPlaylist(LIGHT_PLAYLIST_ID));
+        setPlayer(document.getElementById("player-zug"),   ytEmbedUrlPlaylist(TRAIN_PLAYLIST_ID));
+        return;
+      }
+
+      renderPlaylistSection({
+        playlistId: CITY_PLAYLIST_ID,
+        openLinkElId: "open-stadt",
+        playAllBtnId: "playall-stadt",
+        playerElId: "player-stadt",
+        trackElId: "track-stadt",
+        sectionName: "Stadt"
+      });
+
+      renderPlaylistSection({
+        playlistId: LIGHT_PLAYLIST_ID,
+        openLinkElId: "open-licht",
+        playAllBtnId: "playall-licht",
+        playerElId: "player-licht",
+        trackElId: "track-licht",
+        sectionName: "Beleuchten"
+      });
+
+      renderPlaylistSection({
+        playlistId: TRAIN_PLAYLIST_ID,
+        openLinkElId: "open-zug",
+        playAllBtnId: "playall-zug",
+        playerElId: "player-zug",
+        trackElId: "track-zug",
+        sectionName: "Eisenbahn"
+      });
+    })();
+  </script>
+
+</main>
+</body>
+</html>
