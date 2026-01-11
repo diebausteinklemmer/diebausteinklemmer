@@ -815,90 +815,92 @@ function ytEmbedUrlVideo(videoId, { autoplay=false, playlistId=null, index=null 
       });
     })();
 
-    // =========================================================
-    // 4) HIGHLIGHTS bauen (kein API nötig)
-    // =========================================================
-    (function initHighlights(){
+// =========================================================
+// 4) HIGHLIGHTS bauen (mit API Titel, aber bricht nie die Seite)
+// =========================================================
 (function initHighlights(){
-  const track = document.getElementById("track-highlights");
-  const player = document.getElementById("player-highlights");
-  if(!track || !player) return;
+  try{
+    const track  = document.getElementById("track-highlights");
+    const player = document.getElementById("player-highlights");
+    if(!track || !player) return;
 
-  const ids = HIGHLIGHTS.map(parseVideoId).filter(Boolean);
+    const escapeHtml = (s="") => String(s)
+      .replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;")
+      .replaceAll('"',"&quot;").replaceAll("'","&#039;");
 
-  // Default: erstes Video laden
-  if(ids[0]){
+    const ids = (HIGHLIGHTS || []).map(parseVideoId).filter(Boolean);
+
+    // Fallback: wenn keine IDs da sind, wenigstens nicht crashen
+    if(ids.length === 0){
+      track.innerHTML = `<div class="notice"><strong>Hinweis:</strong> Keine Highlight-IDs gefunden.</div>`;
+      return;
+    }
+
+    // Default Player
     setPlayer(player, ytEmbedUrlVideo(ids[0], { autoplay:false }));
-  }
 
-  // Sofort Platzhalter anzeigen (damit nix leer ist)
-  track.innerHTML = ids.map((id, i)=>`
-    <button class="vcard" type="button" data-vid="${id}" aria-label="Highlight ${i+1}">
-      <div class="vthumb">
-        <img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" alt="Thumbnail">
-        <span class="play-badge">▶ Play</span>
-      </div>
-      <div class="vbody">
-        <div class="vtitle">Highlight ${i+1}</div>
-        <div class="vmeta">Lade Titel…</div>
-      </div>
-    </button>
-  `).join("");
+    // Erstmal schnelle Cards bauen (mit Platzhalter-Titel)
+    track.innerHTML = ids.map((id, i)=>`
+      <button class="vcard" type="button" data-vid="${id}" aria-label="Highlight ${i+1}">
+        <div class="vthumb">
+          <img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" alt="Thumbnail">
+          <span class="play-badge">▶ Play</span>
+        </div>
+        <div class="vbody">
+          <div class="vtitle" data-title-for="${id}">Highlight ${i+1}</div>
+          <div class="vmeta">Klick = abspielen</div>
+        </div>
+      </button>
+    `).join("");
 
-  // Klick -> abspielen
-  track.querySelectorAll(".vcard").forEach(card=>{
-    card.addEventListener("click", ()=>{
-      const vid = card.getAttribute("data-vid");
-      if(!vid) return;
-      setPlayer(player, ytEmbedUrlVideo(vid, { autoplay:true }));
-      player.scrollIntoView({ behavior:"smooth", block:"center" });
+    // Klick -> Player
+    track.querySelectorAll('.vcard').forEach(card=>{
+      card.addEventListener('click', ()=>{
+        const vid = card.getAttribute('data-vid');
+        if(!vid) return;
+        setPlayer(player, ytEmbedUrlVideo(vid, { autoplay:true }));
+        player.scrollIntoView({ behavior:'smooth', block:'center' });
+      });
     });
-  });
 
-  // --- Titel per API nachladen ---
-  const isValidKey = /^AIza[0-9A-Za-z\-_]{35}$/.test((YT_API_KEY || "").trim());
-  if(!isValidKey){
-    // Key fehlt oder du testest noch ohne gültigen Key -> bleibt Platzhalter
-    track.querySelectorAll(".vmeta").forEach(el => el.textContent = "API-Key fehlt → Platzhalter");
-    return;
-  }
+    // Wenn kein API Key: dann nur Platzhalter-Titel lassen (aber Seite läuft!)
+    if(!YT_API_KEY || YT_API_KEY.includes("DEIN_API_KEY_HIER")){
+      console.warn("YT_API_KEY fehlt – Highlights-Titel bleiben Platzhalter.");
+      return;
+    }
 
-  // Videos API: bis zu 50 IDs in einem Call
-  const url = new URL("https://www.googleapis.com/youtube/v3/videos");
-  url.searchParams.set("part","snippet");
-  url.searchParams.set("id", ids.join(","));
-  url.searchParams.set("key", YT_API_KEY);
+    // Jetzt echte Titel ziehen
+    const url = new URL("https://www.googleapis.com/youtube/v3/videos");
+    url.searchParams.set("part","snippet");
+    url.searchParams.set("id", ids.join(","));
+    url.searchParams.set("key", YT_API_KEY);
 
-  fetch(url.toString())
-    .then(async res=>{
-      if(!res.ok){
-        const txt = await res.text().catch(()=> "");
-        throw new Error(`YouTube API Fehler (${res.status}): ${txt.slice(0,220)}`);
-      }
-      return res.json();
-    })
-    .then(data=>{
-      const map = new Map();
-      (data.items || []).forEach(it=>{
-        map.set(it.id, (it.snippet && it.snippet.title) ? it.snippet.title : "Video");
+    fetch(url.toString())
+      .then(r => r.ok ? r.json() : r.text().then(t=>{ throw new Error(t); }))
+      .then(data=>{
+        const map = new Map();
+        (data.items || []).forEach(it=>{
+          map.set(it.id, it.snippet?.title || "");
+        });
+
+        ids.forEach(id=>{
+          const t = map.get(id);
+          if(!t) return;
+          const el = track.querySelector(`[data-title-for="${id}"]`);
+          if(el) el.innerHTML = escapeHtml(t);
+        });
+      })
+      .catch(err=>{
+        console.warn("Highlights-Titel konnten nicht geladen werden:", err);
+        // bewusst: NICHTS kaputt machen
       });
 
-      track.querySelectorAll(".vcard").forEach((card, i)=>{
-        const vid = card.getAttribute("data-vid");
-        const titleEl = card.querySelector(".vtitle");
-        const metaEl  = card.querySelector(".vmeta");
-        const title = map.get(vid) || `Highlight ${i+1}`;
-
-        if(titleEl) titleEl.textContent = title;
-        if(metaEl) metaEl.textContent = "Klick = abspielen";
-        card.setAttribute("aria-label", title);
-      });
-    })
-    .catch(err=>{
-      console.error(err);
-      track.querySelectorAll(".vmeta").forEach(el => el.textContent = "Titel konnten nicht geladen werden");
-    });
+  }catch(e){
+    console.error("initHighlights crashed:", e);
+    // bewusst: nicht throwen → damit Playlists weiter laden können
+  }
 })();
+
 
 
     // =========================================================
