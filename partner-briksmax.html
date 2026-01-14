@@ -49,6 +49,13 @@
           "name":"Die Bausteinklemmer",
           "url":"https://diebausteinklemmer.de/"
         }
+      },
+      {
+        "@type":"BreadcrumbList",
+        "itemListElement":[
+          {"@type":"ListItem","position":1,"name":"Startseite","item":"https://diebausteinklemmer.de/"},
+          {"@type":"ListItem","position":2,"name":"Partner: Briksmax","item":"https://diebausteinklemmer.de/partner-briksmax.html"}
+        ]
       }
     ]
   }
@@ -78,6 +85,8 @@
 
   --hero-logo-size: 130px;
   --hero-klemmer-size: 130px;
+
+  --header-pad: 10px;
 }
 
 *{box-sizing:border-box}
@@ -87,10 +96,17 @@ html,body{
   font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif
 }
 a{text-decoration:none;color:inherit}
+img{max-width:100%;height:auto;display:block}
 .wrap{max-width:1100px;margin:0 auto;padding:18px}
 .muted{color:var(--muted)}
+p, h1, h2, h3, small, code, a, span{
+  overflow-wrap:anywhere;
+  word-break:break-word;
+}
 
-/* ===== HEADER ===== */
+.anchor{scroll-margin-top:120px}
+
+/* ===== HEADER (Desktop + Mobile-Dropdown) ===== */
 .site-header{
   position:sticky;top:0;z-index:50;
   backdrop-filter:blur(10px) saturate(130%);
@@ -103,7 +119,7 @@ a{text-decoration:none;color:inherit}
   grid-template-columns: 1fr auto 1fr;
   align-items:center;
   gap:14px;
-  padding:10px 0;
+  padding: var(--header-pad) 0;
 }
 
 .brand-center{
@@ -187,13 +203,75 @@ a{text-decoration:none;color:inherit}
   box-shadow:0 6px 14px rgba(2,8,23,.25);
 }
 
+/* --- Mobile Dropdown Controls --- */
+.header-mobile-row{
+  display:none;
+  width:100%;
+  gap:10px;
+  align-items:center;
+  justify-content:center;
+  padding: 0 0 var(--header-pad) 0;
+}
+.header-toggle{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:10px 14px;
+  border-radius:999px;
+  font-weight:950;
+  font-size:.92rem;
+  background:rgba(255,255,255,0.10);
+  border:1px solid rgba(148,163,184,.20);
+  color:rgba(229,231,235,.95);
+  cursor:pointer;
+  transition:transform .14s ease, filter .14s ease, outline-color .14s ease;
+}
+.header-toggle:hover{
+  filter:brightness(1.10);
+  transform:scale(1.03);
+  outline:2px solid rgba(246,176,66,.35);
+  outline-offset:2px;
+}
+.header-toggle .chev{
+  display:inline-block;
+  transform:rotate(0deg);
+  transition:transform .16s ease;
+  opacity:.9;
+}
+
+.mobile-panels{display:none;padding: 0 0 12px 0;}
+.mobile-panel{
+  margin-top:10px;
+  border-radius:16px;
+  padding:12px;
+  border:1px solid rgba(148,163,184,.16);
+  background:rgba(255,255,255,0.06);
+}
+.mobile-panel .header-title{margin-bottom:10px;}
+.mobile-panel .header-list{justify-content:center;}
+.mobile-panel .header-list.hubs,
+.mobile-panel .header-list.partners{
+  grid-template-columns: repeat(2, max-content);
+  justify-content:center;
+}
+
+/* state classes */
+.site-header.is-hubs-open .mobile-panels{display:block;}
+.site-header.is-partners-open .mobile-panels{display:block;}
+.site-header.is-hubs-open .mobile-panel.hubs{display:block;}
+.site-header.is-partners-open .mobile-panel.partners{display:block;}
+.mobile-panel{display:none;}
+.site-header.is-hubs-open .header-toggle[data-toggle="hubs"] .chev{transform:rotate(180deg);}
+.site-header.is-partners-open .header-toggle[data-toggle="partners"] .chev{transform:rotate(180deg);}
+
 @media (max-width: 1180px){
   .header-chip{font-size:.80rem;padding:7px 9px}
 }
 @media (max-width: 980px){
   .headbar{grid-template-columns: 1fr; justify-items:center;}
-  .header-block, .header-block.right{justify-content:center; text-align:center}
-  .header-list.hubs, .header-list.partners{grid-template-columns: repeat(2, max-content); justify-content:center;}
+  .header-block, .header-block.right{display:none;}
+  .header-mobile-row{display:flex;}
 }
 
 /* ===== CARDS ===== */
@@ -205,6 +283,7 @@ a{text-decoration:none;color:inherit}
   padding:18px;
   margin:22px 0;
   transition:transform .16s ease, box-shadow .16s ease, filter .16s ease, outline-color .16s ease;
+  overflow:hidden;
 }
 .card:hover{
   transform:translateY(-4px) scale(1.006);
@@ -229,28 +308,32 @@ footer{margin:24px 0 40px 0;text-align:center;color:var(--muted);font-size:14px}
 /* ===== HERO ===== */
 .hero{
   display:grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   align-items:center;
-  gap:16px;
+  gap:18px;
 }
+.hero-left{display:flex; align-items:center; justify-content:flex-start;}
+.hero-right{display:flex; align-items:center; justify-content:flex-end;}
+
 @media (max-width: 900px){
   .hero{grid-template-columns:1fr; text-align:center}
   .hero-left,.hero-right{justify-content:center}
 }
-.hero-left,.hero-right{display:flex;align-items:center;justify-content:center}
 
 .partner-logo{
-  height:var(--hero-logo-size);
-  width:auto;
+  width: calc(var(--hero-logo-size) + 12px);
+  height: calc(var(--hero-logo-size) + 12px);
+  object-fit:contain;
   background:#fff;
-  border-radius:18px;
-  padding:8px 12px;
+  border-radius:20px;
+  padding:6px 10px;
   box-shadow:var(--shadow);
 }
 .klemmer-logo{
+  width:var(--hero-klemmer-size);
   height:var(--hero-klemmer-size);
-  width:auto;
-  border-radius:20px;
+  object-fit:cover;
+  border-radius:25px;
   box-shadow:var(--shadow);
 }
 
@@ -301,7 +384,6 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
 /* ===== TOC ===== */
 .toc-title{text-align:center;margin:0 0 8px 0}
 .toc-sub{text-align:center;margin:0 0 14px 0;color:var(--muted)}
-
 .toc{
   display:grid;
   grid-template-columns: repeat(2, minmax(0,1fr));
@@ -321,10 +403,9 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
   filter:brightness(1.10);
   transform:translateY(-3px) scale(1.01);
   box-shadow:0 18px 42px rgba(2,8,23,.48);
-  outline:2px solid rgba(246,176,66,.95);
+  outline:var(--yellow-outline);
   outline-offset:2px;
 }
-
 .toc-img{
   width:100%;
   height:140px;
@@ -338,9 +419,7 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
   width:100%;
   height:100%;
   object-fit:contain;
-  display:block;
 }
-
 .toc-body{
   padding:12px 14px;
   display:flex;
@@ -368,10 +447,11 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
 
 .project-grid{
   display:grid;
-  grid-template-columns: 1.25fr .95fr;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, .95fr);
   gap:16px;
   align-items:stretch;
 }
+.project-grid > *{min-width:0;}
 @media (max-width: 900px){ .project-grid{grid-template-columns:1fr;} }
 
 .project-text{
@@ -382,21 +462,39 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
   display:flex;
   flex-direction:column;
   gap:12px;
+  min-width:0;
+  overflow:hidden;
 }
 .project-text p{margin:0}
 
-.btn-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:0}
+.btn-row{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap:10px;
+  margin-top:0;
+}
+@media (max-width: 520px){
+  .btn-row{grid-template-columns: repeat(2, minmax(0,1fr));}
+  .btn-row a:last-child{grid-column: 1 / -1;}
+}
 
 .amazon-btn, .briksmax-btn, .youtube-btn, .altlight-btn, .disabled-btn{
-  display:inline-flex; align-items:center; gap:8px;
-  padding:9px 14px; border-radius:999px;
-  font-weight:950; font-size:.92rem;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:10px 12px;
+  border-radius:999px;
+  font-weight:950;
+  font-size:.92rem;
   transition:transform .14s ease, filter .14s ease, outline-color .14s ease;
+  min-width:0;
+  text-align:center;
 }
 .amazon-btn{background:#ff9900; color:#111}
 .briksmax-btn{background:var(--btn-briksmax); color:#111827; border:1px solid rgba(255,255,255,.10)}
 .youtube-btn{background:var(--btn-youtube); color:#fff; border:1px solid rgba(255,255,255,.10)}
-.altlight-btn{background:rgba(255,255,255,0.14); color:#fff; border:1px solid rgba(255,255,255,.16)}
+.altlight-btn{background:rgba(255,255,255,0.14); color:#fff; border:1px solid rgba(255,255,255,0.16)}
 .disabled-btn{
   background:rgba(255,255,255,0.10);
   border:1px solid rgba(148,163,184,.22);
@@ -411,20 +509,32 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
   outline-offset:2px;
 }
 
-.anchor{scroll-margin-top:120px}
+.more-links{
+  margin-top:12px;
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+.more-links .header-chip{
+  font-size:.82rem;
+  padding:6px 10px;
+  opacity:.92;
+}
+.more-links .header-chip:hover{opacity:1;}
 
-/* ===== Rabattcode ===== */
 .coupon{
   margin:0;
   display:flex;
   align-items:center;
   justify-content:flex-start;
   gap:10px;
-  flex-wrap:nowrap;
-  padding:8px 10px;
+  flex-wrap:wrap;
+  padding:10px 10px;
   border-radius:12px;
   background:rgba(255,255,255,0.035);
   border:1px solid rgba(148,163,184,.14);
+  min-width:0;
 }
 .coupon .tag{
   display:inline-flex;
@@ -439,14 +549,15 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
   font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
   font-weight:950;
   font-size:.92rem;
-  padding:3px 10px;
+  padding:4px 10px;
   border-radius:999px;
   background:rgba(255,255,255,0.06);
   border:1px solid rgba(148,163,184,.18);
   color:rgba(229,231,235,.95);
-  white-space:nowrap;
+  max-width:100%;
   overflow:hidden;
   text-overflow:ellipsis;
+  white-space:nowrap;
 }
 .coupon .coupon-link{
   margin-left:auto;
@@ -458,12 +569,16 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
   text-decoration:underline;
   text-underline-offset:3px;
 }
-.coupon .coupon-link:hover{opacity:1;}
+.coupon .coupon-link:hover{opacity:1}
+@media (max-width: 520px){
+  .coupon .coupon-link{margin-left:0;}
+}
+
 .copy-btn{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  padding:5px 7px;
+  padding:6px 8px;
   border-radius:999px;
   background:rgba(255,255,255,0.06);
   border:1px solid rgba(148,163,184,.18);
@@ -479,21 +594,13 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
   outline:2px solid rgba(246,176,66,.35);
   outline-offset:2px;
 }
-.copy-btn svg{width:15px;height:15px;opacity:.95;}
+.copy-btn svg{width:15px;height:15px;opacity:.95}
 .copy-btn .sr-only{
   position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
   clip:rect(0,0,0,0);white-space:nowrap;border:0;
 }
-.hero-center .coupon{
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:10px;
-}
+.hero-center .coupon{justify-content:center;}
 .hero-center .coupon .coupon-link{margin-left:0;}
-@media (max-width: 420px){
-  .coupon{flex-wrap:wrap;}
-  .coupon .coupon-link{margin-left:0; max-width:150px; overflow:hidden; text-overflow:ellipsis;}
-}
 
 /* ===== Mini-Galerie ===== */
 .gallery{
@@ -502,6 +609,7 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
   border:1px solid rgba(148,163,184,.22);
   background:#0a1220;
   box-shadow:var(--shadow);
+  min-width:0;
 }
 .gallery-main{
   display:block;
@@ -521,14 +629,13 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
 }
 .gallery-main-img{
   width:100%;
-  height:300px;
+  height:290px;
   object-fit:contain;
   object-position:center;
-  display:block;
   background:#0a1220;
 }
 @media (max-width: 900px){
-  .gallery-main-img{height:280px;}
+  .gallery-main-img{height:260px;}
 }
 .gallery-cap{
   padding:10px 12px;
@@ -537,37 +644,39 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
   font-size:.9rem;
   border-top:1px solid rgba(148,163,184,.15);
 }
+
 .gallery-thumbs{
-  display:flex;
+  display:grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
   gap:10px;
   padding:12px;
-  overflow:auto;
   border-top:1px solid rgba(148,163,184,.12);
   background:rgba(255,255,255,0.02);
 }
+@media (max-width: 520px){
+  .gallery-thumbs{grid-template-columns: repeat(3, minmax(0,1fr));}
+}
+
 .gthumb{
   border:1px solid rgba(148,163,184,.22);
   background:rgba(255,255,255,0.04);
   border-radius:12px;
   padding:0;
   cursor:pointer;
-  flex:0 0 auto;
-  width:78px;
-  height:58px;
+  width:100%;
+  aspect-ratio: 4 / 3;
   overflow:hidden;
   transition:transform .14s ease, filter .14s ease, outline-color .14s ease, border-color .14s ease;
 }
 .gthumb img{
   width:100%;
   height:100%;
-  object-fit:contain;
-  object-position:center;
-  display:block;
+  object-fit:cover;
   background:#0a1220;
 }
 .gthumb:hover{
   filter:brightness(1.10);
-  transform:scale(1.04);
+  transform:scale(1.03);
   outline:2px solid rgba(246,176,66,.35);
   outline-offset:2px;
 }
@@ -585,6 +694,7 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
   background:#0a1220;
   box-shadow:var(--shadow);
   display:block;
+  min-width:0;
 }
 .reel-thumb{
   position:relative;
@@ -612,37 +722,73 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
   flex-direction:column;
   gap:12px;
   align-items:stretch;
+  min-width:0;
+  overflow:hidden;
 }
-.more-links{
-  display:flex;
-  gap:10px;
-  justify-content:center;
-  flex-wrap:wrap;
-}
-.more-links .header-chip{
-  font-size:.82rem;
-  padding:6px 10px;
-  opacity:.92;
-}
-.more-links .header-chip:hover{opacity:1;}
-  
-  .affiliate-note{
-  margin-top:12px;
+
+.affiliate-note{
+  margin-top:2px;
   text-align:center;
   font-size:.9rem;
   color:rgba(229,231,235,.75);
   font-weight:800;
 }
 
+/* ===== Back-to-Top Button (weicht Footer aus) ===== */
+.to-top{
+  position:fixed;
+  right:16px;
+  bottom:16px;
+  z-index:60;
+
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+
+  padding:12px 14px;
+  border-radius:999px;
+
+  background:rgba(2,6,23,.72);
+  border:1px solid rgba(148,163,184,.25);
+  color:rgba(229,231,235,.95);
+
+  box-shadow:0 18px 42px rgba(2,8,23,.45);
+  backdrop-filter: blur(10px) saturate(130%);
+  cursor:pointer;
+
+  opacity:0;
+  transform:translateY(8px) scale(.98);
+  pointer-events:none;
+
+  transition:opacity .16s ease, transform .16s ease, filter .16s ease, outline-color .16s ease, bottom .16s ease;
+}
+.to-top:hover{
+  filter:brightness(1.12);
+  transform:translateY(0) scale(1.03);
+  outline:2px solid rgba(246,176,66,.45);
+  outline-offset:2px;
+}
+.to-top.show{
+  opacity:1;
+  transform:translateY(0) scale(1);
+  pointer-events:auto;
+}
+.to-top svg{width:18px;height:18px;opacity:.95}
+.to-top span{font-weight:950; font-size:.92rem}
+@media (max-width: 520px){
+  .to-top span{display:none;}
+  .to-top{padding:12px;}
+}
   </style>
 </head>
 
 <body>
 
-<header class="site-header">
+<header class="site-header" id="siteHeader">
   <div class="wrap headbar">
 
-    <!-- LINKS: HUBS -->
+    <!-- LINKS: HUBS (Desktop) -->
     <div class="header-block" aria-label="Hubs">
       <div>
         <div class="header-title">📌 Profil</div>
@@ -665,10 +811,10 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
       </span>
     </a>
 
-    <!-- RECHTS: PARTNER -->
+    <!-- RECHTS: PARTNER (Desktop) -->
     <div class="header-block right" aria-label="Partner">
       <div>
-        <div class="header-title">🤝 Partner</div>
+        <div class="header-title">🏭 Hersteller</div>
         <div class="header-list partners">
           <a class="header-chip partner" href="partner-lesdiy.html">
             <img src="images/lesdiy_logo.jpg" alt="LESDIY"><span>LESDIY</span>
@@ -693,6 +839,55 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
     </div>
 
   </div>
+
+  <!-- Mobile Toggle Row -->
+  <div class="wrap header-mobile-row" aria-label="Mobile Navigation">
+    <button class="header-toggle" type="button" data-toggle="hubs" aria-expanded="false" aria-controls="mobilePanels">
+      📌 Profil <span class="chev">▾</span>
+    </button>
+    <button class="header-toggle" type="button" data-toggle="partners" aria-expanded="false" aria-controls="mobilePanels">
+      🏭 Hersteller <span class="chev">▾</span>
+    </button>
+  </div>
+
+  <!-- Mobile Panels -->
+  <div class="wrap mobile-panels" id="mobilePanels">
+    <div class="mobile-panel hubs" aria-label="Mobile Hubs">
+      <div class="header-title">📌 Profil</div>
+      <div class="header-list hubs">
+        <a class="header-chip" href="ueber-uns.html">Über uns</a>
+        <a class="header-chip" href="videos.html">Videos</a>
+        <a class="header-chip" href="unsere-stadt.html">Unsere Stadt</a>
+        <a class="header-chip" href="eisenbahn.html">Eisenbahn</a>
+        <a class="header-chip" href="beleuchtung.html">Beleuchtung</a>
+        <a class="header-chip" href="merch.html">Merch</a>
+      </div>
+    </div>
+
+    <div class="mobile-panel partners" aria-label="Mobile Partner">
+      <div class="header-title">🏭 Hersteller</div>
+      <div class="header-list partners">
+        <a class="header-chip partner" href="partner-lesdiy.html">
+          <img src="images/lesdiy_logo.jpg" alt="LESDIY"><span>LESDIY</span>
+        </a>
+        <a class="header-chip partner" href="partner-lumibricks.html">
+          <img src="images/Lumibricks.png" alt="Lumibricks"><span>Lumibricks</span>
+        </a>
+        <a class="header-chip partner active" href="partner-briksmax.html">
+          <img src="images/briksmax.png" alt="Briksmax"><span>Briksmax</span>
+        </a>
+        <a class="header-chip partner" href="partner-jmbricklayer.html">
+          <img src="images/jmbricklayer_logo.jpg" alt="JMBricklayer"><span>JMBricklayer</span>
+        </a>
+        <a class="header-chip partner" href="partner-bluebrixx.html">
+          <img src="images/blue_brixx_logo.png" alt="BlueBrixx"><span>BlueBrixx</span>
+        </a>
+        <a class="header-chip partner" href="partner-lego.html">
+          <img src="images/lego_logo.png" alt="LEGO"><span>LEGO®</span>
+        </a>
+      </div>
+    </div>
+  </div>
 </header>
 
 <main class="wrap">
@@ -707,13 +902,12 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
       <div class="hero-center">
         <h1>Partner: Briksmax</h1>
         <p class="muted">
-          die perfekten Light-Kits für eure LEGO®-Sets: Wir zeigen <strong>Shorts</strong> + <strong>Bilder</strong> + <strong>Links</strong>.
-          
+          Die perfekten Light-Kits für eure LEGO®-Sets: Wir zeigen <strong>Shorts</strong> + <strong>Bilder</strong> + <strong>Links</strong>.
         </p>
 
         <div class="hero-actions">
           <a class="btn briksmax" href="https://www.briksmax.com/de/?ref=PLACEHOLDER_AFFILIATE" target="_blank" rel="noopener noreferrer sponsored nofollow">💡 Briksmax Shop</a>
-          <a class="btn youtube" href="https://youtube.com/playlist?list=PLNn6aDPjB4S2ieiqyz2ootUPqVdXcuYxb&si=G3J_XqYlvNYG2tBb" target="_blank" rel="noopener noreferrer">▶YouTube Playlist</a>
+          <a class="btn youtube" href="https://youtube.com/playlist?list=PLNn6aDPjB4S2ieiqyz2ootUPqVdXcuYxb&si=G3J_XqYlvNYG2tBb" target="_blank" rel="noopener noreferrer">▶ YouTube Playlist</a>
           <a class="btn home" href="index.html">← Zur Startseite</a>
         </div>
 
@@ -779,7 +973,7 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
         </div>
         <div class="toc-body">
           <div>
-            <strong>🦖LEGO® 76964 T.-rex-Kopf</strong>
+            <strong>🦖 LEGO® 76964 T.-rex-Kopf</strong>
             <small>Light-Kit</small>
           </div>
           <small>→</small>
@@ -804,7 +998,7 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
       <div class="project-text">
         <p>
           <strong>Beschreibung:</strong><br>
-          Das LEGO®<strong>Trockenblumengesteck (10314)</strong> ist schon ohne Licht ein echter Hingucker.
+          Das LEGO® <strong>Trockenblumengesteck (10314)</strong> ist schon ohne Licht ein echter Hingucker.
           Mit dem <strong>Briksmax Light-Kit</strong> wirkt’s abends nochmal deutlich „wärmer“, hochwertiger und sogar etwas romantisch.
         </p>
 
@@ -842,11 +1036,11 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
           <a class="youtube-btn" href="https://www.youtube.com/shorts/3V-r2hCgxK8" target="_blank" rel="noopener noreferrer">▶ YouTube Short</a>
           <a class="amazon-btn" href="https://amzn.to/44Y0LAZ" target="_blank" rel="noopener noreferrer sponsored nofollow">🛒 Amazon*</a>
           <a class="briksmax-btn" href="https://www.briksmax.com/de/products/briksmax-light-kit-for-dried-flower-centerpiece-10314?_pos=1&_psq=10314&_ss=e&_v=1.0&ref=qjztsomr" target="_blank" rel="noopener noreferrer sponsored nofollow">💡 Briksmax/ Lightailing*</a>
-        
+        </div>
+
+        <p class="affiliate-note">* Affiliate-Link: Für dich bleibt der Preis gleich.</p>
       </div>
-<p class="affiliate-note">
-  * Affiliate-Link: Für dich bleibt der Preis gleich.
-</p></div>
+
       <div class="right-col">
         <a class="reel-wrap" href="https://www.youtube.com/shorts/3V-r2hCgxK8" target="_blank" rel="noopener noreferrer" aria-label="YouTube Short öffnen">
           <div class="reel-thumb" style="background-image:url('https://img.youtube.com/vi/3V-r2hCgxK8/hqdefault.jpg')"></div>
@@ -878,10 +1072,9 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
       <div class="project-text">
         <p>
           <strong>Beschreibung:</strong><br>
-          Der LEGO®<strong>T.-rex-Kopf (76964)</strong> ist als Display/ Deko schon der Wahnsinn, mit der Beleuchtung noch besser!
+          Der LEGO® <strong>T.-rex-Kopf (76964)</strong> ist als Display/Deko schon der Wahnsinn – mit Beleuchtung nochmal besser.
           Das Briksmax-Kit ist aktuell auf der Briksmax-Seite <strong>nicht gelistet</strong>.
-          Da <strong>Briksmax &amp; Lightailing</strong> zur gleichen Shop-Familie gehören (wie z.B.: MediaMarkt/Saturn),
-          findest du das passende Light-Kit hier über den offiziellen Partner-Shop.
+          Da <strong>Briksmax &amp; Lightailing</strong> zur gleichen Shop-Familie gehören, findest du das passende Light-Kit hier über den Partner-Shop.
         </p>
 
         <div class="gallery" data-gallery="trex">
@@ -896,7 +1089,8 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
             <button class="gthumb" type="button" data-target="trex" data-src="images/rex4.jpg" data-alt="76964 – Bild 4"><img src="images/rex4.jpg" alt=""></button>
           </div>
         </div>
-                  <div class="coupon" aria-label="Rabattcode">
+
+        <div class="coupon" aria-label="Rabattcode">
           <span class="tag">🎟️ Code:</span>
           <code>NO-CODE-YET</code>
 
@@ -912,16 +1106,16 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
             bei Briksmax einlösen → (Platzhalter)
           </a>
         </div>
+
         <div class="btn-row">
           <a class="youtube-btn" href="https://www.youtube.com/shorts/UFIeQVUuISo" target="_blank" rel="noopener noreferrer">▶ YouTube Short</a>
           <a class="amazon-btn" href="https://amzn.to/49gYfHm" target="_blank" rel="noopener noreferrer sponsored nofollow">🛒 Amazon*</a>
           <a class="briksmax-btn" href="https://www.lightailing.com/de/products/lightailing-light-kit-for-lego-dinosaur-fossils-t-rex-skull-76964?_pos=1&_sid=1c0345e0c&_ss=r&ref=qjztsomr" target="_blank" rel="noopener noreferrer sponsored nofollow">💡 Briksmax/ Lightailing*</a>
-         
-        
+        </div>
+
+        <p class="affiliate-note">* Affiliate-Link: Für dich bleibt der Preis gleich.</p>
       </div>
-<p class="affiliate-note">
-         * Affiliate-Link: Für dich bleibt der Preis gleich.
-        </p></div>
+
       <div class="right-col">
         <a class="reel-wrap" href="https://www.youtube.com/shorts/UFIeQVUuISo" target="_blank" rel="noopener noreferrer" aria-label="YouTube Short öffnen">
           <div class="reel-thumb" style="background-image:url('https://img.youtube.com/vi/UFIeQVUuISo/hqdefault.jpg')"></div>
@@ -936,11 +1130,19 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
     </div>
   </section>
 
-  <footer>
+  <footer id="siteFooter">
     © <span id="y"></span> Die Bausteinklemmer ·
     <a href="impressum.html">Impressum</a> ·
     <a href="datenschutz.html">Datenschutz</a>
   </footer>
+
+  <!-- Back-to-Top -->
+  <button class="to-top" id="toTopBtn" type="button" aria-label="Nach oben">
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M12 5l-7 7m7-7l7 7M12 5v14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span>Nach oben</span>
+  </button>
 
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
@@ -961,9 +1163,7 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
       });
     });
 
-    window.addEventListener('load', ()=>{
-      flashTargetFromHash(location.hash);
-    });
+    window.addEventListener('load', ()=> flashTargetFromHash(location.hash));
 
     // ===== Copy-to-Clipboard (Coupon) =====
     async function copyText(text){
@@ -1023,6 +1223,89 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
         btn.classList.add('active');
       });
     });
+
+    // ===== Mobile Header Toggle =====
+    (function(){
+      const header = document.getElementById('siteHeader');
+      if(!header) return;
+
+      const btns = header.querySelectorAll('.header-toggle[data-toggle]');
+      function setExpanded(btn, isOpen){
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      }
+
+      function closeAll(){
+        header.classList.remove('is-hubs-open','is-partners-open');
+        btns.forEach(b=>setExpanded(b,false));
+      }
+
+      btns.forEach(btn=>{
+        btn.addEventListener('click', ()=>{
+          const type = btn.getAttribute('data-toggle');
+          const isHubs = type === 'hubs';
+          const openClass = isHubs ? 'is-hubs-open' : 'is-partners-open';
+          const otherClass = isHubs ? 'is-partners-open' : 'is-hubs-open';
+
+          const isOpen = header.classList.contains(openClass);
+
+          header.classList.remove(otherClass);
+          header.classList.toggle(openClass, !isOpen);
+
+          btns.forEach(b=>{
+            const t = b.getAttribute('data-toggle');
+            const shouldOpen = header.classList.contains(t === 'hubs' ? 'is-hubs-open' : 'is-partners-open');
+            setExpanded(b, shouldOpen);
+          });
+
+          if(!header.classList.contains('is-hubs-open') && !header.classList.contains('is-partners-open')){
+            closeAll();
+          }
+        });
+      });
+
+      window.addEventListener('resize', ()=>{
+        if(window.innerWidth > 980) closeAll();
+      });
+
+      header.querySelectorAll('.mobile-panels a').forEach(a=>{
+        a.addEventListener('click', ()=>closeAll());
+      });
+    })();
+
+    // ===== Back-to-Top (weicht Footer aus) =====
+    (function(){
+      const btn = document.getElementById('toTopBtn');
+      const footer = document.getElementById('siteFooter');
+      if(!btn) return;
+
+      const SHOW_AFTER = 500; // px
+      const BASE_BOTTOM = 16; // px
+      const SAFE_GAP = 12;    // px
+
+      function update(){
+        const y = window.scrollY || 0;
+        if(y > SHOW_AFTER) btn.classList.add('show');
+        else btn.classList.remove('show');
+
+        if(footer){
+          const btnRect = btn.getBoundingClientRect();
+          const footerRect = footer.getBoundingClientRect();
+          const overlap = (btnRect.bottom + SAFE_GAP) - footerRect.top;
+          const lift = Math.max(0, overlap);
+          btn.style.bottom = (BASE_BOTTOM + lift) + 'px';
+        } else {
+          btn.style.bottom = BASE_BOTTOM + 'px';
+        }
+      }
+
+      btn.addEventListener('click', ()=>{
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      window.addEventListener('scroll', update, { passive:true });
+      window.addEventListener('resize', update, { passive:true });
+      update();
+    })();
   </script>
 
 </main>

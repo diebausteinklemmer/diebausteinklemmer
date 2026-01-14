@@ -122,6 +122,8 @@
 
   --hero-logo-size: 130px;
   --hero-klemmer-size: 130px;
+
+  --header-pad: 10px;
 }
 
 *{box-sizing:border-box}
@@ -131,9 +133,16 @@ html,body{
   font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif
 }
 a{text-decoration:none;color:inherit}
+img{max-width:100%;height:auto;display:block}
 .wrap{max-width:1100px;margin:0 auto;padding:18px}
 .muted{color:var(--muted)}
 .small{font-size:.92rem}
+p, h1, h2, h3, small, code, a, span{
+  overflow-wrap:anywhere;
+  word-break:break-word;
+}
+
+.anchor{scroll-margin-top:120px}
 
 .note{
   background:rgba(255,255,255,0.04);
@@ -153,7 +162,7 @@ a{text-decoration:none;color:inherit}
 }
 .manufacturer-desc strong{color:#fff;font-weight:900}
 
-/* ===== HEADER ===== */
+/* ===== HEADER (Desktop + Mobile-Dropdown) ===== */
 .site-header{
   position:sticky;top:0;z-index:50;
   backdrop-filter:blur(10px) saturate(130%);
@@ -166,7 +175,7 @@ a{text-decoration:none;color:inherit}
   grid-template-columns: 1fr auto 1fr;
   align-items:center;
   gap:14px;
-  padding:10px 0;
+  padding: var(--header-pad) 0;
 }
 .brand-center{
   display:flex;
@@ -249,10 +258,73 @@ a{text-decoration:none;color:inherit}
 @media (max-width: 1180px){
   .header-chip{font-size:.80rem;padding:7px 9px}
 }
+
+/* --- Mobile Dropdown Controls --- */
+.header-mobile-row{
+  display:none;
+  width:100%;
+  gap:10px;
+  align-items:center;
+  justify-content:center;
+  padding: 0 0 var(--header-pad) 0;
+}
+.header-toggle{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:10px 14px;
+  border-radius:999px;
+  font-weight:950;
+  font-size:.92rem;
+  background:rgba(255,255,255,0.10);
+  border:1px solid rgba(148,163,184,.20);
+  color:rgba(229,231,235,.95);
+  cursor:pointer;
+  transition:transform .14s ease, filter .14s ease, outline-color .14s ease;
+}
+.header-toggle:hover{
+  filter:brightness(1.10);
+  transform:scale(1.03);
+  outline:2px solid rgba(246,176,66,.35);
+  outline-offset:2px;
+}
+.header-toggle .chev{
+  display:inline-block;
+  transform:rotate(0deg);
+  transition:transform .16s ease;
+  opacity:.9;
+}
+
+.mobile-panels{display:none;padding: 0 0 12px 0;}
+.mobile-panel{
+  margin-top:10px;
+  border-radius:16px;
+  padding:12px;
+  border:1px solid rgba(148,163,184,.16);
+  background:rgba(255,255,255,0.06);
+}
+.mobile-panel .header-title{margin-bottom:10px;}
+.mobile-panel .header-list{justify-content:center;}
+.mobile-panel .header-list.hubs,
+.mobile-panel .header-list.partners{
+  grid-template-columns: repeat(2, max-content);
+  justify-content:center;
+}
+
+/* state classes */
+.site-header.is-hubs-open .mobile-panels{display:block;}
+.site-header.is-partners-open .mobile-panels{display:block;}
+.site-header.is-hubs-open .mobile-panel.hubs{display:block;}
+.site-header.is-partners-open .mobile-panel.partners{display:block;}
+.mobile-panel{display:none;}
+.site-header.is-hubs-open .header-toggle[data-toggle="hubs"] .chev{transform:rotate(180deg);}
+.site-header.is-partners-open .header-toggle[data-toggle="partners"] .chev{transform:rotate(180deg);}
+
 @media (max-width: 980px){
   .headbar{grid-template-columns: 1fr; justify-items:center;}
-  .header-block, .header-block.right{justify-content:center; text-align:center}
-  .header-list.hubs, .header-list.partners{grid-template-columns: repeat(2, max-content); justify-content:center;}
+  .header-block, .header-block.right{display:none;}
+  .header-mobile-row{display:flex;}
 }
 
 /* ===== CARDS ===== */
@@ -264,6 +336,7 @@ a{text-decoration:none;color:inherit}
   padding:18px;
   margin:22px 0;
   transition:transform .16s ease, box-shadow .16s ease, filter .16s ease, outline-color .16s ease;
+  overflow:hidden;
 }
 .card:hover{
   transform:translateY(-4px) scale(1.006);
@@ -287,26 +360,31 @@ footer{margin:24px 0 40px 0;text-align:center;color:var(--muted);font-size:14px}
 /* ===== HERO ===== */
 .hero{
   display:grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   align-items:center;
-  gap:16px;
+  gap:18px;
 }
+.hero-left{display:flex;align-items:center;justify-content:flex-start}
+.hero-right{display:flex;align-items:center;justify-content:flex-end}
+
 @media (max-width: 900px){
   .hero{grid-template-columns:1fr; text-align:center}
   .hero-left,.hero-right{justify-content:center}
 }
-.hero-left,.hero-right{display:flex;align-items:center;justify-content:center}
+
 .partner-logo{
-  height:var(--hero-logo-size);
-  width:auto;
+  width: calc(var(--hero-logo-size) + 12px);
+  height: calc(var(--hero-logo-size) + 12px);
+  object-fit:contain;
   background:#fff;
-  border-radius:8px;
-  padding:4px 8px;
+  border-radius:20px;
+  padding:6px 10px;
   box-shadow:var(--shadow);
 }
 .klemmer-logo{
+  width:var(--hero-klemmer-size);
   height:var(--hero-klemmer-size);
-  width:auto;
+  object-fit:cover;
   border-radius:25px;
   box-shadow:var(--shadow);
 }
@@ -422,10 +500,11 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
 
 .project-grid{
   display:grid;
-  grid-template-columns: 1.25fr .95fr;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, .95fr);
   gap:16px;
   align-items:stretch;
 }
+.project-grid > *{min-width:0;}
 @media (max-width: 900px){ .project-grid{grid-template-columns:1fr;} }
 
 .project-text{
@@ -433,10 +512,11 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
   border:1px solid rgba(148,163,184,.14);
   border-radius:16px;
   padding:14px;
-
   display:flex;
   flex-direction:column;
   gap:12px;
+  min-width:0;
+  overflow:hidden;
 }
 .project-text p{margin:0}
 
@@ -451,13 +531,30 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
 .stars{font-size:1.12rem;letter-spacing:.08em;line-height:1;}
 .rating small{color:var(--muted);font-weight:800;}
 
-.btn-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:0}
+/* Buttons: Mobile-safe (Grid wie Lumibricks) */
+.btn-row{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap:10px;
+  margin-top:0;
+}
+@media (max-width: 520px){
+  .btn-row{grid-template-columns: repeat(2, minmax(0,1fr));}
+  .btn-row a:last-child{grid-column: 1 / -1;}
+}
 
 .amazon-btn, .jm-btn, .youtube-btn, .ghost-btn{
-  display:inline-flex; align-items:center; gap:8px;
-  padding:9px 14px; border-radius:999px;
-  font-weight:950; font-size:.92rem;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:10px 12px;
+  border-radius:999px;
+  font-weight:950;
+  font-size:.92rem;
   transition:transform .14s ease, filter .14s ease, outline-color .14s ease;
+  min-width:0;
+  text-align:center;
 }
 .amazon-btn{background:#ff9900; color:#111}
 .jm-btn{background:#ffffff; color:#111; border:1px solid rgba(255,255,255,.10)}
@@ -469,7 +566,6 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
   outline:2px solid rgba(246,176,66,.45);
   outline-offset:2px;
 }
-.anchor{scroll-margin-top:120px}
 
 /* ===== "Mehr..." Chips ===== */
 .more-links{
@@ -493,6 +589,7 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
   border:1px solid rgba(148,163,184,.22);
   background:#0a1220;
   box-shadow:var(--shadow);
+  min-width:0;
 }
 .gallery-main{
   display:block;
@@ -528,13 +625,18 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
   font-size:.9rem;
   border-top:1px solid rgba(148,163,184,.15);
 }
+
+/* thumbs: grid statt scroll – stabiler auf Mobile */
 .gallery-thumbs{
-  display:flex;
+  display:grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
   gap:10px;
   padding:12px;
-  overflow:auto;
   border-top:1px solid rgba(148,163,184,.12);
   background:rgba(255,255,255,0.02);
+}
+@media (max-width: 520px){
+  .gallery-thumbs{grid-template-columns: repeat(3, minmax(0,1fr));}
 }
 .gthumb{
   border:1px solid rgba(148,163,184,.22);
@@ -542,23 +644,22 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
   border-radius:12px;
   padding:0;
   cursor:pointer;
-  flex:0 0 auto;
-  width:78px;
-  height:58px;
+  width:100%;
+  aspect-ratio: 4 / 3;
   overflow:hidden;
   transition:transform .14s ease, filter .14s ease, outline-color .14s ease, border-color .14s ease;
 }
 .gthumb img{
   width:100%;
   height:100%;
-  object-fit:contain;
+  object-fit:cover;
   object-position:center;
   display:block;
   background:#0a1220;
 }
 .gthumb:hover{
   filter:brightness(1.10);
-  transform:scale(1.04);
+  transform:scale(1.03);
   outline:2px solid rgba(246,176,66,.35);
   outline-offset:2px;
 }
@@ -576,6 +677,7 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
   background:#0a1220;
   box-shadow:var(--shadow);
   display:block;
+  min-width:0;
 }
 .reel-thumb{
   position:relative;
@@ -638,23 +740,72 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
   flex-direction:column;
   gap:12px;
   align-items:stretch;
+  min-width:0;
+  overflow:hidden;
 }
 .affiliate-note{
-  margin-top:12px;
+  margin-top:2px;
   text-align:center;
   font-size:.9rem;
   color:rgba(229,231,235,.75);
   font-weight:800;
+}
+
+/* ===== Back-to-Top Button (weicht Footer aus) ===== */
+.to-top{
+  position:fixed;
+  right:16px;
+  bottom:16px;
+  z-index:60;
+
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+
+  padding:12px 14px;
+  border-radius:999px;
+
+  background:rgba(2,6,23,.72);
+  border:1px solid rgba(148,163,184,.25);
+  color:rgba(229,231,235,.95);
+
+  box-shadow:0 18px 42px rgba(2,8,23,.45);
+  backdrop-filter: blur(10px) saturate(130%);
+  cursor:pointer;
+
+  opacity:0;
+  transform:translateY(8px) scale(.98);
+  pointer-events:none;
+
+  transition:opacity .16s ease, transform .16s ease, filter .16s ease, outline-color .16s ease, bottom .16s ease;
+}
+.to-top:hover{
+  filter:brightness(1.12);
+  transform:translateY(0) scale(1.03);
+  outline:2px solid rgba(246,176,66,.45);
+  outline-offset:2px;
+}
+.to-top.show{
+  opacity:1;
+  transform:translateY(0) scale(1);
+  pointer-events:auto;
+}
+.to-top svg{width:18px;height:18px;opacity:.95}
+.to-top span{font-weight:950; font-size:.92rem}
+@media (max-width: 520px){
+  .to-top span{display:none;}
+  .to-top{padding:12px;}
 }
   </style>
 </head>
 
 <body>
 
-<header class="site-header">
+<header class="site-header" id="siteHeader">
   <div class="wrap headbar">
 
-    <!-- LINKS: HUBS -->
+    <!-- LINKS: HUBS (Desktop) -->
     <div class="header-block" aria-label="Hubs">
       <div>
         <div class="header-title">📌 Profil</div>
@@ -677,7 +828,7 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
       </span>
     </a>
 
-    <!-- RECHTS: HERSTELLER -->
+    <!-- RECHTS: HERSTELLER (Desktop) -->
     <div class="header-block right" aria-label="Hersteller">
       <div>
         <div class="header-title">🏭 Hersteller</div>
@@ -705,6 +856,55 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
     </div>
 
   </div>
+
+  <!-- Mobile Toggle Row -->
+  <div class="wrap header-mobile-row" aria-label="Mobile Navigation">
+    <button class="header-toggle" type="button" data-toggle="hubs" aria-expanded="false" aria-controls="mobilePanels">
+      📌 Profil <span class="chev">▾</span>
+    </button>
+    <button class="header-toggle" type="button" data-toggle="partners" aria-expanded="false" aria-controls="mobilePanels">
+      🏭 Hersteller <span class="chev">▾</span>
+    </button>
+  </div>
+
+  <!-- Mobile Panels -->
+  <div class="wrap mobile-panels" id="mobilePanels">
+    <div class="mobile-panel hubs" aria-label="Mobile Hubs">
+      <div class="header-title">📌 Profil</div>
+      <div class="header-list hubs">
+        <a class="header-chip" href="ueber-uns.html">Über uns</a>
+        <a class="header-chip" href="videos.html">Videos</a>
+        <a class="header-chip" href="unsere-stadt.html">Unsere Stadt</a>
+        <a class="header-chip" href="eisenbahn.html">Eisenbahn</a>
+        <a class="header-chip" href="beleuchtung.html">Beleuchtung</a>
+        <a class="header-chip" href="merch.html">Merch</a>
+      </div>
+    </div>
+
+    <div class="mobile-panel partners" aria-label="Mobile Hersteller">
+      <div class="header-title">🏭 Hersteller</div>
+      <div class="header-list partners">
+        <a class="header-chip partner" href="partner-lesdiy.html">
+          <img src="images/lesdiy_logo.jpg" alt="LESDIY"><span>LESDIY</span>
+        </a>
+        <a class="header-chip partner" href="partner-lumibricks.html">
+          <img src="images/Lumibricks.png" alt="Lumibricks"><span>Lumibricks</span>
+        </a>
+        <a class="header-chip partner" href="partner-briksmax.html">
+          <img src="images/briksmax.png" alt="Briksmax"><span>Briksmax</span>
+        </a>
+        <a class="header-chip partner active" href="partner-jmbricklayer.html">
+          <img src="images/jmbricklayer_logo.jpg" alt="JMBricklayer"><span>JMBricklayer</span>
+        </a>
+        <a class="header-chip partner" href="partner-bluebrixx.html">
+          <img src="images/blue_brixx_logo.png" alt="BlueBrixx"><span>BlueBrixx</span>
+        </a>
+        <a class="header-chip partner" href="partner-lego.html">
+          <img src="images/lego_logo.png" alt="LEGO"><span>LEGO®</span>
+        </a>
+      </div>
+    </div>
+  </div>
 </header>
 
 <main class="wrap">
@@ -719,7 +919,7 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
       <div class="hero-center">
         <h1>Hersteller: JMBricklayer</h1>
         <p class="muted">
-          Projekte, Umbauten und ehrliches <a class="inline-link" href="ueber-uns.html">Bausteinklemmer</a>-Feedback –
+          Projekte, Umbauten und ehrliches <a class="inline-link" href="ueber-uns.html">Bausteinklemmer</a>-Feedback -
           plus Verlinkungen zu <a class="inline-link" href="videos.html">Shorts</a> und Set-Seiten.
         </p>
 
@@ -732,10 +932,10 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
         <p class="manufacturer-desc">
           <strong>JMBricklayer</strong> steht für aufwendig designte Klemmbaustein-Sets mit Fokus auf
           <strong>Technik, Display-Modelle und außergewöhnliche Formen</strong>.
-          Wir zeigen hier ausgewählte Sets – inklusive ehrlichem Feedback aus unserer
+          Wir zeigen hier ausgewählte Sets inklusive ehrlichem Feedback aus unserer
           <a class="inline-link" href="unsere-stadt.html">Klemmbaustein-Stadt</a>.
         </p>
-        
+
       </div>
 
       <div class="hero-right">
@@ -845,10 +1045,10 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
           <a class="amazon-btn" href="https://www.amazon.de/s?k=JMBricklayer+61123" target="_blank" rel="noopener noreferrer sponsored nofollow">🛒 Amazon (Suche)*</a>
           <a class="ghost-btn" href="https://www.awin1.com/cread.php?awinmid=115072&awinaffid=2717898&clickref=website_jmbricklayer_f1&ued=https%3A%2F%2Fwww.jmbricklayer.com%2F" target="_blank" rel="noopener noreferrer sponsored nofollow">🔎 JM Suche*</a>
         </div>
-<p class="affiliate-note">
+
+        <p class="affiliate-note">
           * Affiliate-Link: Für dich bleibt der Preis gleich.
         </p>
-        
       </div>
 
       <div class="right-col">
@@ -873,7 +1073,7 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
         <p class="muted" style="margin:6px 0 0 0">Aye aye Captain... auf zur Schatzsuche!</p>
       </div>
       <div class="badges">
-        <span class="badge info"> Aktuell verfügbar</span>
+        <span class="badge info">✅ Aktuell verfügbar</span>
       </div>
     </div>
 
@@ -884,7 +1084,7 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
           Die <strong>Black Pearl 40002</strong> ist ein richtiges Display-Monster.
           Hinweis: Das Set kommt „von Natur aus“ ohne Minifiguren, die Figuren auf den Bildern sind nachgerüstet.
           Als Piraten-Ecke in der <a class="inline-link" href="unsere-stadt.html">Stadt</a>-Deko: MEGA.
-          Also Lasst uns auf die JAGD nach Schätzen gehen!
+          Also lasst uns auf die JAGD nach Schätzen gehen!
         </p>
 
         <div class="rating">
@@ -942,7 +1142,7 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
 
         <div class="more-links" aria-label="Mehr entdecken">
           <a class="header-chip" href="videos.html">▶ Mehr Videos</a>
-          <a class="header-chip" href="Merch.html">🧢 Mehr Merch</a>
+          <a class="header-chip" href="merch.html">🧢 Mehr Merch</a>
           <a class="header-chip" href="unsere-stadt.html">🏙️ Mehr Stadt</a>
         </div>
       </div>
@@ -967,7 +1167,7 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
           <strong>Beschreibung:</strong><br>
           <strong>Phoenix Rebirth</strong> ist ein geiles Display-Teil, perfekt als „Room-Piece“ im Hintergrund
           deiner Videos oder als Eyecatcher im Regal. Inklusive <a class="inline-link" href="beleuchtung.html">Beleuchtung</a> mit zwei Einstellungen.
-         Du wolltest schon immer mal DIESEN Phönix bei dir haben??? Dann ab in den Shop mit dir!⬇️⬇️⬇️
+          Du wolltest schon immer mal DIESEN Phönix bei dir haben??? Dann ab in den Shop mit dir!⬇️⬇️⬇️
         </p>
 
         <div class="rating">
@@ -995,7 +1195,8 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
           <a class="jm-btn" href="https://www.awin1.com/cread.php?awinmid=115072&awinaffid=2717898&clickref=website_jmbricklayer_phoenix&ued=https%3A%2F%2Fwww.jmbricklayer.com%2Fcollections%2Fall%2Fproducts%2Fphoenix-rebirth-brick-art-70017%3F_pos%3D7%26_fid%3D8e88698ab%26_ss%3Dc"
              target="_blank" rel="noopener noreferrer sponsored nofollow">🧱 JMBricklayer*</a>
         </div>
-<p class="affiliate-note">
+
+        <p class="affiliate-note">
           * Affiliate-Link: Für dich bleibt der Preis gleich.
         </p>
       </div>
@@ -1015,11 +1216,19 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
     </div>
   </section>
 
-  <footer>
+  <footer id="siteFooter">
     © <span id="y"></span> Die Bausteinklemmer ·
     <a href="impressum.html">Impressum</a> ·
     <a href="datenschutz.html">Datenschutz</a>
   </footer>
+
+  <!-- Back-to-Top -->
+  <button class="to-top" id="toTopBtn" type="button" aria-label="Nach oben">
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M12 5l-7 7m7-7l7 7M12 5v14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span>Nach oben</span>
+  </button>
 
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
@@ -1040,9 +1249,7 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
       });
     });
 
-    window.addEventListener('load', ()=>{
-      flashTargetFromHash(location.hash);
-    });
+    window.addEventListener('load', ()=> flashTargetFromHash(location.hash));
 
     // ===== Mini-Galerie (Thumbnails -> Main) =====
     document.querySelectorAll('.gthumb[data-target][data-src]').forEach(btn=>{
@@ -1087,6 +1294,89 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
         btn.classList.add('active');
       });
     });
+
+    // ===== Mobile Header Toggle =====
+    (function(){
+      const header = document.getElementById('siteHeader');
+      if(!header) return;
+
+      const btns = header.querySelectorAll('.header-toggle[data-toggle]');
+      function setExpanded(btn, isOpen){
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      }
+
+      function closeAll(){
+        header.classList.remove('is-hubs-open','is-partners-open');
+        btns.forEach(b=>setExpanded(b,false));
+      }
+
+      btns.forEach(btn=>{
+        btn.addEventListener('click', ()=>{
+          const type = btn.getAttribute('data-toggle');
+          const isHubs = type === 'hubs';
+          const openClass = isHubs ? 'is-hubs-open' : 'is-partners-open';
+          const otherClass = isHubs ? 'is-partners-open' : 'is-hubs-open';
+
+          const isOpen = header.classList.contains(openClass);
+
+          header.classList.remove(otherClass);
+          header.classList.toggle(openClass, !isOpen);
+
+          btns.forEach(b=>{
+            const t = b.getAttribute('data-toggle');
+            const shouldOpen = header.classList.contains(t === 'hubs' ? 'is-hubs-open' : 'is-partners-open');
+            setExpanded(b, shouldOpen);
+          });
+
+          if(!header.classList.contains('is-hubs-open') && !header.classList.contains('is-partners-open')){
+            closeAll();
+          }
+        });
+      });
+
+      window.addEventListener('resize', ()=>{
+        if(window.innerWidth > 980) closeAll();
+      });
+
+      header.querySelectorAll('.mobile-panels a').forEach(a=>{
+        a.addEventListener('click', ()=>closeAll());
+      });
+    })();
+
+    // ===== Back-to-Top (weicht Footer aus) =====
+    (function(){
+      const btn = document.getElementById('toTopBtn');
+      const footer = document.getElementById('siteFooter');
+      if(!btn) return;
+
+      const SHOW_AFTER = 500; // px Scrollhöhe, ab wann der Button erscheint
+      const BASE_BOTTOM = 16; // px Normalabstand
+      const SAFE_GAP = 12;    // px Abstand zum Footer
+
+      function update(){
+        const y = window.scrollY || 0;
+        if(y > SHOW_AFTER) btn.classList.add('show');
+        else btn.classList.remove('show');
+
+        if(footer){
+          const btnRect = btn.getBoundingClientRect();
+          const footerRect = footer.getBoundingClientRect();
+          const overlap = (btnRect.bottom + SAFE_GAP) - footerRect.top;
+          const lift = Math.max(0, overlap);
+          btn.style.bottom = (BASE_BOTTOM + lift) + 'px';
+        } else {
+          btn.style.bottom = BASE_BOTTOM + 'px';
+        }
+      }
+
+      btn.addEventListener('click', ()=>{
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      window.addEventListener('scroll', update, { passive:true });
+      window.addEventListener('resize', update, { passive:true });
+      update();
+    })();
   </script>
 
 </main>
