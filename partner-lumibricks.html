@@ -11,7 +11,6 @@
   <!-- ===== SEO: Robots / Canonical ===== -->
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <link rel="canonical" href="https://diebausteinklemmer.de/partner-lumibricks.html" />
-
   <link rel="icon" href="images/logo.png" />
 
   <!-- ===== Social Preview (OG / Twitter) ===== -->
@@ -48,7 +47,19 @@
           "@type":"WebSite",
           "name":"Die Bausteinklemmer",
           "url":"https://diebausteinklemmer.de/"
+        },
+        "about":{
+          "@type":"Organization",
+          "name":"Lumibricks",
+          "sameAs":"https://www.lumibricks.com/"
         }
+      },
+      {
+        "@type":"BreadcrumbList",
+        "itemListElement":[
+          {"@type":"ListItem","position":1,"name":"Startseite","item":"https://diebausteinklemmer.de/"},
+          {"@type":"ListItem","position":2,"name":"Partner: Lumibricks","item":"https://diebausteinklemmer.de/partner-lumibricks.html"}
+        ]
       }
     ]
   }
@@ -78,6 +89,8 @@
 
   --hero-logo-size: 130px;
   --hero-klemmer-size: 130px;
+
+  --header-pad: 10px;
 }
 
 *{box-sizing:border-box}
@@ -87,10 +100,18 @@ html,body{
   font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif
 }
 a{text-decoration:none;color:inherit}
+img{max-width:100%;height:auto;display:block} /* <- WICHTIG gegen overflow */
 .wrap{max-width:1100px;margin:0 auto;padding:18px}
 .muted{color:var(--muted)}
+/* Text darf NIEMALS rauslaufen */
+p, h1, h2, h3, small, code, a, span{
+  overflow-wrap:anywhere;
+  word-break:break-word;
+}
 
-/* ===== HEADER ===== */
+.anchor{scroll-margin-top:120px}
+
+/* ===== HEADER (Desktop + Mobile-Dropdown) ===== */
 .site-header{
   position:sticky;top:0;z-index:50;
   backdrop-filter:blur(10px) saturate(130%);
@@ -103,7 +124,7 @@ a{text-decoration:none;color:inherit}
   grid-template-columns: 1fr auto 1fr;
   align-items:center;
   gap:14px;
-  padding:10px 0;
+  padding: var(--header-pad) 0;
 }
 
 .brand-center{
@@ -117,9 +138,7 @@ a{text-decoration:none;color:inherit}
   text-align:center;
 }
 .brand-center img{
-  width:64px;
-  height:64px;
-  border-radius:50%;
+  width:64px;height:64px;border-radius:50%;
   object-fit:cover;
   box-shadow:var(--shadow);
 }
@@ -179,7 +198,6 @@ a{text-decoration:none;color:inherit}
     0 10px 26px rgba(2,8,23,.35),
     0 0 18px rgba(246,176,66,.45);
 }
-
 .header-chip.partner img{
   width:20px;height:20px;
   border-radius:8px;
@@ -189,13 +207,75 @@ a{text-decoration:none;color:inherit}
   box-shadow:0 6px 14px rgba(2,8,23,.25);
 }
 
+/* --- Mobile Dropdown Controls --- */
+.header-mobile-row{
+  display:none;
+  width:100%;
+  gap:10px;
+  align-items:center;
+  justify-content:center;
+  padding: 0 0 var(--header-pad) 0;
+}
+.header-toggle{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:10px 14px;
+  border-radius:999px;
+  font-weight:950;
+  font-size:.92rem;
+  background:rgba(255,255,255,0.10);
+  border:1px solid rgba(148,163,184,.20);
+  color:rgba(229,231,235,.95);
+  cursor:pointer;
+  transition:transform .14s ease, filter .14s ease, outline-color .14s ease;
+}
+.header-toggle:hover{
+  filter:brightness(1.10);
+  transform:scale(1.03);
+  outline:2px solid rgba(246,176,66,.35);
+  outline-offset:2px;
+}
+.header-toggle .chev{
+  display:inline-block;
+  transform:rotate(0deg);
+  transition:transform .16s ease;
+  opacity:.9;
+}
+
+.mobile-panels{display:none;padding: 0 0 12px 0;}
+.mobile-panel{
+  margin-top:10px;
+  border-radius:16px;
+  padding:12px;
+  border:1px solid rgba(148,163,184,.16);
+  background:rgba(255,255,255,0.06);
+}
+.mobile-panel .header-title{margin-bottom:10px;}
+.mobile-panel .header-list{justify-content:center;}
+.mobile-panel .header-list.hubs,
+.mobile-panel .header-list.partners{
+  grid-template-columns: repeat(2, max-content);
+  justify-content:center;
+}
+
+/* state classes */
+.site-header.is-hubs-open .mobile-panels{display:block;}
+.site-header.is-partners-open .mobile-panels{display:block;}
+.site-header.is-hubs-open .mobile-panel.hubs{display:block;}
+.site-header.is-partners-open .mobile-panel.partners{display:block;}
+.mobile-panel{display:none;}
+.site-header.is-hubs-open .header-toggle[data-toggle="hubs"] .chev{transform:rotate(180deg);}
+.site-header.is-partners-open .header-toggle[data-toggle="partners"] .chev{transform:rotate(180deg);}
+
 @media (max-width: 1180px){
   .header-chip{font-size:.80rem;padding:7px 9px}
 }
 @media (max-width: 980px){
   .headbar{grid-template-columns: 1fr; justify-items:center;}
-  .header-block, .header-block.right{justify-content:center; text-align:center}
-  .header-list.hubs, .header-list.partners{grid-template-columns: repeat(2, max-content); justify-content:center;}
+  .header-block, .header-block.right{display:none;}
+  .header-mobile-row{display:flex;}
 }
 
 /* ===== CARDS ===== */
@@ -207,6 +287,7 @@ a{text-decoration:none;color:inherit}
   padding:18px;
   margin:22px 0;
   transition:transform .16s ease, box-shadow .16s ease, filter .16s ease, outline-color .16s ease;
+  overflow:hidden; /* <- verhindert visuelles "rauslaufen" */
 }
 .card:hover{
   transform:translateY(-4px) scale(1.006);
@@ -228,33 +309,42 @@ a{text-decoration:none;color:inherit}
 
 footer{margin:24px 0 40px 0;text-align:center;color:var(--muted);font-size:14px}
 
-/* ===== HERO ===== */
+/* ===== HERO (Desktop Fix: Logos bleiben korrekt) ===== */
 .hero{
   display:grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: auto minmax(0, 1fr) auto; /* statt 1fr auto 1fr */
   align-items:center;
-  gap:16px;
+  gap:18px;
 }
+
+.hero-left{display:flex; align-items:center; justify-content:flex-start;}
+.hero-right{display:flex; align-items:center; justify-content:flex-end;}
+
 @media (max-width: 900px){
   .hero{grid-template-columns:1fr; text-align:center}
   .hero-left,.hero-right{justify-content:center}
 }
-.hero-left,.hero-right{display:flex;align-items:center;justify-content:center}
 
+/* Partner-Logo bewusst etwas größer & luftiger */
 .partner-logo{
-  height:var(--hero-logo-size);
-  width:auto;
+  width: calc(var(--hero-logo-size) + 12px);
+  height: calc(var(--hero-logo-size) + 12px);
+  object-fit:contain;
   background:#fff;
-  border-radius:18px;
-  padding:8px 12px;
+  border-radius:20px;
+  padding:6px 10px; /* weniger Innenverlust */
   box-shadow:var(--shadow);
 }
+
+
 .klemmer-logo{
+  width:var(--hero-klemmer-size);
   height:var(--hero-klemmer-size);
-  width:auto;
+  object-fit:cover;
   border-radius:25px;
   box-shadow:var(--shadow);
 }
+
 
 .hero-center{text-align:center;}
 .hero-center h1{margin:0;font-size:1.85rem;letter-spacing:.2px}
@@ -303,7 +393,6 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
 /* ===== TOC ===== */
 .toc-title{text-align:center;margin:0 0 8px 0}
 .toc-sub{text-align:center;margin:0 0 14px 0;color:var(--muted)}
-
 .toc{
   display:grid;
   grid-template-columns: repeat(2, minmax(0,1fr));
@@ -326,7 +415,6 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
   outline:var(--yellow-outline);
   outline-offset:2px;
 }
-
 .toc-img{
   width:100%;
   height:140px;
@@ -340,9 +428,7 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
   width:100%;
   height:100%;
   object-fit:contain;
-  display:block;
 }
-
 .toc-body{
   padding:12px 14px;
   display:flex;
@@ -367,13 +453,15 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
 }
 .badge.test{background:rgba(245,158,11,.16); border-color:rgba(245,158,11,.25)}
 
-/* === hier der wichtige Part: Spalten strecken + links flexen, damit Galerie "mitzieht" === */
+/* WICHTIG: minmax(0,...) + min-width:0 verhindert overflow in Grid */
 .project-grid{
   display:grid;
-  grid-template-columns: 1.25fr .95fr;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, .95fr);
   gap:16px;
-  align-items:stretch; /* <- statt start */
+  align-items:stretch;
 }
+.project-grid > *{min-width:0;} /* <- mega wichtig */
+
 @media (max-width: 900px){ .project-grid{grid-template-columns:1fr;} }
 
 .project-text{
@@ -385,9 +473,10 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
   display:flex;
   flex-direction:column;
   gap:12px;
-}
 
-/* damit der "obere Textblock" nicht zu breit wirkt */
+  min-width:0;
+  overflow:hidden; /* <- verhindert "rauslaufen" */
+}
 .project-text p{margin:0}
 
 .rating{
@@ -401,18 +490,35 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
 .stars{font-size:1.12rem;letter-spacing:.08em;line-height:1;}
 .rating small{color:var(--muted);font-weight:800;}
 
-.btn-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:0}
+/* Buttons in den Projekten: stabil und gleichmäßig */
+.btn-row{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap:10px;
+  margin-top:0;
+}
+@media (max-width: 520px){
+  .btn-row{grid-template-columns: repeat(2, minmax(0,1fr));}
+  .btn-row a:last-child{grid-column: 1 / -1;}
+}
 
 .amazon-btn, .lumibricks-btn, .youtube-btn, .ig-btn{
-  display:inline-flex; align-items:center; gap:8px;
-  padding:9px 14px; border-radius:999px;
-  font-weight:950; font-size:.92rem;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:10px 12px;
+  border-radius:999px;
+  font-weight:950;
+  font-size:.92rem;
   transition:transform .14s ease, filter .14s ease, outline-color .14s ease;
+  min-width:0;
+  text-align:center;
 }
 .amazon-btn{background:#ff9900; color:#111}
 .lumibricks-btn{background:var(--btn-lumibricks); color:#111827; border:1px solid rgba(255,255,255,.10)}
 .youtube-btn{background:var(--btn-youtube); color:#fff; border:1px solid rgba(255,255,255,.10)}
-.ig-btn{background:rgba(255,255,255,0.14); color:#fff; border:1px solid rgba(255,255,255,.16)}
+.ig-btn{background:rgba(255,255,255,0.14); color:#fff; border:1px solid rgba(255,255,255,0.16)}
 .amazon-btn:hover,.lumibricks-btn:hover,.youtube-btn:hover,.ig-btn:hover{
   filter:brightness(1.10);
   transform:scale(1.04);
@@ -420,9 +526,7 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
   outline-offset:2px;
 }
 
-.anchor{scroll-margin-top:120px}
-
-/* ===== MINI-UPGRADE: "Mehr..." Chips ===== */
+/* ===== "Mehr..." Chips ===== */
 .more-links{
   margin-top:12px;
   display:flex;
@@ -437,18 +541,19 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
 }
 .more-links .header-chip:hover{opacity:1;}
 
-/* ===== Rabattcode ===== */
+/* ===== Rabattcode (stabil gegen overflow) ===== */
 .coupon{
   margin:0;
   display:flex;
   align-items:center;
   justify-content:flex-start;
   gap:10px;
-  flex-wrap:nowrap;
-  padding:8px 10px;
+  flex-wrap:wrap; /* <- wichtig */
+  padding:10px 10px;
   border-radius:12px;
   background:rgba(255,255,255,0.035);
   border:1px solid rgba(148,163,184,.14);
+  min-width:0;
 }
 .coupon .tag{
   display:inline-flex;
@@ -463,14 +568,16 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
   font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
   font-weight:950;
   font-size:.92rem;
-  padding:3px 10px;
+  padding:4px 10px;
   border-radius:999px;
   background:rgba(255,255,255,0.06);
   border:1px solid rgba(148,163,184,.18);
   color:rgba(229,231,235,.95);
-  white-space:nowrap;
+
+  max-width:100%;
   overflow:hidden;
   text-overflow:ellipsis;
+  white-space:nowrap;
 }
 .coupon .coupon-link{
   margin-left:auto;
@@ -483,11 +590,14 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
   text-underline-offset:3px;
 }
 .coupon .coupon-link:hover{opacity:1;}
+@media (max-width: 520px){
+  .coupon .coupon-link{margin-left:0;}
+}
 .copy-btn{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  padding:5px 7px;
+  padding:6px 8px;
   border-radius:999px;
   background:rgba(255,255,255,0.06);
   border:1px solid rgba(148,163,184,.18);
@@ -508,24 +618,18 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
   position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
   clip:rect(0,0,0,0);white-space:nowrap;border:0;
 }
-.hero-center .coupon{
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:10px;
-}
+.hero-center .coupon{justify-content:center;}
 .hero-center .coupon .coupon-link{margin-left:0;}
-@media (max-width: 420px){
-  .coupon{flex-wrap:wrap;}
-  .coupon .coupon-link{margin-left:0; max-width:150px; overflow:hidden; text-overflow:ellipsis;}
-}
 
-/* ===== Mini-Galerie (jetzt links unter Bewertung) ===== */
+/* ===== Mini-Galerie (stabil & kompakt) ===== */
 .gallery{
   border-radius:16px;
   overflow:hidden;
   border:1px solid rgba(148,163,184,.22);
   background:#0a1220;
   box-shadow:var(--shadow);
+
+  min-width:0;
 }
 .gallery-main{
   display:block;
@@ -545,14 +649,13 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
 }
 .gallery-main-img{
   width:100%;
-  height:300px; /* etwas kompakter – passt besser zur rechten Reel-Höhe */
-  object-fit:contain;          /* <-- wichtig: kein Abschneiden */
-  object-position:center;      /* <-- sauber zentrieren */
-  display:block;
-  background:#0a1220;          /* <-- Balken-Farbe passend */
+  height:290px;
+  object-fit:contain;
+  object-position:center;
+  background:#0a1220;
 }
 @media (max-width: 900px){
-  .gallery-main-img{height:280px;}
+  .gallery-main-img{height:260px;}
 }
 .gallery-cap{
   padding:10px 12px;
@@ -561,38 +664,40 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
   font-size:.9rem;
   border-top:1px solid rgba(148,163,184,.15);
 }
+
+/* Thumbs als GRID -> kein "läuft raus" */
 .gallery-thumbs{
-  display:flex;
+  display:grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
   gap:10px;
   padding:12px;
-  overflow:auto;
   border-top:1px solid rgba(148,163,184,.12);
   background:rgba(255,255,255,0.02);
 }
+@media (max-width: 520px){
+  .gallery-thumbs{grid-template-columns: repeat(3, minmax(0,1fr));}
+}
+
 .gthumb{
   border:1px solid rgba(148,163,184,.22);
   background:rgba(255,255,255,0.04);
   border-radius:12px;
   padding:0;
   cursor:pointer;
-  flex:0 0 auto;
-  width:78px;
-  height:58px;
+  width:100%;
+  aspect-ratio: 4 / 3;
   overflow:hidden;
   transition:transform .14s ease, filter .14s ease, outline-color .14s ease, border-color .14s ease;
 }
 .gthumb img{
   width:100%;
   height:100%;
-  object-fit:contain;          /* <-- auch Thumbs ohne Abschneiden */
-  object-position:center;
-  display:block;
-  background:#0a1220;          /* <-- Balken-Farbe in Thumbs */
+  object-fit:cover;
+  background:#0a1220;
 }
-
 .gthumb:hover{
   filter:brightness(1.10);
-  transform:scale(1.04);
+  transform:scale(1.03);
   outline:2px solid rgba(246,176,66,.35);
   outline-offset:2px;
 }
@@ -610,6 +715,8 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
   background:#0a1220;
   box-shadow:var(--shadow);
   display:block;
+
+  min-width:0;
 }
 .reel-thumb{
   position:relative;
@@ -632,30 +739,31 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
   font-size:.9rem;
 }
 
-/* kleine Optik: rechter Block "klebt" oben */
 .right-col{
   display:flex;
   flex-direction:column;
   gap:12px;
   align-items:stretch;
+
+  min-width:0;
+  overflow:hidden;
 }
 .affiliate-note{
-  margin-top:12px;
+  margin-top:2px;
   text-align:center;
   font-size:.9rem;
   color:rgba(229,231,235,.75);
   font-weight:800;
 }
-
   </style>
 </head>
 
 <body>
 
-<header class="site-header">
+<header class="site-header" id="siteHeader">
   <div class="wrap headbar">
 
-    <!-- LINKS: HUBS -->
+    <!-- LINKS: HUBS (Desktop) -->
     <div class="header-block" aria-label="Hubs">
       <div>
         <div class="header-title">📌 Profil</div>
@@ -678,7 +786,7 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
       </span>
     </a>
 
-    <!-- RECHTS: PARTNER -->
+    <!-- RECHTS: PARTNER (Desktop) -->
     <div class="header-block right" aria-label="Partner">
       <div>
         <div class="header-title">🏭 Hersteller</div>
@@ -706,6 +814,55 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
     </div>
 
   </div>
+
+  <!-- Mobile Toggle Row -->
+  <div class="wrap header-mobile-row" aria-label="Mobile Navigation">
+    <button class="header-toggle" type="button" data-toggle="hubs" aria-expanded="false" aria-controls="mobilePanels">
+      📌 Profil <span class="chev">▾</span>
+    </button>
+    <button class="header-toggle" type="button" data-toggle="partners" aria-expanded="false" aria-controls="mobilePanels">
+      🏭 Hersteller <span class="chev">▾</span>
+    </button>
+  </div>
+
+  <!-- Mobile Panels -->
+  <div class="wrap mobile-panels" id="mobilePanels">
+    <div class="mobile-panel hubs" aria-label="Mobile Hubs">
+      <div class="header-title">📌 Profil</div>
+      <div class="header-list hubs">
+        <a class="header-chip" href="ueber-uns.html">Über uns</a>
+        <a class="header-chip" href="videos.html">Videos</a>
+        <a class="header-chip" href="unsere-stadt.html">Unsere Stadt</a>
+        <a class="header-chip" href="eisenbahn.html">Eisenbahn</a>
+        <a class="header-chip" href="beleuchtung.html">Beleuchtung</a>
+        <a class="header-chip" href="merch.html">Merch</a>
+      </div>
+    </div>
+
+    <div class="mobile-panel partners" aria-label="Mobile Partner">
+      <div class="header-title">🏭 Hersteller</div>
+      <div class="header-list partners">
+        <a class="header-chip partner" href="partner-lesdiy.html">
+          <img src="images/lesdiy_logo.jpg" alt="LESDIY"><span>LESDIY</span>
+        </a>
+        <a class="header-chip partner active" href="partner-lumibricks.html">
+          <img src="images/Lumibricks.png" alt="Lumibricks"><span>Lumibricks</span>
+        </a>
+        <a class="header-chip partner" href="partner-briksmax.html">
+          <img src="images/briksmax.png" alt="Briksmax"><span>Briksmax</span>
+        </a>
+        <a class="header-chip partner" href="partner-jmbricklayer.html">
+          <img src="images/jmbricklayer_logo.jpg" alt="JMBricklayer"><span>JMBricklayer</span>
+        </a>
+        <a class="header-chip partner" href="partner-bluebrixx.html">
+          <img src="images/blue_brixx_logo.png" alt="BlueBrixx"><span>BlueBrixx</span>
+        </a>
+        <a class="header-chip partner" href="partner-lego.html">
+          <img src="images/lego_logo.png" alt="LEGO"><span>LEGO®</span>
+        </a>
+      </div>
+    </div>
+  </div>
 </header>
 
 <main class="wrap">
@@ -720,7 +877,7 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
       <div class="hero-center">
         <h1>Partner: Lumibricks</h1>
         <p class="muted">
-          Sets mit <strong>passender Beleuchtung</strong> + <strong>gedruckter Bauanleitung</strong> 
+          Sets mit <strong>passender Beleuchtung</strong> + <strong>gedruckter Bauanleitung</strong> –
           unser <a class="inline-link" href="ueber-uns.html">Bausteinklemmer</a>-Feedback als Reels/Shorts & Reviews.
         </p>
 
@@ -757,8 +914,7 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
 
     <p style="margin:0; text-align:center">
       <strong>Lumibricks</strong> (früher <strong>FunWhole</strong>) liefert Sets, bei denen <strong>Beleuchtung</strong> direkt mit dabei ist, plus
-      <strong>ausgedruckter Bau-Anleitung</strong>. Perfekt für Display & City-Feeling und für alle, die auf
-      <strong><a class="inline-link" href="beleuchtung.html">Licht</a></strong> stehen.
+      <strong>gedruckter Bau-Anleitung</strong>. Perfekt für Display & City-Feeling.
     </p>
 
     <p class="jump-line">
@@ -767,7 +923,9 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
       <a class="inline-link toc-jump" href="#station">Steampunk Bahnhof</a> ·
       <a class="inline-link toc-jump" href="#farm">Farm-Store</a> ·
       <a class="inline-link toc-jump" href="#book">Buch-Café</a> ·
-      <a class="inline-link toc-jump" href="#kiosk">Winterkiosk</a>
+      <a class="inline-link toc-jump" href="#kiosk">Winterkiosk</a> ·
+      <a class="inline-link toc-jump" href="#burg">Burg</a> ·
+      <a class="inline-link toc-jump" href="#western">Western</a>
     </p>
   </section>
 
@@ -778,68 +936,38 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
 
     <div class="toc">
       <a class="toc-card toc-jump" href="#ore">
-        <div class="toc-img">
-          <img src="images/steam-punk_ore.png" alt="Steam-Punk Ore Train (Bild 1)">
-        </div>
-        <div class="toc-body">
-          <div>
-            <strong>🚂 Steam-Punk Ore Train</strong>
-            <small>Display Monster</small>
-          </div>
-          <small>→</small>
-        </div>
+        <div class="toc-img"><img src="images/steam-punk_ore.png" alt="Steam-Punk Ore Train"></div>
+        <div class="toc-body"><div><strong>🚂 Steam-Punk Ore Train</strong><small>Display Monster</small></div><small>→</small></div>
       </a>
 
       <a class="toc-card toc-jump" href="#station">
-        <div class="toc-img">
-          <img src="images/steam-punk-bahnhof_1.jpeg" alt="Steampunk Train Station (Bild 1)">
-        </div>
-        <div class="toc-body">
-          <div>
-            <strong>🏭 Steampunk Bahnhof</strong>
-            <small>Wow, WAS für ein Bahnhof!</small>
-          </div>
-          <small>→</small>
-        </div>
+        <div class="toc-img"><img src="images/steam-punk-bahnhof_1.jpeg" alt="Steampunk Train Station"></div>
+        <div class="toc-body"><div><strong>🏭 Steampunk Bahnhof</strong><small>Wow, was für ein Bahnhof!</small></div><small>→</small></div>
       </a>
 
       <a class="toc-card toc-jump" href="#farm">
-        <div class="toc-img">
-          <img src="images/farm-store1.jpg" alt="Farm-Store (Bild 1)">
-        </div>
-        <div class="toc-body">
-          <div>
-            <strong>🌾 Farm-Store</strong>
-            <small>absolutes KOMPLETT Set</small>
-          </div>
-          <small>→</small>
-        </div>
+        <div class="toc-img"><img src="images/farm-store1.jpg" alt="Farm-Store"></div>
+        <div class="toc-body"><div><strong>🌾 Farm-Store</strong><small>absolutes Komplett-Set</small></div><small>→</small></div>
       </a>
 
       <a class="toc-card toc-jump" href="#book">
-        <div class="toc-img">
-          <img src="images/book-cafe1.1.jpg" alt="Buch-Café (Bild 1)">
-        </div>
-        <div class="toc-body">
-          <div>
-            <strong>📚 Buch-Café</strong>
-            <small>Modular und "nice'r" Hingucker!</small>
-          </div>
-          <small>→</small>
-        </div>
+        <div class="toc-img"><img src="images/book-cafe1.1.jpg" alt="Buch-Café"></div>
+        <div class="toc-body"><div><strong>📚 Buch-Café</strong><small>modularer Hingucker</small></div><small>→</small></div>
       </a>
 
       <a class="toc-card toc-jump" href="#kiosk">
-        <div class="toc-img">
-          <img src="images/kiosk1.jpg" alt="Winterkiosk / Newsstand (Bild 1)">
-        </div>
-        <div class="toc-body">
-          <div>
-            <strong>❄️ Winterkiosk (Newsstand)</strong>
-            <small>Mini aaaber SWEET!</small>
-          </div>
-          <small>→</small>
-        </div>
+        <div class="toc-img"><img src="images/kiosk1.jpg" alt="Winterkiosk"></div>
+        <div class="toc-body"><div><strong>❄️ Winterkiosk</strong><small>mini, aber sweet</small></div><small>→</small></div>
+      </a>
+
+      <a class="toc-card toc-jump" href="#burg">
+        <div class="toc-img"><img src="images/burg.jpg" alt="Burg"></div>
+        <div class="toc-body"><div><strong>🏰 Burg</strong><small>Coming soon</small></div><small>→</small></div>
+      </a>
+
+      <a class="toc-card toc-jump" href="#western">
+        <div class="toc-img"><img src="images/western.jpg" alt="Western"></div>
+        <div class="toc-body"><div><strong>🤠 Western</strong><small>Coming soon</small></div><small>→</small></div>
       </a>
     </div>
   </section>
@@ -849,31 +977,25 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
     <div class="project-head">
       <div>
         <h2 style="margin:0">Steam-Punk Ore Train</h2>
-        <p class="muted" style="margin:6px 0 0 0">Set inkl. Beleuchtung + Anleitung unser Short & Links.</p>
+        <p class="muted" style="margin:6px 0 0 0">Set inkl. Beleuchtung + Anleitung – unser Short & Links.</p>
       </div>
-      <div class="badges">
-        <span class="badge test">🛠️ Getestet / nicht im Stadt-Betrieb</span>
-      </div>
+      <div class="badges"><span class="badge test">🛠️ Getestet / nicht im Stadt-Betrieb</span></div>
     </div>
 
     <div class="project-grid">
-      <!-- LINKS: Beschreibung + Bewertung + Galerie (wie gewünscht) -->
       <div class="project-text">
-        <p>
-          <strong>Beschreibung:</strong><br>
-          Der <strong>Steam-Punk Ore Train</strong> ist ein richtiges „Display-Biest“ und kommt direkt mit passender
-          <a class="inline-link" href="beleuchtung.html">Beleuchtung</a> sowie <strong>ausgedruckter Bau-Anleitung</strong>.
-          Perfekt als Regal-Set oder als Szene neben einer <a class="inline-link" href="unsere-stadt.html">Klemmbaustein-Stadt. </a>KEINE Motorisierung mit bei..
-          
+        <p><strong>Beschreibung:</strong><br>
+          Der <strong>Steam-Punk Ore Train</strong> ist ein richtiges „Display-Biest“ – inkl. passender
+          <a class="inline-link" href="beleuchtung.html">Beleuchtung</a> und <strong>gedruckter Bau-Anleitung</strong>.
+          Perfekt als Regal-Set oder Szene neben einer <a class="inline-link" href="unsere-stadt.html">Klemmbaustein-Stadt</a>.
+          <strong>Keine</strong> Motorisierung mit bei.
         </p>
 
         <div class="rating">
           <span class="label">Bewertung:</span>
           <span class="stars" aria-label="3 von 5 Sternen">⭐⭐⭐☆☆</span>
-         
         </div>
 
-        <!-- Galerie direkt UNTER Beschreibung + Bewertung -->
         <div class="gallery" data-gallery="ore">
           <a class="gallery-main" href="https://www.lumibricks.com/de/products/steampunk-ore-train?_pos=6&_sid=094685bf5&_ss=r&ref=diebausteinklemmer" target="_blank" rel="noopener noreferrer sponsored nofollow" aria-label="Lumibricks Produkt öffnen">
             <img class="gallery-main-img" src="images/steam-punk_ore.png" alt="Steam-Punk Ore Train – Bild 1">
@@ -888,9 +1010,8 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
         </div>
 
         <div class="coupon" aria-label="Rabattcode">
-          <span class="tag">🎟️10% Rabatt-Code:</span>
+          <span class="tag">🎟️ 10% Rabatt-Code:</span>
           <code>DIEBAUSTEINKLEMMER</code>
-
           <button class="copy-btn" type="button" data-copy="DIEBAUSTEINKLEMMER" aria-label="Rabattcode kopieren" title="Code kopieren">
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M9 9V6.8c0-.93 0-1.4.18-1.76.16-.31.41-.56.72-.72C10.26 4 10.74 4 11.67 4h5.53c.93 0 1.4 0 1.76.18.31.16.56.41.72.72.18.36.18.83.18 1.76v5.53c0 .93 0 1.4-.18 1.76-.16.31-.41.56-.72.72-.36.18-.83.18-1.76.18H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -898,23 +1019,18 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
             </svg>
             <span class="sr-only">Kopieren</span>
           </button>
-
-          <a class="coupon-link" href="https://www.lumibricks.com/de/products/steampunk-ore-train?_pos=6&_sid=094685bf5&_ss=r&ref=diebausteinklemmer" target="_blank" rel="noopener noreferrer sponsored nofollow">
-            bei Lumibricks einlösen →
-          </a>
+          <a class="coupon-link" href="https://www.lumibricks.com/de/products/steampunk-ore-train?_pos=6&_sid=094685bf5&_ss=r&ref=diebausteinklemmer" target="_blank" rel="noopener noreferrer sponsored nofollow">bei Lumibricks einlösen →</a>
         </div>
 
         <div class="btn-row">
           <a class="youtube-btn" href="https://youtube.com/shorts/ErKCItUPHRc" target="_blank" rel="noopener noreferrer">▶ YouTube Short</a>
           <a class="amazon-btn" href="https://amzn.to/4sGNLdt" target="_blank" rel="noopener noreferrer sponsored nofollow">🛒 Amazon*</a>
           <a class="lumibricks-btn" href="https://www.lumibricks.com/de/products/steampunk-ore-train?_pos=6&_sid=094685bf5&_ss=r&ref=diebausteinklemmer" target="_blank" rel="noopener noreferrer sponsored nofollow">💡 Lumibricks*</a>
-        
-      </div>
-<p class="affiliate-note">
-  * Affiliate-Link: Für dich bleibt der Preis gleich.
-</p></div>
+        </div>
 
-      <!-- RECHTS: nur Short/Reel + mehr-links (wie auf deinem Screenshot gewünscht) -->
+        <p class="affiliate-note">* Affiliate-Link: Für dich bleibt der Preis gleich.</p>
+      </div>
+
       <div class="right-col">
         <a class="reel-wrap" href="https://youtube.com/shorts/ErKCItUPHRc" target="_blank" rel="noopener noreferrer" aria-label="YouTube Short öffnen">
           <div class="reel-thumb" style="background-image:url('https://img.youtube.com/vi/ErKCItUPHRc/hqdefault.jpg')"></div>
@@ -936,25 +1052,20 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
         <h2 style="margin:0">Steampunk Train Station (Bahnhof)</h2>
         <p class="muted" style="margin:6px 0 0 0">Der Steam-Punk Bahnhof aus der Zukunft!</p>
       </div>
-      <div class="badges">
-        <span class="badge test">🛠️ Getestet / nicht im Stadt-Betrieb</span>
-      </div>
+      <div class="badges"><span class="badge test">🛠️ Getestet / nicht im Stadt-Betrieb</span></div>
     </div>
 
     <div class="project-grid">
       <div class="project-text">
-        <p>
-          <strong>Beschreibung:</strong><br>
+        <p><strong>Beschreibung:</strong><br>
           Der Steampunk-Bahnhof ist ein super zukunftsorientiertes Diorama und typisch Lumibricks/FunWhole:
           <strong>Licht ist direkt dabei</strong>, plus <strong>ausgedruckter Bau-Anleitung</strong>.
-          Für City-Fans: perfekte Kulisse neben <a class="inline-link" href="eisenbahn.html">Eisenbahn</a> oder als
-          eigener Hingucker.
+          Für City-Fans: perfekte Kulisse neben <a class="inline-link" href="eisenbahn.html">Eisenbahn</a> oder als eigener Hingucker.
         </p>
 
         <div class="rating">
           <span class="label">Bewertung:</span>
           <span class="stars" aria-label="5 von 5 Sternen">⭐⭐⭐⭐⭐</span>
-         
         </div>
 
         <div class="gallery" data-gallery="station">
@@ -971,9 +1082,8 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
         </div>
 
         <div class="coupon" aria-label="Rabattcode">
-          <span class="tag">🎟️10% Rabatt-Code:</span>
+          <span class="tag">🎟️ 10% Rabatt-Code:</span>
           <code>DIEBAUSTEINKLEMMER</code>
-
           <button class="copy-btn" type="button" data-copy="DIEBAUSTEINKLEMMER" aria-label="Rabattcode kopieren" title="Code kopieren">
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M9 9V6.8c0-.93 0-1.4.18-1.76.16-.31.41-.56.72-.72C10.26 4 10.74 4 11.67 4h5.53c.93 0 1.4 0 1.76.18.31.16.56.41.72.72.18.36.18.83.18 1.76v5.53c0 .93 0 1.4-.18 1.76-.16.31-.41.56-.72.72-.36.18-.83.18-1.76.18H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -981,25 +1091,22 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
             </svg>
             <span class="sr-only">Kopieren</span>
           </button>
-
-          <a class="coupon-link" href="https://www.lumibricks.com/de/products/steampunk-train-station?_pos=2&_sid=094685bf5&_ss=r&ref=diebausteinklemmer" target="_blank" rel="noopener noreferrer sponsored nofollow">
-            bei Lumibricks einlösen →
-          </a>
+          <a class="coupon-link" href="https://www.lumibricks.com/de/products/steampunk-train-station?_pos=2&_sid=094685bf5&_ss=r&ref=diebausteinklemmer" target="_blank" rel="noopener noreferrer sponsored nofollow">bei Lumibricks einlösen →</a>
         </div>
 
         <div class="btn-row">
           <a class="youtube-btn" href="https://www.youtube.com/shorts/8SDTE_-Bor0" target="_blank" rel="noopener noreferrer">▶ YouTube Short</a>
           <a class="amazon-btn" href="https://amzn.to/4q8X3x0" target="_blank" rel="noopener noreferrer sponsored nofollow">🛒 Amazon*</a>
           <a class="lumibricks-btn" href="https://www.lumibricks.com/de/products/steampunk-train-station?_pos=2&_sid=094685bf5&_ss=r&ref=diebausteinklemmer" target="_blank" rel="noopener noreferrer sponsored nofollow">💡 Lumibricks*</a>
-        
+        </div>
+
+        <p class="affiliate-note">* Affiliate-Link: Für dich bleibt der Preis gleich.</p>
       </div>
-<p class="affiliate-note">
-  * Affiliate-Link: Für dich bleibt der Preis gleich.
-</p></div>
+
       <div class="right-col">
         <a class="reel-wrap" href="https://www.youtube.com/shorts/8SDTE_-Bor0" target="_blank" rel="noopener noreferrer" aria-label="YouTube Short öffnen">
           <div class="reel-thumb" style="background-image:url('https://img.youtube.com/vi/8SDTE_-Bor0/hqdefault.jpg')"></div>
-          <div class="reel-cap">Yotube Short ansehen </div>
+          <div class="reel-cap">YouTube Short ansehen</div>
         </a>
 
         <div class="more-links" aria-label="Mehr entdecken">
@@ -1015,26 +1122,22 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
     <div class="project-head">
       <div>
         <h2 style="margin:0">Farm-Store</h2>
-        <p class="muted" style="margin:6px 0 0 0">Viele kleine Farmer Details</p>
+        <p class="muted" style="margin:6px 0 0 0">Viele kleine Farmer-Details.</p>
       </div>
-      <div class="badges">
-        <span class="badge test">🛠️ Getestet / nicht im Stadt-Betrieb</span>
-      </div>
+      <div class="badges"><span class="badge test">🛠️ Getestet / nicht im Stadt-Betrieb</span></div>
     </div>
 
     <div class="project-grid">
       <div class="project-text">
-        <p>
-          <strong>Beschreibung:</strong><br>
-          Der Farm-Store ist ein richtig detailreiches Set und wie gewohnt bei Lumibricks/FunWhole:
+        <p><strong>Beschreibung:</strong><br>
+          Der Farm-Store ist ein richtig detailreiches Set – wie gewohnt bei Lumibricks/FunWhole:
           <strong>Beleuchtung ist direkt im Paket</strong> und eine <strong>gedruckte Anleitung</strong> liegt bei.
-          Ideal für Städte, Dioramen oder als „Country“-Ecke neben einer <a class="inline-link" href="unsere-stadt.html">City</a>.
+          Ideal für Städte, Dioramen oder als „Country“-Ecke neben deiner <a class="inline-link" href="unsere-stadt.html">City</a>.
         </p>
 
         <div class="rating">
           <span class="label">Bewertung:</span>
           <span class="stars" aria-label="4 von 5 Sternen">⭐⭐⭐⭐☆</span>
-        
         </div>
 
         <div class="gallery" data-gallery="farm">
@@ -1051,35 +1154,31 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
         </div>
 
         <div class="coupon" aria-label="Rabattcode">
-          <span class="tag">🎟️10% Rabatt-Code:</span>
+          <span class="tag">🎟️ 10% Rabatt-Code:</span>
           <code>DIEBAUSTEINKLEMMER</code>
-
           <button class="copy-btn" type="button" data-copy="DIEBAUSTEINKLEMMER" aria-label="Rabattcode kopieren" title="Code kopieren">
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M9 9V6.8c0-.93 0-1.4.18-1.76.16-.31.41-.56.72-.72C10.26 4 10.74 4 11.67 4h5.53c.93 0 1.4 0 1.76.18.31.16.56.41.72.72.18.36.18.83.18 1.76v5.53c0 .93 0 1.4-.18 1.76-.16.31-.41.56-.72.72-.36.18-.83.18-1.76.18H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M4 11.67c0-.93 0-1.4.18-1.76.16-.31.41-.56.72-.72C5.26 9 5.74 9 6.67 9h5.53c.93 0 1.4 0 1.76.18.31.16.56.41.72.72.18.36.18.83.18 1.76v5.53c0 .93 0 1.4-.18 1.76-.16.31-.41.56-.72.72-.36.18-.83.18-1.76.18H6.67c-.93 0-1.4 0-1.76-.18-.31-.16-.56-.41-.72-.72C4 18.6 4 18.13 4 17.2v-5.53Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M9 9V6.8c0-.93 0-1.4.18-1.76.16-.31.41-.56.72-.72C10.26 4 10.74 4 11.67 4h5.53c.93 0 1.4 0 1.76.18.31.16.56.41.72.72.18.36.18.83.18 1.76v5.53c0 .93 0 1.4-.18 1.76-.16.31.41-.56.72-.72-.36.18-.83.18-1.76.18H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M4 11.67c0-.93 0-1.4.18-1.76.16-.31.41-.56.72-.72C5.26 9 5.74 9 6.67 9h5.53c.93 0 1.4 0 1.76.18.31.16.56.41.72.72.18.36.18.83.18 1.76v5.53c0 .93 0 1.4-.18 1.76-.16.31-.41.56-.72.72-.36.18-.83.18-1.76.18H6.67c-.93 0-1.4 0-1.76-.18-.31-.16.56-.41.72-.72C4 18.6 4 18.13 4 17.2v-5.53Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
             <span class="sr-only">Kopieren</span>
           </button>
-
-          <a class="coupon-link" href="https://www.lumibricks.com/de/products/farm-store?_pos=1&_sid=af72bad56&_ss=r&ref=diebausteinklemmer" target="_blank" rel="noopener noreferrer sponsored nofollow">
-            bei Lumibricks einlösen →
-          </a>
+          <a class="coupon-link" href="https://www.lumibricks.com/de/products/farm-store?_pos=1&_sid=af72bad56&_ss=r&ref=diebausteinklemmer" target="_blank" rel="noopener noreferrer sponsored nofollow">bei Lumibricks einlösen →</a>
         </div>
 
         <div class="btn-row">
           <a class="youtube-btn" href="https://youtube.com/shorts/DrA67GNYFgU" target="_blank" rel="noopener noreferrer">▶ YouTube Short</a>
           <a class="amazon-btn" href="https://www.amazon.de/s?k=funwhole+farm+store" target="_blank" rel="noopener noreferrer sponsored nofollow">🛒 Amazon (Suche)*</a>
           <a class="lumibricks-btn" href="https://www.lumibricks.com/de/products/farm-store?_pos=1&_sid=af72bad56&_ss=r&ref=diebausteinklemmer" target="_blank" rel="noopener noreferrer sponsored nofollow">💡 Lumibricks*</a>
-        
+        </div>
+
+        <p class="affiliate-note">* Affiliate-Link: Für dich bleibt der Preis gleich.</p>
       </div>
-<p class="affiliate-note">
-  * Affiliate-Link: Für dich bleibt der Preis gleich.
-</p></div>
+
       <div class="right-col">
         <a class="reel-wrap" href="https://youtube.com/shorts/DrA67GNYFgU" target="_blank" rel="noopener noreferrer" aria-label="YouTube Short öffnen">
           <div class="reel-thumb" style="background-image:url('https://img.youtube.com/vi/DrA67GNYFgU/hqdefault.jpg')"></div>
-          <div class="reel-cap">YouTube Short </div>
+          <div class="reel-cap">YouTube Short</div>
         </a>
 
         <div class="more-links" aria-label="Mehr entdecken">
@@ -1095,31 +1194,26 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
     <div class="project-head">
       <div>
         <h2 style="margin:0">Buch-Café</h2>
-        <p class="muted" style="margin:6px 0 0 0">ein modularer Traum für Minifiguren</p>
+        <p class="muted" style="margin:6px 0 0 0">Ein modularer Traum für Minifiguren.</p>
       </div>
-      <div class="badges">
-        <span class="badge test">🛠️ Getestet / nicht im Stadt-Betrieb</span>
-      </div>
+      <div class="badges"><span class="badge test">🛠️ Getestet / nicht im Stadt-Betrieb</span></div>
     </div>
 
     <div class="project-grid">
       <div class="project-text">
-        <p>
-          <strong>Beschreibung:</strong><br>
+        <p><strong>Beschreibung:</strong><br>
           Das Buch-Café ist genau die Art Set, die durch <a class="inline-link" href="beleuchtung.html">Beleuchtung</a> erst richtig lebt:
-          warmes Licht, Details einfach ein <strong>Hingucker</strong>.
-          
+          warmes Licht, Details – einfach ein <strong>Hingucker</strong>.
         </p>
 
         <div class="rating">
           <span class="label">Bewertung:</span>
           <span class="stars" aria-label="5 von 5 Sternen">⭐⭐⭐⭐⭐</span>
-          
         </div>
 
         <div class="gallery" data-gallery="book">
           <a class="gallery-main" href="https://www.lumibricks.com/de/products/book-cafe-1718pcs?_pos=1&_psq=book&_ss=e&_v=1.0&ref=diebausteinklemmer" target="_blank" rel="noopener noreferrer sponsored nofollow" aria-label="Lumibricks Produkt öffnen">
-            <img class="gallery-main-img" src="images/book-cafe1.jpg" alt="Buch-Café – Bild 1">
+            <img class="gallery-main-img" src="images/book-cafe1.1.jpg" alt="Buch-Café – Bild 1">
             <div class="gallery-cap">Bildergalerie (klicken = Produkt öffnen)</div>
           </a>
           <div class="gallery-thumbs" aria-label="Buch-Café Bilder">
@@ -1131,35 +1225,31 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
         </div>
 
         <div class="coupon" aria-label="Rabattcode">
-          <span class="tag">🎟️10% Rabatt-Code:</span>
+          <span class="tag">🎟️ 10% Rabatt-Code:</span>
           <code>DIEBAUSTEINKLEMMER</code>
-
           <button class="copy-btn" type="button" data-copy="DIEBAUSTEINKLEMMER" aria-label="Rabattcode kopieren" title="Code kopieren">
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M9 9V6.8c0-.93 0-1.4.18-1.76.16-.31.41-.56.72-.72C10.26 4 10.74 4 11.67 4h5.53c.93 0 1.4 0 1.76.18.31.16.56.41.72.72.18.36.18.83.18 1.76v5.53c0 .93 0 1.4-.18 1.76-.16.31-.41.56-.72.72-.36.18-.83.18-1.76.18H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M4 11.67c0-.93 0-1.4.18-1.76.16-.31.41-.56.72-.72C5.26 9 5.74 9 6.67 9h5.53c.93 0 1.4 0 1.76.18.31.16.56.41.72.72.18.36.18.83.18 1.76v5.53c0 .93 0 1.4-.18 1.76-.16.31-.41.56-.72.72-.36.18-.83.18-1.76.18H6.67c-.93 0-1.4 0-1.76-.18-.31-.16-.56-.41-.72-.72C4 18.6 4 18.13 4 17.2v-5.53Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M9 9V6.8c0-.93 0-1.4.18-1.76.16-.31.41-.56.72-.72C10.26 4 10.74 4 11.67 4h5.53c.93 0 1.4 0 1.76.18.31.16.56.41.72.72.18.36.18.83.18 1.76v5.53c0 .93 0 1.4-.18 1.76-.16.31.41-.56.72-.72-.36.18-.83.18-1.76.18H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M4 11.67c0-.93 0-1.4.18-1.76.16-.31.41-.56.72-.72C5.26 9 5.74 9 6.67 9h5.53c.93 0 1.4 0 1.76.18.31.16.56.41.72.72.18.36.18.83.18 1.76v5.53c0 .93 0 1.4-.18 1.76-.16.31-.41.56-.72.72-.36.18-.83.18-1.76.18H6.67c-.93 0-1.4 0-1.76-.18-.31-.16.56-.41.72-.72C4 18.6 4 18.13 4 17.2v-5.53Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
             <span class="sr-only">Kopieren</span>
           </button>
-
-          <a class="coupon-link" href="https://www.lumibricks.com/de/products/book-cafe-1718pcs?_pos=1&_psq=book&_ss=e&_v=1.0&ref=diebausteinklemmer" target="_blank" rel="noopener noreferrer sponsored nofollow">
-            bei Lumibricks einlösen →
-          </a>
+          <a class="coupon-link" href="https://www.lumibricks.com/de/products/book-cafe-1718pcs?_pos=1&_psq=book&_ss=e&_v=1.0&ref=diebausteinklemmer" target="_blank" rel="noopener noreferrer sponsored nofollow">bei Lumibricks einlösen →</a>
         </div>
 
         <div class="btn-row">
           <a class="youtube-btn" href="https://www.youtube.com/shorts/fKG9rcOpHrU" target="_blank" rel="noopener noreferrer">▶ YouTube Short</a>
           <a class="amazon-btn" href="https://amzn.to/4pZdXhq" target="_blank" rel="noopener noreferrer sponsored nofollow">🛒 Amazon*</a>
           <a class="lumibricks-btn" href="https://www.lumibricks.com/de/products/book-cafe-1718pcs?_pos=1&_psq=book&_ss=e&_v=1.0&ref=diebausteinklemmer" target="_blank" rel="noopener noreferrer sponsored nofollow">💡 Lumibricks*</a>
-        
+        </div>
+
+        <p class="affiliate-note">* Affiliate-Link: Für dich bleibt der Preis gleich.</p>
       </div>
-<p class="affiliate-note">
-  * Affiliate-Link: Für dich bleibt der Preis gleich.
-</p></div>
+
       <div class="right-col">
         <a class="reel-wrap" href="https://www.youtube.com/shorts/fKG9rcOpHrU" target="_blank" rel="noopener noreferrer" aria-label="YouTube Short öffnen">
           <div class="reel-thumb" style="background-image:url('https://img.youtube.com/vi/fKG9rcOpHrU/hqdefault.jpg')"></div>
-          <div class="reel-cap">Yotube Short ansehen </div>
+          <div class="reel-cap">YouTube Short ansehen</div>
         </a>
 
         <div class="more-links" aria-label="Mehr entdecken">
@@ -1175,26 +1265,22 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
     <div class="project-head">
       <div>
         <h2 style="margin:0">Winterkiosk (Newsstand)</h2>
-        <p class="muted" style="margin:6px 0 0 0">Limitiertes Winter Set</p>
+        <p class="muted" style="margin:6px 0 0 0">Limitiertes Winter-Set.</p>
       </div>
-      <div class="badges">
-        <span class="badge test">🛠️ Getestet / nicht im Stadt-Betrieb</span>
-      </div>
+      <div class="badges"><span class="badge test">🛠️ Getestet / nicht im Stadt-Betrieb</span></div>
     </div>
 
     <div class="project-grid">
       <div class="project-text">
-        <p>
-          <strong>Beschreibung:</strong><br>
+        <p><strong>Beschreibung:</strong><br>
           Ein kleines Set, das durch die Beleuchtung extrem gewinnt: Winterkiosk / Newsstand.
-          Wie gewohnt: <strong>passende Beleuchtung</strong> + einzigartige <strong>Winter Detaiks</strong>.
+          Wie gewohnt: <strong>passende Beleuchtung</strong> + einzigartige <strong>Winter-Details</strong>.
           Mega als Display oder saisonale Deko neben deiner <a class="inline-link" href="unsere-stadt.html">Stadt</a>.
         </p>
 
         <div class="rating">
           <span class="label">Bewertung:</span>
           <span class="stars" aria-label="5 von 5 Sternen">⭐⭐⭐⭐⭐</span>
-          
         </div>
 
         <div class="gallery" data-gallery="kiosk">
@@ -1203,7 +1289,7 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
             <div class="gallery-cap">Bildergalerie (klicken = Produkt öffnen)</div>
           </a>
           <div class="gallery-thumbs" aria-label="Kiosk Bilder">
-            <button class="gthumb active" type="button" data-target="kiosk" data-src="images/kiosk2.jpg" data-alt="Winterkiosk – Bild 1"><img src="images/kiosk2.jpg" alt=""></button>
+            <button class="gthumb active" type="button" data-target="kiosk" data-src="images/kiosk1.jpg" data-alt="Winterkiosk – Bild 1"><img src="images/kiosk1.jpg" alt=""></button>
             <button class="gthumb" type="button" data-target="kiosk" data-src="images/kiosk2.jpeg" data-alt="Winterkiosk – Bild 2"><img src="images/kiosk2.jpeg" alt=""></button>
             <button class="gthumb" type="button" data-target="kiosk" data-src="images/kiosk3.jpg" data-alt="Winterkiosk – Bild 3"><img src="images/kiosk3.jpg" alt=""></button>
             <button class="gthumb" type="button" data-target="kiosk" data-src="images/kiosk4.jpg" data-alt="Winterkiosk – Bild 4"><img src="images/kiosk4.jpg" alt=""></button>
@@ -1211,40 +1297,148 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
         </div>
 
         <div class="coupon" aria-label="Rabattcode">
-          <span class="tag">🎟️10% Rabatt-Code:</span>
+          <span class="tag">🎟️ 10% Rabatt-Code:</span>
           <code>DIEBAUSTEINKLEMMER</code>
-
           <button class="copy-btn" type="button" data-copy="DIEBAUSTEINKLEMMER" aria-label="Rabattcode kopieren" title="Code kopieren">
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M9 9V6.8c0-.93 0-1.4.18-1.76.16-.31.41-.56.72-.72C10.26 4 10.74 4 11.67 4h5.53c.93 0 1.4 0 1.76.18.31.16.56.41.72.72.18.36.18.83.18 1.76v5.53c0 .93 0 1.4-.18 1.76-.16.31-.41.56-.72.72-.36.18-.83.18-1.76.18H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M4 11.67c0-.93 0-1.4.18-1.76.16-.31.41-.56.72-.72C5.26 9 5.74 9 6.67 9h5.53c.93 0 1.4 0 1.76.18.31.16.56.41.72.72.18.36.18.83.18 1.76v5.53c0 .93 0 1.4-.18 1.76-.16.31-.41.56-.72.72-.36.18-.83.18-1.76.18H6.67c-.93 0-1.4 0-1.76-.18-.31-.16-.56-.41-.72-.72C4 18.6 4 18.13 4 17.2v-5.53Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M9 9V6.8c0-.93 0-1.4.18-1.76.16-.31.41-.56.72-.72C10.26 4 10.74 4 11.67 4h5.53c.93 0 1.4 0 1.76.18.31.16.56.41.72.72.18.36.18.83.18 1.76v5.53c0 .93 0 1.4-.18 1.76-.16.31.41-.56.72-.72-.36.18-.83.18-1.76.18H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M4 11.67c0-.93 0-1.4.18-1.76.16-.31.41-.56.72-.72C5.26 9 5.74 9 6.67 9h5.53c.93 0 1.4 0 1.76.18.31.16.56.41.72.72.18.36.18.83.18 1.76v5.53c0 .93 0 1.4-.18 1.76-.16.31-.41.56-.72.72-.36.18-.83.18-1.76.18H6.67c-.93 0-1.4 0-1.76-.18-.31-.16.56-.41.72-.72C4 18.6 4 18.13 4 17.2v-5.53Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
             <span class="sr-only">Kopieren</span>
           </button>
-
-          <a class="coupon-link" href="https://www.lumibricks.com/de/products/newsstand?_pos=1&_psq=kiosk&_ss=e&_v=1.0&ref=diebausteinklemmer" target="_blank" rel="noopener noreferrer sponsored nofollow">
-            bei Lumibricks einlösen →
-          </a>
+          <a class="coupon-link" href="https://www.lumibricks.com/de/products/newsstand?_pos=1&_psq=kiosk&_ss=e&_v=1.0&ref=diebausteinklemmer" target="_blank" rel="noopener noreferrer sponsored nofollow">bei Lumibricks einlösen →</a>
         </div>
 
         <div class="btn-row">
           <a class="youtube-btn" href="https://youtube.com/shorts/orCWnUgKRWg" target="_blank" rel="noopener noreferrer">▶ YouTube Short</a>
           <a class="amazon-btn" href="https://amzn.to/4q8X6ca" target="_blank" rel="noopener noreferrer sponsored nofollow">🛒 Amazon*</a>
           <a class="lumibricks-btn" href="https://www.lumibricks.com/de/products/newsstand?_pos=1&_psq=kiosk&_ss=e&_v=1.0&ref=diebausteinklemmer" target="_blank" rel="noopener noreferrer sponsored nofollow">💡 Lumibricks*</a>
-       
+        </div>
+
+        <p class="affiliate-note">* Affiliate-Link: Für dich bleibt der Preis gleich.</p>
       </div>
- <p class="affiliate-note">
-  * Affiliate-Link: Für dich bleibt der Preis gleich.
-</p></div>
+
       <div class="right-col">
         <a class="reel-wrap" href="https://youtube.com/shorts/orCWnUgKRWg" target="_blank" rel="noopener noreferrer" aria-label="YouTube Short öffnen">
           <div class="reel-thumb" style="background-image:url('https://img.youtube.com/vi/orCWnUgKRWg/hqdefault.jpg')"></div>
-          <div class="reel-cap">Yotube Short ansehen </div>
+          <div class="reel-cap">YouTube Short ansehen</div>
         </a>
 
         <div class="more-links" aria-label="Mehr entdecken">
           <a class="header-chip" href="beleuchtung.html">💡 Mehr Beleuchtung</a>
           <a class="header-chip" href="videos.html">▶ Mehr Videos</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== BURG (Coming Soon) ========== -->
+  <section id="burg" class="card anchor">
+    <div class="project-head">
+      <div>
+        <h2 style="margin:0">Burg (Coming Soon)</h2>
+        <p class="muted" style="margin:6px 0 0 0">Eyecatcher – kommt als nächstes rein.</p>
+      </div>
+      <div class="badges"><span class="badge test">🛠️ Coming Soon</span></div>
+    </div>
+
+    <div class="project-grid">
+      <div class="project-text">
+        <p><strong>Beschreibung:</strong><br>Coming soon – sobald du Links/Bilder hast, bauen wir die finalen Buttons & Gallery sauber ein.</p>
+
+        <div class="rating">
+          <span class="label">Bewertung:</span>
+          <span class="stars" aria-label="Noch nicht bewertet">⭐⭐⭐⭐⭐</span>
+          <small>(Platzhalter)</small>
+        </div>
+
+        <div class="gallery" data-gallery="burg">
+          <a class="gallery-main" href="#" aria-label="Burg (Coming Soon)">
+            <img class="gallery-main-img" src="images/burg1.jpg" alt="Burg – Bild 1">
+            <div class="gallery-cap">Bildergalerie (coming soon)</div>
+          </a>
+          <div class="gallery-thumbs" aria-label="Burg Bilder">
+            <button class="gthumb active" type="button" data-target="burg" data-src="images/burg1.jpg" data-alt="Burg – Bild 1"><img src="images/burg1.jpg" alt=""></button>
+            <button class="gthumb" type="button" data-target="burg" data-src="images/burg2.jpeg" data-alt="Burg – Bild 2"><img src="images/burg2.jpeg" alt=""></button>
+            <button class="gthumb" type="button" data-target="burg" data-src="images/burg3.jpg" data-alt="Burg – Bild 3"><img src="images/burg3.jpg" alt=""></button>
+            <button class="gthumb" type="button" data-target="burg" data-src="images/burg4.jpg" data-alt="Burg – Bild 4"><img src="images/burg4.jpg" alt=""></button>
+          </div>
+        </div>
+
+        <div class="btn-row">
+          <a class="youtube-btn" href="#" aria-disabled="true">▶ YouTube Short</a>
+          <a class="amazon-btn" href="#" aria-disabled="true">🛒 Amazon*</a>
+          <a class="lumibricks-btn" href="#" aria-disabled="true">💡 Lumibricks*</a>
+        </div>
+
+        <p class="affiliate-note">* Platzhalter bis Links final sind.</p>
+      </div>
+
+      <div class="right-col">
+        <div class="reel-wrap" aria-label="Coming soon">
+          <div class="reel-thumb" style="background-image:url('images/burg1.jpg')"></div>
+          <div class="reel-cap">Video folgt</div>
+        </div>
+
+        <div class="more-links" aria-label="Mehr entdecken">
+          <a class="header-chip" href="unsere-stadt.html">🏙️ Mehr Stadt</a>
+          <a class="header-chip" href="videos.html">▶ Mehr Videos</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WESTERN (Coming Soon) ========== -->
+  <section id="western" class="card anchor">
+    <div class="project-head">
+      <div>
+        <h2 style="margin:0">Western (Coming Soon)</h2>
+        <p class="muted" style="margin:6px 0 0 0">Es kann nur einen Cowboy geben 😄</p>
+      </div>
+      <div class="badges"><span class="badge test">🛠️ Coming Soon</span></div>
+    </div>
+
+    <div class="project-grid">
+      <div class="project-text">
+        <p><strong>Beschreibung:</strong><br>Coming soon – sobald du Links/Bilder hast, setzen wir das wie bei den anderen Projekten um.</p>
+
+        <div class="rating">
+          <span class="label">Bewertung:</span>
+          <span class="stars" aria-label="Noch nicht bewertet">⭐⭐⭐⭐⭐</span>
+          <small>(Platzhalter)</small>
+        </div>
+
+        <div class="gallery" data-gallery="western">
+          <a class="gallery-main" href="#" aria-label="Western (Coming Soon)">
+            <img class="gallery-main-img" src="images/western1.jpg" alt="Western – Bild 1">
+            <div class="gallery-cap">Bildergalerie (coming soon)</div>
+          </a>
+          <div class="gallery-thumbs" aria-label="Western Bilder">
+            <button class="gthumb active" type="button" data-target="western" data-src="images/western1.jpg" data-alt="Western – Bild 1"><img src="images/western1.jpg" alt=""></button>
+            <button class="gthumb" type="button" data-target="western" data-src="images/western2.jpg" data-alt="Western – Bild 2"><img src="images/western2.jpg" alt=""></button>
+            <button class="gthumb" type="button" data-target="western" data-src="images/western3.jpg" data-alt="Western – Bild 3"><img src="images/western3.jpg" alt=""></button>
+            <button class="gthumb" type="button" data-target="western" data-src="images/western4.jpg" data-alt="Western – Bild 4"><img src="images/western4.jpg" alt=""></button>
+          </div>
+        </div>
+
+        <div class="btn-row">
+          <a class="youtube-btn" href="#" aria-disabled="true">▶ YouTube Short</a>
+          <a class="amazon-btn" href="#" aria-disabled="true">🛒 Amazon*</a>
+          <a class="lumibricks-btn" href="#" aria-disabled="true">💡 Lumibricks*</a>
+        </div>
+
+        <p class="affiliate-note">* Platzhalter bis Links final sind.</p>
+      </div>
+
+      <div class="right-col">
+        <div class="reel-wrap" aria-label="Coming soon">
+          <div class="reel-thumb" style="background-image:url('images/western1.jpg')"></div>
+          <div class="reel-cap">Video folgt</div>
+        </div>
+
+        <div class="more-links" aria-label="Mehr entdecken">
+          <a class="header-chip" href="unsere-stadt.html">🏙️ Mehr Stadt</a>
+          <a class="header-chip" href="eisenbahn.html">🚆 Mehr Eisenbahn</a>
         </div>
       </div>
     </div>
@@ -1275,9 +1469,7 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
       });
     });
 
-    window.addEventListener('load', ()=>{
-      flashTargetFromHash(location.hash);
-    });
+    window.addEventListener('load', ()=> flashTargetFromHash(location.hash));
 
     // ===== Copy-to-Clipboard (Coupon) =====
     async function copyText(text){
@@ -1337,6 +1529,54 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
         btn.classList.add('active');
       });
     });
+
+    // ===== Mobile Header Toggle =====
+    (function(){
+      const header = document.getElementById('siteHeader');
+      if(!header) return;
+
+      const btns = header.querySelectorAll('.header-toggle[data-toggle]');
+      function setExpanded(btn, isOpen){
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      }
+
+      function closeAll(){
+        header.classList.remove('is-hubs-open','is-partners-open');
+        btns.forEach(b=>setExpanded(b,false));
+      }
+
+      btns.forEach(btn=>{
+        btn.addEventListener('click', ()=>{
+          const type = btn.getAttribute('data-toggle');
+          const isHubs = type === 'hubs';
+          const openClass = isHubs ? 'is-hubs-open' : 'is-partners-open';
+          const otherClass = isHubs ? 'is-partners-open' : 'is-hubs-open';
+
+          const isOpen = header.classList.contains(openClass);
+
+          header.classList.remove(otherClass);
+          header.classList.toggle(openClass, !isOpen);
+
+          btns.forEach(b=>{
+            const t = b.getAttribute('data-toggle');
+            const shouldOpen = header.classList.contains(t === 'hubs' ? 'is-hubs-open' : 'is-partners-open');
+            setExpanded(b, shouldOpen);
+          });
+
+          if(!header.classList.contains('is-hubs-open') && !header.classList.contains('is-partners-open')){
+            closeAll();
+          }
+        });
+      });
+
+      window.addEventListener('resize', ()=>{
+        if(window.innerWidth > 980) closeAll();
+      });
+
+      header.querySelectorAll('.mobile-panels a').forEach(a=>{
+        a.addEventListener('click', ()=>closeAll());
+      });
+    })();
   </script>
 
 </main>
