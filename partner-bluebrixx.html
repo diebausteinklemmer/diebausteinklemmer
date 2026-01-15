@@ -5,27 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- ===== SEO: Title / Description ===== -->
-  <title>BlueBrixx Partner-Projekte: Eisenbahn, City & Empfehlungen · Die Bausteinklemmer</title>
-  <meta name="description" content="BlueBrixx x Die Bausteinklemmer: Eisenbahn-, City- & Display-Projekte, Reviews, Empfehlungen und Links – übersichtlich nach Projekten sortiert." />
+  <title>BlueBrixx Hub: Züge, Umbauten & Projekte · Die Bausteinklemmer</title>
+  <meta name="description" content="BlueBrixx Hub bei Die Bausteinklemmer: Rheingold Express, Regional-Express & ICE (weiß/rot) – Umbau, Kürzung, Beleuchtung, Motorisierung + Videos & Shorts. Weitere Zug-Projekte folgen." />
 
   <!-- ===== SEO: Robots / Canonical ===== -->
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <link rel="canonical" href="https://diebausteinklemmer.de/partner-bluebrixx.html" />
-
   <link rel="icon" href="images/logo.png" />
 
   <!-- ===== Social Preview (OG / Twitter) ===== -->
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="de_DE" />
-  <meta property="og:title" content="BlueBrixx Partner-Projekte · Die Bausteinklemmer" />
-  <meta property="og:description" content="BlueBrixx x Die Bausteinklemmer: Eisenbahn, City, Display – Projekte, Reviews und Links, übersichtlich nach Projekten." />
+  <meta property="og:title" content="BlueBrixx Hub · Die Bausteinklemmer" />
+  <meta property="og:description" content="Rheingold Express, Regional-Express & ICE (weiß/rot): Umbau, Kürzung, Beleuchtung & Motorisierung – Videos + Shorts. Weitere BlueBrixx Zug-Projekte folgen." />
   <meta property="og:url" content="https://diebausteinklemmer.de/partner-bluebrixx.html" />
   <meta property="og:image" content="https://diebausteinklemmer.de/images/logo.png" />
   <meta property="og:image:alt" content="Die Bausteinklemmer – Logo" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="BlueBrixx Partner-Projekte · Die Bausteinklemmer" />
-  <meta name="twitter:description" content="BlueBrixx x Die Bausteinklemmer: Eisenbahn, City, Display – Projekte, Reviews und Links." />
+  <meta name="twitter:title" content="BlueBrixx Hub · Die Bausteinklemmer" />
+  <meta name="twitter:description" content="Rheingold Express, Regional-Express & ICE (weiß/rot): Umbau, Kürzung, Beleuchtung & Motorisierung – Videos + Shorts." />
   <meta name="twitter:image" content="https://diebausteinklemmer.de/images/logo.png" />
 
   <!-- ===== Structured Data (JSON-LD) ===== -->
@@ -64,11 +63,21 @@
   --radius:18px;
   --shadow:0 10px 30px rgba(2,8,23,.45);
 
-  /* Partner Button Farbe */
+  /* BlueBrixx Button-Farbe */
   --btn-bluebrixx:#7dd3fc;
   --btn-youtube:#ff0033;
   --btn-home:#f6b042;
   --btn-home-text:#111827;
+
+  /* Navigation/HUB Buttons (z.B. „Mehr Eisenbahn“) */
+  --btn-nav: rgba(34,197,94,.22);
+  --btn-nav-border: rgba(34,197,94,.35);
+  --btn-nav-text: rgba(234,255,241,.98);
+
+  /* Amazon/Affiliate (dezenter) */
+  --btn-amazon: rgba(255,153,0,.16);
+  --btn-amazon-border: rgba(255,153,0,.38);
+  --btn-amazon-text: rgba(255,255,255,.92);
 
   --chip-bg: rgba(255,255,255,0.08);
   --chip-border: rgba(148,163,184,.18);
@@ -77,8 +86,11 @@
   --yellow-outline: 2px solid rgba(246,176,66,.95);
   --glow: 0 0 0 2px rgba(246,176,66,.85), 0 0 0 8px rgba(255,255,255,.06);
 
-  --hero-logo-size: 96px;
-  --hero-klemmer-size: 110px;
+  /* HERO Logo-Boxen (fix & optisch groß) */
+  --hero-logo-size: 130px;     /* Partner */
+  --hero-klemmer-size: 130px;  /* Klemmer */
+
+  --header-pad: 10px;
 }
 
 *{box-sizing:border-box}
@@ -88,10 +100,18 @@ html,body{
   font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif
 }
 a{text-decoration:none;color:inherit}
+img{max-width:100%;height:auto;display:block}
 .wrap{max-width:1100px;margin:0 auto;padding:18px}
 .muted{color:var(--muted)}
 
-/* ===== HEADER ===== */
+/* Text darf NIEMALS rauslaufen */
+p, h1, h2, h3, small, code, a, span, em, strong{
+  overflow-wrap:anywhere;
+  word-break:break-word;
+}
+.anchor{scroll-margin-top:120px}
+
+/* ===== HEADER (Desktop + Mobile-Dropdown wie Lumibricks) ===== */
 .site-header{
   position:sticky;top:0;z-index:50;
   backdrop-filter:blur(10px) saturate(130%);
@@ -104,9 +124,8 @@ a{text-decoration:none;color:inherit}
   grid-template-columns: 1fr auto 1fr;
   align-items:center;
   gap:14px;
-  padding:10px 0;
+  padding: var(--header-pad) 0;
 }
-
 .brand-center{
   display:flex;
   flex-direction:column;
@@ -118,9 +137,7 @@ a{text-decoration:none;color:inherit}
   text-align:center;
 }
 .brand-center img{
-  width:64px;
-  height:64px;
-  border-radius:50%;
+  width:64px;height:64px;border-radius:50%;
   object-fit:cover;
   box-shadow:var(--shadow);
 }
@@ -141,7 +158,6 @@ a{text-decoration:none;color:inherit}
   align-items:center;
   gap:8px;
 }
-
 .header-list{display:grid;gap:8px;align-items:center;}
 .header-list.hubs{ grid-template-columns: repeat(3, max-content); }
 .header-list.partners{ grid-template-columns: repeat(3, max-content); }
@@ -180,7 +196,6 @@ a{text-decoration:none;color:inherit}
     0 10px 26px rgba(2,8,23,.35),
     0 0 18px rgba(246,176,66,.45);
 }
-
 .header-chip.partner img{
   width:20px;height:20px;
   border-radius:8px;
@@ -190,13 +205,74 @@ a{text-decoration:none;color:inherit}
   box-shadow:0 6px 14px rgba(2,8,23,.25);
 }
 
+/* --- Mobile Dropdown Controls --- */
+.header-mobile-row{
+  display:none;
+  width:100%;
+  gap:10px;
+  align-items:center;
+  justify-content:center;
+  padding: 0 0 var(--header-pad) 0;
+}
+.header-toggle{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:10px 14px;
+  border-radius:999px;
+  font-weight:950;
+  font-size:.92rem;
+  background:rgba(255,255,255,0.10);
+  border:1px solid rgba(148,163,184,.20);
+  color:rgba(229,231,235,.95);
+  cursor:pointer;
+  transition:transform .14s ease, filter .14s ease, outline-color .14s ease;
+}
+.header-toggle:hover{
+  filter:brightness(1.10);
+  transform:scale(1.03);
+  outline:2px solid rgba(246,176,66,.35);
+  outline-offset:2px;
+}
+.header-toggle .chev{
+  display:inline-block;
+  transform:rotate(0deg);
+  transition:transform .16s ease;
+  opacity:.9;
+}
+.mobile-panels{display:none;padding: 0 0 12px 0;}
+.mobile-panel{
+  margin-top:10px;
+  border-radius:16px;
+  padding:12px;
+  border:1px solid rgba(148,163,184,.16);
+  background:rgba(255,255,255,0.06);
+}
+.mobile-panel .header-title{margin-bottom:10px;}
+.mobile-panel .header-list{justify-content:center;}
+.mobile-panel .header-list.hubs,
+.mobile-panel .header-list.partners{
+  grid-template-columns: repeat(2, max-content);
+  justify-content:center;
+}
+
+/* state classes */
+.site-header.is-hubs-open .mobile-panels{display:block;}
+.site-header.is-partners-open .mobile-panels{display:block;}
+.site-header.is-hubs-open .mobile-panel.hubs{display:block;}
+.site-header.is-partners-open .mobile-panel.partners{display:block;}
+.mobile-panel{display:none;}
+.site-header.is-hubs-open .header-toggle[data-toggle="hubs"] .chev{transform:rotate(180deg);}
+.site-header.is-partners-open .header-toggle[data-toggle="partners"] .chev{transform:rotate(180deg);}
+
 @media (max-width: 1180px){
   .header-chip{font-size:.80rem;padding:7px 9px}
 }
 @media (max-width: 980px){
   .headbar{grid-template-columns: 1fr; justify-items:center;}
-  .header-block, .header-block.right{justify-content:center; text-align:center}
-  .header-list.hubs, .header-list.partners{grid-template-columns: repeat(2, max-content); justify-content:center;}
+  .header-block, .header-block.right{display:none;}
+  .header-mobile-row{display:flex;}
 }
 
 /* ===== CARDS ===== */
@@ -208,6 +284,7 @@ a{text-decoration:none;color:inherit}
   padding:18px;
   margin:22px 0;
   transition:transform .16s ease, box-shadow .16s ease, filter .16s ease, outline-color .16s ease;
+  overflow:hidden;
 }
 .card:hover{
   transform:translateY(-4px) scale(1.006);
@@ -226,33 +303,36 @@ a{text-decoration:none;color:inherit}
   outline: 2px solid rgba(246,176,66,.95);
   outline-offset:2px;
 }
-
 footer{margin:24px 0 40px 0;text-align:center;color:var(--muted);font-size:14px}
 
 /* ===== HERO ===== */
 .hero{
   display:grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   align-items:center;
-  gap:16px;
+  gap:18px;
 }
+.hero-left{display:flex; align-items:center; justify-content:flex-start;}
+.hero-right{display:flex; align-items:center; justify-content:flex-end;}
 @media (max-width: 900px){
   .hero{grid-template-columns:1fr; text-align:center}
   .hero-left,.hero-right{justify-content:center}
 }
-.hero-left,.hero-right{display:flex;align-items:center;justify-content:center}
 
+/* feste Logo-Box, optisch groß, kein Verschieben */
 .partner-logo{
-  height:var(--hero-logo-size);
-  width:auto;
+  width: calc(var(--hero-logo-size) + 12px);
+  height: calc(var(--hero-logo-size) + 12px);
+  object-fit:contain;
   background:#fff;
-  border-radius:18px;
-  padding:12px 16px;
+  border-radius:20px;
+  padding:6px 10px;
   box-shadow:var(--shadow);
 }
 .klemmer-logo{
+  width:var(--hero-klemmer-size);
   height:var(--hero-klemmer-size);
-  width:auto;
+  object-fit:cover;
   border-radius:25px;
   box-shadow:var(--shadow);
 }
@@ -268,7 +348,6 @@ footer{margin:24px 0 40px 0;text-align:center;color:var(--muted);font-size:14px}
   flex-wrap:wrap;
   justify-content:center;
 }
-
 .btn{
   display:inline-flex; align-items:center; justify-content:center; gap:10px;
   padding:14px 22px;
@@ -304,7 +383,6 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
 /* ===== TOC ===== */
 .toc-title{text-align:center;margin:0 0 8px 0}
 .toc-sub{text-align:center;margin:0 0 14px 0;color:var(--muted)}
-
 .toc{
   display:grid;
   grid-template-columns: repeat(2, minmax(0,1fr));
@@ -327,10 +405,9 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
   outline:var(--yellow-outline);
   outline-offset:2px;
 }
-
 .toc-img{
   width:100%;
-  height:140px;
+  height:250px;
   background:rgba(255,255,255,0.08);
   display:flex;
   align-items:center;
@@ -340,10 +417,9 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
 .toc-img img{
   width:100%;
   height:100%;
-  object-fit:contain;
+  object-fit:cover;
   display:block;
 }
-
 .toc-body{
   padding:12px 14px;
   display:flex;
@@ -370,12 +446,14 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
 .badge.test{background:rgba(245,158,11,.16); border-color:rgba(245,158,11,.25)}
 .badge.soon{background:rgba(59,130,246,.14); border-color:rgba(59,130,246,.22)}
 
+/* minmax(0,...) + min-width:0 verhindert overflow in Grid */
 .project-grid{
   display:grid;
-  grid-template-columns: 1.25fr .95fr;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, .95fr);
   gap:16px;
-  align-items:start;
+  align-items:stretch;
 }
+.project-grid > *{min-width:0;}
 @media (max-width: 900px){ .project-grid{grid-template-columns:1fr;} }
 
 .project-text{
@@ -383,42 +461,149 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
   border:1px solid rgba(148,163,184,.14);
   border-radius:16px;
   padding:14px;
+
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+
+  min-width:0;
+  overflow:hidden;
+}
+.project-text p{margin:0}
+
+/* Wichtig-Block (separiert) */
+.important{
+  margin-top:10px;
+  padding:10px 12px;
+  border-radius:14px;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(148,163,184,.16);
+}
+.important strong{font-weight:950}
+.important .muted{color:rgba(229,231,235,.75); font-weight:800}
+
+/* Affiliate hint kurz & knackig */
+.affiliate-note{
+  margin-top:2px;
+  font-size:.86rem;
+  color:rgba(229,231,235,.72);
+  font-weight:800;
+  text-align:left;
+}
+.affiliate-note a{
+  text-decoration:underline;
+  text-underline-offset:3px;
+  opacity:.95;
+}
+.affiliate-note a:hover{opacity:1}
+
+/* Amazon Link (dezenter wie Lumibricks) */
+.amazon-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:8px 10px;
+  border-radius:999px;
+  background:var(--btn-amazon);
+  color:var(--btn-amazon-text);
+  border:1px solid var(--btn-amazon-border);
+  font-weight:950;
+  font-size:.86rem;
+  letter-spacing:.1px;
+  transition:transform .14s ease, filter .14s ease, outline-color .14s ease, background .14s ease;
+}
+.amazon-btn:hover{
+  filter:brightness(1.08);
+  transform:scale(1.03);
+  outline:2px solid rgba(246,176,66,.28);
+  outline-offset:2px;
 }
 
 .rating{
   display:flex;
   align-items:center;
   gap:10px;
-  margin:10px 0 12px 0;
+  margin:0;
   flex-wrap:wrap;
 }
 .rating .label{font-weight:950;color:rgba(229,231,235,.9);}
 .stars{font-size:1.12rem;letter-spacing:.08em;line-height:1;}
 .rating small{color:var(--muted);font-weight:800;}
 
+/* Buttons in Projekten: stabil (kein Überlaufen) */
+.btn-row{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap:10px;
+  margin-top:0;
+}
+@media (max-width: 520px){
+  .btn-row{grid-template-columns:1fr;}
+}
+.btn-row.triple{
+  grid-template-columns: repeat(3, minmax(0,1fr));
+}
+@media (max-width: 760px){
+  .btn-row.triple{grid-template-columns:1fr;}
+}
+
+.bluebrixx-btn, .youtube-btn, .nav-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:10px 12px;
+  border-radius:999px;
+  font-weight:950;
+  font-size:.92rem;
+  transition:transform .14s ease, filter .14s ease, outline-color .14s ease;
+  min-width:0;
+  text-align:center;
+}
+.bluebrixx-btn{background:var(--btn-bluebrixx); color:#04131f; border:1px solid rgba(255,255,255,.10)}
+.youtube-btn{background:var(--btn-youtube); color:#fff; border:1px solid rgba(255,255,255,.10)}
+
+/* interne HUB Links (Mehr Eisenbahn etc.) */
+.nav-btn{
+  background:var(--btn-nav);
+  color:var(--btn-nav-text);
+  border:1px solid var(--btn-nav-border);
+}
+
+.bluebrixx-btn:hover,.youtube-btn:hover,.nav-btn:hover{
+  filter:brightness(1.10);
+  transform:scale(1.04);
+  outline:2px solid rgba(246,176,66,.45);
+  outline-offset:2px;
+}
+
+/* Thumbnail Card (rechts) */
 .thumb-wrap{
   border-radius:16px;
   overflow:hidden;
   border:1px solid rgba(148,163,184,.22);
   background:#0a1220;
   box-shadow:var(--shadow);
-  transition:transform .16s ease, filter .16s ease, box-shadow .16s ease, outline-color .16s ease;
+  transition:transform .16s ease, filter .16s ease, box-shadow .16s ease;
   display:block;
+  min-width:0;
 }
 .thumb-wrap:hover{
   transform:translateY(-4px) scale(1.01);
   filter:brightness(1.06);
-  box-shadow:0 22px 60px rgba(2,8,23,.62);
-  outline:var(--yellow-outline);
-  outline-offset:2px;
+  box-shadow:
+    0 22px 60px rgba(2,8,23,.62),
+    0 0 0 2px rgba(246,176,66,.95),
+    0 0 0 8px rgba(255,255,255,.06);
 }
-
 .video-thumb{
   position:relative;
   width:100%;
   padding-top:56.25%;
   background-size:cover;
   background-position:center;
+  background-repeat:no-repeat;
 }
 .video-thumb::after{
   content:"▶";
@@ -433,29 +618,95 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
   font-weight:800;
   font-size:.9rem;
 }
-
-/* Buttons in Cards */
-.btn-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
-.shop-btn, .youtube-btn{
-  display:inline-flex; align-items:center; gap:8px;
-  padding:9px 14px; border-radius:999px;
-  font-weight:950; font-size:.92rem;
-  transition:transform .14s ease, filter .14s ease, outline-color .14s ease;
+.right-col{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  align-items:stretch;
+  min-width:0;
+  overflow:visible;
 }
-.shop-btn{background:var(--btn-bluebrixx); color:#04131f; border:1px solid rgba(255,255,255,.10)}
-.youtube-btn{background:var(--btn-youtube); color:#fff; border:1px solid rgba(255,255,255,.10)}
-.shop-btn:hover,.youtube-btn:hover{
-  filter:brightness(1.10);
-  transform:scale(1.04);
-  outline:2px solid rgba(246,176,66,.45);
+
+/* ===== Mini Carousel ===== */
+.carousel{
+  position:relative;
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid rgba(148,163,184,.22);
+  background:#0a1220;
+  box-shadow:var(--shadow);
+}
+.carousel-track{
+  display:flex;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+.carousel-track::-webkit-scrollbar{display:none}
+.carousel-slide{
+  min-width:100%;
+  scroll-snap-align:start;
+}
+.carousel .video-thumb::after{
+  content:"▶";
+}
+
+/* Nav sitzt im Video-Thumb-Bereich, nicht über der Caption */
+.carousel-nav{
+  position:absolute;
+  left:10px; right:10px;
+  top: calc(56.25% - 22px);
+  bottom:auto;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+
+  pointer-events:none;
+}
+.carousel-btn{
+  pointer-events:auto;
+  width:42px;height:42px;
+  border-radius:999px;
+  border:1px solid rgba(148,163,184,.22);
+  background:rgba(2,6,23,.62);
+  color:rgba(229,231,235,.95);
+  font-weight:950;
+  cursor:pointer;
+  backdrop-filter: blur(10px) saturate(130%);
+  transition: transform .14s ease, filter .14s ease, outline-color .14s ease;
+}
+.carousel-btn:hover{
+  filter:brightness(1.12);
+  transform:scale(1.05);
+  outline:2px solid rgba(246,176,66,.35);
   outline-offset:2px;
 }
+.carousel-dots{
+  pointer-events:auto;
+  display:flex;
+  gap:8px;
+  align-items:center;
+  justify-content:center;
+  flex:1;
+}
+.dot{
+  width:10px;height:10px;border-radius:999px;
+  border:1px solid rgba(148,163,184,.35);
+  background:rgba(255,255,255,.12);
+  opacity:.9;
+}
+.dot.active{
+  background:rgba(246,176,66,.95);
+  border-color:rgba(246,176,66,.95);
+  box-shadow:0 0 0 6px rgba(246,176,66,.12);
+}
 
-.anchor{scroll-margin-top:120px}
-
-/* ===== MINI-UPGRADE: "Mehr..." Chips unter Thumbnail ===== */
+/* ===== "Mehr..." Chips ===== */
 .more-links{
-  margin-top:10px;
+  margin-top:0;
   display:flex;
   gap:10px;
   justify-content:center;
@@ -468,22 +719,77 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
 }
 .more-links .header-chip:hover{opacity:1;}
 
-.affiliate-note{
-  margin-top:12px;
+/* Chips im "Mehr entdecken" farbiger für HUB-Links */
+.more-links .header-chip.nav{
+  background: var(--btn-nav);
+  border-color: var(--btn-nav-border);
+  color: var(--btn-nav-text);
+  opacity:1;
+}
+
+.note{
+  margin-top:2px;
   text-align:center;
   font-size:.9rem;
   color:rgba(229,231,235,.75);
   font-weight:800;
+}
+
+/* ===== Back-to-Top Button (weicht Footer aus) ===== */
+.to-top{
+  position:fixed;
+  right:16px;
+  bottom:16px;
+  z-index:60;
+
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+
+  padding:12px 14px;
+  border-radius:999px;
+
+  background:rgba(2,6,23,.72);
+  border:1px solid rgba(148,163,184,.25);
+  color:rgba(229,231,235,.95);
+
+  box-shadow:0 18px 42px rgba(2,8,23,.45);
+  backdrop-filter: blur(10px) saturate(130%);
+  cursor:pointer;
+
+  opacity:0;
+  transform:translateY(8px) scale(.98);
+  pointer-events:none;
+
+  transition:opacity .16s ease, transform .16s ease, filter .16s ease, outline-color .16s ease, bottom .16s ease;
+}
+.to-top:hover{
+  filter:brightness(1.12);
+  transform:translateY(0) scale(1.03);
+  outline:2px solid rgba(246,176,66,.45);
+  outline-offset:2px;
+}
+.to-top.show{
+  opacity:1;
+  transform:translateY(0) scale(1);
+  pointer-events:auto;
+}
+.to-top svg{width:18px;height:18px;opacity:.95}
+.to-top span{font-weight:950; font-size:.92rem}
+@media (max-width: 520px){
+  .to-top span{display:none;}
+  .to-top{padding:12px;}
 }
   </style>
 </head>
 
 <body>
 
-<header class="site-header">
+<header class="site-header" id="siteHeader">
   <div class="wrap headbar">
 
-    <!-- LINKS: HUBS -->
+    <!-- LINKS: HUBS (Desktop) -->
     <div class="header-block" aria-label="Hubs">
       <div>
         <div class="header-title">📌 Profil</div>
@@ -506,7 +812,7 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
       </span>
     </a>
 
-    <!-- RECHTS: PARTNER -->
+    <!-- RECHTS: PARTNER (Desktop) -->
     <div class="header-block right" aria-label="Partner">
       <div>
         <div class="header-title">🏭 Hersteller</div>
@@ -523,9 +829,11 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
           <a class="header-chip partner" href="partner-jmbricklayer.html">
             <img src="images/jmbricklayer_logo.jpg" alt="JMBricklayer"><span>JMBricklayer</span>
           </a>
+
           <a class="header-chip partner active" href="partner-bluebrixx.html">
             <img src="images/blue_brixx_logo.png" alt="BlueBrixx"><span>BlueBrixx</span>
           </a>
+
           <a class="header-chip partner" href="partner-lego.html">
             <img src="images/lego_logo.png" alt="LEGO"><span>LEGO®</span>
           </a>
@@ -533,6 +841,57 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
       </div>
     </div>
 
+  </div>
+
+  <!-- Mobile Toggle Row -->
+  <div class="wrap header-mobile-row" aria-label="Mobile Navigation">
+    <button class="header-toggle" type="button" data-toggle="hubs" aria-expanded="false" aria-controls="mobilePanels">
+      📌 Profil <span class="chev">▾</span>
+    </button>
+    <button class="header-toggle" type="button" data-toggle="partners" aria-expanded="false" aria-controls="mobilePanels">
+      🏭 Hersteller <span class="chev">▾</span>
+    </button>
+  </div>
+
+  <!-- Mobile Panels -->
+  <div class="wrap mobile-panels" id="mobilePanels">
+    <div class="mobile-panel hubs" aria-label="Mobile Hubs">
+      <div class="header-title">📌 Profil</div>
+      <div class="header-list hubs">
+        <a class="header-chip" href="ueber-uns.html">Über uns</a>
+        <a class="header-chip" href="videos.html">Videos</a>
+        <a class="header-chip" href="unsere-stadt.html">Unsere Stadt</a>
+        <a class="header-chip" href="eisenbahn.html">Eisenbahn</a>
+        <a class="header-chip" href="beleuchtung.html">Beleuchtung</a>
+        <a class="header-chip" href="merch.html">Merch</a>
+      </div>
+    </div>
+
+    <div class="mobile-panel partners" aria-label="Mobile Partner">
+      <div class="header-title">🏭 Hersteller</div>
+      <div class="header-list partners">
+        <a class="header-chip partner" href="partner-lesdiy.html">
+          <img src="images/lesdiy_logo.jpg" alt="LESDIY"><span>LESDIY</span>
+        </a>
+        <a class="header-chip partner" href="partner-lumibricks.html">
+          <img src="images/Lumibricks.png" alt="Lumibricks"><span>Lumibricks</span>
+        </a>
+        <a class="header-chip partner" href="partner-briksmax.html">
+          <img src="images/briksmax.png" alt="Briksmax"><span>Briksmax</span>
+        </a>
+        <a class="header-chip partner" href="partner-jmbricklayer.html">
+          <img src="images/jmbricklayer_logo.jpg" alt="JMBricklayer"><span>JMBricklayer</span>
+        </a>
+
+        <a class="header-chip partner active" href="partner-bluebrixx.html">
+          <img src="images/blue_brixx_logo.png" alt="BlueBrixx"><span>BlueBrixx</span>
+        </a>
+
+        <a class="header-chip partner" href="partner-lego.html">
+          <img src="images/lego_logo.png" alt="LEGO"><span>LEGO®</span>
+        </a>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -542,30 +901,26 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
   <section class="card">
     <div class="hero">
       <div class="hero-left">
-        <!-- Nutzt dein bestehendes Asset: images/blue_brixx_logo.png -->
         <img class="partner-logo" src="images/blue_brixx_logo.png" alt="BlueBrixx Logo">
       </div>
 
       <div class="hero-center">
         <h1>Partner: BlueBrixx</h1>
         <p class="muted">
-          Eisenbahn, City & Display – plus ehrliches <a class="inline-link" href="ueber-uns.html">Bausteinklemmer</a>-Feedback.
+          Unsere bisherigen BlueBrixx-Projekte - größtenteils Züge & Eisenbahn-Kram. 😄
         </p>
 
         <div class="hero-actions">
-          <a class="btn bluebrixx" href="https://www.bluebrixx.com/" target="_blank" rel="noopener noreferrer sponsored nofollow">🧱 BlueBrixx Website</a>
-
-          <!-- Optional: Playlist/Video-Sammlung (Platzhalter) -->
-          <a class="btn youtube" href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">▶ YouTube (Platzhalter)</a>
-
+          <a class="btn bluebrixx" href="https://www.bluebrixx.com/" target="_blank" rel="noopener noreferrer">🧱 BlueBrixx Website</a>
+          <a class="btn youtube" href="videos.html">▶ Videos Hub</a>
           <a class="btn home" href="index.html">← Zur Startseite</a>
         </div>
 
-        <!-- Optional: Jump Links -->
         <p class="jump-line">
           Direkt springen zu:
-          <a class="inline-link toc-jump" href="#bahn">Eisenbahn-Highlights</a> ·
-          <a class="inline-link toc-jump" href="#city">City & Architektur</a> ·
+          <a class="inline-link toc-jump" href="#rheingold">Rheingold Express</a> ·
+          <a class="inline-link toc-jump" href="#regionalexpress">Regional-Express</a> ·
+          <a class="inline-link toc-jump" href="#ice">ICE</a> ·
           <a class="inline-link toc-jump" href="#coming">Coming Soon</a>
         </p>
       </div>
@@ -578,42 +933,53 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
     <hr class="sep">
 
     <p style="margin:0; text-align:center">
-      <strong>BlueBrixx</strong> ist im deutschsprachigen Raum eine feste Größe für Klemmbaustein-Sets – besonders stark bei
-      <strong><a class="inline-link" href="eisenbahn.html">Eisenbahn</a></strong>,
-      <strong><a class="inline-link" href="unsere-stadt.html">City & Architektur</a></strong> und
-      <strong>Display-Modellen</strong>.
-      Hier bündeln wir nach und nach unsere Projekte, Reviews und sinnvolle Links.
+      <strong>Hinweis:</strong> Wir haben aktuell <strong>keine aktive Kooperation</strong> mit BlueBrixx.
+      Die vorgestellten Sets haben wir <strong>selbst gekauft</strong> (keine Bezahlung/kein Sponsoring).
+      <br>
+      <strong>Affiliate:</strong> Links mit <strong>*</strong> sind Affiliate-Links. Wenn du darüber kaufst, unterstützt du uns ohne Mehrkosten. ❤️
     </p>
   </section>
 
   <!-- TOC -->
   <section class="card" id="toc">
     <h2 class="toc-title">📌 Inhaltsverzeichnis</h2>
-    <p class="toc-sub">Spring direkt zum Bereich:</p>
+    <p class="toc-sub">Spring direkt zum Projekt:</p>
 
     <div class="toc">
-      <a class="toc-card toc-jump" href="#bahn">
+      <a class="toc-card toc-jump" href="#rheingold">
         <div class="toc-img">
-          <!-- Platzhalterbild (tausche es gern aus) -->
-          <img src="images/bluebrixx_train_placeholder.png" alt="BlueBrixx Eisenbahn (Platzhalter)">
+          <img src="https://img.youtube.com/vi/Qw7U9OAzU00/hqdefault.jpg" alt="Rheingold Express Thumbnail">
         </div>
         <div class="toc-body">
           <div>
-            <strong>🚆 Eisenbahn-Highlights</strong>
-            <small>Sets, Umbauten, Fahrbetrieb & Learnings</small>
+            <strong>🚆 Rheingold Express</strong>
+            <small>Umbau, Kürzung & modulare Beleuchtung</small>
           </div>
           <small>→</small>
         </div>
       </a>
 
-      <a class="toc-card toc-jump" href="#city">
+      <a class="toc-card toc-jump" href="#regionalexpress">
         <div class="toc-img">
-          <img src="images/bluebrixx_city_placeholder.png" alt="BlueBrixx City & Architektur (Platzhalter)">
+          <img src="https://img.youtube.com/vi/sMwF_vJnM4Q/hqdefault.jpg" alt="Regional-Express Thumbnail">
         </div>
         <div class="toc-body">
           <div>
-            <strong>🏙️ City & Architektur</strong>
-            <small>Gebäude, Display & BeanVillage-Potenzial</small>
+            <strong>🚆 Regional-Express</strong>
+            <small>Umbau, Kürzung & Beleuchtung im Dach 😱</small>
+          </div>
+          <small>→</small>
+        </div>
+      </a>
+
+      <a class="toc-card toc-jump" href="#ice">
+        <div class="toc-img">
+          <img src="https://img.youtube.com/vi/zETIps6C78E/hqdefault.jpg" alt="BlueBrixx ICE Thumbnail">
+        </div>
+        <div class="toc-body">
+          <div>
+            <strong>🚄 ICE (weiß/rot)</strong>
+            <small>3 Videos: Aufbau, Umbau & Beleuchtung</small>
           </div>
           <small>→</small>
         </div>
@@ -621,25 +987,25 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
 
       <a class="toc-card toc-jump" href="#coming">
         <div class="toc-img">
-          <img src="images/bluebrixx_comingsoon_placeholder.png" alt="BlueBrixx Coming Soon (Platzhalter)">
+          <img src="images/blue_brixx_logo.png" alt="Coming Soon">
         </div>
         <div class="toc-body">
           <div>
-            <strong>🧊 Coming Soon</strong>
-            <small>Neue Projekte – folgen bald</small>
+            <strong>✨ Coming Soon</strong>
+            <small>Nächstes Projekt folgt</small>
           </div>
           <small>→</small>
         </div>
       </a>
 
-      <a class="toc-card" href="videos.html">
+      <a class="toc-card" href="eisenbahn.html">
         <div class="toc-img">
-          <img src="images/logo.png" alt="Videos Hub">
+          <img src="images/bluebrixxzuege.jpg" alt="Eisenbahn Hub – Foto">
         </div>
         <div class="toc-body">
           <div>
-            <strong>🎥 Videos Hub</strong>
-            <small>Alle Playlists & Highlights</small>
+            <strong>🚆 Eisenbahn Hub</strong>
+            <small>Alle Zug-Themen auf einen Blick</small>
           </div>
           <small>→</small>
         </div>
@@ -647,123 +1013,226 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
     </div>
   </section>
 
-  <!-- SECTION: BAHN -->
-  <section id="bahn" class="card anchor">
+  <!-- Rheingold Express -->
+  <section id="rheingold" class="card anchor">
     <div class="project-head">
       <div>
-        <h2 style="margin:0">Eisenbahn-Highlights</h2>
-        <p class="muted" style="margin:6px 0 0 0">BlueBrixx Züge & Schiene – perfekt für unseren Fahrbetrieb.</p>
+        <h2 style="margin:0">Rheingold Express</h2>
+        <p class="muted" style="margin:6px 0 0 0">Projektvideo + BTS-Short.</p>
       </div>
       <div class="badges">
-        <span class="badge test">🧩 Sammlung / im Ausbau</span>
+        <span class="badge city">✅ Video online</span>
+        <span class="badge test">🎬 BTS</span>
       </div>
     </div>
 
     <div class="project-grid">
       <div class="project-text">
-        <p style="margin:0">
-          <strong>Was dich hier erwartet:</strong><br>
-          Wir sammeln hier nach und nach alle BlueBrixx-Eisenbahn-Themen: Sets, eventuelle Umbauten, Fahrtests,
-          Kompatibilität mit unseren <a class="inline-link" href="eisenbahn.html">Gleisen</a> sowie optional
-          <a class="inline-link" href="beleuchtung.html">Beleuchtung</a> und Motorisierung.
-          <br><br>
-          ✅ Reviews & Einbau in die Stadt (wo sinnvoll)<br>
-          ✅ Fahrbetrieb / Kurven / Weichen / Kupplungen<br>
-          ✅ Links zur BlueBrixx-Produktseite (falls vorhanden)
-        </p>
-
-        <div class="rating">
-          <span class="label">Status:</span>
-          <span class="stars" aria-label="Noch keine Bewertung">☆☆☆☆☆</span>
-          <small>(kommt mit den Projekten)</small>
-        </div>
-
-        <div class="btn-row">
-          <a class="shop-btn" href="https://www.bluebrixx.com/" target="_blank" rel="noopener noreferrer sponsored nofollow">🧱 BlueBrixx</a>
-          <a class="youtube-btn" href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">▶ Video (Platzhalter)</a>
-        </div>
-
-        <p class="affiliate-note">
-          Hinweis: Externe Links können Affiliate-Links sein – für dich bleibt der Preis gleich.
-        </p>
-      </div>
-
-      <div>
-        <!-- Thumbnail Placeholder -->
-        <div class="thumb-wrap" aria-label="Thumbnail Placeholder">
-          <div class="video-thumb" style="background-image:linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.02));"></div>
-          <div class="thumb-caption">Eisenbahn-Thumbnail / Video folgt</div>
-        </div>
-
-        <div class="more-links" aria-label="Mehr entdecken">
-          <a class="header-chip" href="eisenbahn.html">🚆 Mehr Eisenbahn</a>
-          <a class="header-chip" href="beleuchtung.html">💡 Mehr Beleuchtung</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION: CITY -->
-  <section id="city" class="card anchor">
-    <div class="project-head">
-      <div>
-        <h2 style="margin:0">City & Architektur</h2>
-        <p class="muted" style="margin:6px 0 0 0">Gebäude, Displays und Kandidaten für BeanVillage.</p>
-      </div>
-      <div class="badges">
-        <span class="badge city">🏙️ City-Fokus</span>
-      </div>
-    </div>
-
-    <div class="project-grid">
-      <div class="project-text">
-        <p style="margin:0">
+        <p>
           <strong>Beschreibung:</strong><br>
-          Alles, was nach Stadt schreit: modulare Gebäude, Architektur-Displays und „passt das in die City?“ Checks.
-          <br><br>
-          👉 Wenn wir ein Modell in <a class="inline-link" href="unsere-stadt.html">BeanVillage</a> integrieren,
-          dokumentieren wir hier die Anpassungen (z.B. Größe, Farb-Matching, Straßenanschluss) – und wenn’s Sinn macht,
-          natürlich auch ein <a class="inline-link" href="beleuchtung.html">Licht-Upgrade</a>.
+          Unser BlueBrixx Rheingold-Express Projekt! Zuerst haben wir das Original-Set aufgebaut, natürlich mit Kamera und unserem typischen Humor.
+          Danach ging die „richtige“ Arbeit los: <strong>Kürzung</strong> (der Zug kam sonst nicht um die Kurve im Tunnel) und dann das Thema <strong>Beleuchtung</strong>.
         </p>
 
+        <div class="important">
+          <strong>Wichtig:</strong><br>
+          Die Motorisierung ist von <strong>Mould King 4.0 Power Function</strong> →
+          <a class="amazon-btn" href="https://amzn.to/4441NcY" target="_blank" rel="noopener noreferrer sponsored nofollow">🛒 Amazon*</a>
+        </div>
+
         <div class="rating">
-          <span class="label">Status:</span>
-          <span class="stars" aria-label="Noch keine Bewertung">☆☆☆☆☆</span>
-          <small>(im Aufbau)</small>
+          <span class="label">Bewertung:</span>
+          <span class="stars" aria-label="Bewertung">⭐⭐⭐⭐☆</span>
         </div>
 
         <div class="btn-row">
-          <a class="shop-btn" href="https://www.bluebrixx.com/" target="_blank" rel="noopener noreferrer sponsored nofollow">🧱 BlueBrixx</a>
-          <a class="youtube-btn" href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">▶ Video (Platzhalter)</a>
+          <a class="youtube-btn" href="https://youtu.be/Qw7U9OAzU00" target="_blank" rel="noopener noreferrer">▶ Video</a>
+          <a class="youtube-btn" href="https://youtube.com/shorts/e8KsKtd78DU" target="_blank" rel="noopener noreferrer">🎬 BTS-Short</a>
         </div>
 
-        <p class="affiliate-note">
-          Hinweis: Externe Links können Affiliate-Links sein – für dich bleibt der Preis gleich.
-        </p>
+        <div class="btn-row" style="margin-top:10px;">
+          <a class="bluebrixx-btn" href="https://www.bluebrixx.com/de/prod/101329/lokomotive-br103-db-rheingold/?_gl=1*1kf6dln*_up*MQ..*_gs*MQ..&gclid=CjwKCAiAvaLLBhBFEiwAYCNTf9QthrJzZFxHGcRsI5waBE-_11cNNazMQt3jaf5gmkwmbAilrGZwGBoC4JQQAvD_BwE&gbraid=0AAAAAC_Ex_TR5Ta6E7j6hC-WCssBF38qS" target="_blank" rel="noopener noreferrer">🧱 BlueBrixx Shop</a>
+          <a class="nav-btn" href="eisenbahn.html">🚆 Mehr Eisenbahn</a>
+        </div>
+
+        <div class="affiliate-note">* Affiliate-Link: Für dich bleibt der Preis gleich.</div>
       </div>
 
-      <div>
-        <div class="thumb-wrap" aria-label="Thumbnail Placeholder">
-          <div class="video-thumb" style="background-image:linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.02));"></div>
-          <div class="thumb-caption">City-Thumbnail / Video folgt</div>
-        </div>
+      <div class="right-col">
+        <a class="thumb-wrap" href="https://youtu.be/Qw7U9OAzU00" target="_blank" rel="noopener noreferrer" aria-label="Rheingold Video öffnen">
+          <div class="video-thumb" style="background-image:url('https://img.youtube.com/vi/Qw7U9OAzU00/hqdefault.jpg')"></div>
+          <div class="thumb-caption">Thumbnail / Video öffnen</div>
+        </a>
+
+        <a class="thumb-wrap" href="https://youtube.com/shorts/e8KsKtd78DU" target="_blank" rel="noopener noreferrer" aria-label="Rheingold BTS Short öffnen">
+          <div class="video-thumb" style="background-image:url('https://img.youtube.com/vi/e8KsKtd78DU/hqdefault.jpg')"></div>
+          <div class="thumb-caption">Thumbnail / BTS-Short öffnen</div>
+        </a>
 
         <div class="more-links" aria-label="Mehr entdecken">
-          <a class="header-chip" href="unsere-stadt.html">🏙️ Mehr Stadt</a>
-          <a class="header-chip" href="beleuchtung.html">💡 Mehr Beleuchtung</a>
+          <a class="header-chip" href="videos.html">🎥 Mehr Videos</a>
+          <a class="header-chip nav" href="unsere-stadt.html">🏙️ Mehr Stadt</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SECTION: COMING SOON -->
+  <!-- Regional-Express -->
+  <section id="regionalexpress" class="card anchor">
+    <div class="project-head">
+      <div>
+        <h2 style="margin:0">Regional-Express</h2>
+        <p class="muted" style="margin:6px 0 0 0">Projektvideo + Short.</p>
+      </div>
+      <div class="badges">
+        <span class="badge city">✅ Video online</span>
+        <span class="badge test">🎬 Short</span>
+      </div>
+    </div>
+
+    <div class="project-grid">
+      <div class="project-text">
+        <p>
+          <strong>Beschreibung:</strong><br>
+          Unser BlueBrixx Regional-Express Projekt – einer der beliebtesten Züge in unseren Lives.
+          Bis es so weit war, wurde das Original-Set aufgebaut (Bausteinklemmer-Manier inklusive 😉).
+          Danach wurde das Modell gekürzt, umgebaut und natürlich beleuchtet.
+        </p>
+
+        <div class="important">
+          <strong>Wichtig:</strong><br>
+          Die Motorisierung ist von <strong>Mould King 4.0 Power Function</strong> →
+          <a class="amazon-btn" href="https://amzn.to/4441NcY" target="_blank" rel="noopener noreferrer sponsored nofollow">🛒 Amazon*</a>
+        </div>
+
+        <div class="rating">
+          <span class="label">Bewertung:</span>
+          <span class="stars" aria-label="Bewertung">⭐⭐⭐⭐☆</span>
+        </div>
+
+        <div class="btn-row">
+          <a class="youtube-btn" href="https://youtu.be/sMwF_vJnM4Q" target="_blank" rel="noopener noreferrer">▶ Video</a>
+          <a class="youtube-btn" href="https://youtube.com/shorts/YO7eymxuaFY" target="_blank" rel="noopener noreferrer">🎬 Short</a>
+        </div>
+
+        <div class="btn-row" style="margin-top:10px;">
+          <a class="bluebrixx-btn" href="https://www.bluebrixx.com/de/prod/101299/regionalexpress-db-passagierwagen/?_gl=1*k8yxjg*_up*MQ..*_gs*MQ..&gclid=CjwKCAiAvaLLBhBFEiwAYCNTf9QthrJzZFxHGcRsI5waBE-_11cNNazMQt3jaf5gmkwmbAilrGZwGBoC4JQQAvD_BwE&gbraid=0AAAAAC_Ex_TR5Ta6E7j6hC-WCssBF38qS" target="_blank" rel="noopener noreferrer">🧱 Passagierwagen</a>
+          <a class="bluebrixx-btn" href="https://www.bluebrixx.com/de/prod/100249/regionalexpress-db-steuerwagen/?_gl=1*k8yxjg*_up*MQ..*_gs*MQ..&gclid=CjwKCAiAvaLLBhBFEiwAYCNTf9QthrJzZFxHGcRsI5waBE-_11cNNazMQt3jaf5gmkwmbAilrGZwGBoC4JQQAvD_BwE&gbraid=0AAAAAC_Ex_TR5Ta6E7j6hC-WCssBF38qS" target="_blank" rel="noopener noreferrer">🧱 Steuerwagen</a>
+        </div>
+
+        <div class="btn-row" style="margin-top:10px;">
+          <a class="bluebrixx-btn" href="https://www.bluebrixx.com/de/prod/101478/lokomotive-br-146/?_gl=1*1vnx9ef*_up*MQ..*_gs*MQ..&gclid=CjwKCAiAvaLLBhBFEiwAYCNTf9QthrJzZFxHGcRsI5waBE-_11cNNazMQt3jaf5gmkwmbAilrGZwGBoC4JQQAvD_BwE&gbraid=0AAAAAC_Ex_TR5Ta6E7j6hC-WCssBF38qS" target="_blank" rel="noopener noreferrer">🧱 Lokomotive BR 146 (Lok)</a>
+          <a class="nav-btn" href="eisenbahn.html">🚆 Mehr Eisenbahn</a>
+        </div>
+
+        <div class="affiliate-note">* Affiliate-Link: Für dich bleibt der Preis gleich.</div>
+      </div>
+
+      <div class="right-col">
+        <a class="thumb-wrap" href="https://youtu.be/sMwF_vJnM4Q" target="_blank" rel="noopener noreferrer" aria-label="Regional-Express Video öffnen">
+          <div class="video-thumb" style="background-image:url('https://img.youtube.com/vi/sMwF_vJnM4Q/hqdefault.jpg')"></div>
+          <div class="thumb-caption">Thumbnail / Video öffnen</div>
+        </a>
+
+        <a class="thumb-wrap" href="https://youtube.com/shorts/YO7eymxuaFY" target="_blank" rel="noopener noreferrer" aria-label="Regional-Express Short öffnen">
+          <div class="video-thumb" style="background-image:url('https://img.youtube.com/vi/YO7eymxuaFY/hqdefault.jpg')"></div>
+          <div class="thumb-caption">Thumbnail / Short öffnen</div>
+        </a>
+
+        <div class="more-links" aria-label="Mehr entdecken">
+          <a class="header-chip" href="videos.html">🎥 Mehr Videos</a>
+          <a class="header-chip nav" href="beleuchtung.html">💡 Mehr Beleuchtung</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ICE (weiß/rot) -->
+  <section id="ice" class="card anchor">
+    <div class="project-head">
+      <div>
+        <h2 style="margin:0">ICE (weiß/rot)</h2>
+        <p class="muted" style="margin:6px 0 0 0">3 Videos – alle Details</p>
+      </div>
+      <div class="badges">
+        <span class="badge city">✅ Videos online</span>
+        <span class="badge test">🎬 3 Teile</span>
+      </div>
+    </div>
+
+    <div class="project-grid">
+      <div class="project-text">
+        <p>
+          <strong>Beschreibung:</strong><br>
+          BlueBrixx „ICE“ Schnellzug (weiß/rot)! Unser erstes BlueBrixx-Set – als Komplett-Set ein absoluter Wahnsinn (und ca. 2 m lang 😱).
+          In den drei Videos nehmen wir euch mit: Aufbau, Umbau und Beleuchtung.
+          Besonderes Merkmal: das „BlueBrixx“-Graffiti am Personenwagen.
+        </p>
+
+        <div class="important">
+          <strong>Wichtig:</strong><br>
+          Die Motorisierung ist von <strong>Mould King 4.0 Power Function</strong> →
+          <a class="amazon-btn" href="https://amzn.to/4441NcY" target="_blank" rel="noopener noreferrer sponsored nofollow">🛒 Amazon*</a>
+        </div>
+
+        <div class="btn-row triple">
+          <a class="youtube-btn" href="https://youtu.be/zETIps6C78E" target="_blank" rel="noopener noreferrer">▶ Video 1</a>
+          <a class="youtube-btn" href="https://youtu.be/iH55RVu432g" target="_blank" rel="noopener noreferrer">▶ Video 2</a>
+          <a class="youtube-btn" href="https://youtu.be/FWq2JJAvDZM" target="_blank" rel="noopener noreferrer">▶ Video 3</a>
+        </div>
+
+        <div class="btn-row" style="margin-top:10px;">
+          <a class="bluebrixx-btn" href="https://www.bluebrixx.com/de/prod/103738/schnellzug-weiss-rot/?_gl=1*pnmb6l*_up*MQ..*_gs*MQ..&gclid=CjwKCAiAvaLLBhBFEiwAYCNTf9QthrJzZFxHGcRsI5waBE-_11cNNazMQt3jaf5gmkwmbAilrGZwGBoC4JQQAvD_BwE&gbraid=0AAAAAC_Ex_TR5Ta6E7j6hC-WCssBF38qS" target="_blank" rel="noopener noreferrer">🧱 Schnellzug weiß/rot (Komplett-Set)</a>
+          <a class="nav-btn" href="eisenbahn.html">🚆 Mehr Eisenbahn</a>
+        </div>
+
+        <div class="affiliate-note">* Affiliate-Link: Für dich bleibt der Preis gleich.</div>
+      </div>
+
+      <div class="right-col">
+        <div class="carousel" aria-label="ICE Video Karussell">
+          <div class="carousel-track" id="iceCarousel">
+            <a class="carousel-slide" href="https://youtu.be/zETIps6C78E" target="_blank" rel="noopener noreferrer" aria-label="ICE Video 1 öffnen">
+              <div class="video-thumb" style="background-image:url('https://img.youtube.com/vi/zETIps6C78E/hqdefault.jpg')"></div>
+              <div class="thumb-caption">ICE – Video 1 öffnen</div>
+            </a>
+
+            <a class="carousel-slide" href="https://youtu.be/iH55RVu432g" target="_blank" rel="noopener noreferrer" aria-label="ICE Video 2 öffnen">
+              <div class="video-thumb" style="background-image:url('https://img.youtube.com/vi/iH55RVu432g/hqdefault.jpg')"></div>
+              <div class="thumb-caption">ICE – Video 2 öffnen</div>
+            </a>
+
+            <a class="carousel-slide" href="https://youtu.be/FWq2JJAvDZM" target="_blank" rel="noopener noreferrer" aria-label="ICE Video 3 öffnen">
+              <div class="video-thumb" style="background-image:url('https://img.youtube.com/vi/FWq2JJAvDZM/hqdefault.jpg')"></div>
+              <div class="thumb-caption">ICE – Video 3 öffnen</div>
+            </a>
+          </div>
+
+          <div class="carousel-nav">
+            <button class="carousel-btn" type="button" id="icePrev" aria-label="Vorheriges Video">‹</button>
+            <div class="carousel-dots" aria-label="Slides">
+              <span class="dot active" data-dot="0"></span>
+              <span class="dot" data-dot="1"></span>
+              <span class="dot" data-dot="2"></span>
+            </div>
+            <button class="carousel-btn" type="button" id="iceNext" aria-label="Nächstes Video">›</button>
+          </div>
+        </div>
+
+        <div class="more-links" aria-label="Mehr entdecken">
+          <a class="header-chip" href="videos.html">🎥 Mehr Videos</a>
+          <a class="header-chip nav" href="unsere-stadt.html">🏙️ Mehr Stadt</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Coming Soon -->
   <section id="coming" class="card anchor">
     <div class="project-head">
       <div>
         <h2 style="margin:0">Coming Soon</h2>
-        <p class="muted" style="margin:6px 0 0 0">
-          Geplante BlueBrixx-Projekte – sobald wir starten, landen hier Links, Thumbnails & Bewertungen.
-        </p>
+        <p class="muted" style="margin:6px 0 0 0">Nächstes BlueBrixx Projekt folgt…</p>
       </div>
       <div class="badges">
         <span class="badge soon">✨ in Planung</span>
@@ -773,76 +1242,194 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
     <div class="project-grid">
       <div class="project-text">
         <p style="margin:0">
-          <strong>Status:</strong><br>
-          ✅ Video-Link<br>
-          ✅ Umbau / Integration / ggf. <a class="inline-link" href="beleuchtung.html">Beleuchtung</a><br>
-          ✅ Fazit + ⭐ Bewertung<br><br>
-
-          <strong>Platzhalter:</strong><br>
-          – Projekt 1<br>
-          – Projekt 2<br>
-          – Projekt 3
+          Sobald das nächste Projekt startet, ergänzen wir hier Bilder, Links & Infos.
         </p>
 
-        <div class="rating">
-          <span class="label">Bewertung:</span>
-          <span class="stars" aria-label="Noch keine Bewertung">☆☆☆☆☆</span>
-          <small>(kommt mit dem Projekt)</small>
+        <div class="btn-row" style="margin-top:10px;">
+          <a class="bluebrixx-btn" href="https://www.bluebrixx.com/" target="_blank" rel="noopener noreferrer">🧱 BlueBrixx Website</a>
+          <a class="nav-btn" href="videos.html">🎥 Videos Hub</a>
         </div>
 
-        <div class="btn-row">
-          <a class="shop-btn" href="https://www.bluebrixx.com/" target="_blank" rel="noopener noreferrer sponsored nofollow">🧱 BlueBrixx</a>
-        </div>
-
-        <p class="affiliate-note">
-          Hinweis: Externe Links können Affiliate-Links sein – für dich bleibt der Preis gleich.
-        </p>
+        <div class="affiliate-note">* Affiliate-Link: Für dich bleibt der Preis gleich.</div>
       </div>
 
-      <div>
-        <div class="thumb-wrap" aria-label="Coming Soon Placeholder">
-          <div class="video-thumb" style="background-image:linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.02));"></div>
-          <div class="thumb-caption">Projekt-Thumbnail / folgt</div>
-        </div>
+      <div class="right-col">
+        <a class="thumb-wrap" href="videos.html" aria-label="Videos öffnen">
+          <div class="video-thumb" style="background-image:url('images/bluebrixx_coming.jpg'), linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); background-size:cover; background-position:center;"></div>
+          <div class="thumb-caption">Coming Soon – folgt</div>
+        </a>
 
         <div class="more-links" aria-label="Mehr entdecken">
-          <a class="header-chip" href="videos.html">🎥 Mehr Videos</a>
-          <a class="header-chip" href="eisenbahn.html">🚆 Mehr Eisenbahn</a>
+          <a class="header-chip nav" href="eisenbahn.html">🚆 Mehr Eisenbahn</a>
+          <a class="header-chip nav" href="unsere-stadt.html">🏙️ Mehr Stadt</a>
         </div>
       </div>
     </div>
   </section>
 
-  <footer>
+  <footer id="siteFooter">
     © <span id="y"></span> Die Bausteinklemmer ·
     <a href="impressum.html">Impressum</a> ·
     <a href="datenschutz.html">Datenschutz</a>
   </footer>
 
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
+</main>
 
-    function flashTargetFromHash(hash){
-      if(!hash) return;
-      const el = document.querySelector(hash);
-      if(!el) return;
-      el.classList.add('flash');
-      window.setTimeout(()=>el.classList.remove('flash'), 1200);
+<!-- Back-to-Top -->
+<button class="to-top" id="toTopBtn" type="button" aria-label="Nach oben">
+  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M12 5l-7 7m7-7l7 7M12 5v14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  <span>Nach oben</span>
+</button>
+
+<script>
+  // Year
+  document.getElementById('y').textContent = new Date().getFullYear();
+
+  // Flash highlight on hash jump
+  function flashTargetFromHash(hash){
+    if(!hash) return;
+    const el = document.querySelector(hash);
+    if(!el) return;
+    el.classList.add('flash');
+    window.setTimeout(()=>el.classList.remove('flash'), 1200);
+  }
+  document.querySelectorAll('a.toc-jump').forEach(a=>{
+    a.addEventListener('click', ()=>{
+      const href = a.getAttribute('href') || '';
+      if(!href.startsWith('#')) return;
+      window.setTimeout(()=>flashTargetFromHash(href), 260);
+    });
+  });
+  window.addEventListener('load', ()=> flashTargetFromHash(location.hash));
+
+  // ===== Mobile Header Toggle =====
+  (function(){
+    const header = document.getElementById('siteHeader');
+    if(!header) return;
+
+    const btns = header.querySelectorAll('.header-toggle[data-toggle]');
+    function setExpanded(btn, isOpen){
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     }
+    function closeAll(){
+      header.classList.remove('is-hubs-open','is-partners-open');
+      btns.forEach(b=>setExpanded(b,false));
+    }
+    btns.forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const type = btn.getAttribute('data-toggle');
+        const isHubs = type === 'hubs';
+        const openClass = isHubs ? 'is-hubs-open' : 'is-partners-open';
+        const otherClass = isHubs ? 'is-partners-open' : 'is-hubs-open';
 
-    document.querySelectorAll('a.toc-jump').forEach(a=>{
-      a.addEventListener('click', ()=>{
-        const href = a.getAttribute('href') || '';
-        if(!href.startsWith('#')) return;
-        window.setTimeout(()=>flashTargetFromHash(href), 260);
+        const isOpen = header.classList.contains(openClass);
+        header.classList.remove(otherClass);
+        header.classList.toggle(openClass, !isOpen);
+
+        btns.forEach(b=>{
+          const t = b.getAttribute('data-toggle');
+          const shouldOpen = header.classList.contains(t === 'hubs' ? 'is-hubs-open' : 'is-partners-open');
+          setExpanded(b, shouldOpen);
+        });
+
+        if(!header.classList.contains('is-hubs-open') && !header.classList.contains('is-partners-open')){
+          closeAll();
+        }
       });
     });
 
-    window.addEventListener('load', ()=>{
-      flashTargetFromHash(location.hash);
+    window.addEventListener('resize', ()=>{
+      if(window.innerWidth > 980) closeAll();
     });
-  </script>
 
-</main>
+    header.querySelectorAll('.mobile-panels a').forEach(a=>{
+      a.addEventListener('click', ()=>closeAll());
+    });
+  })();
+
+  // ===== Back-to-Top (weicht Footer aus) =====
+  (function(){
+    const btn = document.getElementById('toTopBtn');
+    const footer = document.getElementById('siteFooter');
+    if(!btn) return;
+
+    const SHOW_AFTER = 500;
+    const BASE_BOTTOM = 16;
+    const SAFE_GAP = 12;
+
+    function update(){
+      const y = window.scrollY || 0;
+      if(y > SHOW_AFTER) btn.classList.add('show');
+      else btn.classList.remove('show');
+
+      if(footer){
+        const btnRect = btn.getBoundingClientRect();
+        const footerRect = footer.getBoundingClientRect();
+        const overlap = (btnRect.bottom + SAFE_GAP) - footerRect.top;
+        const lift = Math.max(0, overlap);
+        btn.style.bottom = (BASE_BOTTOM + lift) + 'px';
+      } else {
+        btn.style.bottom = BASE_BOTTOM + 'px';
+      }
+    }
+
+    btn.addEventListener('click', ()=>{
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    window.addEventListener('scroll', update, { passive:true });
+    window.addEventListener('resize', update, { passive:true });
+    update();
+  })();
+
+  // ===== ICE Carousel (prev/next + dots) =====
+  (function(){
+    const track = document.getElementById('iceCarousel');
+    const prev = document.getElementById('icePrev');
+    const next = document.getElementById('iceNext');
+    if(!track || !prev || !next) return;
+
+    const dots = Array.from(document.querySelectorAll('.carousel-dots .dot'));
+
+    function slideWidth(){
+      return track.getBoundingClientRect().width;
+    }
+    function indexFromScroll(){
+      const w = slideWidth();
+      if(!w) return 0;
+      return Math.round(track.scrollLeft / w);
+    }
+    function setDots(i){
+      dots.forEach((d, idx)=> d.classList.toggle('active', idx === i));
+    }
+    function goTo(i){
+      const w = slideWidth();
+      track.scrollTo({ left: i * w, behavior:'smooth' });
+      setDots(i);
+    }
+
+    prev.addEventListener('click', ()=>{
+      const i = indexFromScroll();
+      goTo(Math.max(0, i - 1));
+    });
+    next.addEventListener('click', ()=>{
+      const i = indexFromScroll();
+      goTo(Math.min(2, i + 1));
+    });
+
+    track.addEventListener('scroll', ()=>{
+      setDots(indexFromScroll());
+    }, {passive:true});
+
+    dots.forEach((d, idx)=>{
+      d.addEventListener('click', ()=> goTo(idx));
+    });
+
+    setDots(0);
+  })();
+</script>
+
 </body>
 </html>
