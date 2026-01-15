@@ -525,7 +525,6 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
   display:block;
   min-width:0;
 }
-/* WICHTIG: keine outline mehr -> stattdessen "innerer" Rahmen per box-shadow, damit nix abgeschnitten/komisch skaliert */
 .thumb-wrap:hover{
   transform:translateY(-4px) scale(1.01);
   filter:brightness(1.06);
@@ -562,7 +561,7 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
   gap:12px;
   align-items:stretch;
   min-width:0;
-  overflow:visible; /* wichtig: nichts abschneiden */
+  overflow:visible;
 }
 
 /* ===== "Mehr..." Chips ===== */
@@ -668,51 +667,51 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
   font-weight:800;
 }
 
-/* ===== Floating "Nach oben" Button (unten mittig) ===== */
+/* ===== Back-to-Top Button (weicht Footer aus) ===== */
 .to-top{
   position:fixed;
-  left:50%;
-  bottom: calc(16px + env(safe-area-inset-bottom));
-  transform: translateX(-50%) translateY(6px);
-  z-index:999;
+  right:16px;
+  bottom:16px; /* wird per JS dynamisch erhöht, sobald Footer kollidiert */
+  z-index:60;
 
   display:inline-flex;
   align-items:center;
   justify-content:center;
   gap:10px;
 
-  padding:12px 16px;
+  padding:12px 14px;
   border-radius:999px;
-  font-weight:950;
-  font-size:.95rem;
 
-  background: rgba(2,6,23,.78);
-  color: rgba(229,231,235,.96);
+  background:rgba(2,6,23,.72);
   border:1px solid rgba(148,163,184,.25);
-  box-shadow: 0 14px 40px rgba(2,8,23,.45);
+  color:rgba(229,231,235,.95);
+
+  box-shadow:0 18px 42px rgba(2,8,23,.45);
+  backdrop-filter: blur(10px) saturate(130%);
+  cursor:pointer;
 
   opacity:0;
+  transform:translateY(8px) scale(.98);
   pointer-events:none;
-  transition: opacity .18s ease, transform .18s ease, filter .14s ease, outline-color .14s ease;
-  backdrop-filter: blur(10px) saturate(140%);
-}
 
-.to-top.is-visible{
-  opacity:1;
-  pointer-events:auto;
-  transform: translateX(-50%) translateY(0);
+  transition:opacity .16s ease, transform .16s ease, filter .16s ease, outline-color .16s ease, bottom .16s ease;
 }
-
 .to-top:hover{
-  filter:brightness(1.08);
-  outline:2px solid rgba(246,176,66,.35);
+  filter:brightness(1.12);
+  transform:translateY(0) scale(1.03);
+  outline:2px solid rgba(246,176,66,.45);
   outline-offset:2px;
 }
-.to-top:active{ transform: translateX(-50%) translateY(1px); }
-
-/* auf sehr kleinen Screens etwas kompakter */
-@media (max-width: 420px){
-  .to-top{ padding:11px 14px; font-size:.92rem; }
+.to-top.show{
+  opacity:1;
+  transform:translateY(0) scale(1);
+  pointer-events:auto;
+}
+.to-top svg{width:18px;height:18px;opacity:.95}
+.to-top span{font-weight:950; font-size:.92rem}
+@media (max-width: 520px){
+  .to-top span{display:none;}
+  .to-top{padding:12px;}
 }
   </style>
 </head>
@@ -1052,7 +1051,7 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
           <button class="copy-btn" type="button" data-copy="DIEBAUSTEINKLEMMER20" aria-label="Rabattcode kopieren" title="Code kopieren">
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M9 9V6.8c0-.93 0-1.4.18-1.76.16-.31.41-.56.72-.72C10.26 4 10.74 4 11.67 4h5.53c.93 0 1.4 0 1.76.18.31.16.56.41.72.72.18.36.18.83.18 1.76v5.53c0 .93 0 1.4-.18 1.76-.16.31-.41.56-.72.72-.36.18-.83.18-1.76.18H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M4 11.67c0-.93 0-1.4.18-1.76.16-.31.41-.56.72-.72C5.26 9 5.74 9 6.67 9h5.53c.93 0 1.4 0 1.76.18.31.16.56.41.72.72.18.36.18.83.18 1.76v5.53c0 .93 0 1.4-.18 1.76-.16.31-.41.56-.72.72-.36.18-.83.18-1.76.18H6.67c-.93 0-1.4 0-1.76-.18-.31-.16-.56-.41-.72-.72C4 18.6 4 18.13 4 17.2v-5.53Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M4 11.67c0-.93 0-1.4.18-1.76.16-.31.41-.56.72-.72C5.26 9 5.74 9 6.67 9h5.53c.93 0 1.4 0 1.76.18.31.16.56.41.72.72.18.36.18.83.18 1.76v5.53c0 .93 0 1.4-.18 1.76-.16.31-.41.56-.72.72-.36.18-.83.18-1.76.18H6.67c-.93 0-1.4 0-1.76-.18-.31-.16? -?-?-.41?.72-.72C4 18.6 4 18.13 4 17.2v-5.53Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
             <span class="sr-only">Kopieren</span>
           </button>
@@ -1118,7 +1117,7 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
           <button class="copy-btn" type="button" data-copy="DIEBAUSTEINKLEMMER20" aria-label="Rabattcode kopieren" title="Code kopieren">
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M9 9V6.8c0-.93 0-1.4.18-1.76.16-.31.41-.56.72-.72C10.26 4 10.74 4 11.67 4h5.53c.93 0 1.4 0 1.76.18.31.16.56.41.72.72.18.36.18.83.18 1.76v5.53c0 .93 0 1.4-.18 1.76-.16.31-.41.56-.72.72-.36.18-.83.18-1.76.18H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M4 11.67c0-.93 0-1.4.18-1.76.16-.31.41-.56.72-.72C5.26 9 5.74 9 6.67 9h5.53c.93 0 1.4 0 1.76.18.31.16.56.41.72.72.18.36.18.83.18 1.76v5.53c0 .93 0 1.4-.18 1.76-.16.31-.41.56-.72.72-.36.18-.83.18-1.76.18H6.67c-.93 0-1.4 0-1.76-.18-.31-.16.56-.41.72-.72C4 18.6 4 18.13 4 17.2v-5.53Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M4 11.67c0-.93 0-1.4.18-1.76.16-.31.41-.56.72-.72C5.26 9 5.74 9 6.67 9h5.53c.93 0 1.4 0 1.76.18.31.16.56.41.72.72.18.36.18.83.18 1.76v5.53c0 .93 0 1.4-.18 1.76-.16.31.41.56-.72.72-.36.18-.83.18-1.76.18H6.67c-.93 0-1.4 0-1.76-.18-.31-.16?.56-.41?.72-.72C4 18.6 4 18.13 4 17.2v-5.53Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
             <span class="sr-only">Kopieren</span>
           </button>
@@ -1168,7 +1167,7 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
           In diesem Video stellen wir euch das modulare Set vor.<br>
           Mit seinen unzähligen kleinen Details ist es ein echter Augenschmaus.<br>
           Und wenn euch das Gebäude bekannt vorkommt: Die Hommage an das Restaurant aus <em>Ratatouille</em> ist wirklich gelungen.<br><br>
-          Passt perfekt in jede <a class="inline-link" href="unsere-stadt.html">Klemmbaustein-Stadt</a> – und wer will, kann es natürlich auch noch mit <a class="inline-link" href="beleuchtung.html">Beleuchtung</a> upgraden.
+          Passt perfekt in jede <a class="inline-link" href="unsere-stadt.html">Klemmbaustein-Stadt</a> und wer will, kann es natürlich auch noch mit <a class="inline-link" href="beleuchtung.html">Beleuchtung</a> upgraden.
         </p>
 
         <div class="rating">
@@ -1184,7 +1183,7 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
           <button class="copy-btn" type="button" data-copy="DIEBAUSTEINKLEMMER20" aria-label="Rabattcode kopieren" title="Code kopieren">
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M9 9V6.8c0-.93 0-1.4.18-1.76.16-.31.41-.56.72-.72C10.26 4 10.74 4 11.67 4h5.53c.93 0 1.4 0 1.76.18.31.16.56.41.72.72.18.36.18.83.18 1.76v5.53c0 .93 0 1.4-.18 1.76-.16.31-.41.56-.72.72-.36.18-.83.18-1.76.18H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M4 11.67c0-.93 0-1.4.18-1.76.16-.31.41-.56.72-.72C5.26 9 5.74 9 6.67 9h5.53c.93 0 1.4 0 1.76.18.31.16.56.41.72.72.18.36.18.83.18 1.76v5.53c0 .93 0 1.4-.18 1.76-.16.31.41.56-.72.72-.36.18-.83.18-1.76.18H6.67c-.93 0-1.4 0-1.76-.18-.31-.16-.56-.41-.72-.72C4 18.6 4 18.13 4 17.2v-5.53Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M4 11.67c0-.93 0-1.4.18-1.76.16-.31.41-.56.72-.72C5.26 9 5.74 9 6.67 9h5.53c.93 0 1.4 0 1.76.18.31.16.56.41.72.72.18.36.18.83.18 1.76v5.53c0 .93 0 1.4-.18 1.76-.16.31?.41?.56?.72?.72-.36.18-.83.18-1.76.18H6.67c-.93 0-1.4 0-1.76-.18-.31-.16-.56-.41-.72-.72C4 18.6 4 18.13 4 17.2v-5.53Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
             <span class="sr-only">Kopieren</span>
           </button>
@@ -1252,8 +1251,8 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
 
           <button class="copy-btn" type="button" data-copy="DIEBAUSTEINKLEMMER20" aria-label="Rabattcode kopieren" title="Code kopieren">
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M9 9V6.8c0-.93 0-1.4.18-1.76.16-.31.41-.56.72-.72C10.26 4 10.74 4 11.67 4h5.53c.93 0 1.4 0 1.76.18.31.16.56.41.72.72.18.36.18.83.18 1.76v5.53c0 .93 0 1.4-.18 1.76-.16.31.41.56-.72.72-.36.18-.83.18-1.76.18H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M4 11.67c0-.93 0-1.4.18-1.76.16-.31.41-.56.72-.72C5.26 9 5.74 9 6.67 9h5.53c.93 0 1.4 0 1.76.18.31.16.56.41.72.72.18.36.18.83.18 1.76v5.53c0 .93 0 1.4-.18 1.76-.16.31.41.56-.72.72-.36.18-.83.18-1.76.18H6.67c-.93 0-1.4 0-1.76-.18-.31-.16-.56-.41-.72-.72C4 18.6 4 18.13 4 17.2v-5.53Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M9 9V6.8c0-.93 0-1.4.18-1.76.16-.31.41-.56.72-.72C10.26 4 10.74 4 11.67 4h5.53c.93 0 1.4 0 1.76.18.31.16.56.41.72.72.18.36.18.83.18 1.76v5.53c0 .93 0 1.4-.18 1.76-.16.31?.41?.56?.72?.72-.36.18-.83.18-1.76.18H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M4 11.67c0-.93 0-1.4.18-1.76.16-.31.41-.56.72-.72C5.26 9 5.74 9 6.67 9h5.53c.93 0 1.4 0 1.76.18.31.16.56.41.72.72.18.36.18.83.18 1.76v5.53c0 .93 0 1.4-.18 1.76-.16.31?.41?.56?.72?.72-.36.18-.83.18-1.76.18H6.67c-.93 0-1.4 0-1.76-.18-.31-.16-.56-.41-.72-.72C4 18.6 4 18.13 4 17.2v-5.53Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
             <span class="sr-only">Kopieren</span>
           </button>
@@ -1286,7 +1285,7 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
     </div>
   </section>
 
-  <footer>
+  <footer id="siteFooter">
     © <span id="y"></span> Die Bausteinklemmer ·
     <a href="impressum.html">Impressum</a> ·
     <a href="datenschutz.html">Datenschutz</a>
@@ -1294,12 +1293,15 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
 
 </main>
 
-<!-- Button MUSS vor dem Script stehen, damit JS ihn findet -->
+<!-- Back-to-Top -->
 <button class="to-top" id="toTopBtn" type="button" aria-label="Nach oben">
-  ⬆️ Nach oben
+  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M12 5l-7 7m7-7l7 7M12 5v14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  <span>Nach oben</span>
 </button>
 
-<!-- Script ganz unten: fixes Timing + "Nach oben" funktioniert garantiert -->
+<!-- Script ganz unten: fixes Timing + Nach-oben + Footer-Ausweichen -->
 <script>
   document.getElementById('y').textContent = new Date().getFullYear();
 
@@ -1407,21 +1409,39 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
     });
   })();
 
-  // ===== Floating "Nach oben" Button =====
+  // ===== Back-to-Top (weicht Footer aus) =====
   (function(){
     const btn = document.getElementById('toTopBtn');
+    const footer = document.getElementById('siteFooter');
     if(!btn) return;
 
-    const SHOW_AT = 260; // etwas früher, damit man ihn mobil schneller bekommt
-    function onScroll(){
-      btn.classList.toggle('is-visible', window.scrollY > SHOW_AT);
+    const SHOW_AFTER = 500; // px Scrollhöhe, ab wann der Button erscheint
+    const BASE_BOTTOM = 16; // px Normalabstand
+    const SAFE_GAP = 12;    // px Abstand zum Footer
+
+    function update(){
+      const y = window.scrollY || 0;
+      if(y > SHOW_AFTER) btn.classList.add('show');
+      else btn.classList.remove('show');
+
+      if(footer){
+        const btnRect = btn.getBoundingClientRect();
+        const footerRect = footer.getBoundingClientRect();
+        const overlap = (btnRect.bottom + SAFE_GAP) - footerRect.top; // >0 => kollidiert
+        const lift = Math.max(0, overlap);
+        btn.style.bottom = (BASE_BOTTOM + lift) + 'px';
+      } else {
+        btn.style.bottom = BASE_BOTTOM + 'px';
+      }
     }
-    window.addEventListener('scroll', onScroll, {passive:true});
-    onScroll();
 
     btn.addEventListener('click', ()=>{
-      window.scrollTo({top:0, behavior:'smooth'});
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+
+    window.addEventListener('scroll', update, { passive:true });
+    window.addEventListener('resize', update, { passive:true });
+    update();
   })();
 </script>
 
