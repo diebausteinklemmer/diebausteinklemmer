@@ -6,7 +6,7 @@
 
   <!-- ===== SEO: Title / Description ===== -->
   <title>Die Bausteinklemmer – Offizielle Seite · Links, Playlists & Tools</title>
-  <meta name="description" content="Die Bausteinklemmer – alle wichtigen Links: Stadt-Playlist, Beleuchtungs-Playlist, Eisenbahn/Züge, Socials, häufig bestellte Tools und bald Merch." />
+  <meta name="description" content="Die Bausteinklemmer – alle wichtigen Links: Stadt-Playlist, Beleuchtungs-Playlist, Eisenbahn/Züge, Socials, häufig bestellte Tools und Merch." />
 
   <!-- ===== SEO: Robots / Canonical ===== -->
   <meta name="robots" content="index,follow,max-image-preview:large" />
@@ -19,14 +19,14 @@
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="de_DE" />
   <meta property="og:title" content="Die Bausteinklemmer – Offizielle Seite" />
-  <meta property="og:description" content="Links, Playlists, Tools & bald Merch – alles an einem Ort." />
+  <meta property="og:description" content="Links, Playlists, Tools & Merch – alles an einem Ort." />
   <meta property="og:url" content="https://diebausteinklemmer.de/" />
   <meta property="og:image" content="https://diebausteinklemmer.de/images/logo.png" />
   <meta property="og:image:alt" content="Die Bausteinklemmer – Logo" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Die Bausteinklemmer – Offizielle Seite" />
-  <meta name="twitter:description" content="Links, Playlists, Tools & bald Merch – alles an einem Ort." />
+  <meta name="twitter:description" content="Links, Playlists, Tools & Merch – alles an einem Ort." />
   <meta name="twitter:image" content="https://diebausteinklemmer.de/images/logo.png" />
 
   <!-- ===== Structured Data (JSON-LD) ===== -->
@@ -78,12 +78,14 @@
       --text:#e5e7eb; --muted:#9ca3af; --brand:#0ea5e9; --brand2:#38bdf8;
       --radius:18px; --shadow:0 10px 30px rgba(2,8,23,.45);
 
-      /* Header/Chip look wie LESDIY */
+      /* Header/Chip look */
       --chip-bg: rgba(255,255,255,0.08);
       --chip-border: rgba(148,163,184,.18);
       --card-hover: 0 22px 60px rgba(2,8,23,.65);
       --yellow-outline: 2px solid rgba(246,176,66,.95);
       --glow: 0 0 0 2px rgba(246,176,66,.85), 0 0 0 8px rgba(255,255,255,.06);
+
+      --header-pad: 10px;
     }
 
     *{box-sizing:border-box}
@@ -92,13 +94,23 @@
       margin:0;padding:0;background:var(--bg);color:var(--text);
       font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif
     }
+    body{overflow-x:hidden;}
+
     a{text-decoration:none;color:inherit}
     .wrap{max-width:1100px;margin:0 auto;padding:18px}
     .muted{color:var(--muted)}
     .center{text-align:center}
     h2{text-align:center;margin:4px 0 10px}
 
-    /* ===== HEADER (wie LESDIY) ===== */
+    /* Content protection */
+    .card, .gb-card, .product{min-width:0;max-width:100%;}
+    .card *, .gb-card *{max-width:100%;}
+    .card, .gb-card{overflow-wrap:anywhere;word-break:break-word;}
+
+    img, video, canvas, svg{max-width:100%;height:auto;display:block;}
+    iframe{max-width:100%;display:block;}
+
+    /* ===== HEADER (wie Beispiel-HUB / Lumibricks) ===== */
     .site-header{
       position:sticky;top:0;z-index:50;
       backdrop-filter:blur(10px) saturate(130%);
@@ -111,7 +123,7 @@
       grid-template-columns: 1fr auto 1fr;
       align-items:center;
       gap:14px;
-      padding:10px 0;
+      padding:var(--header-pad) 0;
     }
 
     .brand-center{
@@ -131,8 +143,8 @@
     .brand-text{display:flex;flex-direction:column;line-height:1.05}
     .brand-top{font-size:1.05rem;font-weight:950;letter-spacing:.2px}
 
-    .header-block{display:flex;align-items:flex-start;justify-content:flex-start}
-    .header-block.right{justify-content:flex-end}
+    .header-block{display:flex;align-items:flex-start;justify-content:flex-start; min-width:0;}
+    .header-block.right{justify-content:flex-end; min-width:0;}
 
     .header-title{
       font-size:.82rem;
@@ -146,7 +158,7 @@
       gap:8px;
     }
 
-    .header-list{display:grid;gap:8px;align-items:center}
+    .header-list{display:grid;gap:8px;align-items:center;}
     .header-list.hubs{ grid-template-columns: repeat(3, max-content); }
     .header-list.partners{ grid-template-columns: repeat(3, max-content); }
 
@@ -193,13 +205,75 @@
       box-shadow:0 6px 14px rgba(2,8,23,.25);
     }
 
+    /* --- Mobile Dropdown Controls --- */
+    .header-mobile-row{
+      display:none;
+      width:100%;
+      gap:10px;
+      align-items:center;
+      justify-content:center;
+      padding: 0 0 var(--header-pad) 0;
+    }
+    .header-toggle{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:999px;
+      font-weight:950;
+      font-size:.92rem;
+      background:rgba(255,255,255,0.10);
+      border:1px solid rgba(148,163,184,.20);
+      color:rgba(229,231,235,.95);
+      cursor:pointer;
+      transition:transform .14s ease, filter .14s ease, outline-color .14s ease;
+    }
+    .header-toggle:hover{
+      filter:brightness(1.10);
+      transform:scale(1.03);
+      outline:2px solid rgba(246,176,66,.35);
+      outline-offset:2px;
+    }
+    .header-toggle .chev{
+      display:inline-block;
+      transform:rotate(0deg);
+      transition:transform .16s ease;
+      opacity:.9;
+    }
+
+    .mobile-panels{display:none;padding: 0 0 12px 0;}
+    .mobile-panel{
+      margin-top:10px;
+      border-radius:16px;
+      padding:12px;
+      border:1px solid rgba(148,163,184,.16);
+      background:rgba(255,255,255,0.06);
+    }
+    .mobile-panel .header-title{margin-bottom:10px;}
+    .mobile-panel .header-list{justify-content:center;}
+    .mobile-panel .header-list.hubs,
+    .mobile-panel .header-list.partners{
+      grid-template-columns: repeat(2, max-content);
+      justify-content:center;
+    }
+
+    /* state classes */
+    .site-header.is-hubs-open .mobile-panels{display:block;}
+    .site-header.is-partners-open .mobile-panels{display:block;}
+    .site-header.is-hubs-open .mobile-panel.hubs{display:block;}
+    .site-header.is-partners-open .mobile-panel.partners{display:block;}
+    .mobile-panel{display:none;}
+    .site-header.is-hubs-open .header-toggle[data-toggle="hubs"] .chev{transform:rotate(180deg);}
+    .site-header.is-partners-open .header-toggle[data-toggle="partners"] .chev{transform:rotate(180deg);}
+
     @media (max-width: 1180px){
       .header-chip{font-size:.80rem;padding:7px 9px}
     }
     @media (max-width: 980px){
       .headbar{grid-template-columns: 1fr; justify-items:center;}
-      .header-block, .header-block.right{justify-content:center; text-align:center}
-      .header-list.hubs, .header-list.partners{grid-template-columns: repeat(2, max-content); justify-content:center;}
+      .header-block, .header-block.right{display:none;}
+      .header-mobile-row{display:flex;}
     }
 
     /* ===== CARDS ===== */
@@ -211,6 +285,7 @@
       padding:18px;
       margin:22px 0;
       transition:transform .16s ease, box-shadow .16s ease, filter .16s ease, outline-color .16s ease;
+      overflow:hidden;
     }
     .card:hover{
       transform:translateY(-4px) scale(1.006);
@@ -272,38 +347,88 @@
       display:inline-flex;align-items:center;justify-content:center;
       padding:8px 16px;border-radius:999px;
       background:var(--brand);
-      color:#ffffff;font-weight:600;font-size:.95rem;
+      color:#ffffff;font-weight:700;font-size:.95rem;
       border:1px solid var(--brand2);
       box-shadow:0 4px 12px rgba(15,23,42,.6);
       cursor:pointer;
-      transition:background-color .15s ease, transform .1s ease, box-shadow .15s ease;
+      transition:transform .14s ease, filter .14s ease, outline-color .14s ease;
+      max-width:100%;
+      white-space:normal;
+      text-align:center;
     }
-    .chip:hover{background:var(--brand2);transform:translateY(-1px);box-shadow:0 6px 16px rgba(15,23,42,.75)}
-    .chip:active{transform:translateY(0);box-shadow:0 2px 6px rgba(15,23,42,.6)}
+    .chip:hover{
+      filter:brightness(1.08);
+      transform:translateY(-2px) scale(1.01);
+      outline: 2px solid rgba(246,176,66,.65);
+      outline-offset:2px;
+    }
 
-    .live-split{display:grid;grid-template-columns:1fr 260px;gap:16px;align-items:center}
-    @media(max-width:900px){.live-split{grid-template-columns:1fr}}
-    .links{display:grid;gap:12px}
+    /* Social / Linktree Grid */
+    .linktree{
+      display:grid;
+      grid-template-columns: 1fr 260px;
+      gap:16px;
+      align-items:start;
+    }
+    @media(max-width:900px){.linktree{grid-template-columns:1fr}}
 
-    .link-btn{
-      display:flex;flex-direction:row;
-      align-items:center;justify-content:center;
-      text-align:center;gap:12px;
+    .social-grid{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap:12px;
+    }
+    @media(max-width:900px){.social-grid{grid-template-columns: repeat(2, minmax(0,1fr));}}
+
+    .social-card{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      padding:14px 14px;
       background:#0a1220;
       border:1px solid rgba(148,163,184,.22);
-      padding:14px 16px;border-radius:14px;
-      transition:.15s;
+      border-radius:14px;
+      transition:transform .14s ease, filter .14s ease, outline-color .14s ease, box-shadow .14s ease;
+      min-width:0;
     }
-    .link-btn:hover{
-      transform:translateY(-1px);
-      border-color:rgba(56,189,248,.6);
+    .social-card:hover{
+      filter:brightness(1.08);
+      transform:translateY(-2px) scale(1.01);
       box-shadow:0 12px 22px rgba(8,47,73,.35);
+      outline: 2px solid rgba(246,176,66,.65);
+      outline-offset:2px;
     }
-    .emoji-round{
-      width:30px;height:30px;border-radius:50%;
-      background:#0b1628;border:1px solid rgba(148,163,184,.25);
-      display:grid;place-items:center;font-size:16px;line-height:1;
+
+    .ico{
+      width:60px;height:60px;
+      border-radius:12px;
+      border:1px solid rgba(148,163,184,.20);
+      background:rgba(255,255,255,0.06);
+      display:grid;place-items:center;
+      flex:0 0 auto;
+      overflow:hidden;
     }
+      .ico img{
+        width:100%;
+       height:100%;
+       object-fit:contain;
+      padding:2px;              /* bestimmt “Luft” zum Rand */
+      filter:drop-shadow(0 6px 14px rgba(0,0,0,.35));
+}
+    .ico.emoji{font-size:18px;}
+
+    .s-text{min-width:0;}
+    .s-text strong{display:block;font-weight:950;line-height:1.1;}
+    .s-text small{display:block;color:var(--muted);font-weight:700;margin-top:2px;}
+
+    /* Mobile: kompakter */
+    .label-short{display:none;}
+    @media(max-width:520px){
+      .social-card{justify-content:center;flex-direction:column;gap:8px;text-align:center;padding:12px 10px;}
+      .s-text small{display:none;}
+      .label-full{display:none;}
+      .label-short{display:block;}
+    }
+
     .mini-fig{
       width:100%;
       max-width:260px;
@@ -314,7 +439,14 @@
     }
 
     /* carousel */
-    .carousel{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px}
+    .carousel{
+      display:flex;
+      gap:16px;
+      overflow-x:auto;
+      scroll-snap-type:x mandatory;
+      padding:6px;
+      -webkit-overflow-scrolling:touch;
+    }
     .product{
       scroll-snap-align:start;
       min-width:240px;
@@ -325,6 +457,13 @@
       text-decoration:none;
       color:var(--text);
       overflow:hidden;
+      transition:transform .14s ease, filter .14s ease, outline-color .14s ease;
+    }
+    .product:hover{
+      filter:brightness(1.07);
+      transform:translateY(-2px) scale(1.01);
+      outline:2px solid rgba(246,176,66,.35);
+      outline-offset:2px;
     }
     .pimg{
       height:170px;
@@ -339,12 +478,23 @@
     .ptext b{display:block}
     .ptext small{color:#cbd5e1}
 
-    /* Playlist Teaser Image Block */
+    /* Combined lighting section */
+    .combo{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap:16px;
+      align-items:start;
+    }
+    @media(max-width:900px){.combo{grid-template-columns:1fr;}}
+
     .tag-wrap{
-      display:block;width:100%;
-      max-width:900px;margin:0 auto;
-      border-radius:18px;overflow:hidden;
+      display:block;
+      width:100%;
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid rgba(148,163,184,.18);
       box-shadow:var(--shadow);
+      background:#0a1220;
     }
     .tag-image{
       width:100%;
@@ -352,27 +502,92 @@
       background-image:url('images/city.jpg');
       background-size:cover;
       background-position:center;
-      border-radius:18px;
-    }
-    @media (max-width: 600px){
-      .tag-image{background-position:center top}
     }
 
-    /* collage */
     .collage{
-      width:100%;height:auto;border-radius:12px;
+      width:100%;height:auto;border-radius:14px;
+      border:1px solid rgba(148,163,184,.18);
       box-shadow:0 12px 24px rgba(0,0,0,.35);
-      margin:6px 0 10px;
+      margin:8px 0 12px;
+      overflow:hidden;
     }
 
-    /* merch */
-    .merch{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-    @media(max-width:700px){.merch{grid-template-columns:1fr}}
-    .tile{
-      display:flex;gap:10px;align-items:center;justify-content:center;
-      background:#0a1220;border:1px solid rgba(148,163,184,.22);
-      border-radius:14px;padding:14px 16px
+    .mini-products{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap:10px;
     }
+    @media(max-width:700px){.mini-products{grid-template-columns: repeat(2, minmax(0,1fr));}}
+
+    .mini-link{
+      ensure:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      gap:8px;
+      padding:10px 10px;
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(148,163,184,.18);
+      border-radius:14px;
+      font-weight:900;
+      font-size:.88rem;
+      transition:transform .14s ease, filter .14s ease, outline-color .14s ease;
+      min-height:46px;
+    }
+    .mini-link:hover{
+      filter:brightness(1.10);
+      transform:translateY(-2px) scale(1.01);
+      outline:2px solid rgba(246,176,66,.35);
+      outline-offset:2px;
+    }
+
+    /* Merch */
+    .merch-block{margin-top:8px;}
+    .merch-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;}
+    .merch-head h3{margin:0;font-size:1.02rem;}
+    .merch-head .hint{color:var(--muted);font-weight:700;font-size:.9rem;}
+
+/* Merch Image (mit echten Bildern) */
+.mimg{
+  height:170px;
+  border-radius:14px;
+  overflow:hidden;
+  background:#0a1220;
+  border:1px solid rgba(148,163,184,.18);
+  display:grid;
+  place-items:center;
+  position:relative;
+}
+
+/* Produktbild */
+.mimg img{
+  width:100%;
+  height:100%;
+  object-fit:cover; /* falls du lieber alles komplett sehen willst: contain + padding */
+  display:block;
+  transition:transform .2s ease;
+}
+
+/* Hover-Zoom */
+.product:hover .mimg img{
+  transform:scale(1.06);
+}
+
+/* Overlay-Label (optional) */
+.mimg .tag{
+  position:absolute;
+  left:10px;
+  bottom:10px;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid rgba(148,163,184,.18);
+  background:rgba(2,6,23,.55);
+  color:rgba(229,231,235,.92);
+  font-weight:900;
+  font-size:.85rem;
+  backdrop-filter: blur(6px);
+}
 
     footer{margin:24px 0 40px 0;text-align:center;color:var(--muted);font-size:14px}
 
@@ -385,6 +600,7 @@
       border-radius:var(--radius);
       box-shadow:var(--shadow);
       padding:18px;
+      overflow:hidden;
     }
     .gb-muted{color:var(--muted)}
     .gb-rules{
@@ -412,7 +628,7 @@
       background:var(--brand);
       color:#fff;
       padding:12px;
-      font-weight:800;
+      font-weight:900;
       cursor:pointer;
       transition:.15s;
     }
@@ -427,7 +643,7 @@
       padding:12px;
     }
     .gb-entry-head{display:flex;justify-content:space-between;gap:12px;margin-bottom:6px}
-    .gb-entry-name{font-weight:900}
+    .gb-entry-name{font-weight:950}
     .gb-entry-date{color:var(--muted);font-size:12px}
     .gb-entry-msg{color:var(--text)}
   </style>
@@ -435,10 +651,10 @@
 
 <body>
 
-<header class="site-header">
+<header class="site-header" id="siteHeader">
   <div class="wrap headbar">
 
-    <!-- LINKS: HUBS -->
+    <!-- LINKS: HUBS (Desktop) -->
     <div class="header-block" aria-label="Hubs">
       <div>
         <div class="header-title">📌 Profil</div>
@@ -461,7 +677,7 @@
       </span>
     </a>
 
-    <!-- RECHTS: PARTNER -->
+    <!-- RECHTS: PARTNER (Desktop) -->
     <div class="header-block right" aria-label="Partner">
       <div>
         <div class="header-title">🏭 Hersteller</div>
@@ -489,6 +705,55 @@
     </div>
 
   </div>
+
+  <!-- Mobile Toggle Row -->
+  <div class="wrap header-mobile-row" aria-label="Mobile Navigation">
+    <button class="header-toggle" type="button" data-toggle="hubs" aria-expanded="false" aria-controls="mobilePanels">
+      📌 Profil <span class="chev">▾</span>
+    </button>
+    <button class="header-toggle" type="button" data-toggle="partners" aria-expanded="false" aria-controls="mobilePanels">
+      🏭 Hersteller <span class="chev">▾</span>
+    </button>
+  </div>
+
+  <!-- Mobile Panels -->
+  <div class="wrap mobile-panels" id="mobilePanels">
+    <div class="mobile-panel hubs" aria-label="Mobile Hubs">
+      <div class="header-title">📌 Profil</div>
+      <div class="header-list hubs">
+        <a class="header-chip" href="ueber-uns.html">Über uns</a>
+        <a class="header-chip" href="videos.html">Videos</a>
+        <a class="header-chip" href="unsere-stadt.html">Unsere Stadt</a>
+        <a class="header-chip" href="eisenbahn.html">Eisenbahn</a>
+        <a class="header-chip" href="beleuchtung.html">Beleuchtung</a>
+        <a class="header-chip" href="merch.html">Merch</a>
+      </div>
+    </div>
+
+    <div class="mobile-panel partners" aria-label="Mobile Partner">
+      <div class="header-title">🏭 Hersteller</div>
+      <div class="header-list partners">
+        <a class="header-chip partner" href="partner-lesdiy.html">
+          <img src="images/lesdiy_logo.jpg" alt="LESDIY"><span>LESDIY</span>
+        </a>
+        <a class="header-chip partner" href="partner-lumibricks.html">
+          <img src="images/Lumibricks.png" alt="Lumibricks"><span>Lumibricks</span>
+        </a>
+        <a class="header-chip partner" href="partner-briksmax.html">
+          <img src="images/briksmax.png" alt="Briksmax"><span>Briksmax</span>
+        </a>
+        <a class="header-chip partner" href="partner-jmbricklayer.html">
+          <img src="images/jmbricklayer_logo.jpg" alt="JMBricklayer"><span>JMBricklayer</span>
+        </a>
+        <a class="header-chip partner" href="partner-bluebrixx.html">
+          <img src="images/blue_brixx_logo.png" alt="BlueBrixx"><span>BlueBrixx</span>
+        </a>
+        <a class="header-chip partner" href="partner-lego.html">
+          <img src="images/lego_logo.png" alt="LEGO"><span>LEGO®</span>
+        </a>
+      </div>
+    </div>
+  </div>
 </header>
 
 <main class="wrap">
@@ -501,52 +766,107 @@
     <p class="subline">Guckst du nur 👀 oder BRIXX'st du schon?</p>
   </section>
 
-  <!-- LIVE & SOCIAL -->
+  <!-- HERO / LINKTREE -->
   <section class="card">
-    <h2>🎥 Alle wichtigen Links auf einen Blick</h2>
-    <div class="quick">
-      <a class="chip" href="https://www.youtube.com/playlist?list=PLNn6aDPjB4S3whqwyzUL3iq_5kAcJ5XlU" target="_blank" rel="noopener">🏙️ Stadt</a>
-      <a class="chip" href="https://www.youtube.com/playlist?list=PLNn6aDPjB4S1pRdsN_dlBsAAJ3iYjnkQb" target="_blank" rel="noopener">💡 Beleuchten</a>
-      <a class="chip" href="https://www.youtube.com/playlist?list=PLNn6aDPjB4S3CCRWvOOMZBW3V2-W5wVLN" target="_blank" rel="noopener">🚆 Züge/Eisenbahn</a>
+    <h2>Wo WIR alles zu finden sind</h2>
+
+    <div class="quick" aria-label="Schnell-Playlists">
+      <a class="chip" href="https://www.youtube.com/playlist?list=PLNn6aDPjB4S3whqwyzUL3iq_5kAcJ5XlU" target="_blank" rel="noopener">🏙️ Stadt-Playlist</a>
+      <a class="chip" href="https://www.youtube.com/playlist?list=PLNn6aDPjB4S1pRdsN_dlBsAAJ3iYjnkQb" target="_blank" rel="noopener">💡 Beleuchtungs-Playlist</a>
+      <a class="chip" href="https://www.youtube.com/playlist?list=PLNn6aDPjB4S3CCRWvOOMZBW3V2-W5wVLN" target="_blank" rel="noopener">🚆 Eisenbahn-Playlist</a>
     </div>
 
-    <div class="live-split">
-      <div class="links">
-        <a class="link-btn" href="https://whatsapp.com/channel/0029VamIHRz3mFYCt57qrV2D" target="_blank" rel="noopener">
-          <span class="emoji-round">💬</span><strong>WhatsApp-Kanal (Infos)</strong>
-        </a>
-        <a class="link-btn" href="https://www.youtube.com/@diebausteinklemmer" target="_blank" rel="noopener">
-          <span class="emoji-round">▶️</span><strong>YouTube</strong>
-        </a>
-        <a class="link-btn" href="https://www.youtube.com/channel/UC4kphj89-nvQ94HDwJF0A8A/join" target="_blank" rel="noopener">
-          <span class="emoji-round">⭐</span><strong>Kanal-Mitgliedschaft</strong>
-        </a>
-        <a class="link-btn" href="https://www.youtube.com/@diebausteinklemmer/live" target="_blank" rel="noopener">
-          <span class="emoji-round">🔴</span><strong>YouTube-LIVE</strong>
-        </a>
-        <a class="link-btn" href="https://www.instagram.com/diebausteinklemmer/" target="_blank" rel="noopener">
-          <span class="emoji-round">📷</span><strong>Instagram</strong>
-        </a>
-        <a class="link-btn" href="https://www.tiktok.com/@diebausteinklemmer?lang=de-DE" target="_blank" rel="noopener">
-          <span class="emoji-round">🎵</span><strong>TikTok</strong>
-        </a>
-        <a class="link-btn" href="https://www.facebook.com/DieBausteinklemmer/" target="_blank" rel="noopener">
-          <span class="emoji-round">👥</span><strong>Facebook</strong>
-        </a>
-        <a class="link-btn" href="https://brickpod.podigee.io/51-bausteinklemmer" target="_blank" rel="noopener">
-          <span class="emoji-round">🎙️</span><strong>Podcast (Brickpod)</strong>
-        </a>
-        <a class="link-btn" href="https://rebrickable.com/users/DieBausteinklemmer/" target="_blank" rel="noopener">
-          <span class="emoji-round">🧱</span><strong>Rebrickable (Anleitungen)</strong>
+    <div class="linktree">
+      <div class="social-grid" aria-label="Social & Kontakt Links">
+
+        <a class="social-card" href="https://whatsapp.com/channel/0029VamIHRz3mFYCt57qrV2D" target="_blank" rel="noopener">
+          <span class="ico"><img src="images/whatsapp.png" alt="WhatsApp"></span>
+          <span class="s-text">
+            <strong class="label-full">WhatsApp-Kanal</strong>
+            <small>LIVE- Infos</small>
+          </span>
         </a>
 
-        <!-- NEU: beide Mails -->
-        <a class="link-btn" href="mailto:info@diebausteinklemmer.de">
-          <span class="emoji-round">✉️</span><strong>Kontakt: info@diebausteinklemmer.de</strong>
+        <a class="social-card" href="https://www.youtube.com/@diebausteinklemmer" target="_blank" rel="noopener">
+          <span class="ico"><img src="images/youtubeGLow.png" alt="YouTube"></span>
+          <span class="s-text">
+            <strong class="label-full">Hauptkanal</strong>
+            <small>Videos (Stadt, Zug,...)</small>
+          </span>
         </a>
-        <a class="link-btn" href="mailto:kooperation@diebausteinklemmer.de">
-          <span class="emoji-round">🤝</span><strong>Kooperation: kooperation@diebausteinklemmer.de</strong>
+
+        <a class="social-card" href="https://www.youtube.com/@diebausteinklemmer/live" target="_blank" rel="noopener">
+          <span class="ico"><img src="images/youtubeGLow.png" alt="YouTube Live"></span>
+          <span class="s-text">
+            <strong class="label-full">LIVE</strong>
+            <small>Streams & Bau-Sessions</small>
+          </span>
         </a>
+
+        <a class="social-card" href="https://www.youtube.com/channel/UC4kphj89-nvQ94HDwJF0A8A/join" target="_blank" rel="noopener">
+          <span class="ico"><img src="images/youtubeGLow.png" alt="YouTube-Kanalmitgliedschaft"></span>
+          <span class="s-text">
+            <strong class="label-full">Kanalmitgliedschaft</strong>
+            <small>Support & Vorteile</small>
+          </span>
+        </a>
+
+        <a class="social-card" href="https://www.instagram.com/diebausteinklemmer/" target="_blank" rel="noopener">
+          <span class="ico"><img src="images/Instagram.png" alt="Instagram"></span>
+          <span class="s-text">
+            <strong class="label-full">Instagram</strong>
+            <small>Reels & Fotos</small>
+          </span>
+        </a>
+
+        <a class="social-card" href="https://www.tiktok.com/@diebausteinklemmer?lang=de-DE" target="_blank" rel="noopener">
+          <span class="ico"><img src="images/tiktokGLOW.png" alt="TikTok"></span>
+          <span class="s-text">
+            <strong class="label-full">TikTok</strong>
+            <small>Shorts & Trends</small>
+          </span>
+        </a>
+
+        <a class="social-card" href="https://www.facebook.com/DieBausteinklemmer/" target="_blank" rel="noopener">
+          <span class="ico"><img src="images/facebook.png" alt="Facebook"></span>
+          <span class="s-text">
+            <strong class="label-full">Facebook</strong>
+            <small>Community & Posts</small>
+          </span>
+        </a>
+
+        <a class="social-card" href="https://brickpod.podigee.io/51-bausteinklemmer" target="_blank" rel="noopener">
+          <span class="ico emoji" aria-hidden="true">🎙️</span>
+          <span class="s-text">
+            <strong class="label-full">Podcast (Brickpod)</strong>
+            <small>Folge mit uns</small>
+          </span>
+        </a>
+
+        <a class="social-card" href="https://rebrickable.com/users/DieBausteinklemmer/" target="_blank" rel="noopener">
+          <span class="ico emoji" aria-hidden="true">🧱</span>
+          <span class="s-text">
+            <strong class="label-full">Rebrickable</strong>
+            <small>Anleitungen & MOCs</small>
+          </span>
+        </a>
+
+        <a class="social-card" href="mailto:info@diebausteinklemmer.de">
+          <span class="ico emoji" aria-hidden="true">✉️</span>
+          <span class="s-text">
+            <strong class="label-full">Kontakt</strong>
+            <small>info@diebausteinklemmer.de</small>
+          </span>
+        </a>
+
+        <a class="social-card" href="mailto:kooperation@diebausteinklemmer.de">
+          <span class="ico emoji" aria-hidden="true">🤝</span>
+          <span class="s-text">
+            <strong class="label-full">Kooperationen</strong>
+            <small>kooperation@diebausteinklemmer.de</small>
+          </span>
+        </a>
+
       </div>
 
       <div class="center">
@@ -559,6 +879,7 @@
   <section class="card">
     <h2>⭐ Häufig bestellt – unsere Favoriten</h2>
     <div class="carousel">
+
       <a class="product" href="https://amzn.to/3U6ldd7" target="_blank" rel="noopener">
         <div class="pimg" style="background-image:url('https://m.media-amazon.com/images/I/714k0G8QjlL._AC_SL1500_.jpg')"></div>
         <div class="ptext"><b>Etikettenfolie *</b><small>Perfekt für Graffitis</small></div>
@@ -566,10 +887,6 @@
       <a class="product" href="https://amzn.to/3LM3N13" target="_blank" rel="noopener">
         <div class="pimg" style="background-image:url('https://m.media-amazon.com/images/I/61nmE5UgHjS._AC_SL1500_.jpg')"></div>
         <div class="ptext"><b>Akku-Staubsauger *</b><small>Unser City-Monster</small></div>
-      </a>
-      <a class="product" href="https://amzn.to/43g3aqu" target="_blank" rel="noopener">
-        <div class="pimg" style="background-image:url('https://m.media-amazon.com/images/I/61ICAGD47oL._AC_SL1500_.jpg')"></div>
-        <div class="ptext"><b>Ersatz-Magneten 8×5 *</b><small>Für Zug-Kupplungen</small></div>
       </a>
       <a class="product" href="https://amzn.to/4441NcY" target="_blank" rel="noopener">
         <div class="pimg" style="background-image:url('https://m.media-amazon.com/images/I/61jrmczh8pL._AC_SL1500_.jpg')"></div>
@@ -579,6 +896,14 @@
         <div class="pimg" style="background-image:url('https://m.media-amazon.com/images/I/41n3yFYXUjL._AC_SL1100_.jpg')"></div>
         <div class="ptext"><b>Klemmbaustein Zugmotor *</b><small>Solider Antrieb</small></div>
       </a>
+      <a class="product" href="https://amzn.to/45hryIH" target="_blank" rel="noopener">
+        <div class="pimg" style="background-image:url('images/comingsoon.png')"></div>
+        <div class="ptext"><b>Straßen-Baseplates *</b><small>Für City-Straßen</small></div>
+      </a>
+      <a class="product" href="https://amzn.to/43g3aqu" target="_blank" rel="noopener">
+        <div class="pimg" style="background-image:url('https://m.media-amazon.com/images/I/61ICAGD47oL._AC_SL1500_.jpg')"></div>
+        <div class="ptext"><b>Ersatz-Magneten 8×5 *</b><small>Für Zug-Kupplungen</small></div>
+      </a>
       <a class="product" href="https://amzn.to/45TBFRs" target="_blank" rel="noopener">
         <div class="pimg" style="background-image:url('https://m.media-amazon.com/images/I/81NMGfOmREL._SL1500_.jpg')"></div>
         <div class="ptext"><b>Magnete 5×10 *</b><small>Für Adapter & Beleuchtung</small></div>
@@ -587,55 +912,159 @@
     <p class="muted center" style="font-size:13px;margin-top:8px">* Affiliate-Link: Für dich bleibt der Preis gleich.</p>
   </section>
 
-  <!-- Tag/Nacht – Beleuchtungs-Playlist -->
-  <section class="card center">
-    <a href="https://www.youtube.com/playlist?list=PLNn6aDPjB4S1pRdsN_dlBsAAJ3iYjnkQb"
-       target="_blank"
-       rel="noopener"
-       class="tag-wrap">
-      <div class="tag-image"></div>
-    </a>
-    <p class="muted" style="margin-top:12px; font-size:15px;">
-      👉 Tipp: Drück auf das Bild für deine eigene Magie!
-    </p>
-  </section>
-
-  <!-- Beleuchtungs Starter Set -->
+  <!-- Beleuchtung: Playlist + Starterset kombiniert -->
   <section class="card">
-    <h2>🔧 Beleuchtungs-Starter-Set (unsere Basics)</h2>
-    <img src="images/lighting-collage.jpg" alt="Beleuchtungs-Collage" class="collage">
-    <p class="muted center">Das nutzen wir selbst. Schnellstart-Liste zum Nachkaufen:</p>
+    <h2>Wie beleuchten wir UNSERE Stadt ganz EINFACH?</h2>
 
-    <div class="live-split">
-      <div class="links">
-        <a class="link-btn" href="https://amzn.to/41HTFhb" target="_blank" rel="noopener"><span class="emoji-round">🔥</span><strong>Lötstation (60W) *</strong></a>
-        <a class="link-btn" href="https://amzn.to/49eUyBf" target="_blank" rel="noopener"><span class="emoji-round">🌈</span><strong>LED/Dioden-Set *</strong></a>
-        <a class="link-btn" href="https://amzn.to/3Tlosgb" target="_blank" rel="noopener"><span class="emoji-round">❄️</span><strong>LED-SMD 3,2×1,6 – kaltweiß *</strong></a>
-        <a class="link-btn" href="https://amzn.to/3Tlot3J" target="_blank" rel="noopener"><span class="emoji-round">🔥</span><strong>LED-SMD 3,2×1,6 – warmweiß *</strong></a>
-        <a class="link-btn" href="https://amzn.to/3RKkYmm" target="_blank" rel="noopener"><span class="emoji-round">⚡</span><strong>Widerstände 470 Ω *</strong></a>
-        <a class="link-btn" href="https://amzn.to/4aQ59n4" target="_blank" rel="noopener"><span class="emoji-round">⚡</span><strong>Widerstände 560 Ω *</strong></a>
-        <a class="link-btn" href="https://amzn.to/3Mkzy1V" target="_blank" rel="noopener"><span class="emoji-round">🧵</span><strong>Schaltlitze 0,14 mm² – schwarz *</strong></a>
-        <a class="link-btn" href="https://amzn.to/3Sn9g2V" target="_blank" rel="noopener"><span class="emoji-round">🧵</span><strong>Schaltlitze 0,14 mm² – rot *</strong></a>
-        <a class="link-btn" href="https://amzn.to/3QEuJTH" target="_blank" rel="noopener"><span class="emoji-round">🧰</span><strong>Schrumpfschlauch 1,6 mm *</strong></a>
-        <a class="link-btn" href="https://amzn.to/3SoOTmg" target="_blank" rel="noopener"><span class="emoji-round">🔋</span><strong>Batterie-Box 12 V *</strong></a>
+    <div class="combo">
+      <div>
+        <a href="https://www.youtube.com/playlist?list=PLNn6aDPjB4S1pRdsN_dlBsAAJ3iYjnkQb" target="_blank" rel="noopener" class="tag-wrap" aria-label="Zur Beleuchtungs-Playlist">
+          <div class="tag-image"></div>
+        </a>
+        <p class="muted" style="margin:10px 0 0 0; font-weight:800; text-align:center;">👉 Klick aufs Bild: Beleuchtungs-Playlist</p>
       </div>
 
-      <div class="center">
-        <img src="images/sophie.png" alt="Sophie" class="mini-fig">
+      <div>
+        <p class="muted" style="margin:0; font-weight:850;">Unser kleiner Schnellstart: Das brauchst du fürs Selbst-Beleuchten 👇</p>
+        <img src="images/lighting-collage.jpg" alt="Beleuchtungs-Komponenten" class="collage">
+
+        <div class="mini-products" aria-label="Beleuchtungs-Tools">
+          <a class="mini-link" href="https://amzn.to/41HTFhb" target="_blank" rel="noopener">Lötstation *</a>
+          <a class="mini-link" href="https://amzn.to/49eUyBf" target="_blank" rel="noopener">LED/Dioden-Set *</a>
+          <a class="mini-link" href="https://amzn.to/3RKkYmm" target="_blank" rel="noopener">Widerstände 470Ω *</a>
+          <a class="mini-link" href="https://amzn.to/4aQ59n4" target="_blank" rel="noopener">Widerstände 560Ω *</a>
+          <a class="mini-link" href="https://amzn.to/3Tlosgb" target="_blank" rel="noopener">SMD kaltweiß *</a>
+          <a class="mini-link" href="https://amzn.to/3Tlot3J" target="_blank" rel="noopener">SMD warmweiß *</a>
+          <a class="mini-link" href="https://amzn.to/3Mkzy1V" target="_blank" rel="noopener">Schaltlitze schwarz *</a>
+          <a class="mini-link" href="https://amzn.to/3Sn9g2V" target="_blank" rel="noopener">Schaltlitze rot *</a>
+          <a class="mini-link" href="https://amzn.to/3SoOTmg" target="_blank" rel="noopener">Batterie-Box 12V *</a>
+        </div>
+
+        <p class="muted" style="font-size:13px;margin:10px 0 0 0">* Affiliate-Links / Werbelinks: Wir erhalten eine kleine Provision. Für dich bleibt der Preis gleich.</p>
       </div>
     </div>
-
-    <p class="muted center" style="font-size:13px">* Affiliate-Links / Werbelinks: Wir erhalten eine kleine Provision. Für dich bleibt der Preis gleich.</p>
   </section>
 
   <!-- Merch -->
   <section class="card">
-    <h2>🛒 Merch – bald verfügbar</h2>
-    <div class="merch">
-      <a class="tile" href="#"><span>👕</span>Klamotten</a>
-      <a class="tile" href="#"><span>🖊️</span>Autogrammkarten</a>
+    <h2>🛒 Merch (aktuell über Amazon)</h2>
+
+    <div class="merch-block">
+      <div class="merch-head">
+        <h3>👕 T‑Shirts</h3>
+        <span class="hint">Herren / Damen / Kinder / Mädchen</span>
+      </div>
+      <div class="carousel" style="margin-top:10px">
+
+  <a class="product" href="https://amzn.to/3LkE2IZ" target="_blank" rel="noopener">
+    <div class="mimg">
+      <img src="images/muchachos-shirt.jpg" alt="Muchachos T-Shirt Design">
+      <div class="tag">Muchachos</div>
     </div>
-    <div class="center" style="margin-top:12px">
+    <div class="ptext"><b>Muchachos Design *</b><small>T-Shirt Varianten</small></div>
+  </a>
+
+  <a class="product" href="https://amzn.to/3YJsx0M" target="_blank" rel="noopener">
+    <div class="mimg">
+      <img src="images/merch/beanvillage-shirt.jpg" alt="BeanVillage T-Shirt Design">
+      <div class="tag">BeanVillage</div>
+    </div>
+    <div class="ptext"><b>BeanVillage Design *</b><small>T-Shirt Varianten</small></div>
+  </a>
+
+  <a class="product" href="https://amzn.to/3ZmI1ru" target="_blank" rel="noopener">
+    <div class="mimg">
+      <img src="images/merch/meisterbauer-shirt.jpg" alt="Meister Bauer T-Shirt Design">
+      <div class="tag">Meister Bauer</div>
+    </div>
+    <div class="ptext"><b>Meister Bauer *</b><small>T-Shirt Varianten</small></div>
+  </a>
+
+  <a class="product" href="#">
+    <div class="mimg">
+      <img src="images/comingsoon.png" alt="Coming soon">
+      <div class="tag">Coming soon</div>
+    </div>
+    <div class="ptext"><b>Nächstes Design</b><small>Platzhalter</small></div>
+  </a>
+
+</div>
+
+
+    <div class="merch-block">
+      <div class="merch-head">
+        <h3>🧥 Hoodies</h3>
+        <span class="hint">Mehr Designs folgen</span>
+      </div>
+      <div class="carousel" style="margin-top:10px">
+        <a class="product" href="https://amzn.to/4qVPTvX" target="_blank" rel="noopener">
+          <div class="mimg"><span>Meister&nbsp;Bauer</span></div>
+          <div class="ptext"><b>Meister Bauer *</b><small>Hoodie</small></div>
+        </a>
+        <a class="product" href="https://amzn.to/4qnwFPX" target="_blank" rel="noopener">
+          <div class="mimg"><span>BeanVillage</span></div>
+          <div class="ptext"><b>BeanVillage *</b><small>Hoodie</small></div>
+        </a>
+        <a class="product" href="https://amzn.to/4t0k8Uy" target="_blank" rel="noopener">
+          <div class="mimg"><span>DBK</span></div>
+          <div class="ptext"><b>DBK (Kürzel) *</b><small>Hoodie</small></div>
+        </a>
+        <a class="product" href="#">
+          <div class="mimg"><span>Coming&nbsp;soon</span></div>
+          <div class="ptext"><b>Platzhalter</b><small>für neue Hoodies</small></div>
+        </a>
+      </div>
+    </div>
+
+    <div class="merch-block">
+      <div class="merch-head">
+        <h3>🧶 Sweatshirts</h3>
+        <span class="hint">kuschelig 🔥</span>
+      </div>
+      <div class="carousel" style="margin-top:10px">
+        <a class="product" href="https://amzn.to/4jNWaYv" target="_blank" rel="noopener">
+          <div class="mimg"><span>BeanVillage</span></div>
+          <div class="ptext"><b>BeanVillage *</b><small>Sweatshirt</small></div>
+        </a>
+        <a class="product" href="https://amzn.to/3NngVhu" target="_blank" rel="noopener">
+          <div class="mimg"><span>Meister&nbsp;Bauer</span></div>
+          <div class="ptext"><b>Meister Bauer *</b><small>Sweatshirt</small></div>
+        </a>
+        <a class="product" href="#">
+          <div class="mimg"><span>Coming&nbsp;soon</span></div>
+          <div class="ptext"><b>Platzhalter</b><small>für neue Sweatshirts</small></div>
+        </a>
+      </div>
+    </div>
+
+    <div class="merch-block">
+      <div class="merch-head">
+        <h3>🏋️ Tanktops</h3>
+        <span class="hint">Sommer‑Mode</span>
+      </div>
+      <div class="carousel" style="margin-top:10px">
+        <a class="product" href="https://amzn.to/4sBV1ae" target="_blank" rel="noopener">
+          <div class="mimg"><span>Meister&nbsp;Bauer</span></div>
+          <div class="ptext"><b>Meister Bauer *</b><small>Tanktops</small></div>
+        </a>
+        <a class="product" href="https://amzn.to/49YdJ4u" target="_blank" rel="noopener">
+          <div class="mimg"><span>BeanVillage</span></div>
+          <div class="ptext"><b>BeanVillage *</b><small>Tanktops</small></div>
+        </a>
+        <a class="product" href="https://amzn.to/3Nnh84g" target="_blank" rel="noopener">
+          <div class="mimg"><span>DBK</span></div>
+          <div class="ptext"><b>DBK (Kürzel) *</b><small>Tanktops</small></div>
+        </a>
+        <a class="product" href="#">
+          <div class="mimg"><span>Coming&nbsp;soon</span></div>
+          <div class="ptext"><b>Platzhalter</b><small>für neue Tanktops</small></div>
+        </a>
+      </div>
+    </div>
+
+    <p class="muted" style="font-size:13px;margin-top:12px">* Affiliate-Link: Für dich bleibt der Preis gleich.</p>
+
+    <div class="center" style="margin-top:14px">
       <img src="images/denny_shock.png" alt="Denny erschrocken" class="mini-fig">
     </div>
   </section>
@@ -643,7 +1072,7 @@
   <!-- Gästebuch -->
   <section class="card" id="gaestebuch">
     <h2>📖 Gästebuch</h2>
-    <p class="muted center" style="margin-top:-6px">Lass einen Gruß da – Einträge erscheinen erst nach Freigabe.</p>
+    <p class="muted center" style="margin-top:-6px">Lass einen Gruß da – Einträge erscheinen erst nach Freigabe (Moderation).</p>
 
     <div class="gb-grid" style="margin-top:14px">
 
@@ -654,7 +1083,7 @@
             <li>Kein Hass, keine Beleidigungen, keine Diskriminierung</li>
             <li>Keine Werbung / keine Links</li>
             <li>Max. 220 Zeichen</li>
-            <li>Einträge werden moderiert</li>
+            <li>Einträge werden moderiert (Freigabe folgt)</li>
           </ul>
         </div>
 
@@ -664,13 +1093,10 @@
         </label>
 
         <form id="gb-form" class="gb-form">
-          <!-- Honeypot -->
           <input type="text" name="website" id="gb-website" autocomplete="off" tabindex="-1" aria-hidden="true"/>
-
           <input type="text" id="gb-name" maxlength="40" placeholder="Dein Name (z. B. Muchacho Max)" required />
           <textarea id="gb-message" maxlength="220" rows="4" placeholder="Dein Gruß (max. 220 Zeichen)" required></textarea>
 
-          <!-- Turnstile -->
           <div class="cf-turnstile" data-sitekey="DEIN_TURNSTILE_SITEKEY" data-theme="light"></div>
 
           <button type="submit" id="gb-submit">Gruß abschicken</button>
@@ -696,12 +1122,59 @@
 
 </main>
 
-<!-- Turnstile Script -->
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
 <script>
   document.getElementById('y').textContent = new Date().getFullYear();
 
+  // ===== Mobile Header Toggle (wie Beispiel-HUB) =====
+  (function(){
+    const header = document.getElementById('siteHeader');
+    if(!header) return;
+
+    const btns = header.querySelectorAll('.header-toggle[data-toggle]');
+    function setExpanded(btn, isOpen){
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    }
+
+    function closeAll(){
+      header.classList.remove('is-hubs-open','is-partners-open');
+      btns.forEach(b=>setExpanded(b,false));
+    }
+
+    btns.forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const type = btn.getAttribute('data-toggle');
+        const isHubs = type === 'hubs';
+        const openClass = isHubs ? 'is-hubs-open' : 'is-partners-open';
+        const otherClass = isHubs ? 'is-partners-open' : 'is-hubs-open';
+
+        const isOpen = header.classList.contains(openClass);
+        header.classList.remove(otherClass);
+        header.classList.toggle(openClass, !isOpen);
+
+        btns.forEach(b=>{
+          const t = b.getAttribute('data-toggle');
+          const shouldOpen = header.classList.contains(t === 'hubs' ? 'is-hubs-open' : 'is-partners-open');
+          setExpanded(b, shouldOpen);
+        });
+
+        if(!header.classList.contains('is-hubs-open') && !header.classList.contains('is-partners-open')){
+          closeAll();
+        }
+      });
+    });
+
+    window.addEventListener('resize', ()=>{
+      if(window.innerWidth > 980) closeAll();
+    });
+
+    header.querySelectorAll('.mobile-panels a').forEach(a=>{
+      a.addEventListener('click', ()=>closeAll());
+    });
+  })();
+
+  // ===== Gästebuch =====
   (async function(){
     const listEl = document.getElementById("gb-list");
     const statusEl = document.getElementById("gb-status");
@@ -778,7 +1251,6 @@
 
         statusEl.textContent = data.message || "Danke! 🙂";
         form.reset();
-
         if(window.turnstile) window.turnstile.reset();
 
       }catch(e){
