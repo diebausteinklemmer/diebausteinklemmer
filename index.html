@@ -363,6 +363,21 @@
       outline-offset:2px;
     }
 
+.inline-link{
+  text-decoration:underline;
+  text-underline-offset:3px;
+  opacity:.95;
+}
+.inline-link:hover{opacity:1}
+
+.jump-line{
+  margin:12px 0 0 0;
+  text-align:center;
+  color:var(--muted);
+  font-weight:800;
+}
+
+
     /* Social / Linktree Grid */
     .linktree{
       display:grid;
@@ -504,13 +519,18 @@
       background-position:center;
     }
 
-    .collage{
-      width:100%;height:auto;border-radius:14px;
-      border:1px solid rgba(148,163,184,.18);
-      box-shadow:0 12px 24px rgba(0,0,0,.35);
-      margin:8px 0 12px;
-      overflow:hidden;
-    }
+/* Collage – gleiche Höhe wie Tag-Image (16:9) */
+.collage{
+  width:100%;
+  aspect-ratio:16/9;
+  object-fit:cover;
+  border-radius:14px;
+  border:1px solid rgba(148,163,184,.18);
+  box-shadow:0 12px 24px rgba(0,0,0,.35);
+  margin:8px 0 12px;
+  display:block;
+}
+
 
     .mini-products{
       display:grid;
@@ -548,9 +568,23 @@
     .merch-head h3{margin:0;font-size:1.02rem;}
     .merch-head .hint{color:var(--muted);font-weight:700;font-size:.9rem;}
 
-/* Merch Image (mit echten Bildern) */
+/* ===== Merch ===== */
+.merch-block{margin-top:8px;}
+.merch-head{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.merch-head h3{margin:0;font-size:1.02rem;}
+.merch-head .hint{color:var(--muted);font-weight:700;font-size:.9rem;}
+
+/* ===== Merch Image (echte Produktbilder) ===== */
 .mimg{
-  height:170px;
+  aspect-ratio: 9 / 16;
+  width:100%;
+  max-height:260px;      /* ⬅️ DAS bremst die Größe */
   border-radius:14px;
   overflow:hidden;
   background:#0a1220;
@@ -560,18 +594,20 @@
   position:relative;
 }
 
-/* Produktbild */
+/* Produktbild: KOMPLETT sichtbar */
 .mimg img{
   width:100%;
   height:100%;
-  object-fit:cover; /* falls du lieber alles komplett sehen willst: contain + padding */
+  object-fit:contain;   /* WICHTIG */
+  object-position:center;
   display:block;
+  padding:14px;         /* Luft zum Rand */
   transition:transform .2s ease;
 }
 
-/* Hover-Zoom */
+/* sanfter Hover */
 .product:hover .mimg img{
-  transform:scale(1.06);
+  transform:scale(1.03);
 }
 
 /* Overlay-Label (optional) */
@@ -588,6 +624,7 @@
   font-size:.85rem;
   backdrop-filter: blur(6px);
 }
+
 
     footer{margin:24px 0 40px 0;text-align:center;color:var(--muted);font-size:14px}
 
@@ -646,6 +683,61 @@
     .gb-entry-name{font-weight:950}
     .gb-entry-date{color:var(--muted);font-size:12px}
     .gb-entry-msg{color:var(--text)}
+  
+ .affiliate-note{
+  margin-top:2px;
+  text-align:center;
+  font-size:.9rem;
+  color:rgba(229,231,235,.75);
+  font-weight:800;
+}
+
+/* ===== Back-to-Top Button (weicht Footer aus) ===== */
+.to-top{
+  position:fixed;
+  right:16px;
+  bottom:16px; /* wird per JS dynamisch erhöht, sobald Footer kollidiert */
+  z-index:60;
+
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+
+  padding:12px 14px;
+  border-radius:999px;
+
+  background:rgba(2,6,23,.72);
+  border:1px solid rgba(148,163,184,.25);
+  color:rgba(229,231,235,.95);
+
+  box-shadow:0 18px 42px rgba(2,8,23,.45);
+  backdrop-filter: blur(10px) saturate(130%);
+  cursor:pointer;
+
+  opacity:0;
+  transform:translateY(8px) scale(.98);
+  pointer-events:none;
+
+  transition:opacity .16s ease, transform .16s ease, filter .16s ease, outline-color .16s ease, bottom .16s ease;
+}
+.to-top:hover{
+  filter:brightness(1.12);
+  transform:translateY(0) scale(1.03);
+  outline:2px solid rgba(246,176,66,.45);
+  outline-offset:2px;
+}
+.to-top.show{
+  opacity:1;
+  transform:translateY(0) scale(1);
+  pointer-events:auto;
+}
+.to-top svg{width:18px;height:18px;opacity:.95}
+.to-top span{font-weight:950; font-size:.92rem}
+@media (max-width: 520px){
+  .to-top span{display:none;}
+  .to-top{padding:12px;}
+} 
   </style>
 </head>
 
@@ -776,6 +868,14 @@
       <a class="chip" href="https://www.youtube.com/playlist?list=PLNn6aDPjB4S3CCRWvOOMZBW3V2-W5wVLN" target="_blank" rel="noopener">🚆 Eisenbahn-Playlist</a>
     </div>
 
+    <p class="jump-line">
+      Direkt springen zu:
+      <a class="inline-link toc-jump" href="#haeufigbestellt">Häufig bestellt</a> ·
+      <a class="inline-link toc-jump" href="#beleuchtung">Beleuchtung</a> ·
+      <a class="inline-link toc-jump" href="#merch">Merch</a> ·
+      <a class="inline-link toc-jump" href="#gaestebuch">Gästebuch</a> ·
+    </p>
+
     <div class="linktree">
       <div class="social-grid" aria-label="Social & Kontakt Links">
 
@@ -795,7 +895,7 @@
           </span>
         </a>
 
-        <a class="social-card" href="https://www.youtube.com/@diebausteinklemmer/live" target="_blank" rel="noopener">
+        <a class="social-card" href="https://www.youtube.com/@diebausteinklemmerlive" target="_blank" rel="noopener">
           <span class="ico"><img src="images/youtubeGLow.png" alt="YouTube Live"></span>
           <span class="s-text">
             <strong class="label-full">LIVE</strong>
@@ -876,7 +976,7 @@
   </section>
 
   <!-- Häufig bestellt -->
-  <section class="card">
+  <section id="haeufigbestellt" class="card anchor">
     <h2>⭐ Häufig bestellt – unsere Favoriten</h2>
     <div class="carousel">
 
@@ -897,8 +997,8 @@
         <div class="ptext"><b>Klemmbaustein Zugmotor *</b><small>Solider Antrieb</small></div>
       </a>
       <a class="product" href="https://amzn.to/45hryIH" target="_blank" rel="noopener">
-        <div class="pimg" style="background-image:url('images/comingsoon.png')"></div>
-        <div class="ptext"><b>Straßen-Baseplates *</b><small>Für City-Straßen</small></div>
+        <div class="pimg" style="background-image:url('https://m.media-amazon.com/images/I/71UEbqAIv6L._AC_SX679_.jpg')"></div>
+        <div class="ptext"><b>Straßen-Baseplates *</b><small>Für Stadt-Straßen</small></div>
       </a>
       <a class="product" href="https://amzn.to/43g3aqu" target="_blank" rel="noopener">
         <div class="pimg" style="background-image:url('https://m.media-amazon.com/images/I/61ICAGD47oL._AC_SL1500_.jpg')"></div>
@@ -909,19 +1009,49 @@
         <div class="ptext"><b>Magnete 5×10 *</b><small>Für Adapter & Beleuchtung</small></div>
       </a>
     </div>
-    <p class="muted center" style="font-size:13px;margin-top:8px">* Affiliate-Link: Für dich bleibt der Preis gleich.</p>
+        <p class="affiliate-note">* Affiliate-Link: Für dich bleibt der Preis gleich.</p>
   </section>
 
   <!-- Beleuchtung: Playlist + Starterset kombiniert -->
-  <section class="card">
-    <h2>Wie beleuchten wir UNSERE Stadt ganz EINFACH?</h2>
+  <section id="beleuchtung" class="card anchor">
+<h2>Wie beleuchten wir unsere LEGO® / Klemmbaustein-Stadt ganz einfach?</h2>
+
 
     <div class="combo">
       <div>
-        <a href="https://www.youtube.com/playlist?list=PLNn6aDPjB4S1pRdsN_dlBsAAJ3iYjnkQb" target="_blank" rel="noopener" class="tag-wrap" aria-label="Zur Beleuchtungs-Playlist">
+<a href="https://www.youtube.com/playlist?list=PLNn6aDPjB4S1pRdsN_dlBsAAJ3iYjnkQb"
+   target="_blank"
+   rel="noopener"
+   class="tag-wrap"
+   aria-label="YouTube Playlist: LEGO Stadt selbst beleuchten mit LEDs"
+   title="LEGO Stadt selbst beleuchten – Schritt für Schritt">
+
           <div class="tag-image"></div>
         </a>
-        <p class="muted" style="margin:10px 0 0 0; font-weight:800; text-align:center;">👉 Klick aufs Bild: Beleuchtungs-Playlist</p>
+<p class="muted" style="margin:10px 0 6px 0; font-weight:800; text-align:center;">
+  ☝️ Klick aufs Bild: Beleuchtungs-Playlist
+</p>
+
+<p class="muted">
+  <strong>Unsere Selbst-Beleuchten-Playlist zeigt dir Schritt für Schritt, wie wir unsere LEGO® / Klemmbaustein-Stadt ganz ohne Fertigsets zum Leuchten bringen.</strong>
+</p>
+
+<p class="muted">
+  Du siehst echte Praxis: vom ersten LED-Test über sauberes Löten bis hin zu cleverem Kabelmanagement unter der Stadt.
+</p>
+
+<p class="muted">
+  Wir erklären verständlich, welche LEDs, Widerstände und Spannungen wirklich Sinn machen, ganz ohne Elektronik-Studium.
+</p>
+
+<p class="muted">
+  Dabei teilen wir Tricks, Fehler und Lösungen, die wir selbst in unserer LEGO-Stadt <strong>BeanVillage</strong> gelernt haben.
+</p>
+
+<p class="muted">
+  Perfekt für alle, die ihre LEGO- oder Klemmbaustein-Stadt realistischer, lebendiger und einfach fantastischer machen wollen. ✨
+</p>
+
       </div>
 
       <div>
@@ -940,13 +1070,13 @@
           <a class="mini-link" href="https://amzn.to/3SoOTmg" target="_blank" rel="noopener">Batterie-Box 12V *</a>
         </div>
 
-        <p class="muted" style="font-size:13px;margin:10px 0 0 0">* Affiliate-Links / Werbelinks: Wir erhalten eine kleine Provision. Für dich bleibt der Preis gleich.</p>
+        <p class="affiliate-note">* Affiliate-Link: Für dich bleibt der Preis gleich.</p>
       </div>
     </div>
   </section>
 
   <!-- Merch -->
-  <section class="card">
+  <section id="merch" class="card anchor">
     <h2>🛒 Merch (aktuell über Amazon)</h2>
 
     <div class="merch-block">
@@ -959,33 +1089,36 @@
   <a class="product" href="https://amzn.to/3LkE2IZ" target="_blank" rel="noopener">
     <div class="mimg">
       <img src="images/muchachos-shirt.jpg" alt="Muchachos T-Shirt Design">
-      <div class="tag">Muchachos</div>
     </div>
-    <div class="ptext"><b>Muchachos Design *</b><small>T-Shirt Varianten</small></div>
+    <div class="ptext"><b>Muchachos Design *</b></div>
   </a>
 
-  <a class="product" href="https://amzn.to/3YJsx0M" target="_blank" rel="noopener">
+  <a class="product" href="https://amzn.to/3LzjDQr" target="_blank" rel="noopener">
     <div class="mimg">
-      <img src="images/merch/beanvillage-shirt.jpg" alt="BeanVillage T-Shirt Design">
-      <div class="tag">BeanVillage</div>
+      <img src="images/verlaufend-shirt.jpg" alt="Verlaufend Bricks T-Shirt Design">
     </div>
-    <div class="ptext"><b>BeanVillage Design *</b><small>T-Shirt Varianten</small></div>
+    <div class="ptext"><b>Verlaufende Farben *</b></div>
   </a>
 
   <a class="product" href="https://amzn.to/3ZmI1ru" target="_blank" rel="noopener">
     <div class="mimg">
-      <img src="images/merch/meisterbauer-shirt.jpg" alt="Meister Bauer T-Shirt Design">
-      <div class="tag">Meister Bauer</div>
+      <img src="images/meisterbauer-shirt.jpg" alt="Meister Bauer T-Shirt Design">
     </div>
-    <div class="ptext"><b>Meister Bauer *</b><small>T-Shirt Varianten</small></div>
+    <div class="ptext"><b>Meister Bauer *</b></div>
   </a>
 
-  <a class="product" href="#">
+  <a class="product" href="https://amzn.to/4b8nmyH" target="_blank" rel="noopener">
     <div class="mimg">
-      <img src="images/comingsoon.png" alt="Coming soon">
-      <div class="tag">Coming soon</div>
+      <img src="images/ueberallbricks-shirt.jpg" alt="Überall Bricks T-Shirt Design">
     </div>
-    <div class="ptext"><b>Nächstes Design</b><small>Platzhalter</small></div>
+    <div class="ptext"><b>Überall Bricks *</b></div>
+  </a>
+
+  <a class="product" href="https://amzn.to/3YJsx0M" target="_blank" rel="noopener">
+   <div class="mimg">
+    <img src="images/beanvillage-shirt.jpg" alt="BeanVillage T-Shirt Design">
+   </div>
+   <div class="ptext"><b>BeanVillage Design *</b></div>
   </a>
 
 </div>
@@ -997,22 +1130,31 @@
         <span class="hint">Mehr Designs folgen</span>
       </div>
       <div class="carousel" style="margin-top:10px">
-        <a class="product" href="https://amzn.to/4qVPTvX" target="_blank" rel="noopener">
-          <div class="mimg"><span>Meister&nbsp;Bauer</span></div>
-          <div class="ptext"><b>Meister Bauer *</b><small>Hoodie</small></div>
+
+    <a class="product" href="https://amzn.to/4qVPTvX" target="_blank" rel="noopener">
+      <div class="mimg"><img src="images/meisterbauer-hoodie.jpg" alt="Meister Bauer-Hoodie Design">
+        </div>
+          <div class="ptext"><b>Meister Bauer *</b></div>
         </a>
-        <a class="product" href="https://amzn.to/4qnwFPX" target="_blank" rel="noopener">
-          <div class="mimg"><span>BeanVillage</span></div>
-          <div class="ptext"><b>BeanVillage *</b><small>Hoodie</small></div>
+
+    <a class="product" href="https://amzn.to/4qnwFPX" target="_blank" rel="noopener">
+      <div class="mimg"><img src="images/beanvillage-hoodie.jpg" alt="Beanvillage-Hoodie Design">
+        </div>
+          <div class="ptext"><b>Beanvillage *</b></div>
         </a>
-        <a class="product" href="https://amzn.to/4t0k8Uy" target="_blank" rel="noopener">
-          <div class="mimg"><span>DBK</span></div>
-          <div class="ptext"><b>DBK (Kürzel) *</b><small>Hoodie</small></div>
+        
+    <a class="product" href="https://amzn.to/4t0k8Uy" target="_blank" rel="noopener">
+      <div class="mimg"><img src="images/dbk-hoodie.jpg" alt="DBK (Die Bausteinklemmer)-Hoodie Design">
+        </div>
+          <div class="ptext"><b>DBK (Die Bausteinklemmer) *</b></div>
         </a>
-        <a class="product" href="#">
-          <div class="mimg"><span>Coming&nbsp;soon</span></div>
-          <div class="ptext"><b>Platzhalter</b><small>für neue Hoodies</small></div>
+
+    <a class="product" href="https://amzn.to/3YP4Q7b" target="_blank" rel="noopener">
+      <div class="mimg"><img src="images/verlaufend-hoodie.jpg" alt="Farb-verlaufendes-Hoodie Design">
+        </div>
+          <div class="ptext"><b>Farbverlaufend *</b></div>
         </a>
+
       </div>
     </div>
 
@@ -1022,18 +1164,27 @@
         <span class="hint">kuschelig 🔥</span>
       </div>
       <div class="carousel" style="margin-top:10px">
+        
         <a class="product" href="https://amzn.to/4jNWaYv" target="_blank" rel="noopener">
-          <div class="mimg"><span>BeanVillage</span></div>
-          <div class="ptext"><b>BeanVillage *</b><small>Sweatshirt</small></div>
+          <div class="mimg"><img src="images/beanvillage-sweetshirt.jpg" alt="Beanvillage Sweetshirt Design"></div>
+          <div class="ptext"><b>BeanVillage *</b></div>
         </a>
+
         <a class="product" href="https://amzn.to/3NngVhu" target="_blank" rel="noopener">
-          <div class="mimg"><span>Meister&nbsp;Bauer</span></div>
-          <div class="ptext"><b>Meister Bauer *</b><small>Sweatshirt</small></div>
+          <div class="mimg"><img src="images/meisterbauer-sweetshirt.jpg" alt="Meister Bauer Sweetshirt Design"></div>
+          <div class="ptext"><b>Meister Bauer *</b></div>
         </a>
-        <a class="product" href="#">
-          <div class="mimg"><span>Coming&nbsp;soon</span></div>
-          <div class="ptext"><b>Platzhalter</b><small>für neue Sweatshirts</small></div>
+
+        <a class="product" href="https://amzn.to/4a1Lwd7" target="_blank" rel="noopener">
+          <div class="mimg"><img src="images/verlaufend-sweetshirt.jpg" alt="Farbverlaufend Sweetshirt Design"></div>
+          <div class="ptext"><b>Farbverlaufend *</b></div>
         </a>
+        
+        <a class="product" href="https://amzn.to/4a1Lwd7" target="_blank" rel="noopener">
+          <div class="mimg"><img src="images/comingsoon.png" alt="Farbverlaufend Sweetshirt Design"></div>
+          <div class="ptext"><b>comingsoon *</b></div>
+        </a>
+
       </div>
     </div>
 
@@ -1043,34 +1194,35 @@
         <span class="hint">Sommer‑Mode</span>
       </div>
       <div class="carousel" style="margin-top:10px">
+
         <a class="product" href="https://amzn.to/4sBV1ae" target="_blank" rel="noopener">
-          <div class="mimg"><span>Meister&nbsp;Bauer</span></div>
-          <div class="ptext"><b>Meister Bauer *</b><small>Tanktops</small></div>
+          <div class="mimg"><img src="images/meisterbauer-tanktop.jpg" alt="Meister Bauer Sweetshirt Design"></div>
+          <div class="ptext"><b>Meister Bauer *</b></div>
         </a>
+
         <a class="product" href="https://amzn.to/49YdJ4u" target="_blank" rel="noopener">
-          <div class="mimg"><span>BeanVillage</span></div>
-          <div class="ptext"><b>BeanVillage *</b><small>Tanktops</small></div>
+          <div class="mimg"><img src="images/beanvillage-tanktop.jpg" alt="Beanvillage Tanktop Design"></div>
+          <div class="ptext"><b>BeanVillage *</b></div>
         </a>
+
         <a class="product" href="https://amzn.to/3Nnh84g" target="_blank" rel="noopener">
-          <div class="mimg"><span>DBK</span></div>
-          <div class="ptext"><b>DBK (Kürzel) *</b><small>Tanktops</small></div>
+          <div class="mimg"><img src="images/dbk-tanktop.jpg" alt="DBK (DieBausteinklemmer) Design"></div>
+          <div class="ptext"><b>DBK (Die Bausteinklemmer) *</b></div>
         </a>
-        <a class="product" href="#">
-          <div class="mimg"><span>Coming&nbsp;soon</span></div>
-          <div class="ptext"><b>Platzhalter</b><small>für neue Tanktops</small></div>
+
+        <a class="product" href="https://amzn.to/3Nnh84g" target="_blank" rel="noopener">
+          <div class="mimg"><img src="images/comingsoon.png" alt="DBK (DieBausteinklemmer) Design"></div>
+          <div class="ptext"><b>comingsoon *</b></div>
         </a>
       </div>
     </div>
 
-    <p class="muted" style="font-size:13px;margin-top:12px">* Affiliate-Link: Für dich bleibt der Preis gleich.</p>
+        <p class="affiliate-note">* Affiliate-Link: Für dich bleibt der Preis gleich.</p>
 
-    <div class="center" style="margin-top:14px">
-      <img src="images/denny_shock.png" alt="Denny erschrocken" class="mini-fig">
-    </div>
   </section>
 
   <!-- Gästebuch -->
-  <section class="card" id="gaestebuch">
+  <section id="gaestebuch" class="card anchor">
     <h2>📖 Gästebuch</h2>
     <p class="muted center" style="margin-top:-6px">Lass einen Gruß da – Einträge erscheinen erst nach Freigabe (Moderation).</p>
 
@@ -1120,6 +1272,14 @@
     <a href="datenschutz.html">Datenschutz</a>
   </footer>
 
+  <!-- Back-to-Top -->
+  <button class="to-top" id="toTopBtn" type="button" aria-label="Nach oben">
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M12 5l-7 7m7-7l7 7M12 5v14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span>Nach oben</span>
+  </button>
+  
 </main>
 
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
@@ -1263,6 +1423,43 @@
 
     await loadEntries();
   })();
+
+      // ===== Back-to-Top (weicht Footer aus) =====
+    (function(){
+      const btn = document.getElementById('toTopBtn');
+      const footer = document.getElementById('siteFooter');
+      if(!btn) return;
+
+      const SHOW_AFTER = 500; // px Scrollhöhe, ab wann der Button erscheint
+      const BASE_BOTTOM = 16; // px Normalabstand
+      const SAFE_GAP = 12;    // px Abstand zum Footer
+
+      function update(){
+        const y = window.scrollY || 0;
+        if(y > SHOW_AFTER) btn.classList.add('show');
+        else btn.classList.remove('show');
+
+        // Footer-Ausweichen:
+        // Wenn der Button-Bereich den Footer schneiden würde, schieben wir ihn nach oben.
+        if(footer){
+          const btnRect = btn.getBoundingClientRect();
+          const footerRect = footer.getBoundingClientRect();
+          const overlap = (btnRect.bottom + SAFE_GAP) - footerRect.top; // >0 => kollidiert
+          const lift = Math.max(0, overlap);
+          btn.style.bottom = (BASE_BOTTOM + lift) + 'px';
+        } else {
+          btn.style.bottom = BASE_BOTTOM + 'px';
+        }
+      }
+
+      btn.addEventListener('click', ()=>{
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      window.addEventListener('scroll', update, { passive:true });
+      window.addEventListener('resize', update, { passive:true });
+      update();
+    })();
 </script>
 
 </body>
