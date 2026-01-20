@@ -628,62 +628,6 @@
 
     footer{margin:24px 0 40px 0;text-align:center;color:var(--muted);font-size:14px}
 
-    /* ===== Gästebuch ===== */
-    .gb-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-    @media (max-width:900px){.gb-grid{grid-template-columns:1fr}}
-    .gb-card{
-      background:linear-gradient(180deg,var(--panel),var(--panel2));
-      border:1px solid rgba(148,163,184,.15);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:18px;
-      overflow:hidden;
-    }
-    .gb-muted{color:var(--muted)}
-    .gb-rules{
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:14px;
-      padding:12px;
-      margin:12px 0;
-    }
-    .gb-rules ul{margin:8px 0 0 18px}
-    .gb-check{display:flex;gap:10px;align-items:center;margin:12px 0}
-    .gb-form input,.gb-form textarea{
-      width:100%;
-      border-radius:12px;
-      border:1px solid rgba(148,163,184,.22);
-      background:#0a1220;
-      color:var(--text);
-      padding:10px;
-      margin:8px 0;
-    }
-    .gb-form button{
-      width:100%;
-      border-radius:12px;
-      border:1px solid rgba(56,189,248,.35);
-      background:var(--brand);
-      color:#fff;
-      padding:12px;
-      font-weight:900;
-      cursor:pointer;
-      transition:.15s;
-    }
-    .gb-form button:hover{background:var(--brand2)}
-    .gb-status{margin:10px 0 0}
-    #gb-website{position:absolute;left:-9999px;opacity:0}
-    .gb-list{display:flex;flex-direction:column;gap:10px;margin-top:8px}
-    .gb-entry{
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:14px;
-      padding:12px;
-    }
-    .gb-entry-head{display:flex;justify-content:space-between;gap:12px;margin-bottom:6px}
-    .gb-entry-name{font-weight:950}
-    .gb-entry-date{color:var(--muted);font-size:12px}
-    .gb-entry-msg{color:var(--text)}
-  
  .affiliate-note{
   margin-top:2px;
   text-align:center;
@@ -873,7 +817,6 @@
       <a class="inline-link toc-jump" href="#haeufigbestellt">Häufig bestellt</a> ·
       <a class="inline-link toc-jump" href="#beleuchtung">Beleuchtung</a> ·
       <a class="inline-link toc-jump" href="#merch">Merch</a> ·
-      <a class="inline-link toc-jump" href="#gaestebuch">Gästebuch</a> ·
     </p>
 
     <div class="linktree">
@@ -1081,7 +1024,7 @@
 
     <div class="merch-block">
       <div class="merch-head">
-        <h3>👕 T‑Shirts</h3>
+        <h3>👕 Higlights</h3>
         <span class="hint">Herren / Damen / Kinder / Mädchen</span>
       </div>
       <div class="carousel" style="margin-top:10px">
@@ -1107,12 +1050,11 @@
     <div class="ptext"><b>Meister Bauer *</b></div>
   </a>
 
-  <a class="product" href="https://amzn.to/4b8nmyH" target="_blank" rel="noopener">
-    <div class="mimg">
-      <img src="images/ueberallbricks-shirt.jpg" alt="Überall Bricks T-Shirt Design">
-    </div>
-    <div class="ptext"><b>Überall Bricks *</b></div>
-  </a>
+    <a class="product" href="https://amzn.to/4qVPTvX" target="_blank" rel="noopener">
+      <div class="mimg"><img src="images/meisterbauer-hoodie.jpg" alt="Meister Bauer-Hoodie Design">
+        </div>
+          <div class="ptext"><b>Meister Bauer *</b></div>
+        </a>
 
   <a class="product" href="https://amzn.to/3YJsx0M" target="_blank" rel="noopener">
    <div class="mimg">
@@ -1121,28 +1063,6 @@
    <div class="ptext"><b>BeanVillage Design *</b></div>
   </a>
 
-</div>
-
-
-    <div class="merch-block">
-      <div class="merch-head">
-        <h3>🧥 Hoodies</h3>
-        <span class="hint">Mehr Designs folgen</span>
-      </div>
-      <div class="carousel" style="margin-top:10px">
-
-    <a class="product" href="https://amzn.to/4qVPTvX" target="_blank" rel="noopener">
-      <div class="mimg"><img src="images/meisterbauer-hoodie.jpg" alt="Meister Bauer-Hoodie Design">
-        </div>
-          <div class="ptext"><b>Meister Bauer *</b></div>
-        </a>
-
-    <a class="product" href="https://amzn.to/4qnwFPX" target="_blank" rel="noopener">
-      <div class="mimg"><img src="images/beanvillage-hoodie.jpg" alt="Beanvillage-Hoodie Design">
-        </div>
-          <div class="ptext"><b>Beanvillage *</b></div>
-        </a>
-        
     <a class="product" href="https://amzn.to/4t0k8Uy" target="_blank" rel="noopener">
       <div class="mimg"><img src="images/dbk-hoodie.jpg" alt="DBK (Die Bausteinklemmer)-Hoodie Design">
         </div>
@@ -1155,118 +1075,19 @@
           <div class="ptext"><b>Farbverlaufend *</b></div>
         </a>
 
-      </div>
-    </div>
-
-    <div class="merch-block">
-      <div class="merch-head">
-        <h3>🧶 Sweatshirts</h3>
-        <span class="hint">kuschelig 🔥</span>
-      </div>
-      <div class="carousel" style="margin-top:10px">
-        
-        <a class="product" href="https://amzn.to/4jNWaYv" target="_blank" rel="noopener">
-          <div class="mimg"><img src="images/beanvillage-sweetshirt.jpg" alt="Beanvillage Sweetshirt Design"></div>
-          <div class="ptext"><b>BeanVillage *</b></div>
-        </a>
-
-        <a class="product" href="https://amzn.to/3NngVhu" target="_blank" rel="noopener">
-          <div class="mimg"><img src="images/meisterbauer-sweetshirt.jpg" alt="Meister Bauer Sweetshirt Design"></div>
-          <div class="ptext"><b>Meister Bauer *</b></div>
-        </a>
-
-        <a class="product" href="https://amzn.to/4a1Lwd7" target="_blank" rel="noopener">
-          <div class="mimg"><img src="images/verlaufend-sweetshirt.jpg" alt="Farbverlaufend Sweetshirt Design"></div>
-          <div class="ptext"><b>Farbverlaufend *</b></div>
-        </a>
-        
-        <a class="product" href="https://amzn.to/4a1Lwd7" target="_blank" rel="noopener">
-          <div class="mimg"><img src="images/comingsoon.png" alt="Farbverlaufend Sweetshirt Design"></div>
-          <div class="ptext"><b>comingsoon *</b></div>
-        </a>
-
-      </div>
-    </div>
-
-    <div class="merch-block">
-      <div class="merch-head">
-        <h3>🏋️ Tanktops</h3>
-        <span class="hint">Sommer‑Mode</span>
-      </div>
-      <div class="carousel" style="margin-top:10px">
-
-        <a class="product" href="https://amzn.to/4sBV1ae" target="_blank" rel="noopener">
-          <div class="mimg"><img src="images/meisterbauer-tanktop.jpg" alt="Meister Bauer Sweetshirt Design"></div>
-          <div class="ptext"><b>Meister Bauer *</b></div>
-        </a>
-
-        <a class="product" href="https://amzn.to/49YdJ4u" target="_blank" rel="noopener">
-          <div class="mimg"><img src="images/beanvillage-tanktop.jpg" alt="Beanvillage Tanktop Design"></div>
-          <div class="ptext"><b>BeanVillage *</b></div>
-        </a>
-
         <a class="product" href="https://amzn.to/3Nnh84g" target="_blank" rel="noopener">
           <div class="mimg"><img src="images/dbk-tanktop.jpg" alt="DBK (DieBausteinklemmer) Design"></div>
           <div class="ptext"><b>DBK (Die Bausteinklemmer) *</b></div>
         </a>
 
-        <a class="product" href="https://amzn.to/3Nnh84g" target="_blank" rel="noopener">
-          <div class="mimg"><img src="images/comingsoon.png" alt="DBK (DieBausteinklemmer) Design"></div>
-          <div class="ptext"><b>comingsoon *</b></div>
-        </a>
-      </div>
-    </div>
+</div>
+
 
         <p class="affiliate-note">* Affiliate-Link: Für dich bleibt der Preis gleich.</p>
 
   </section>
 
-  <!-- Gästebuch -->
-  <section id="gaestebuch" class="card anchor">
-    <h2>📖 Gästebuch</h2>
-    <p class="muted center" style="margin-top:-6px">Lass einen Gruß da – Einträge erscheinen erst nach Freigabe (Moderation).</p>
-
-    <div class="gb-grid" style="margin-top:14px">
-
-      <div class="gb-card">
-        <h3 style="margin:0 0 6px 0">📜 Regeln</h3>
-        <div class="gb-rules">
-          <ul>
-            <li>Kein Hass, keine Beleidigungen, keine Diskriminierung</li>
-            <li>Keine Werbung / keine Links</li>
-            <li>Max. 220 Zeichen</li>
-            <li>Einträge werden moderiert (Freigabe folgt)</li>
-          </ul>
-        </div>
-
-        <label class="gb-check">
-          <input type="checkbox" id="gb-accept" />
-          <span>Ich akzeptiere die Regeln.</span>
-        </label>
-
-        <form id="gb-form" class="gb-form">
-          <input type="text" name="website" id="gb-website" autocomplete="off" tabindex="-1" aria-hidden="true"/>
-          <input type="text" id="gb-name" maxlength="40" placeholder="Dein Name (z. B. Muchacho Max)" required />
-          <textarea id="gb-message" maxlength="220" rows="4" placeholder="Dein Gruß (max. 220 Zeichen)" required></textarea>
-
-          <div class="cf-turnstile" data-sitekey="DEIN_TURNSTILE_SITEKEY" data-theme="light"></div>
-
-          <button type="submit" id="gb-submit">Gruß abschicken</button>
-          <p class="gb-status muted" id="gb-status"></p>
-        </form>
-      </div>
-
-      <div class="gb-card">
-        <h3 style="margin:0 0 6px 0">🧱 Letzte Grüße</h3>
-        <div id="gb-list" class="gb-list">
-          <p class="gb-muted">Lade Einträge…</p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <footer>
+  <footer id="siteFooter">
     © <span id="y"></span> Die Bausteinklemmer ·
     <a href="impressum.html">Impressum</a> ·
     <a href="datenschutz.html">Datenschutz</a>
@@ -1282,7 +1103,6 @@
   
 </main>
 
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
 <script>
   document.getElementById('y').textContent = new Date().getFullYear();
