@@ -4,14 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- ===== SEO: Title / Description ===== -->
+  <!-- ===== SEO ===== -->
   <title>Merch · Die Bausteinklemmer</title>
-  <meta name="description" content="Merch-Hub (in Bearbeitung): Shirts, Hoodies, Sticker & mehr von Die Bausteinklemmer – hier findest du bald alle offiziellen Designs, Drops & Links." />
-
-  <!-- ===== SEO: Robots / Canonical ===== -->
+  <meta name="description" content="Offizieller Merch von Die Bausteinklemmer: T‑Shirts, Hoodies, Langarm, Sweatshirts & mehr – über Amazon Print‑on‑Demand. Viele Farben/Varianten, schnelle Lieferung & Support für den Kanal." />
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <link rel="canonical" href="https://diebausteinklemmer.de/merch.html" />
-
   <meta name="theme-color" content="#0ea5e9" />
   <link rel="icon" href="images/logo.png" />
 
@@ -19,14 +16,13 @@
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="de_DE" />
   <meta property="og:title" content="Merch · Die Bausteinklemmer" />
-  <meta property="og:description" content="Unser Merch-Hub (in Bearbeitung): Designs, Drops & Links – bald verfügbar." />
+  <meta property="og:description" content="T‑Shirts, Hoodies, Langarm & mehr – offizieller DBK Merch (Amazon Print‑on‑Demand)." />
   <meta property="og:url" content="https://diebausteinklemmer.de/merch.html" />
   <meta property="og:image" content="https://diebausteinklemmer.de/images/logo.png" />
   <meta property="og:image:alt" content="Die Bausteinklemmer – Logo" />
-
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Merch · Die Bausteinklemmer" />
-  <meta name="twitter:description" content="Merch-Hub (in Bearbeitung): Designs, Drops & Links – bald verfügbar." />
+  <meta name="twitter:description" content="T‑Shirts, Hoodies, Langarm & mehr – offizieller DBK Merch (Amazon Print‑on‑Demand)." />
   <meta name="twitter:image" content="https://diebausteinklemmer.de/images/logo.png" />
 
   <!-- ===== Structured Data (JSON-LD) ===== -->
@@ -38,18 +34,31 @@
         "@type":"Organization",
         "name":"Die Bausteinklemmer",
         "url":"https://diebausteinklemmer.de/",
-        "logo":"https://diebausteinklemmer.de/images/logo.png"
+        "logo":"https://diebausteinklemmer.de/images/logo.png",
+        "email":[
+          "mailto:info@diebausteinklemmer.de",
+          "mailto:kooperation@diebausteinklemmer.de"
+        ],
+        "sameAs":[
+          "https://www.youtube.com/@diebausteinklemmer",
+          "https://www.instagram.com/diebausteinklemmer/",
+          "https://www.tiktok.com/@diebausteinklemmer?lang=de-DE",
+          "https://www.facebook.com/DieBausteinklemmer/",
+          "https://rebrickable.com/users/DieBausteinklemmer/"
+        ]
+      },
+      {
+        "@type":"WebSite",
+        "name":"Die Bausteinklemmer",
+        "url":"https://diebausteinklemmer.de/",
+        "inLanguage":"de"
       },
       {
         "@type":"WebPage",
         "name":"Merch · Die Bausteinklemmer",
         "url":"https://diebausteinklemmer.de/merch.html",
         "inLanguage":"de",
-        "isPartOf":{
-          "@type":"WebSite",
-          "name":"Die Bausteinklemmer",
-          "url":"https://diebausteinklemmer.de/"
-        }
+        "isPartOf":{ "@type":"WebSite","name":"Die Bausteinklemmer","url":"https://diebausteinklemmer.de/" }
       }
     ]
   }
@@ -57,39 +66,43 @@
 
   <style>
     :root{
-      --bg:#f6b042; --panel:#111827; --panel2:#0f172a;
-      --text:#e5e7eb; --muted:#9ca3af;
-      --brand:#0ea5e9; --brand2:#38bdf8;
-      --radius:18px; --shadow:0 10px 30px rgba(2,8,23,.45);
+      --bg:#f6b042;
+      --panel:#111827;
+      --panel2:#0f172a;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --brand:#0ea5e9;
+      --brand2:#38bdf8;
+      --radius:18px;
+      --shadow:0 10px 30px rgba(2,8,23,.45);
+      --card-hover: 0 22px 60px rgba(2,8,23,.65);
+      --yellow-outline: 2px solid rgba(246,176,66,.95);
 
       --chip-bg: rgba(255,255,255,0.08);
       --chip-border: rgba(148,163,184,.18);
-      --card-hover: 0 22px 60px rgba(2,8,23,.65);
-      --yellow-outline: 2px solid rgba(246,176,66,.95);
-      --glow: 0 0 0 2px rgba(246,176,66,.85), 0 0 0 8px rgba(255,255,255,.06);
 
-      --btn-home:#f6b042;
-      --btn-home-text:#111827;
-      --btn-mail:#7dd3fc;
-      --btn-coop:#86efac;
+      --header-pad: 10px;
 
-      --ok:#22c55e;
-      --todo:rgba(148,163,184,.95);
+      --btn-yellow:#f6b042;
+      --btn-red:#ff0033;
+      --btn-blue:#7dd3fc;
+      --btn-dark:#0a1220;
     }
 
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth;}
+    html{scroll-behavior:smooth}
     html,body{
       margin:0;padding:0;background:var(--bg);color:var(--text);
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
     }
+    body{overflow-x:hidden;}
     a{text-decoration:none;color:inherit}
+    img, video, canvas, svg{max-width:100%;height:auto;display:block;}
     .wrap{max-width:1100px;margin:0 auto;padding:18px}
     .muted{color:var(--muted)}
     .center{text-align:center}
-    h2{margin:4px 0 10px}
 
-    /* ===== HEADER ===== */
+    /* ===== HEADER (wie andere HUBs) ===== */
     .site-header{
       position:sticky;top:0;z-index:50;
       backdrop-filter:blur(10px) saturate(130%);
@@ -102,64 +115,39 @@
       grid-template-columns: 1fr auto 1fr;
       align-items:center;
       gap:14px;
-      padding:10px 0;
+      padding:var(--header-pad) 0;
     }
     .brand-center{
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      gap:6px;
-      font-weight:900;
-      letter-spacing:.2px;
-      text-align:center;
+      display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
+      font-weight:900;letter-spacing:.2px;text-align:center;
     }
     .brand-center img{
-      width:64px;height:64px;border-radius:50%;
-      object-fit:cover;box-shadow:var(--shadow)
+      width:64px;height:64px;border-radius:50%;object-fit:cover;box-shadow:var(--shadow)
     }
-    .brand-text{display:flex;flex-direction:column;line-height:1.05}
     .brand-top{font-size:1.05rem;font-weight:950;letter-spacing:.2px}
 
-    .header-block{display:flex;align-items:flex-start;justify-content:flex-start}
-    .header-block.right{justify-content:flex-end}
+    .header-block{display:flex;align-items:flex-start;justify-content:flex-start;min-width:0;}
+    .header-block.right{justify-content:flex-end;min-width:0;}
     .header-title{
-      font-size:.82rem;
-      font-weight:950;
-      color:rgba(229,231,235,.92);
-      opacity:.92;
-      margin:0 0 6px 0;
-      white-space:nowrap;
-      display:flex;
-      align-items:center;
-      gap:8px;
+      font-size:.82rem;font-weight:950;color:rgba(229,231,235,.92);opacity:.92;margin:0 0 6px 0;
+      white-space:nowrap;display:flex;align-items:center;gap:8px;
     }
-    .header-list{display:grid;gap:8px;align-items:center}
+    .header-list{display:grid;gap:8px;align-items:center;}
     .header-list.hubs{ grid-template-columns: repeat(3, max-content); }
     .header-list.partners{ grid-template-columns: repeat(3, max-content); }
 
     .header-chip{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      padding:7px 10px;
-      border-radius:999px;
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      padding:7px 10px;border-radius:999px;
       background:var(--chip-bg);
       border:1px solid var(--chip-border);
-      font-weight:800;
-      font-size:.84rem;
-      opacity:.95;
+      font-weight:800;font-size:.84rem;opacity:.95;white-space:nowrap;
       transition:transform .14s ease, filter .14s ease, opacity .14s ease, box-shadow .14s ease, outline-color .14s ease;
       transform-origin:center;
-      white-space:nowrap;
     }
     .header-chip:hover{
-      filter:brightness(1.10);
-      opacity:1;
-      transform:scale(1.07);
-      outline: 2px solid rgba(246,176,66,.65);
-      outline-offset:2px;
+      filter:brightness(1.10);opacity:1;transform:scale(1.07);
+      outline: 2px solid rgba(246,176,66,.65);outline-offset:2px;
     }
     .header-chip.active{
       background:rgba(255,255,255,0.16);
@@ -173,21 +161,49 @@
         0 0 18px rgba(246,176,66,.45);
     }
     .header-chip.partner img{
-      width:20px;height:20px;
-      border-radius:8px;
-      object-fit:contain;
-      background:#fff;
-      padding:2px;
+      width:20px;height:20px;border-radius:8px;object-fit:contain;background:#fff;padding:2px;
       box-shadow:0 6px 14px rgba(2,8,23,.25);
     }
+
+    /* Mobile dropdown (wichtig: Desktop-Blocks ausblenden, sonst "doppelt") */
+    .header-mobile-row{display:none;width:100%;gap:10px;align-items:center;justify-content:center;padding: 0 0 var(--header-pad) 0;}
+    .header-toggle{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:10px 14px;border-radius:999px;font-weight:950;font-size:.92rem;
+      background:rgba(255,255,255,0.10);
+      border:1px solid rgba(148,163,184,.20);
+      color:rgba(229,231,235,.95);
+      cursor:pointer;
+      transition:transform .14s ease, filter .14s ease, outline-color .14s ease;
+    }
+    .header-toggle:hover{filter:brightness(1.10);transform:scale(1.03);outline:2px solid rgba(246,176,66,.35);outline-offset:2px;}
+    .header-toggle .chev{display:inline-block;transform:rotate(0deg);transition:transform .16s ease;opacity:.9;}
+
+    .mobile-panels{display:none;padding: 0 0 12px 0;}
+    .mobile-panel{
+      margin-top:10px;border-radius:16px;padding:12px;
+      border:1px solid rgba(148,163,184,.16);background:rgba(255,255,255,0.06);
+    }
+    .mobile-panel .header-title{margin-bottom:10px;}
+    .mobile-panel .header-list{justify-content:center;}
+    .mobile-panel .header-list.hubs,
+    .mobile-panel .header-list.partners{grid-template-columns: repeat(2, max-content);justify-content:center;}
+
+    .site-header.is-hubs-open .mobile-panels{display:block;}
+    .site-header.is-partners-open .mobile-panels{display:block;}
+    .site-header.is-hubs-open .mobile-panel.hubs{display:block;}
+    .site-header.is-partners-open .mobile-panel.partners{display:block;}
+    .mobile-panel{display:none;}
+    .site-header.is-hubs-open .header-toggle[data-toggle="hubs"] .chev{transform:rotate(180deg);}
+    .site-header.is-partners-open .header-toggle[data-toggle="partners"] .chev{transform:rotate(180deg);}
 
     @media (max-width: 1180px){
       .header-chip{font-size:.80rem;padding:7px 9px}
     }
     @media (max-width: 980px){
       .headbar{grid-template-columns: 1fr; justify-items:center;}
-      .header-block, .header-block.right{justify-content:center; text-align:center}
-      .header-list.hubs, .header-list.partners{grid-template-columns: repeat(2, max-content); justify-content:center;}
+      .header-block, .header-block.right{display:none;} /* <- Fix für "doppelt" */
+      .header-mobile-row{display:flex;}
     }
 
     /* ===== CARDS ===== */
@@ -199,6 +215,7 @@
       padding:18px;
       margin:22px 0;
       transition:transform .16s ease, box-shadow .16s ease, filter .16s ease, outline-color .16s ease;
+      overflow:hidden;
     }
     .card:hover{
       transform:translateY(-4px) scale(1.006);
@@ -212,66 +229,38 @@
       outline:var(--yellow-outline);
       outline-offset:2px;
     }
-
-    footer{margin:24px 0 40px 0;text-align:center;color:var(--muted);font-size:14px}
-
-    .inline-link{
-      text-decoration:underline;
-      text-underline-offset:3px;
-      opacity:.95;
-    }
-    .inline-link:hover{opacity:1}
+    .anchor{scroll-margin-top:120px}
 
     /* ===== HERO ===== */
     .hero{
       display:grid;
-      grid-template-columns: 1.15fr .85fr;
+      grid-template-columns: 1.12fr .88fr;
       gap:18px;
       align-items:center;
     }
-    @media (max-width: 900px){
-      .hero{grid-template-columns:1fr;}
-    }
+    @media (max-width: 900px){ .hero{grid-template-columns:1fr;} }
+    .hero h1{margin:0;font-size:2.05rem;letter-spacing:.2px}
+    .hero p{margin:10px 0 0 0;line-height:1.55}
 
-    .hero h1{margin:0;font-size:2rem;letter-spacing:.2px}
-    .hero p{margin:10px 0 0 0; line-height:1.55}
-
-    .hero-actions{
-      margin-top:14px;
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
-
+    .hero-actions{margin-top:14px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;}
     .btn{
-      display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding:14px 22px;
-      border-radius:999px;
-      font-weight:950;
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:14px 20px;border-radius:999px;font-weight:950;
       border:1px solid rgba(255,255,255,0.12);
       background:rgba(255,255,255,0.12);
       box-shadow:0 10px 22px rgba(2,8,23,.25);
-      font-size:1.05rem;
+      font-size:1.02rem;
       transition:transform .14s ease, filter .14s ease, outline-color .14s ease;
     }
-    .btn:hover{filter:brightness(1.10); transform:scale(1.04); outline:2px solid rgba(246,176,66,.45); outline-offset:2px;}
-    .btn.home{background:var(--btn-home); color:var(--btn-home-text); border-color:transparent}
-    .btn.mail{background:var(--btn-mail); color:#04131f; border-color:transparent}
-    .btn.coop{background:var(--btn-coop); color:#052013; border-color:transparent}
+    .btn:hover{filter:brightness(1.10);transform:scale(1.04);outline:2px solid rgba(246,176,66,.45);outline-offset:2px;}
+    .btn.yellow{background:var(--btn-yellow);color:#0b1220;border-color:transparent}
+    .btn.red{background:var(--btn-red);color:#fff;border-color:transparent}
+    .btn.dark{background:rgba(255,255,255,0.10);color:rgba(229,231,235,.95)}
 
-    .hero-badges{
-      margin-top:14px;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-    }
+    .hero-badges{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;}
     .badge{
-      font-size:12px; font-weight:900;
-      padding:7px 12px; border-radius:999px;
-      background:rgba(255,255,255,.10);
-      border:1px solid rgba(255,255,255,.12);
-      opacity:.95;
+      font-size:12px;font-weight:900;padding:7px 12px;border-radius:999px;
+      background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.12);opacity:.95;
     }
 
     .hero-img{
@@ -281,217 +270,231 @@
       padding:18px;
       display:grid;
       place-items:center;
-      min-height:260px;
+      min-height:280px;
       overflow:hidden;
       position:relative;
     }
+    .hero-photo{
+      width:100%;
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid rgba(148,163,184,.14);
+      background:linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      position:relative;
+    }
+    .hero-photo::before{
+      content:"";
+      position:absolute; inset:-20%;
+      background:radial-gradient(circle at 30% 20%, rgba(246,176,66,.25), transparent 55%);
+      filter:blur(12px);
+      pointer-events:none;
+    }
+.hero-photo-inner{
+  position:relative;
+  aspect-ratio: 4 / 3;
+  display:grid;
+  place-items:center;
+  padding:16px;
+  text-align:center;
+}
 
-    /* ===== MERCH STAMP ===== */
-    .stamp{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:10px 14px;
-      border-radius:999px;
-      font-weight:950;
+
+@media (max-width: 720px){
+  .hero-photo-inner{
+    aspect-ratio: 9 / 16;  /* Mobile */
+    padding:12px;
+  }
+}
+
+.hero-photo-inner img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;   /* nichts abschneiden */
+}
+
+
+    .hero-photo-inner .ph-title{font-weight:950;font-size:1.05rem;margin:0 0 8px 0}
+    .hero-photo-inner .ph-note{margin:0;color:rgba(229,231,235,.78);font-weight:800;line-height:1.5}
+    .hero-photo-inner .ph-tag{
+      margin-top:12px;
+      display:inline-flex;align-items:center;gap:10px;
+      padding:10px 14px;border-radius:999px;
       background:rgba(246,176,66,.16);
       border:1px solid rgba(246,176,66,.45);
       box-shadow:0 12px 26px rgba(2,8,23,.35);
+      font-weight:950;
     }
-    .stamp b{letter-spacing:.25px}
-    .stamp .dot{
+    .hero-photo-inner .ph-dot{
       width:10px;height:10px;border-radius:50%;
       background:rgba(246,176,66,.95);
       box-shadow:0 0 0 4px rgba(246,176,66,.18);
     }
 
-    .hero-img .placeholder{
-      width:100%;
-      height:100%;
-      display:grid;
-      place-items:center;
-      text-align:center;
-      gap:10px;
-      padding:22px;
-      border-radius:14px;
-      background:linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-      border:1px solid rgba(148,163,184,.14);
+    .jump-line{
+      margin-top:14px;
+      display:flex;flex-wrap:wrap;gap:10px;align-items:center;
+      font-size:.95rem;font-weight:900;letter-spacing:.25px;
+      color:rgba(229,231,235,.78);
     }
+    .inline-link{
+      text-decoration:underline;
+      text-underline-offset:3px;
+      opacity:.95;
+    }
+    .inline-link:hover{opacity:1;color:#fff}
 
-    /* Anchor spacing for sticky header */
-    .anchor{scroll-margin-top:120px}
+    /* ===== CATEGORY CARDS ===== */
+    .section-title{margin:0 0 6px 0;font-size:1.45rem}
+    .section-sub{margin:0 0 12px 0;color:var(--muted);font-weight:800;line-height:1.5}
 
-    /* ===== SECTIONS / GRID ===== */
-    .grid-2{
+    .cat-grid{
       display:grid;
       grid-template-columns: 1.15fr .85fr;
       gap:16px;
       align-items:start;
     }
-    @media (max-width: 900px){ .grid-2{grid-template-columns:1fr;} }
+    @media (max-width: 900px){ .cat-grid{grid-template-columns:1fr;} }
 
-    .box{
-      background:rgba(255,255,255,0.04);
-      border:1px solid rgba(148,163,184,.14);
+    .gallery{
       border-radius:16px;
-      padding:14px;
-    }
-
-    .list{
-      list-style:none;
-      padding:0;margin:0;
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-    }
-    .list a, .list .item{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-      padding:10px 12px;
-      border-radius:14px;
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(148,163,184,.14);
-      font-weight:900;
-      opacity:.96;
-      transition:transform .14s ease, filter .14s ease, outline-color .14s ease;
-    }
-    .list a:hover{
-      filter:brightness(1.08);
-      transform:translateY(-1px);
-      outline:2px solid rgba(246,176,66,.25);
-      outline-offset:2px;
-    }
-    .left{
-      display:inline-flex;
-      gap:10px;
-      align-items:center;
-      white-space:nowrap;
-    }
-    .check{
-      width:22px;height:22px;border-radius:7px;
-      display:grid;place-items:center;
-      font-size:14px;line-height:1;
-      border:1px solid rgba(148,163,184,.30);
-      background:rgba(255,255,255,.03);
-      flex:0 0 auto;
-    }
-    .check.ok{
-      border-color:rgba(34,197,94,.55);
-      background:rgba(34,197,94,.14);
-      color:#b7f7c8;
-    }
-    .check.todo{
-      border-color:rgba(148,163,184,.35);
-      background:rgba(148,163,184,.10);
-      color:rgba(229,231,235,.85);
-    }
-    .right-note{
-      font-size:12px;
-      color:var(--muted);
-      font-weight:900;
-      opacity:.95;
-      white-space:nowrap;
-    }
-
-    /* ===== PRODUCT PLACEHOLDER CARDS ===== */
-    .product-grid{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:12px;
-    }
-    @media (max-width: 980px){ .product-grid{grid-template-columns: 1fr 1fr;} }
-    @media (max-width: 620px){ .product-grid{grid-template-columns: 1fr;} }
-
-    .p-card{
-      border-radius:16px;
-      overflow:hidden;
       border:1px solid rgba(148,163,184,.18);
-      background:rgba(255,255,255,.03);
-      box-shadow:var(--shadow);
-      display:flex;
-      flex-direction:column;
-      min-height:240px;
-      transition:transform .16s ease, filter .16s ease, box-shadow .16s ease, outline-color .16s ease;
+      background:#0a1220;
+      overflow:hidden;
+      box-shadow:0 12px 24px rgba(0,0,0,.32);
     }
-    .p-card:hover{
-      transform:translateY(-4px) scale(1.01);
-      filter:brightness(1.06);
-      box-shadow:0 22px 60px rgba(2,8,23,.62);
-      outline:var(--yellow-outline);
-      outline-offset:2px;
-    }
-    .p-img{
+    .gallery-main{
       position:relative;
       width:100%;
-      padding-top:62%;
-      background:
-        linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      aspect-ratio: 9 / 16;
+      max-height: min(580px, 70vh);
+      background:#020617;
+      display:grid;
+      place-items:center;
+      overflow:hidden;
+      cursor:pointer;
     }
-    .p-img::after{
-      content:"🧱";
-      position:absolute; inset:0;
-      display:grid; place-items:center;
-      font-size:44px;
-      opacity:.8;
-      text-shadow:0 10px 26px rgba(0,0,0,.55);
+    .gallery-main img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      padding:10px;
+      transition:transform .18s ease, filter .18s ease;
     }
-    .p-body{padding:12px}
-    .p-title{font-weight:950;margin:0 0 6px 0}
-    .p-desc{margin:0;color:var(--muted);line-height:1.45}
-    .p-tags{margin-top:10px; display:flex; gap:8px; flex-wrap:wrap}
-    .tag{
-      font-size:12px;font-weight:900;
-      padding:6px 10px;border-radius:999px;
+    .gallery-main:hover img{transform:scale(1.02);filter:brightness(1.06);}
+    .gallery-main .open{
+      position:absolute;right:12px;top:12px;
+      width:38px;height:38px;border-radius:12px;
+      display:grid;place-items:center;
+      background:rgba(2,6,23,.55);
+      border:1px solid rgba(148,163,184,.20);
+      backdrop-filter: blur(8px);
+      box-shadow:0 10px 22px rgba(2,8,23,.35);
+      font-weight:950;
+    }
+    .thumbs{
+      display:flex;
+      gap:10px;
+      padding:12px;
+      overflow-x:auto;
+      -webkit-overflow-scrolling:touch;
+      border-top:1px solid rgba(148,163,184,.14);
+      background:rgba(255,255,255,.03);
+    }
+    .thumb{
+      flex:0 0 auto;
+      width:92px;
+      aspect-ratio: 1 / 1;
+      border-radius:14px;
+      overflow:hidden;
+      border:1px solid rgba(148,163,184,.16);
+      background:#020617;
+      cursor:pointer;
+      position:relative;
+      transition:transform .14s ease, filter .14s ease, outline-color .14s ease;
+    }
+    .thumb img{width:100%;height:100%;object-fit:cover;}
+    .thumb:hover{filter:brightness(1.08);transform:translateY(-1px);outline:2px solid rgba(246,176,66,.35);outline-offset:2px;}
+    .thumb.active{outline:2px solid rgba(246,176,66,.85);outline-offset:2px;}
+
+    .cat-box{
+      border-radius:16px;
+      border:1px solid rgba(148,163,184,.14);
+      background:rgba(255,255,255,.04);
+      padding:14px;
+    }
+    .cat-box h3{margin:0 0 8px 0}
+    .bullets{margin:0;padding-left:18px;color:rgba(229,231,235,.92);line-height:1.55}
+    .bullets li{margin:7px 0}
+    .pill-row{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px;}
+    .pill{
+      font-size:12px;font-weight:950;
+      padding:7px 10px;border-radius:999px;
       background:rgba(255,255,255,.08);
       border:1px solid rgba(255,255,255,.12);
       opacity:.95;
     }
 
-    /* ===== INFO STRIP ===== */
-    .info-strip{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
-      justify-content:space-between;
-      margin-top:10px;
-      padding:12px 14px;
-      border-radius:16px;
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(148,163,184,.14);
+    .cta-row{
+      margin-top:12px;
+      display:flex;gap:10px;flex-wrap:wrap;align-items:center;
     }
-    .info-strip b{font-weight:950}
-    .small{font-size:13px;color:var(--muted);font-weight:800}
+    .mini-cta{
+      display:inline-flex;align-items:center;gap:10px;justify-content:center;
+      padding:12px 14px;border-radius:999px;font-weight:950;
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(148,163,184,.20);
+      transition:transform .14s ease, filter .14s ease, outline-color .14s ease;
+    }
+    .mini-cta:hover{filter:brightness(1.10);transform:translateY(-1px);outline:2px solid rgba(246,176,66,.35);outline-offset:2px;}
+    .mini-cta.primary{background:var(--btn-yellow);border-color:transparent;color:#0b1220}
+    .mini-cta.secondary{background:rgba(255,255,255,.10);}
 
-    .jump-line{
-      margin-top:14px;
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      align-items:center;
-      font-size:0.95rem;
-      font-weight:900;
-      letter-spacing:.25px;
+    /* ===== Info Strip ===== */
+    .info-strip{
+      display:flex;gap:10px;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;
+      margin-top:14px;padding:12px 14px;border-radius:16px;
+      background:rgba(255,255,255,.04);border:1px solid rgba(148,163,184,.14);
+    }
+    .small{font-size:13px;color:var(--muted);font-weight:800}
+    .affiliate-note{
+      margin-top:8px;
+      text-align:center;
+      font-size:.92rem;
       color:rgba(229,231,235,.78);
+      font-weight:800;
     }
-    .jump-line a{
-      font-weight:900;
-      color:rgba(229,231,235,.88);
-      text-decoration:none;
-      text-underline-offset:3px;
+
+    /* ===== Footer ===== */
+    footer{margin:24px 0 40px 0;text-align:center;color:var(--muted);font-size:14px}
+
+    /* ===== Back-to-Top ===== */
+    .to-top{
+      position:fixed;right:16px;bottom:16px;z-index:60;
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:12px 14px;border-radius:999px;
+      background:rgba(2,6,23,.72);
+      border:1px solid rgba(148,163,184,.25);
+      color:rgba(229,231,235,.95);
+      box-shadow:0 18px 42px rgba(2,8,23,.45);
+      backdrop-filter: blur(10px) saturate(130%);
+      cursor:pointer;
+      opacity:0;transform:translateY(8px) scale(.98);pointer-events:none;
+      transition:opacity .16s ease, transform .16s ease, filter .16s ease, outline-color .16s ease, bottom .16s ease;
     }
-    .jump-line a:hover{color:#fff}
+    .to-top:hover{filter:brightness(1.12);transform:translateY(0) scale(1.03);outline:2px solid rgba(246,176,66,.45);outline-offset:2px;}
+    .to-top.show{opacity:1;transform:translateY(0) scale(1);pointer-events:auto;}
+    .to-top svg{width:18px;height:18px;opacity:.95}
+    .to-top span{font-weight:950; font-size:.92rem}
+    @media (max-width: 520px){ .to-top span{display:none;} .to-top{padding:12px;} }
   </style>
 </head>
 
 <body>
-
-<header class="site-header">
+<header class="site-header" id="siteHeader">
   <div class="wrap headbar">
 
-    <!-- LINKS: HUBS -->
+    <!-- LINKS: HUBS (Desktop) -->
     <div class="header-block" aria-label="Hubs">
       <div>
         <div class="header-title">📌 Profil</div>
@@ -509,12 +512,10 @@
     <!-- MITTE -->
     <a class="brand-center" href="index.html" aria-label="Zur Startseite">
       <img src="images/logo.png" alt="Die Bausteinklemmer Logo">
-      <span class="brand-text">
-        <span class="brand-top">Die Bausteinklemmer</span>
-      </span>
+      <span class="brand-top">Die Bausteinklemmer</span>
     </a>
 
-    <!-- RECHTS: PARTNER -->
+    <!-- RECHTS: PARTNER (Desktop) -->
     <div class="header-block right" aria-label="Partner">
       <div>
         <div class="header-title">🏭 Hersteller</div>
@@ -542,200 +543,289 @@
     </div>
 
   </div>
+
+  <!-- Mobile Toggle Row -->
+  <div class="wrap header-mobile-row" aria-label="Mobile Navigation">
+    <button class="header-toggle" type="button" data-toggle="hubs" aria-expanded="false" aria-controls="mobilePanels">
+      📌 Profil <span class="chev">▾</span>
+    </button>
+    <button class="header-toggle" type="button" data-toggle="partners" aria-expanded="false" aria-controls="mobilePanels">
+      🏭 Hersteller <span class="chev">▾</span>
+    </button>
+  </div>
+
+  <!-- Mobile Panels -->
+  <div class="wrap mobile-panels" id="mobilePanels">
+    <div class="mobile-panel hubs" aria-label="Mobile Hubs">
+      <div class="header-title">📌 Profil</div>
+      <div class="header-list hubs">
+        <a class="header-chip" href="ueber-uns.html">Über uns</a>
+        <a class="header-chip" href="videos.html">Videos</a>
+        <a class="header-chip" href="unsere-stadt.html">Unsere Stadt</a>
+        <a class="header-chip" href="eisenbahn.html">Eisenbahn</a>
+        <a class="header-chip" href="beleuchtung.html">Beleuchtung</a>
+        <a class="header-chip active" href="merch.html">Merch</a>
+      </div>
+    </div>
+
+    <div class="mobile-panel partners" aria-label="Mobile Partner">
+      <div class="header-title">🏭 Hersteller</div>
+      <div class="header-list partners">
+        <a class="header-chip partner" href="partner-lesdiy.html">
+          <img src="images/lesdiy_logo.jpg" alt="LESDIY"><span>LESDIY</span>
+        </a>
+        <a class="header-chip partner" href="partner-lumibricks.html">
+          <img src="images/Lumibricks.png" alt="Lumibricks"><span>Lumibricks</span>
+        </a>
+        <a class="header-chip partner" href="partner-briksmax.html">
+          <img src="images/briksmax.png" alt="Briksmax"><span>Briksmax</span>
+        </a>
+        <a class="header-chip partner" href="partner-jmbricklayer.html">
+          <img src="images/jmbricklayer_logo.jpg" alt="JMBricklayer"><span>JMBricklayer</span>
+        </a>
+        <a class="header-chip partner" href="partner-bluebrixx.html">
+          <img src="images/blue_brixx_logo.png" alt="BlueBrixx"><span>BlueBrixx</span>
+        </a>
+        <a class="header-chip partner" href="partner-lego.html">
+          <img src="images/lego_logo.png" alt="LEGO"><span>LEGO®</span>
+        </a>
+      </div>
+    </div>
+  </div>
 </header>
 
 <main class="wrap">
 
-  <!-- HERO: MERCH -->
+  <!-- HERO -->
   <section class="card">
     <div class="hero">
       <div>
         <h1>Merch: Die Bausteinklemmer</h1>
         <p>
-          Hier entsteht unser <strong>Merch-Hub</strong>. 😄<br>
-          Bald findest du hier <strong>alle offiziellen Designs</strong>, Drops, Größen-Infos und Links zu den Shops.
-          Wenn du direkt Bescheid bekommen willst: folge uns auf <a class="inline-link" href="videos.html">YouTube</a> & unseren Socials.
+          Unser Merch läuft aktuell über <strong>Amazon Print‑on‑Demand</strong> (keine Lagerhaltung, kein Stress, dafür schnelle Lieferung).
+          Wenn du dir ein Teil gönnst, unterstützt du den Kanal.
+          Und ja: <strong>wir bestellen & tragen den Kram selbst</strong> Muchacho‑Test bestanden. 😄
         </p>
-
-        <div class="hero-badges">
-          <span class="badge">🧡 Brand-Designs</span>
-          <span class="badge">👕 Shirts & Hoodies</span>
-          <span class="badge">🧩 In Bearbeitung</span>
-        </div>
 
         <div class="hero-actions">
-          <a class="btn home" href="index.html">← Zur Startseite</a>
-          <a class="btn mail" href="mailto:info@diebausteinklemmer.de">✉️ Kontakt</a>
-          <a class="btn coop" href="mailto:kooperation@diebausteinklemmer.de">🤝 Kooperation</a>
+          <a class="mini-cta primary" href="https://amzn.to/3ZuOQr3" target="_blank" rel="noopener">Alle "Klammotten" bei Amazon →</a>
+          <a class="btn dark" href="index.html">← Startseite</a>
         </div>
 
-        <!-- SMART JUMP LINKS -->
         <p class="jump-line">
           Direkt springen zu:
-          <a class="inline-link" href="#status">Status</a> ·
-          <a class="inline-link" href="#kollektionen">Kollektionen</a> ·
-          <a class="inline-link" href="#faq">FAQ</a> ·
+          <a class="inline-link" href="#tshirts">T‑Shirts</a> ·
+          <a class="inline-link" href="#hoodies">Hoodies</a> ·
+          <a class="inline-link" href="#langarm">Langarm</a> ·
+          <a class="inline-link" href="#comingsoon">Coming Soon</a> ·
+          <a class="inline-link" href="#faq">FAQ</a>
+        </p>
+
+        <p class="muted" style="margin-top:10px">
+          <strong>Aktuell verfügbar:</strong> T‑Shirt, Hoodie, Langarm, Sweatshirt, Raglan, Zipper‑Hoodie (je nach Design), Tanktop 
+          + geplant: Basecaps & Tassen.
         </p>
       </div>
 
-      <div class="hero-img" aria-label="Merch Status">
-        <div class="placeholder">
-          <div class="stamp"><span class="dot"></span> <b>MERCH HUB</b> · In Bearbeitung</div>
-          <div class="muted" style="line-height:1.5">
-            Platzhalter-Bereich für später:<br>
-            <strong>Hero-Grafik / Drop-Teaser / Bestseller</strong>
+      <div class="hero-img">
+        <div class="hero-photo">
+          <div class="hero-photo-inner">
+            <!-- Sobald du ein Bild hast: img einblenden + Text rausnehmen -->
+            <!-- <img src="images/merch-ich-shirt.jpg" alt="Ich mit DBK Shirt" style="display:block;"> -->
+<img 
+  src="images/merchlogo.png" 
+  alt="Die Bausteinklemmer – wir tragen unseren eigenen Merch"
+  loading="eager"
+/>
+
+<div class="ph-tag">
+  <span class="ph-dot"></span>
+  <span>Wir tragen unseren Merch selbst</span>
+</div>
+
           </div>
-          <!-- OPTIONAL: wenn du ein Bild hast, ersetze diesen Placeholder komplett durch <img ...> -->
-          <!-- <img src="images/merch-hero.png" alt="Merch Vorschau" style="width:100%;max-width:520px;height:auto;display:block;"> -->
         </div>
       </div>
     </div>
   </section>
 
-  <!-- STATUS / ROADMAP -->
-  <section id="status" class="card anchor">
-    <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:flex-end;margin-bottom:10px">
-      <div>
-        <h2 style="margin:0">🚧 Status</h2>
-        <p class="muted" style="margin:6px 0 0 0">Was steht beim Merch als Nächstes an?</p>
-      </div>
-      <div class="badge">🗓️ 2026</div>
-    </div>
+  <!-- T-SHIRTS -->
+  <section id="tshirts" class="card anchor">
+    <h2 class="section-title">👕 T‑Shirts</h2>
+    <p class="section-sub">Klassiker für jeden Tag viele Farben, Herren/Damen/Kids.</p>
 
-    <div class="grid-2">
-      <div class="box">
-        <h3 style="margin:0 0 10px 0">✅ Bereits geplant</h3>
-        <ul class="list" aria-label="Merch geplant">
-          <li class="item">
-            <span class="left"><span class="check ok">✓</span> Merch-Hub auf der Website</span>
-            <span class="right-note">online</span>
-          </li>
-          <li class="item">
-            <span class="left"><span class="check ok">✓</span> Design-Ideen gesammelt</span>
-            <span class="right-note">laufend</span>
-          </li>
-          <li class="item">
-            <span class="left"><span class="check todo">⬜</span> Shop-Anbindung / Plattform</span>
-            <span class="right-note">coming</span>
-          </li>
-        </ul>
-
-        <div class="info-strip" style="margin-top:12px">
-          <div>
-            <b>Hinweis:</b> Diese Seite ist ein Platzhalter und wird mit jedem Drop erweitert.
-            <div class="small">Tipp: Hier kannst du später auch “Drops” als einzelne Cards pflegen.</div>
-          </div>
+    <div class="cat-grid">
+      <div class="gallery" data-gallery="tshirts" data-open-url="https://www.amazon.de/s?rh=n%3A77028031%2Cp_4%3ADie%2BBausteinklemmer&ref=bl_sl_s_ap_web_77028031">
+        <div class="gallery-main" role="button" tabindex="0" aria-label="Bild groß öffnen">
+          <span class="open">↗</span>
+          <img src="images/muchachos-shirt.jpg" alt="DBK T‑Shirt – Motiv 1">
+        </div>
+        <div class="thumbs" aria-label="T‑Shirt Galerie">
+          <button class="thumb active" type="button" data-src="images/muchachos-shirt.jpg" data-url="https://amzn.to/3LkE2IZ" aria-label="Muchachos Shirt">
+            <img src="images/muchachos-shirt.jpg" alt="Muchachos Shirt Thumbnail">
+          </button>
+          <button class="thumb" type="button" data-src="images/verlaufend-shirt.jpg" data-url="https://amzn.to/3LzjDQr" aria-label="Verlaufende Farben Shirt">
+            <img src="images/verlaufend-shirt.jpg" alt="Verlaufende Farben Shirt Thumbnail">
+          </button>
+          <button class="thumb" type="button" data-src="images/meisterbauer-shirt.jpg" data-url="https://amzn.to/3ZmI1ru" aria-label="Meister Bauer Shirt">
+            <img src="images/meisterbauer-shirt.jpg" alt="Meister Bauer Shirt Thumbnail">
+          </button>
+          <button class="thumb" type="button" data-src="images/beanvillage-shirt.jpg" data-url="https://amzn.to/3YJsx0M" aria-label="BeanVillage Shirt">
+            <img src="images/beanvillage-shirt.jpg" alt="BeanVillage Shirt Thumbnail">
+          </button>
+          <button class="thumb" type="button" data-src="images/gemischt-shirt.jpg" data-url="https://amzn.to/4qXuiU2" aria-label="BeanVillage Shirt">
+            <img src="images/gemischt-shirt.jpg" alt="Gemischtes Shirt Thumbnail">
+          </button>
         </div>
       </div>
 
-      <div class="box">
-        <h3 style="margin:0 0 10px 0">🧩 Nächste Schritte</h3>
-        <ul class="list" aria-label="Merch ToDo">
-          <li>
-            <a href="#" title="Platzhalter">
-              <span class="left"><span class="check todo">⬜</span> Größen & Fits definieren</span>
-              <span class="right-note">ToDo</span>
-            </a>
-          </li>
-          <li>
-            <a href="#" title="Platzhalter">
-              <span class="left"><span class="check todo">⬜</span> Material / Druckinfos</span>
-              <span class="right-note">ToDo</span>
-            </a>
-          </li>
-          <li>
-            <a href="#" title="Platzhalter">
-              <span class="left"><span class="check todo">⬜</span> Shop-Link(s) einsetzen</span>
-              <span class="right-note">ToDo</span>
-            </a>
-          </li>
-          <li>
-            <a href="#" title="Platzhalter">
-              <span class="left"><span class="check todo">⬜</span> FAQ + Versand</span>
-              <span class="right-note">ToDo</span>
-            </a>
-          </li>
+      <div class="cat-box">
+        <h3>Was du hier bekommst:</h3>
+        <ul class="bullets">
+          <li><strong>Viele Varianten</strong> pro Design (Farben & Größen).</li>
+          <li><strong>Print‑on‑Demand</strong>: wird erst gedruckt, wenn bestellt.</li>
+          <u>Info zu diesem Artikel</u>
+          <li>Kreatives Community-Design für Fans von Klemmbausteinen</li>
+          <li>Moderner Urban-Look für Alltag, Freizeit und kreative Projekte</li>
+          <li>Klassisch geschnitten, doppelt genähter Saum.</li>
         </ul>
+
+        <div class="cta-row">
+          <a class="mini-cta primary" href="https://www.amazon.de/s?rh=n%3A77028031%2Cp_4%3ADie%2BBausteinklemmer&ref=bl_sl_s_ap_web_77028031" target="_blank" rel="noopener">Alle Shirts bei Amazon →</a>
+          <a class="mini-cta" href="#hoodies">Weiter zu Hoodies ↓</a>
+        </div>
+        <p class="affiliate-note">* Affiliate-Link: Für dich bleibt der Preis gleich.</p>
       </div>
     </div>
   </section>
 
-  <!-- KOLLEKTIONEN / PLACEHOLDER -->
-  <section id="kollektionen" class="card anchor">
-    <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:flex-end;margin-bottom:10px">
-      <div>
-        <h2 style="margin:0">👕 Kollektionen</h2>
-        <p class="muted" style="margin:6px 0 0 0">Hier kannst du später pro Design / Produkt eine Card pflegen.</p>
+  <!-- HOODIES -->
+  <section id="hoodies" class="card anchor">
+    <h2 class="section-title">🧥 Hoodies</h2>
+    <p class="section-sub">Kuschelig, auffällig und/oder dezent! Perfekt für Stream‑Abende & Bau‑Sessions.</p>
+
+    <div class="cat-grid">
+      <div class="gallery" data-gallery="hoodies" data-open-url="https://www.amazon.de/s?rh=n%3A77028031%2Cp_4%3ADie%2BBausteinklemmer&ref=bl_sl_s_ap_web_77028031">
+        <div class="gallery-main" role="button" tabindex="0" aria-label="Bild groß öffnen">
+          <span class="open">↗</span>
+          <img src="images/meisterbauer-hoodie.jpg" alt="DBK Hoodie – Motiv 1">
+        </div>
+        <div class="thumbs" aria-label="Hoodie Galerie">
+          <button class="thumb active" type="button" data-src="images/meisterbauer-hoodie.jpg" data-url="https://amzn.to/4qVPTvX">
+            <img src="images/meisterbauer-hoodie.jpg" alt="Meister Bauer Hoodie Thumbnail">
+          </button>
+          <button class="thumb" type="button" data-src="images/beanvillage-hoodie.jpg" data-url="https://amzn.to/4qnwFPX">
+            <img src="images/beanvillage-hoodie.jpg" alt="BeanVillage Hoodie Thumbnail">
+          </button>
+          <button class="thumb" type="button" data-src="images/verlaufend-hoodie.jpg" data-url="https://amzn.to/3YP4Q7b">
+            <img src="images/verlaufend-hoodie.jpg" alt="Farbverlauf Hoodie Thumbnail">
+          </button>
+          <button class="thumb" type="button" data-src="images/dbk-hoodie.jpg" data-url="https://amzn.to/4t0k8Uy">
+            <img src="images/dbk-hoodie.jpg" alt="DBK Hoodie Thumbnail">
+          </button>
+        </div>
       </div>
-      <div class="badge">🛒 Links folgen</div>
-    </div>
 
-    <div class="product-grid" aria-label="Merch Kollektionen Platzhalter">
+      <div class="cat-box">
+        <h3>Hinweise</h3>
+        <ul class="bullets">
+          <li>Je nach Design gibt’s <strong>Zip‑Hoodie</strong> oder Standard‑Hoodie.</li>
+          <li>Viele <strong>Farbvariationen</strong> am besten einmal im Amazon‑Listing durchklicken.</li>
+          <u>Info zu diesem Artikel</u>
+          <li>Kreatives Community-Design für Fans von Klemmbausteinen</li>
+          <li>Moderner Urban-Look für Alltag, Freizeit und kreative Projekte</li>
 
-      <!-- ===== TEMPLATE CARD 1 ===== -->
-      <a class="p-card" href="#" title="Platzhalter – später Shop-Link einsetzen">
-        <div class="p-img" aria-label="Produktbild Platzhalter"></div>
-        <div class="p-body">
-          <p class="p-title">Design #1 (Platzhalter)</p>
-          <p class="p-desc">Kurzbeschreibung: Slogan / Motiv / Zielgruppe.</p>
-          <div class="p-tags">
-            <span class="tag">Shirt</span>
-            <span class="tag">Hoodie</span>
-            <span class="tag">Sticker</span>
-          </div>
+        </ul>
+        <div class="cta-row">
+          <a class="mini-cta primary" href="https://www.amazon.de/s?rh=n%3A77028031%2Cp_4%3ADie%2BBausteinklemmer&ref=bl_sl_s_ap_web_77028031" target="_blank" rel="noopener">Alle Hoodies bei Amazon →</a>
+          <a class="mini-cta" href="#langarm">Weiter zu Langarm ↓</a>
         </div>
-      </a>
-
-      <!-- ===== TEMPLATE CARD 2 ===== -->
-      <a class="p-card" href="#" title="Platzhalter – später Shop-Link einsetzen">
-        <div class="p-img" aria-label="Produktbild Platzhalter"></div>
-        <div class="p-body">
-          <p class="p-title">Design #2 (Platzhalter)</p>
-          <p class="p-desc">Kurzbeschreibung: Farben / Variation / Drop-Info.</p>
-          <div class="p-tags">
-            <span class="tag">Oversize</span>
-            <span class="tag">Classic</span>
-            <span class="tag">Kids</span>
-          </div>
-        </div>
-      </a>
-
-      <!-- ===== TEMPLATE CARD 3 ===== -->
-      <a class="p-card" href="#" title="Platzhalter – später Shop-Link einsetzen">
-        <div class="p-img" aria-label="Produktbild Platzhalter"></div>
-        <div class="p-body">
-          <p class="p-title">Design #3 (Platzhalter)</p>
-          <p class="p-desc">Kurzbeschreibung: “Limited” / “Drop” / “Community”.</p>
-          <div class="p-tags">
-            <span class="tag">Limited</span>
-            <span class="tag">Drop</span>
-            <span class="tag">2026</span>
-          </div>
-        </div>
-      </a>
-
-      <!-- ===== DUPLICATE THESE CARDS AS NEEDED ===== -->
-      <!--
-      <a class="p-card" href="SHOPLINK">
-        <div class="p-img" style="background-image:url('images/DEIN-BILD.png'); background-size:cover; background-position:center;"></div>
-        <div class="p-body">
-          <p class="p-title">NAME</p>
-          <p class="p-desc">BESCHREIBUNG</p>
-          <div class="p-tags">
-            <span class="tag">TAG</span>
-          </div>
-        </div>
-      </a>
-      -->
-
-    </div>
-
-    <div class="info-strip" style="margin-top:14px">
-      <div>
-        <b>Platzhalter-Logik:</b> Du kannst diese Cards schon live lassen und später einfach Links + Bilder ersetzen.
-        <div class="small">Wenn du willst, baue ich dir auch eine “Drop-Section” mit Datum + Countdown (ohne externe Libs).</div>
       </div>
-      <div class="badge">🔧 easy update</div>
+    </div>
+  </section>
+
+  <!-- LANGARM -->
+  <section id="langarm" class="card anchor">
+    <h2 class="section-title">🧵 Langarm / Raglan / Zipper</h2>
+    <p class="section-sub">Die “Übergangs‑Crew”: Langarm für Alltag, Raglan für Sport‑Vibes, Zipper für flexibel.</p>
+
+    <div class="cat-grid">
+      <div class="gallery" data-gallery="langarm" data-open-url="https://www.amazon.de/s?rh=n%3A77028031%2Cp_4%3ADie%2BBausteinklemmer&ref=bl_sl_s_ap_web_77028031">
+        <div class="gallery-main" role="button" tabindex="0" aria-label="Bild groß öffnen">
+          <span class="open">↗</span>
+          <img src="images/verlaufend-zipper.jpg" alt="Langarm Platzhalter">
+        </div>
+        <div class="thumbs" aria-label="Langarm Galerie">
+          <button class="thumb active" type="button" data-src="images/verlaufend-zipper.jpg" data-url="https://amzn.to/45pSiXD">
+            <img src="images/verlaufend-zipper.jpg" alt="Langarm verlaufend Thumbnail">
+          </button>
+          <button class="thumb" type="button" data-src="images/verlaufend-pulli.jpg" data-url="https://amzn.to/4qCjJGf">
+            <img src="images/verlaufend-pulli.jpg" alt="Pullover verlaufend Thumbnail">
+          </button>
+          <button class="thumb" type="button" data-src="images/comingsoon.png" data-url="#">
+            <img src="images/comingsoon.png" alt="Zipper Hoodie Placeholder Thumbnail">
+          </button>
+        </div>
+      </div>
+
+      <div class="cat-box">
+        <h3>Platzhalter (wird gefüllt)</h3>
+        <ul class="bullets">
+          <li>Hier kommen <strong>Langarm‑Links</strong> pro Design rein (oder einfach über die Marke).</li>
+          <li>Raglan & Zipper nur, wenn Amazon sie für das jeweilige Motiv anbietet.</li>
+          <li>Wenn du mir 3–6 Produktlinks pro Kategorie gibst, setze ich das sauber als “Bestseller‑Grid”.</li>
+        </ul>
+        <div class="pill-row">
+          <span class="pill">#alltag</span>
+          <span class="pill">#sportlich</span>
+          <span class="pill">#flex</span>
+        </div>
+        <div class="cta-row">
+          <a class="mini-cta primary" href="https://www.amazon.de/s?rh=n%3A77028031%2Cp_4%3ADie%2BBausteinklemmer&ref=bl_sl_s_ap_web_77028031" target="_blank" rel="noopener">Zur Marke →</a>
+          <a class="mini-cta" href="#comingsoon">Weiter zu Coming Soon ↓</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMING SOON -->
+  <section id="comingsoon" class="card anchor">
+    <h2 class="section-title">🧢 Coming Soon</h2>
+    <p class="section-sub">Sobald verfügbar, hängen wir hier die Links rein. (Basecap & Tassen als erste Kandidaten.)</p>
+
+    <div class="cat-grid">
+      <div class="gallery" data-gallery="coming" data-open-url="https://www.amazon.de/s?rh=n%3A77028031%2Cp_4%3ADie%2BBausteinklemmer&ref=bl_sl_s_ap_web_77028031">
+        <div class="gallery-main" role="button" tabindex="0" aria-label="Bild groß öffnen">
+          <span class="open">↗</span>
+          <img src="images/comingsoon.png" alt="Coming Soon Platzhalter">
+        </div>
+        <div class="thumbs" aria-label="Coming Soon Galerie">
+          <button class="thumb active" type="button" data-src="images/comingsoon.png" data-url="#">
+            <img src="images/comingsoon.png" alt="Basecap Placeholder Thumbnail">
+          </button>
+          <button class="thumb" type="button" data-src="images/comingsoon.png" data-url="#">
+            <img src="images/comingsoon.png" alt="Tasse Placeholder Thumbnail">
+          </button>
+        </div>
+      </div>
+
+      <div class="cat-box">
+        <h3>Was wir anpeilen</h3>
+        <ul class="bullets">
+          <li><strong>Basecap</strong> (dezent + Logo/Schriftzug)</li>
+          <li><strong>Tassen</strong> (Muchacho‑Baukaffee ☕)</li>
+          <li>Optional: Sticker / Handyhüllen / Notizbücher (je nach Amazon‑Verfügbarkeit)</li>
+        </ul>
+        <div class="pill-row">
+          <span class="pill">#comingsoon</span>
+          <span class="pill">#drops</span>
+          <span class="pill">#sammler</span>
+        </div>
+        <div class="cta-row">
+          <a class="mini-cta primary" href="https://www.amazon.de/s?rh=n%3A77028031%2Cp_4%3ADie%2BBausteinklemmer&ref=bl_sl_s_ap_web_77028031" target="_blank" rel="noopener">Marke checken →</a>
+          <a class="mini-cta" href="#faq">FAQ ↓</a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -744,44 +834,64 @@
     <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:flex-end;margin-bottom:10px">
       <div>
         <h2 style="margin:0">❓ FAQ</h2>
-        <p class="muted" style="margin:6px 0 0 0">Kurze Antworten – später erweiterbar.</p>
+        <p class="muted" style="margin:6px 0 0 0">Kurz & ehrlich – so wie wir.</p>
       </div>
       <div class="badge">💬 Support</div>
     </div>
 
-    <div class="grid-2">
-      <div class="box">
-        <h3 style="margin:0 0 10px 0">Wie komme ich an den Merch?</h3>
+    <div class="cat-grid" style="grid-template-columns:1fr 1fr">
+      <div class="cat-box">
+        <h3>Warum Amazon?</h3>
         <p class="muted" style="margin:0;line-height:1.55">
-          Aktuell ist der Shop noch <strong>in Vorbereitung</strong>. Sobald er live ist, findest du hier die direkten Links
-          und wir posten Updates auf unseren Kanälen.
+          Weil’s für uns als Creator <strong>Print‑on‑Demand</strong> easy macht: keine Lagerhaltung, viele Varianten, schnelle Lieferung.
+          Wir können Designs testen und bei Bedarf verbessern, ohne dass wir Kisten im Keller stapeln. 😄
         </p>
       </div>
 
-      <div class="box">
-        <h3 style="margin:0 0 10px 0">Gibt’s Größen- & Materialinfos?</h3>
+      <div class="cat-box">
+        <h3>Affiliate – muss das sein?</h3>
         <p class="muted" style="margin:0;line-height:1.55">
-          Ja – kommt hier rein. (Platzhalter) Später: Größentabelle, Fit-Hinweise, Pflege & Druckverfahren.
+          Nein. Der <strong>Marken‑Link</strong> reicht komplett, um alle Designs zu finden.
+          Affiliate‑Links machen nur bei <strong>Bestsellern</strong> Sinn (weniger Spam, mehr Fokus).
         </p>
       </div>
 
-      <div class="box">
-        <h3 style="margin:0 0 10px 0">Kann ich Motive vorschlagen?</h3>
+      <div class="cat-box">
+        <h3>Wie unterstützt das den Kanal?</h3>
         <p class="muted" style="margin:0;line-height:1.55">
-          Safe! Schreib uns per Mail oder Community-Post. <a class="inline-link" href="mailto:info@diebausteinklemmer.de">info@diebausteinklemmer.de</a>
+          Über Amazon Merch gibt’s eine <strong>Designer‑Pauschale</strong> pro Verkauf. Das hilft direkt dabei,
+          neue Sets zu testen, Beleuchtung zu bauen und BeanVillage weiter auszubauen.
         </p>
       </div>
 
-      <div class="box">
-        <h3 style="margin:0 0 10px 0">Kooperation / Sponsoring?</h3>
+      <div class="cat-box">
+        <h3>Kann ich Motive vorschlagen?</h3>
         <p class="muted" style="margin:0;line-height:1.55">
-          Für Anfragen: <a class="inline-link" href="mailto:kooperation@diebausteinklemmer.de">kooperation@diebausteinklemmer.de</a>
+          Safe! Schreib uns:
+          <a class="inline-link" href="mailto:info@diebausteinklemmer.de">info@diebausteinklemmer.de</a>
+          (oder in die Kommentare unter den Videos).
         </p>
       </div>
     </div>
+
+    <div class="info-strip">
+      <div>
+        <b>Mini‑Tipp für später:</b>
+        <div class="small">
+          Wenn du willst, baue ich dir eine “Bestseller‑Leiste” im Hero (3 Buttons) + darunter pro Kategorie ein kleines Grid (max. 6 Artikel) –
+          das wirkt oft “aufgeräumter” als 40 Affiliate‑Links.
+        </div>
+      </div>
+      <div class="cta-row">
+        <a class="mini-cta" href="#shop">Zur Marke ↑</a>
+        <a class="mini-cta" href="mailto:kooperation@diebausteinklemmer.de">🤝 Kooperation</a>
+      </div>
+    </div>
+
+    <p class="affiliate-note">* Affiliate‑Hinweis: Bei Affiliate‑Links bleibt der Preis für dich gleich.</p>
   </section>
 
-  <footer>
+  <footer id="siteFooter">
     © <span id="y"></span> Die Bausteinklemmer ·
     <a href="impressum.html">Impressum</a> ·
     <a href="datenschutz.html">Datenschutz</a>
@@ -789,9 +899,121 @@
 
 </main>
 
-<script>
-  document.getElementById('y').textContent = new Date().getFullYear();
-</script>
+<button class="to-top" id="toTopBtn" type="button" aria-label="Nach oben">
+  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M12 5l-7 7m7-7l7 7M12 5v14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  <span>Nach oben</span>
+</button>
 
+<script>
+  // Jahr
+  document.getElementById('y').textContent = new Date().getFullYear();
+
+  // ===== Mobile Header Toggle =====
+  (function(){
+    const header = document.getElementById('siteHeader');
+    if(!header) return;
+
+    const btns = header.querySelectorAll('.header-toggle[data-toggle]');
+    function setExpanded(btn, isOpen){ btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false'); }
+
+    function closeAll(){
+      header.classList.remove('is-hubs-open','is-partners-open');
+      btns.forEach(b=>setExpanded(b,false));
+    }
+
+    btns.forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const type = btn.getAttribute('data-toggle');
+        const isHubs = type === 'hubs';
+        const openClass = isHubs ? 'is-hubs-open' : 'is-partners-open';
+        const otherClass = isHubs ? 'is-partners-open' : 'is-hubs-open';
+
+        const isOpen = header.classList.contains(openClass);
+        header.classList.remove(otherClass);
+        header.classList.toggle(openClass, !isOpen);
+
+        btns.forEach(b=>{
+          const t = b.getAttribute('data-toggle');
+          const shouldOpen = header.classList.contains(t === 'hubs' ? 'is-hubs-open' : 'is-partners-open');
+          setExpanded(b, shouldOpen);
+        });
+
+        if(!header.classList.contains('is-hubs-open') && !header.classList.contains('is-partners-open')) closeAll();
+      });
+    });
+
+    window.addEventListener('resize', ()=>{ if(window.innerWidth > 980) closeAll(); });
+    header.querySelectorAll('.mobile-panels a').forEach(a=>a.addEventListener('click', ()=>closeAll()));
+  })();
+
+  // ===== Gallery Logic (pro Karte) =====
+  (function(){
+    function initGallery(root){
+      const main = root.querySelector('.gallery-main');
+      const mainImg = root.querySelector('.gallery-main img');
+      const thumbs = Array.from(root.querySelectorAll('.thumb'));
+
+      function setActiveThumb(btn){
+        thumbs.forEach(t=>t.classList.toggle('active', t === btn));
+      }
+
+      thumbs.forEach(btn=>{
+        btn.addEventListener('click', ()=>{
+          const src = btn.getAttribute('data-src');
+          const url = btn.getAttribute('data-url') || '';
+          if(src) mainImg.src = src;
+          if(url) root.dataset.openUrl = url;
+          setActiveThumb(btn);
+        });
+      });
+
+      function openLink(){
+        const url = root.dataset.openUrl || root.getAttribute('data-open-url') || '';
+        if(url && url !== '#') window.open(url, '_blank', 'noopener');
+      }
+
+      main.addEventListener('click', openLink);
+      main.addEventListener('keydown', (e)=>{
+        if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLink(); }
+      });
+    }
+
+    document.querySelectorAll('.gallery[data-gallery]').forEach(initGallery);
+  })();
+
+  // ===== Back-to-Top (weicht Footer aus) =====
+  (function(){
+    const btn = document.getElementById('toTopBtn');
+    const footer = document.getElementById('siteFooter');
+    if(!btn) return;
+
+    const SHOW_AFTER = 500;
+    const BASE_BOTTOM = 16;
+    const SAFE_GAP = 12;
+
+    function update(){
+      const y = window.scrollY || 0;
+      if(y > SHOW_AFTER) btn.classList.add('show');
+      else btn.classList.remove('show');
+
+      if(footer){
+        const btnRect = btn.getBoundingClientRect();
+        const footerRect = footer.getBoundingClientRect();
+        const overlap = (btnRect.bottom + SAFE_GAP) - footerRect.top;
+        const lift = Math.max(0, overlap);
+        btn.style.bottom = (BASE_BOTTOM + lift) + 'px';
+      } else {
+        btn.style.bottom = BASE_BOTTOM + 'px';
+      }
+    }
+
+    btn.addEventListener('click', ()=>window.scrollTo({ top:0, behavior:'smooth' }));
+    window.addEventListener('scroll', update, { passive:true });
+    window.addEventListener('resize', update, { passive:true });
+    update();
+  })();
+</script>
 </body>
 </html>
