@@ -594,6 +594,51 @@
   position:relative;
 }
 
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:14px 20px;border-radius:999px;font-weight:950;
+  border:1px solid rgba(255,255,255,0.12);
+  background:rgba(255,255,255,0.12);
+  box-shadow:0 10px 22px rgba(2,8,23,.25);
+  font-size:1.02rem;
+  transition:transform .14s ease, filter .14s ease, outline-color .14s ease;
+}
+.btn:hover{
+  filter:brightness(1.10);
+  transform:scale(1.04);
+  outline:2px solid rgba(246,176,66,.45);
+  outline-offset:2px;
+}
+.btn.yellow{
+  background:var(--btn-yellow);
+  color:#0b1220;
+  border-color:transparent;
+}
+
+.merch-cta-row{
+  margin-top:12px;
+  display:flex;
+  justify-content:center;   /* mittig */
+}
+.merch-cta-row{
+  margin-top:14px;
+  padding:10px 0 6px;
+  position:relative;
+  z-index:50;          /* nach vorn */
+}
+
+.merch-cta-row .btn{
+  position:relative;
+  z-index:51;
+}
+:root{
+  --btn-yellow:#f6b042;
+}
+
+
+
+
+
 /* Produktbild: KOMPLETT sichtbar */
 .mimg img{
   width:100%;
@@ -1082,8 +1127,16 @@
 
 </div>
 
-
         <p class="affiliate-note">* Affiliate-Link: Für dich bleibt der Preis gleich.</p>
+
+<div class="merch-cta-row">
+  <a class="btn yellow" href="merch.html">Kompletter Merch →</a>
+</div>
+
+
+
+
+
 
   </section>
 
