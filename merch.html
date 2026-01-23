@@ -267,7 +267,7 @@
       border-radius:18px;
       background:rgba(255,255,255,.04);
       border:1px solid rgba(148,163,184,.14);
-      padding:18px;
+      padding:6px;
       display:grid;
       place-items:center;
       min-height:280px;
@@ -301,8 +301,8 @@
 
 @media (max-width: 720px){
   .hero-photo-inner{
-    aspect-ratio: 9 / 16;  /* Mobile */
-    padding:12px;
+    aspect-ratio: auto;  /* Mobile */
+    padding:8px;
   }
 }
 
@@ -449,6 +449,23 @@
     .mini-cta:hover{filter:brightness(1.10);transform:translateY(-1px);outline:2px solid rgba(246,176,66,.35);outline-offset:2px;}
     .mini-cta.primary{background:var(--btn-yellow);border-color:transparent;color:#0b1220}
     .mini-cta.secondary{background:rgba(255,255,255,.10);}
+
+    @media (max-width: 720px){
+
+  .gallery-main{
+    aspect-ratio: auto;     /* 🔑 wichtig */
+    max-height: none;       /* 🔑 Platzfresser raus */
+    height: auto;           /* Bild bestimmt die Höhe */
+  }
+
+  .gallery-main img{
+    height: auto;
+    max-height: 65vh;       /* optional, schützt vor RIESEN Bildern */
+    padding:6px;
+  }
+
+}
+
 
     /* ===== Info Strip ===== */
     .info-strip{
@@ -656,7 +673,7 @@
     <p class="section-sub">Klassiker für jeden Tag viele Farben, Herren/Damen/Kids.</p>
 
     <div class="cat-grid">
-      <div class="gallery" data-gallery="tshirts" data-open-url="https://amzn.to/3ZuOQr3">
+      <div class="gallery" data-gallery="tshirts" data-open-url="https://amzn.to/3LkE2IZ">
         <div class="gallery-main" role="button" tabindex="0" aria-label="Bild groß öffnen">
           <span class="open">↗</span>
           <img src="images/muchachos-shirt.jpg" alt="DBK T‑Shirt – Motiv 1">
@@ -706,12 +723,18 @@
     <p class="section-sub">Kuschelig, auffällig und/oder dezent! Perfekt für Stream‑Abende & Bau‑Sessions.</p>
 
     <div class="cat-grid">
-      <div class="gallery" data-gallery="hoodies" data-open-url="https://amzn.to/3ZuOQr3">
+      <div class="gallery" data-gallery="hoodies" data-open-url="https://amzn.to/4jYVYWr">
         <div class="gallery-main" role="button" tabindex="0" aria-label="Bild groß öffnen">
           <span class="open">↗</span>
-          <img src="images/meisterbauer-hoodie.jpg" alt="DBK Hoodie – Motiv 1">
+
+          <img src="images/dbk-hoodie_scanme_rueck.jpg" alt="DBK Hoodie – Motiv 1">
         </div>
         <div class="thumbs" aria-label="Hoodie Galerie">
+
+          <button class="thumb active" type="button" data-src="images/dbk-hoodie_scanme.jpg" data-url="https://amzn.to/4jYVYWr">
+            <img src="images/dbk-hoodie_scanme.jpg" alt="DBK Scan Me Hoodie Thumbnail">
+          </button>
+
           <button class="thumb active" type="button" data-src="images/meisterbauer-hoodie.jpg" data-url="https://amzn.to/4qVPTvX">
             <img src="images/meisterbauer-hoodie.jpg" alt="Meister Bauer Hoodie Thumbnail">
           </button>
@@ -752,7 +775,7 @@
     <p class="section-sub">Die “Übergangs‑Crew”: Langarm für Alltag, Raglan für Sport‑Vibes, Zipper für flexibel.</p>
 
     <div class="cat-grid">
-      <div class="gallery" data-gallery="langarm" data-open-url="https://amzn.to/3ZuOQr3">
+      <div class="gallery" data-gallery="langarm" data-open-url="https://amzn.to/45pSiXD">
         <div class="gallery-main" role="button" tabindex="0" aria-label="Bild groß öffnen">
           <span class="open">↗</span>
           <img src="images/verlaufend-zipper.jpg" alt="Langarm Platzhalter">
@@ -816,7 +839,7 @@
     <p class="section-sub">Sobald verfügbar, hängen wir hier die Links rein. (Basecap & Tassen als erste Kandidaten.)</p>
 
     <div class="cat-grid">
-      <div class="gallery" data-gallery="coming" data-open-url="https://amzn.to/3ZuOQr3">
+      <div class="gallery" data-gallery="coming" data-open-url="https://amzn.to/4b8gIbL">
         <div class="gallery-main" role="button" tabindex="0" aria-label="Bild groß öffnen">
           <span class="open">↗</span>
 
