@@ -5,554 +5,1525 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- ===== SEO: Title / Description ===== -->
-  <title>Unsere Stadt · Die Bausteinklemmer</title>
-  <meta name="description" content="BeanVillage – unsere LEGO®/Klemmbaustein-Stadt: Module, Stadt-Updates, Baufortschritt, Detailshots und Highlights." />
+  <title>Unsere Stadt (BeanVillage) Hub · Die Bausteinklemmer</title>
+  <meta name="description" content="BeanVillage – unsere LEGO®/Klemmbaustein-Stadt: Module, Highlights, Straßen, Berge, Gebäude & Story-Spots. Mit Galerien, Video-Platzhaltern und direkten Sprungmarken." />
 
   <!-- ===== SEO: Robots / Canonical ===== -->
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <link rel="canonical" href="https://diebausteinklemmer.de/unsere-stadt.html" />
-
-  <meta name="theme-color" content="#0ea5e9" />
   <link rel="icon" href="images/logo.png" />
 
   <!-- ===== Social Preview (OG / Twitter) ===== -->
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="de_DE" />
-  <meta property="og:title" content="Unsere Stadt · Die Bausteinklemmer" />
-  <meta property="og:description" content="BeanVillage – unsere LEGO®/Klemmbaustein-Stadt: Module, Stadt-Updates, Baufortschritt & Highlights." />
+  <meta property="og:title" content="Unsere Stadt: BeanVillage · Die Bausteinklemmer" />
+  <meta property="og:description" content="Module, Highlights & Story-Spots aus BeanVillage – unserer LEGO®/Klemmbaustein-Stadt. Mit Galerien, Videos & direkten Sprungmarken." />
   <meta property="og:url" content="https://diebausteinklemmer.de/unsere-stadt.html" />
   <meta property="og:image" content="https://diebausteinklemmer.de/images/logo.png" />
   <meta property="og:image:alt" content="Die Bausteinklemmer – Logo" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Unsere Stadt · Die Bausteinklemmer" />
-  <meta name="twitter:description" content="BeanVillage – unsere LEGO®/Klemmbaustein-Stadt: Module, Stadt-Updates, Baufortschritt & Highlights." />
+  <meta name="twitter:title" content="Unsere Stadt: BeanVillage · Die Bausteinklemmer" />
+  <meta name="twitter:description" content="Module, Highlights & Story-Spots aus BeanVillage – mit Galerien, Videos & direkten Sprungmarken." />
   <meta name="twitter:image" content="https://diebausteinklemmer.de/images/logo.png" />
 
   <!-- ===== Structured Data (JSON-LD) ===== -->
   <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@graph":[
-      {
-        "@type":"Organization",
-        "name":"Die Bausteinklemmer",
-        "url":"https://diebausteinklemmer.de/",
-        "logo":"https://diebausteinklemmer.de/images/logo.png"
-      },
-      {
-        "@type":"WebPage",
-        "name":"Unsere Stadt · Die Bausteinklemmer",
-        "url":"https://diebausteinklemmer.de/unsere-stadt.html",
-        "inLanguage":"de",
-        "isPartOf":{
-          "@type":"WebSite",
-          "name":"Die Bausteinklemmer",
-          "url":"https://diebausteinklemmer.de/"
-        }
-      }
-    ]
-  }
-  </script>
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://diebausteinklemmer.de/#website",
+      "name": "Die Bausteinklemmer",
+      "url": "https://diebausteinklemmer.de/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Unsere Stadt (BeanVillage) Hub",
+      "url": "https://diebausteinklemmer.de/unsere-stadt.html",
+      "isPartOf": {"@id": "https://diebausteinklemmer.de/#website"}
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://diebausteinklemmer.de/"},
+        {"@type": "ListItem", "position": 2, "name": "Unsere Stadt", "item": "https://diebausteinklemmer.de/unsere-stadt.html"}
+      ]
+    }
+  ]
+}
+</script>
 
   <style>
-    :root{
-      --bg:#f6b042; --panel:#111827; --panel2:#0f172a;
-      --text:#e5e7eb; --muted:#9ca3af;
-      --brand:#0ea5e9; --brand2:#38bdf8;
-      --radius:18px; --shadow:0 10px 30px rgba(2,8,23,.45);
+:root{
+  --bg:#f6b042;
+  --panel:#111827;
+  --panel2:#0f172a;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+  --radius:18px;
+  --shadow:0 10px 30px rgba(2,8,23,.45);
 
-      --chip-bg: rgba(255,255,255,0.08);
-      --chip-border: rgba(148,163,184,.18);
-      --card-hover: 0 22px 60px rgba(2,8,23,.65);
-      --yellow-outline: 2px solid rgba(246,176,66,.95);
-      --glow: 0 0 0 2px rgba(246,176,66,.85), 0 0 0 8px rgba(255,255,255,.06);
+  --btn-lumibricks:#fde68a;
+  --btn-lesdiy:#7dd3fc;
+  --btn-youtube:#ff0033;
+  --btn-home:#f6b042;
+  --btn-home-text:#111827;
 
-      --btn-home:#f6b042;
-      --btn-home-text:#111827;
-      --btn-mail:#7dd3fc;
-      --btn-coop:#86efac;
+  --chip-bg: rgba(255,255,255,0.08);
+  --chip-border: rgba(148,163,184,.18);
 
-      --ok:#22c55e;
-      --todo:rgba(148,163,184,.95);
-    }
+  --card-hover: 0 22px 60px rgba(2,8,23,.65);
+  --yellow-outline: 2px solid rgba(246,176,66,.95);
+  --glow: 0 0 0 2px rgba(246,176,66,.85), 0 0 0 8px rgba(255,255,255,.06);
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth;}
-    html,body{
-      margin:0;padding:0;background:var(--bg);color:var(--text);
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif
-    }
-    a{text-decoration:none;color:inherit}
-    .wrap{max-width:1100px;margin:0 auto;padding:18px}
-    .muted{color:var(--muted)}
-    .center{text-align:center}
-    h2{margin:4px 0 10px}
+  --hero-logo-size: 130px;
+  --hero-klemmer-size: 130px;
 
-    /* ===== HEADER ===== */
-    .site-header{
-      position:sticky;top:0;z-index:50;
-      backdrop-filter:blur(10px) saturate(130%);
-      background:linear-gradient(180deg,rgba(2,6,23,.92),rgba(2,6,23,.62));
-      border-bottom:1px solid rgba(148,163,184,.15);
-      box-shadow:0 10px 18px rgba(2,8,23,.22);
-    }
-    .headbar{
-      display:grid;
-      grid-template-columns: 1fr auto 1fr;
-      align-items:center;
-      gap:14px;
-      padding:10px 0;
-    }
-    .brand-center{
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      gap:6px;
-      font-weight:900;
-      letter-spacing:.2px;
-      text-align:center;
-    }
-    .brand-center img{
-      width:64px;height:64px;border-radius:50%;
-      object-fit:cover;box-shadow:var(--shadow)
-    }
-    .brand-text{display:flex;flex-direction:column;line-height:1.05}
-    .brand-top{font-size:1.05rem;font-weight:950;letter-spacing:.2px}
+  --header-pad: 10px;
+}
 
-    .header-block{display:flex;align-items:flex-start;justify-content:flex-start}
-    .header-block.right{justify-content:flex-end}
-    .header-title{
-      font-size:.82rem;
-      font-weight:950;
-      color:rgba(229,231,235,.92);
-      opacity:.92;
-      margin:0 0 6px 0;
-      white-space:nowrap;
-      display:flex;
-      align-items:center;
-      gap:8px;
-    }
-    .header-list{display:grid;gap:8px;align-items:center}
-    .header-list.hubs{ grid-template-columns: repeat(3, max-content); }
-    .header-list.partners{ grid-template-columns: repeat(3, max-content); }
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;}
+html,body{
+  margin:0;padding:0;background:var(--bg);color:var(--text);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif
+}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;height:auto;display:block}
+.wrap{max-width:1100px;margin:0 auto;padding:18px}
+.muted{color:var(--muted)}
+p, h1, h2, h3, small, code, a, span{
+  overflow-wrap:anywhere;
+  word-break:break-word;
+}
 
-    .header-chip{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      padding:7px 10px;
-      border-radius:999px;
-      background:var(--chip-bg);
-      border:1px solid var(--chip-border);
-      font-weight:800;
-      font-size:.84rem;
-      opacity:.95;
-      transition:transform .14s ease, filter .14s ease, opacity .14s ease, box-shadow .14s ease, outline-color .14s ease;
-      transform-origin:center;
-      white-space:nowrap;
-    }
-    .header-chip:hover{
-      filter:brightness(1.10);
-      opacity:1;
-      transform:scale(1.07);
-      outline: 2px solid rgba(246,176,66,.65);
-      outline-offset:2px;
-    }
-    .header-chip.active{
-      background:rgba(255,255,255,0.16);
-      border-color:rgba(255,255,255,0.30);
-      opacity:1;
-      outline:1px solid rgba(246,176,66,.95);
-      outline-offset:2px;
-      box-shadow:
-        0 0 0 2px rgba(2,6,23,.65),
-        0 10px 26px rgba(2,8,23,.35),
-        0 0 18px rgba(246,176,66,.45);
-    }
-    .header-chip.partner img{
-      width:20px;height:20px;
-      border-radius:8px;
-      object-fit:contain;
-      background:#fff;
-      padding:2px;
-      box-shadow:0 6px 14px rgba(2,8,23,.25);
-    }
+.anchor{scroll-margin-top:120px}
 
-    @media (max-width: 1180px){
-      .header-chip{font-size:.80rem;padding:7px 9px}
-    }
-    @media (max-width: 980px){
-      .headbar{grid-template-columns: 1fr; justify-items:center;}
-      .header-block, .header-block.right{justify-content:center; text-align:center}
-      .header-list.hubs, .header-list.partners{grid-template-columns: repeat(2, max-content); justify-content:center;}
-    }
+/* ===== HEADER (Desktop + Mobile-Dropdown) ===== */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  backdrop-filter:blur(10px) saturate(130%);
+  background:linear-gradient(180deg,rgba(2,6,23,.92),rgba(2,6,23,.62));
+  border-bottom:1px solid rgba(148,163,184,.15);
+  box-shadow:0 10px 18px rgba(2,8,23,.22);
+}
+.headbar{
+  display:grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items:center;
+  gap:14px;
+  padding: var(--header-pad) 0;
+}
 
-    /* ===== CARDS ===== */
-    .card{
-      background:linear-gradient(180deg,var(--panel),var(--panel2));
-      border:1px solid rgba(148,163,184,.15);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:18px;
-      margin:22px 0;
-      transition:transform .16s ease, box-shadow .16s ease, filter .16s ease, outline-color .16s ease;
-    }
-    .card:hover{
-      transform:translateY(-4px) scale(1.006);
-      box-shadow:var(--card-hover);
-      filter:brightness(1.05);
-      outline:var(--yellow-outline);
-      outline-offset:2px;
-    }
-    .card:focus-within{
-      box-shadow:var(--card-hover);
-      outline:var(--yellow-outline);
-      outline-offset:2px;
-    }
+.brand-center{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  font-weight:900;
+  letter-spacing:.2px;
+  text-align:center;
+}
+.brand-center img{
+  width:64px;height:64px;border-radius:50%;
+  object-fit:cover;
+  box-shadow:var(--shadow);
+}
+.brand-text{display:flex;flex-direction:column;line-height:1.05;}
+.brand-top{font-size:1.05rem;font-weight:950;letter-spacing:.2px;}
 
-    footer{margin:24px 0 40px 0;text-align:center;color:var(--muted);font-size:14px}
+.header-block{display:flex;align-items:flex-start;justify-content:flex-start}
+.header-block.right{justify-content:flex-end}
 
-    .inline-link{
-      text-decoration:underline;
-      text-underline-offset:3px;
-      opacity:.95;
-    }
-    .inline-link:hover{opacity:1}
+.header-title{
+  font-size:.82rem;
+  font-weight:950;
+  color:rgba(229,231,235,.92);
+  opacity:.92;
+  margin:0 0 6px 0;
+  white-space:nowrap;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
 
-    /* ===== HERO ===== */
-    .hero{
-      display:grid;
-      grid-template-columns: 1.2fr .9fr;
-      gap:18px;
-      align-items:center;
-    }
-    @media (max-width: 900px){
-      .hero{grid-template-columns:1fr;}
-    }
+.header-list{display:grid;gap:8px;align-items:center;}
+.header-list.hubs{ grid-template-columns: repeat(3, max-content); }
+.header-list.partners{ grid-template-columns: repeat(3, max-content); }
 
-    .hero h1{margin:0;font-size:2rem;letter-spacing:.2px}
-    .hero p{margin:10px 0 0 0; line-height:1.55}
+.header-chip{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:7px 10px;
+  border-radius:999px;
+  background:var(--chip-bg);
+  border:1px solid var(--chip-border);
+  font-weight:800;
+  font-size:.84rem;
+  opacity:.95;
+  transition:transform .14s ease, filter .14s ease, opacity .14s ease, box-shadow .14s ease, outline-color .14s ease;
+  transform-origin:center;
+  white-space:nowrap;
+}
+.header-chip:hover{
+  filter:brightness(1.10);
+  opacity:1;
+  transform:scale(1.07);
+  outline: 2px solid rgba(246,176,66,.65);
+  outline-offset:2px;
+}
+.header-chip.active{
+  background:rgba(255,255,255,0.16);
+  border-color:rgba(255,255,255,0.30);
+  opacity:1;
+  outline:1px solid rgba(246,176,66,.95);
+  outline-offset:2px;
+  box-shadow:
+    0 0 0 2px rgba(2,6,23,.65),
+    0 10px 26px rgba(2,8,23,.35),
+    0 0 18px rgba(246,176,66,.45);
+}
+.header-chip.partner img{
+  width:20px;height:20px;
+  border-radius:8px;
+  object-fit:contain;
+  background:#fff;
+  padding:2px;
+  box-shadow:0 6px 14px rgba(2,8,23,.25);
+}
 
-    .hero-actions{
-      margin-top:14px;
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
+/* --- Mobile Dropdown Controls --- */
+.header-mobile-row{
+  display:none;
+  width:100%;
+  gap:10px;
+  align-items:center;
+  justify-content:center;
+  padding: 0 0 var(--header-pad) 0;
+}
+.header-toggle{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:10px 14px;
+  border-radius:999px;
+  font-weight:950;
+  font-size:.92rem;
+  background:rgba(255,255,255,0.10);
+  border:1px solid rgba(148,163,184,.20);
+  color:rgba(229,231,235,.95);
+  cursor:pointer;
+  transition:transform .14s ease, filter .14s ease, outline-color .14s ease;
+}
+.header-toggle:hover{
+  filter:brightness(1.10);
+  transform:scale(1.03);
+  outline:2px solid rgba(246,176,66,.35);
+  outline-offset:2px;
+}
+.header-toggle .chev{
+  display:inline-block;
+  transform:rotate(0deg);
+  transition:transform .16s ease;
+  opacity:.9;
+}
 
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding:14px 22px;
-      border-radius:999px;
-      font-weight:950;
-      border:1px solid rgba(255,255,255,0.12);
-      background:rgba(255,255,255,0.12);
-      box-shadow:0 10px 22px rgba(2,8,23,.25);
-      font-size:1.05rem;
-      transition:transform .14s ease, filter .14s ease, outline-color .14s ease;
-    }
-    .btn:hover{filter:brightness(1.10); transform:scale(1.04); outline:2px solid rgba(246,176,66,.45); outline-offset:2px;}
-    .btn.home{background:var(--btn-home); color:var(--btn-home-text); border-color:transparent}
-    .btn.mail{background:var(--btn-mail); color:#04131f; border-color:transparent}
-    .btn.coop{background:var(--btn-coop); color:#052013; border-color:transparent}
+.mobile-panels{display:none;padding: 0 0 12px 0;}
+.mobile-panel{
+  margin-top:10px;
+  border-radius:16px;
+  padding:12px;
+  border:1px solid rgba(148,163,184,.16);
+  background:rgba(255,255,255,0.06);
+}
+.mobile-panel .header-title{margin-bottom:10px;}
+.mobile-panel .header-list{justify-content:center;}
+.mobile-panel .header-list.hubs,
+.mobile-panel .header-list.partners{
+  grid-template-columns: repeat(2, max-content);
+  justify-content:center;
+}
 
-    .hero-badges{
-      margin-top:14px;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-    .badge{
-      font-size:12px; font-weight:900;
-      padding:7px 12px; border-radius:999px;
-      background:rgba(255,255,255,.10);
-      border:1px solid rgba(255,255,255,.12);
-      opacity:.95;
-    }
+/* state classes */
+.site-header.is-hubs-open .mobile-panels{display:block;}
+.site-header.is-partners-open .mobile-panels{display:block;}
+.site-header.is-hubs-open .mobile-panel.hubs{display:block;}
+.site-header.is-partners-open .mobile-panel.partners{display:block;}
+.mobile-panel{display:none;}
+.site-header.is-hubs-open .header-toggle[data-toggle="hubs"] .chev{transform:rotate(180deg);}
+.site-header.is-partners-open .header-toggle[data-toggle="partners"] .chev{transform:rotate(180deg);}
 
-    .hero-img{
-      border-radius:18px;
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(148,163,184,.14);
-      padding:18px;
-      display:grid;
-      place-items:center;
-      min-height:260px;
-      overflow:hidden;
-    }
-    .hero-img img{
-      width:100%;
-      max-width:520px;
-      height:auto;
-      filter:drop-shadow(0 18px 28px rgba(0,0,0,.55));
-      display:block;
-    }
+@media (max-width: 1180px){
+  .header-chip{font-size:.80rem;padding:7px 9px}
+}
+@media (max-width: 980px){
+  .headbar{grid-template-columns: 1fr; justify-items:center;}
+  .header-block, .header-block.right{display:none;}
+  .header-mobile-row{display:flex;}
+}
 
-    /* Anchor spacing for sticky header */
-    .anchor{scroll-margin-top:120px}
+/* ===== CARDS ===== */
+.card{
+  background:linear-gradient(180deg,var(--panel),var(--panel2));
+  border:1px solid rgba(148,163,184,.15);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:18px;
+  margin:22px 0;
+  transition:transform .16s ease, box-shadow .16s ease, filter .16s ease, outline-color .16s ease;
+  overflow:hidden;
+}
+.card:hover{
+  transform:translateY(-4px) scale(1.006);
+  box-shadow:var(--card-hover);
+  filter:brightness(1.05);
+  outline:var(--yellow-outline);
+  outline-offset:2px;
+}
+.card:focus-within{
+  box-shadow:var(--card-hover);
+  outline:var(--yellow-outline);
+  outline-offset:2px;
+}
+.card.flash{
+  box-shadow: var(--shadow), var(--glow);
+  outline: 2px solid rgba(246,176,66,.95);
+  outline-offset:2px;
+}
 
-    /* ===== ROADMAP ===== */
-    .roadmap-head{
-      display:flex;
-      align-items:flex-end;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-bottom:10px;
-    }
+footer{margin:24px 0 40px 0;text-align:center;color:var(--muted);font-size:14px}
 
-    .roadmap-grid{
-      display:grid;
-      grid-template-columns: 1.25fr repeat(4, 1fr);
-      gap:12px;
-      align-items:stretch;
-    }
-    @media (max-width: 1050px){
-      .roadmap-grid{ grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 620px){
-      .roadmap-grid{ grid-template-columns: 1fr; }
-    }
+/* ===== HERO (Unsere Stadt) ===== */
+.hero{
+  display:grid;
+  grid-template-columns: 1.25fr .95fr; /* links Text | rechts Bild */
+  gap:22px;
+  align-items:stretch;
+}
 
-    .road-col{
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(148,163,184,.14);
-      border-radius:16px;
-      padding:14px;
-    }
-    .road-col h3{
-      margin:0 0 10px 0;
-      font-size:1.02rem;
-      letter-spacing:.2px;
-    }
-    .road-col p{margin:0 0 10px 0; line-height:1.45}
+.hero-left{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:center;
+}
 
-    .milestones{
-      list-style:none;
-      padding:0;margin:0;
-      display:flex;
-      flex-direction:column;
-      gap:8px;
-    }
-    .milestones a{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-      padding:9px 10px;
-      border-radius:12px;
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(148,163,184,.14);
-      font-weight:900;
-      opacity:.96;
-      transition:transform .14s ease, filter .14s ease, outline-color .14s ease;
-    }
-    .milestones a:hover{
-      filter:brightness(1.08);
-      transform:translateY(-1px);
-      outline:2px solid rgba(246,176,66,.25);
-      outline-offset:2px;
-    }
+/* rechte Spalte: Bild oben, Links + Buttons darunter */
+.hero-right{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  align-items:stretch;
+}
 
-    .ms-left{
-      display:inline-flex;
-      gap:10px;
-      align-items:center;
-      white-space:nowrap;
-    }
-    .check{
-      width:22px;height:22px;border-radius:7px;
-      display:grid;place-items:center;
-      font-size:14px;line-height:1;
-      border:1px solid rgba(148,163,184,.30);
-      background:rgba(255,255,255,.03);
-      flex:0 0 auto;
-    }
-    .check.ok{
-      border-color:rgba(34,197,94,.55);
-      background:rgba(34,197,94,.14);
-      color:#b7f7c8;
-    }
-    .check.todo{
-      border-color:rgba(148,163,184,.35);
-      background:rgba(148,163,184,.10);
-      color:rgba(229,231,235,.85);
-    }
-    .ms-right{
-      font-size:12px;
-      color:var(--muted);
-      font-weight:900;
-      opacity:.95;
-      white-space:nowrap;
-    }
+/* Bild-Card */
+.hero-media{
+  width:100%;
+  border-radius:18px;
+  overflow:hidden;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(148,163,184,.18);
+  box-shadow:var(--shadow);
+  padding:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
 
-    /* ===== PROJECT CARDS ===== */
-    .project-grid{
-      display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap:16px;
-      align-items:start;
-    }
-    @media (max-width: 900px){ .project-grid{grid-template-columns:1fr;} }
+.hero-media img{
+  width:100%;
+  height:auto;
+  display:block;
+  object-fit:contain;
+}
 
-    .project-text{
-      background:rgba(255,255,255,0.04);
-      border:1px solid rgba(148,163,184,.14);
-      border-radius:16px;
-      padding:14px;
-    }
-    .project-stats{
-      display:grid;
-      gap:10px;
-      margin-top:12px;
-    }
-    .stat{
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      align-items:center;
-      padding:10px 12px;
-      border-radius:14px;
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(148,163,184,.14);
-      font-weight:900;
-    }
-    .stat span{color:var(--muted);font-weight:900}
-    .stat b{font-weight:950}
+/* Overlay-Box (immer UNTER dem Bild) */
+.hero-overlay{
+  padding:12px;
+  border-radius:16px;
+  background:linear-gradient(180deg, rgba(2,6,23,.78), rgba(2,6,23,.56));
+  border:1px solid rgba(148,163,184,.18);
+  box-shadow:0 18px 60px rgba(2,8,23,.35);
+  backdrop-filter: blur(10px) saturate(130%);
+}
 
-    .thumb-wrap{
-      border-radius:16px;
-      overflow:hidden;
-      border:1px solid rgba(148,163,184,.22);
-      background:#0a1220;
-      box-shadow:var(--shadow);
-      display:block;
-      transition:transform .16s ease, filter .16s ease, box-shadow .16s ease, outline-color .16s ease;
-    }
-    .thumb-wrap:hover{
-      transform:translateY(-4px) scale(1.01);
-      filter:brightness(1.06);
-      box-shadow:0 22px 60px rgba(2,8,23,.62);
-      outline:var(--yellow-outline);
-      outline-offset:2px;
-    }
-    .video-thumb{
-      position: relative;
-      width: 100%;
-      padding-top: 56.25%;
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-color: #0a1220;
-    }
-    .video-thumb::after{
-      content:"▶";
-      position:absolute; inset:0;
-      display:grid; place-items:center;
-      font-size:52px; color:#fff;
-      text-shadow:0 8px 22px rgba(0,0,0,.75);
-      opacity:.85;
-    }
+/* Jump-Links im Overlay */
+.hero-overlay .jump-line{
+  margin:0 0 10px 0;
+  text-align:left;
+  line-height:1.35;
+  font-size:.92rem;
+  color:rgba(229,231,235,.90);
+  font-weight:900;
+}
 
-    /* ===== NEU: BeanVillage Bild statt "Player" + Glow ===== */
-    .video-thumb.no-play::after{ content:""; }
-    .video-thumb.city-glow{
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,.06);
-    }
-    .video-thumb.city-glow::before{
-      content:"";
-      position:absolute; inset:-1px;
-      border-radius:0;
-      pointer-events:none;
-      box-shadow:
-        0 0 0 2px rgba(246,176,66,.45),
-        0 0 28px rgba(246,176,66,.20),
-        0 18px 60px rgba(2,8,23,.55);
-      opacity:.95;
-    }
+/* Buttons im Overlay */
+.hero-overlay .hero-actions{
+  margin:0;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  justify-content:flex-start;
+}
 
-    .thumb-caption{
-      padding:10px 12px;
-      color:var(--muted);
-      font-weight:800;
-      font-size:.9rem;
-    }
-    .more-links{
-      margin-top:10px;
-      display:flex;
-      gap:10px;
-      justify-content:center;
-      flex-wrap:wrap;
-    }
-    .more-links .header-chip{
-      font-size:.82rem;
-      padding:6px 10px;
-      opacity:.92;
-    }
-    .more-links .header-chip:hover{opacity:1;}
+/* (optional) globale Jump-Line außerhalb vom Hero – falls du die woanders nutzt */
+.jump-line{
+  margin:12px 0 0 0;
+  text-align:center;
+  color:var(--muted);
+  font-weight:800;
+}
 
-    .jump-line{
-      margin-top:14px;
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      align-items:center;
-      font-size:0.95rem;
-      font-weight:900;
-      letter-spacing:.25px;
-      color:rgba(229,231,235,.78);
-    }
-    .jump-line a{
-      font-weight:900;
-      color:rgba(229,231,235,.88);
-      text-decoration:none;
-      text-underline-offset:3px;
-    }
-    .jump-line a:hover{ color:#fff; }
+/* Links */
+.inline-link{
+  text-decoration:underline;
+  text-underline-offset:3px;
+  opacity:.95;
+}
+.inline-link:hover{opacity:1}
 
-    /* ===== MODUL-GRID (für Stadt-Abschnitte) ===== */
-    .module-grid{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:12px;
-    }
-    @media (max-width: 980px){ .module-grid{grid-template-columns: repeat(2, 1fr);} }
-    @media (max-width: 620px){ .module-grid{grid-template-columns: 1fr;} }
+/* Buttons (allgemein) */
+.hero-actions{
+  margin-top:14px;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  justify-content:flex-start;
+}
 
-    .module-card{
-      border-radius:16px;
-      overflow:hidden;
-      border:1px solid rgba(148,163,184,.16);
-      background:rgba(255,255,255,.04);
-      transition:transform .16s ease, filter .16s ease, box-shadow .16s ease, outline-color .16s ease;
-    }
-    .module-card:hover{
-      transform:translateY(-3px);
-      filter:brightness(1.05);
-      outline:2px solid rgba(246,176,66,.35);
-      outline-offset:2px;
-      box-shadow:0 18px 50px rgba(2,8,23,.45);
-    }
-    .module-img{
-      width:100%;
-      padding-top:56.25%;
-      background:#0a1220;
-      background-size:cover;
-      background-position:center;
-      border-bottom:1px solid rgba(148,163,184,.16);
-    }
-    .module-body{padding:12px 12px 14px}
-    .module-title{margin:0 0 6px 0; font-weight:950; letter-spacing:.2px}
-    .module-text{margin:0; color:var(--muted); font-weight:800; line-height:1.45; font-size:.92rem}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:14px 22px;
+  border-radius:999px;
+  font-weight:950;
+  border:1px solid rgba(255,255,255,0.12);
+  background:rgba(255,255,255,0.12);
+  box-shadow:0 10px 22px rgba(2,8,23,.25);
+  font-size:1.05rem;
+  transition:transform .14s ease, filter .14s ease, outline-color .14s ease;
+}
+.btn:hover{
+  filter:brightness(1.10);
+  transform:scale(1.04);
+  outline:2px solid rgba(246,176,66,.45);
+  outline-offset:2px;
+}
+
+/* Button-Farben */
+.btn.lumibricks{background:var(--btn-lumibricks); color:#111827; border-color:transparent}
+.btn.lesdiy{background:var(--btn-lesdiy); color:#04131f; border-color:transparent}
+.btn.youtube{background:var(--btn-youtube); color:#fff; border-color:transparent}
+.btn.home{background:var(--btn-home); color:var(--btn-home-text); border-color:transparent}
+
+hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
+
+/* Responsive */
+@media (max-width: 900px){
+  .hero{
+    grid-template-columns:1fr;
+    text-align:left;
+  }
+  .hero-left{align-items:flex-start}
+  .hero-right{justify-content:center}
+}
+
+
+/* ===== TOC ===== */
+.toc-title{text-align:center;margin:0 0 8px 0}
+.toc-sub{text-align:center;margin:0 0 14px 0;color:var(--muted)}
+.toc{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap:12px;
+}
+@media (max-width: 800px){ .toc{grid-template-columns:1fr;} }
+
+.toc-card{
+  display:block;
+  border-radius:16px;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(148,163,184,.18);
+  overflow:hidden;
+  transition:transform .16s ease, filter .16s ease, box-shadow .16s ease, outline-color .16s ease;
+}
+.toc-card:hover{
+  filter:brightness(1.10);
+  transform:translateY(-3px) scale(1.01);
+  box-shadow:0 18px 42px rgba(2,8,23,.48);
+  outline:var(--yellow-outline);
+  outline-offset:2px;
+}
+.toc-img{
+  width:100%;
+  height:140px;
+  background:rgba(255,255,255,0.08);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+.toc-img img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+.toc-body{
+  padding:12px 14px;
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  align-items:flex-start;
+}
+.toc-body strong{display:block}
+.toc-body small{color:var(--muted); font-weight:800}
+
+/* ===== PROJECT SECTIONS ===== */
+.project-head{
+  display:flex; justify-content:space-between; align-items:flex-start; gap:12px; flex-wrap:wrap;
+  margin-bottom:10px;
+}
+.badges{display:flex; gap:8px; flex-wrap:wrap}
+.badge{
+  font-size:12px; font-weight:900;
+  padding:6px 10px; border-radius:999px;
+  background:rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.12);
+}
+.badge.test{background:rgba(245,158,11,.16); border-color:rgba(245,158,11,.25)}
+
+.project-grid{
+  display:grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, .95fr);
+  gap:16px;
+  align-items:stretch;
+}
+.project-grid > *{min-width:0;}
+@media (max-width: 900px){ .project-grid{grid-template-columns:1fr;} }
+
+.project-text{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(148,163,184,.14);
+  border-radius:16px;
+  padding:14px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  min-width:0;
+  overflow:hidden;
+}
+.project-text p{margin:0}
+
+.rating{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin:0;
+  flex-wrap:wrap;
+}
+.rating .label{font-weight:950;color:rgba(229,231,235,.9);}
+.stars{font-size:1.12rem;letter-spacing:.08em;line-height:1;}
+.rating small{color:var(--muted);font-weight:800;}
+
+.btn-row{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap:10px;
+  margin-top:0;
+}
+@media (max-width: 520px){
+  .btn-row{grid-template-columns: repeat(2, minmax(0,1fr));}
+  .btn-row a:last-child{grid-column: 1 / -1;}
+}
+
+.amazon-btn, .lumibricks-btn, .youtube-btn, .ig-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:10px 12px;
+  border-radius:999px;
+  font-weight:950;
+  font-size:.92rem;
+  transition:transform .14s ease, filter .14s ease, outline-color .14s ease;
+  min-width:0;
+  text-align:center;
+}
+.amazon-btn{background:#ff9900; color:#111}
+.lumibricks-btn{background:var(--btn-lumibricks); color:#111827; border:1px solid rgba(255,255,255,.10)}
+.youtube-btn{background:var(--btn-youtube); color:#fff; border:1px solid rgba(255,255,255,.10)}
+.ig-btn{background:rgba(255,255,255,0.14); color:#fff; border:1px solid rgba(255,255,255,0.16)}
+.amazon-btn:hover,.lumibricks-btn:hover,.youtube-btn:hover,.ig-btn:hover{
+  filter:brightness(1.10);
+  transform:scale(1.04);
+  outline:2px solid rgba(246,176,66,.45);
+  outline-offset:2px;
+}
+
+.more-links{
+  margin-top:12px;
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+.more-links .header-chip{
+  font-size:.82rem;
+  padding:6px 10px;
+  opacity:.92;
+}
+.more-links .header-chip:hover{opacity:1;}
+
+.coupon{
+  margin:0;
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  gap:10px;
+  flex-wrap:wrap;
+  padding:10px 10px;
+  border-radius:12px;
+  background:rgba(255,255,255,0.035);
+  border:1px solid rgba(148,163,184,.14);
+  min-width:0;
+}
+.coupon .tag{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-weight:900;
+  color:rgba(229,231,235,.90);
+  opacity:.88;
+  white-space:nowrap;
+}
+.coupon code{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+  font-weight:950;
+  font-size:.92rem;
+  padding:4px 10px;
+  border-radius:999px;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(148,163,184,.18);
+  color:rgba(229,231,235,.95);
+  max-width:100%;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.coupon .coupon-link{
+  margin-left:auto;
+  font-weight:900;
+  font-size:.88rem;
+  color:rgba(253,230,138,.95);
+  opacity:.92;
+  white-space:nowrap;
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+.coupon .coupon-link:hover{opacity:1}
+@media (max-width: 520px){
+  .coupon .coupon-link{margin-left:0;}
+}
+
+.copy-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:6px 8px;
+  border-radius:999px;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(148,163,184,.18);
+  color:rgba(229,231,235,.95);
+  cursor:pointer;
+  transition:transform .14s ease, filter .14s ease, outline-color .14s ease;
+  flex:0 0 auto;
+  line-height:1;
+}
+.copy-btn:hover{
+  filter:brightness(1.10);
+  transform:scale(1.04);
+  outline:2px solid rgba(246,176,66,.35);
+  outline-offset:2px;
+}
+.copy-btn svg{width:15px;height:15px;opacity:.95}
+.copy-btn .sr-only{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0,0,0,0);white-space:nowrap;border:0;
+}
+.hero-center .coupon{justify-content:center;}
+.hero-center .coupon .coupon-link{margin-left:0;}
+
+/* ===== Mini-Galerie ===== */
+.gallery-xl .gallery-main{
+  display:block;
+  position:relative;
+  background:#0a1220;
+}
+.gallery-main::after{
+  content:"🖼️";
+  position:absolute;
+  right:10px; top:10px;
+  font-size:18px;
+  opacity:.85;
+  background:rgba(2,6,23,.55);
+  border:1px solid rgba(148,163,184,.18);
+  border-radius:999px;
+  padding:6px 10px;
+}
+.gallery-main-img{
+  width:100%;
+  height:290px;
+  object-fit:contain;
+  object-position:center;
+  background:#0a1220;
+}
+@media (max-width: 900px){
+  .gallery-main-img{height:260px;}
+}
+.gallery-cap{
+  padding:10px 12px;
+  color:var(--muted);
+  font-weight:800;
+  font-size:.9rem;
+  border-top:1px solid rgba(148,163,184,.15);
+}
+
+.gallery-xl .gallery-thumbs{
+  display:grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  gap:10px;
+  padding:12px;
+  border-top:1px solid rgba(148,163,184,.12);
+  background:rgba(255,255,255,0.02);
+}
+@media (max-width: 520px){
+  .gallery-thumbs{grid-template-columns: repeat(3, minmax(0,1fr));}
+}
+
+.gthumb{
+  border:1px solid rgba(148,163,184,.22);
+  background:rgba(255,255,255,0.04);
+  border-radius:12px;
+  padding:0;
+  cursor:pointer;
+  width:100%;
+  aspect-ratio: 4 / 3;
+  overflow:hidden;
+  transition:transform .14s ease, filter .14s ease, outline-color .14s ease, border-color .14s ease;
+}
+.gthumb img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  background:#0a1220;
+}
+.gthumb:hover{
+  filter:brightness(1.10);
+  transform:scale(1.03);
+  outline:2px solid rgba(246,176,66,.35);
+  outline-offset:2px;
+}
+.gthumb.active{
+  border-color:rgba(253,230,138,.65);
+  outline:2px solid rgba(253,230,138,.35);
+  outline-offset:2px;
+}
+
+/* ===== Rechts: 9:16 Reel/Short Preview ===== */
+.reel-wrap{
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid rgba(148,163,184,.22);
+  background:#0a1220;
+  box-shadow:var(--shadow);
+  display:block;
+  min-width:0;
+}
+.reel-thumb{
+  position:relative;
+  width:100%;
+  padding-top:56.25%;   /* ✅ 16:9 */
+  background-size:cover;
+  background-position:center;
+}
+
+.reel-thumb::after{
+  content:"▶";
+  position:absolute; inset:0;
+  display:grid; place-items:center;
+  font-size:56px; color:#fff;
+  text-shadow:0 8px 22px rgba(0,0,0,.75);
+}
+.reel-cap{
+  padding:10px 12px;
+  color:var(--muted);
+  font-weight:800;
+  font-size:.9rem;
+}
+
+.right-col{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  align-items:stretch;
+  min-width:0;
+  overflow:hidden;
+}
+.affiliate-note{
+  margin-top:2px;
+  text-align:center;
+  font-size:.9rem;
+  color:rgba(229,231,235,.75);
+  font-weight:800;
+}
+
+/* ===== Back-to-Top Button (weicht Footer aus) ===== */
+.to-top{
+  position:fixed;
+  right:16px;
+  bottom:16px; /* wird per JS dynamisch erhöht, sobald Footer kollidiert */
+  z-index:60;
+
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+
+  padding:12px 14px;
+  border-radius:999px;
+
+  background:rgba(2,6,23,.72);
+  border:1px solid rgba(148,163,184,.25);
+  color:rgba(229,231,235,.95);
+
+  box-shadow:0 18px 42px rgba(2,8,23,.45);
+  backdrop-filter: blur(10px) saturate(130%);
+  cursor:pointer;
+
+  opacity:0;
+  transform:translateY(8px) scale(.98);
+  pointer-events:none;
+
+  transition:opacity .16s ease, transform .16s ease, filter .16s ease, outline-color .16s ease, bottom .16s ease;
+}
+.to-top:hover{
+  filter:brightness(1.12);
+  transform:translateY(0) scale(1.03);
+  outline:2px solid rgba(246,176,66,.45);
+  outline-offset:2px;
+}
+.to-top.show{
+  opacity:1;
+  transform:translateY(0) scale(1);
+  pointer-events:auto;
+}
+.to-top svg{width:18px;height:18px;opacity:.95}
+.to-top span{font-weight:950; font-size:.92rem}
+@media (max-width: 520px){
+  .to-top span{display:none;}
+  .to-top{padding:12px;}
+}
+  
+/* ===== Unsere Stadt: Hero Foto als Tile ===== */
+.partner-logo.photo{
+  background:transparent;
+  padding:0;
+  border-radius:18px;
+  width: 320px;
+  height: 220px;
+  object-fit:cover;
+  border:1px solid rgba(148,163,184,.18);
+  box-shadow:var(--shadow);
+}
+@media (max-width: 900px){
+  .partner-logo.photo{width:100%; max-width:520px; height:auto; aspect-ratio: 16/10;}
+}
+
+/* ===== TOC Links: Hover-Glow wie Cards ===== */
+.toc-brand a{
+  display:inline-flex;
+  padding:6px 10px;
+  border-radius:999px;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(148,163,184,.14);
+  box-shadow:0 10px 22px rgba(2,8,23,.18);
+  transition:transform .14s ease, filter .14s ease, box-shadow .14s ease, outline-color .14s ease;
+}
+.toc-brand a:hover{
+  filter:brightness(1.08);
+  transform:translateY(-2px) scale(1.02);
+  box-shadow:0 22px 60px rgba(2,8,23,.58), 0 0 0 2px rgba(246,176,66,.75), 0 0 0 8px rgba(255,255,255,.05);
+  outline:2px solid rgba(246,176,66,.55);
+  outline-offset:2px;
+}
+
+
+
+/* === Unsere Stadt Zusatzstyles (TOC/Projekt-Cards) === */
+/* ===== TOC (compact: Logos + Titles only) ===== */
+.toc-title{text-align:center;margin:0 0 8px 0}
+.toc-sub{text-align:center;margin:0 0 14px 0;color:var(--muted)}
+
+/* ===== TOC Links: Hover wie Cards (Glow + orange Kontur) ===== */
+
+.toc-brand ul{display:flex; flex-direction:column; gap:10px;}
+
+.toc-brand a.toc-jump{
+  display:block;
+  padding:10px 12px;
+  border-radius:12px;
+
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(148,163,184,.18);
+
+  font-weight:950;
+  text-decoration:underline;
+  text-underline-offset:3px;
+  color:rgba(229,231,235,.92);
+
+  transition:transform .14s ease, filter .14s ease, box-shadow .14s ease, outline-color .14s ease, background .14s ease;
+}
+
+.toc-brand a.toc-jump:hover{
+  filter:brightness(1.08);
+  transform:translateY(-2px) scale(1.01);
+
+  /* orange Kontur + Glow wie bei deinen Cards */
+  outline:2px solid rgba(246,176,66,.75);
+  outline-offset:2px;
+  box-shadow:
+    0 18px 44px rgba(2,8,23,.55),
+    0 0 0 2px rgba(246,176,66,.45),
+    0 0 0 10px rgba(255,255,255,.04);
+}
+
+.toc-brand a.toc-jump:focus-visible{
+  outline:2px solid rgba(246,176,66,.95);
+  outline-offset:3px;
+  box-shadow:
+    0 18px 44px rgba(2,8,23,.55),
+    0 0 0 2px rgba(246,176,66,.55),
+    0 0 0 12px rgba(255,255,255,.05);
+}
+
+.toc-brand{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(148,163,184,.16);
+  border-radius:16px;
+  padding:14px;
+  text-align:center;
+  box-shadow:0 10px 22px rgba(2,8,23,.18);
+}
+.toc-brand img{
+  max-height:52px;
+  margin:0 auto 10px;
+  filter:drop-shadow(0 12px 24px rgba(2,8,23,.35));
+}
+.toc-brand ul{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+.toc-brand li{margin:7px 0}
+.toc-brand a{
+  font-weight:950;
+  text-decoration:underline;
+  text-underline-offset:3px;
+  opacity:.95;
+}
+.toc-brand a:hover{opacity:1}
+
+/* ===== Brand Sections ===== */
+.brand-section-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-bottom:10px;
+}
+.brand-title{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.brand-title img{
+  height:42px;
+  width:auto;
+  background:#fff;
+  border-radius:14px;
+  padding:6px 10px;
+  box-shadow:0 10px 22px rgba(2,8,23,.22);
+}
+.brand-title h2{margin:0}
+.brand-sub{margin:6px 0 0 0;color:var(--muted);font-weight:900}
+
+/* ===== Project Card Layout ===== */
+.project-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-bottom:10px;
+}
+.project-left{
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+}
+.brand-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(148,163,184,.16);
+  border-radius:14px;
+  padding:8px 10px;
+}
+.brand-badge img{
+  height:26px;
+  width:auto;
+  background:#fff;
+  border-radius:10px;
+  padding:4px 8px;
+}
+.project-left h3{margin:0;font-size:1.35rem}
+.project-left p{margin:6px 0 0 0;color:var(--muted);font-weight:900}
+
+.badges{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.badge{
+  font-size:12px; font-weight:950;
+  padding:6px 10px; border-radius:999px;
+  background:rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.12);
+}
+.badge.city{background:rgba(34,197,94,.16); border-color:rgba(34,197,94,.25)}
+.badge.wip{background:rgba(59,130,246,.16); border-color:rgba(59,130,246,.25)}
+.badge.test{background:rgba(245,158,11,.16); border-color:rgba(245,158,11,.25)}
+
+.project-grid{
+  display:grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, .90fr);
+  gap:16px;
+  align-items:start;
+}
+.project-grid > *{min-width:0;}
+@media (max-width: 900px){ .project-grid{grid-template-columns:1fr;} }
+
+.project-text{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(148,163,184,.14);
+  border-radius:16px;
+  padding:14px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  min-width:0;
+  overflow:hidden;
+}
+.project-text p{margin:0;line-height:1.6}
+
+.info-grid{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap:10px;
+}
+@media (max-width: 520px){ .info-grid{grid-template-columns:1fr;} }
+.info-box{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(148,163,184,.14);
+  border-radius:14px;
+  padding:10px 12px;
+  font-weight:950;
+}
+.info-box strong{display:block;color:rgba(229,231,235,.92);margin-bottom:2px}
+.info-box span{color:rgba(229,231,235,.86);font-weight:900}
+
+.rating{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.rating .label{font-weight:950;color:rgba(229,231,235,.9);}
+.stars{font-size:1.12rem;letter-spacing:.08em;line-height:1;}
+.rating small{color:var(--muted);font-weight:900;}
+
+.btn-row{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap:10px;
+}
+@media (max-width: 520px){
+  .btn-row{grid-template-columns: repeat(2, minmax(0,1fr));}
+  .btn-row a:last-child{grid-column: 1 / -1;}
+}
+
+.amazon-btn, .shop-btn, .youtube-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:10px 12px;
+  border-radius:999px;
+  font-weight:950;
+  font-size:.92rem;
+  transition:transform .14s ease, filter .14s ease, outline-color .14s ease;
+  min-width:0;
+  text-align:center;
+  border:1px solid rgba(255,255,255,.10);
+}
+.amazon-btn{background:#ff9900; color:#111}
+.shop-btn{background:#7dd3fc; color:#04131f}
+.youtube-btn{background:var(--btn-youtube); color:#fff}
+.amazon-btn:hover,.shop-btn:hover,.youtube-btn:hover{
+  filter:brightness(1.10);
+  transform:scale(1.04);
+  outline:2px solid rgba(246,176,66,.35);
+  outline-offset:2px;
+}
+
+.affiliate-note{
+  margin-top:2px;
+  text-align:left;
+  font-size:.9rem;
+  color:rgba(229,231,235,.72);
+  font-weight:900;
+}
+
+/* ===== GALERIE (Vorschau links) ===== */
+/* bewusst kleiner, damit rechts die Großansicht Sinn macht */
+.gallery{
+  display:grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  gap:10px;
+}
+@media (max-width: 900px){
+  .gallery{grid-template-columns: repeat(3, minmax(0,1fr));}
+}
+@media (max-width: 520px){
+  .gallery{grid-template-columns: repeat(2, minmax(0,1fr));}
+}
+.gallery img{
+  width:100%;
+  height:clamp(64px, 10vw, 92px);
+  border-radius:12px;
+  border:1px solid rgba(148,163,184,.25);
+  background:#0a1220;
+  object-fit:cover;
+  cursor:pointer;
+  transition:transform .14s ease, filter .14s ease, box-shadow .14s ease, outline-color .14s ease;
+}
+.gallery img:hover{
+  filter:brightness(1.08);
+  transform:translateY(-2px) scale(1.02);
+  outline:2px solid rgba(246,176,66,.35);
+  outline-offset:2px;
+  box-shadow:0 18px 50px rgba(2,8,23,.55);
+}
+.gallery img.is-active{
+  outline:2px solid rgba(246,176,66,.95);
+  outline-offset:2px;
+  box-shadow:
+    0 0 0 2px rgba(2,6,23,.65),
+    0 18px 50px rgba(2,8,23,.55),
+    0 0 18px rgba(246,176,66,.38);
+}
+.gallery img:hover{
+  filter:brightness(1.06);
+  transform:translateY(-2px) scale(1.01);
+  box-shadow:0 18px 46px rgba(2,8,23,.55);
+  outline:2px solid rgba(246,176,66,.55);
+  outline-offset:2px;
+}
+.gallery img.is-active{
+  outline:2px solid rgba(246,176,66,.95);
+  outline-offset:2px;
+  box-shadow:
+    0 18px 46px rgba(2,8,23,.55),
+    0 0 0 8px rgba(255,255,255,.05);
+}
+
+.faq-box{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(148,163,184,.16);
+  border-radius:14px;
+  padding:12px;
+  font-weight:900;
+  line-height:1.55;
+}
+.faq-box strong{display:block;margin-bottom:6px}
+.faq-box a{ text-decoration:underline; text-underline-offset:3px; }
+
+/* Video Thumb */
+.thumb-wrap{
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid rgba(148,163,184,.20);
+  background:#0a1220;
+  box-shadow:var(--shadow-soft);
+  transition:transform .16s ease, filter .16s ease, box-shadow .16s ease;
+  display:block;
+}
+.thumb-wrap:hover{
+  transform:translateY(-4px) scale(1.01);
+  filter:brightness(1.06);
+  box-shadow:
+    0 22px 60px rgba(2,8,23,.58),
+    0 0 0 2px rgba(246,176,66,.75),
+    0 0 0 8px rgba(255,255,255,.05);
+}
+.video-thumb{
+  position:relative;
+  width:100%;
+  padding-top:56.25%;
+  background-size:cover;
+  background-position:center;
+}
+.video-thumb::after{
+  content:"▶";
+  position:absolute; inset:0;
+  display:grid; place-items:center;
+  font-size:52px; color:#fff;
+  text-shadow:0 8px 22px rgba(0,0,0,.75);
+}
+.thumb-caption{
+  padding:10px 12px;
+  color:var(--muted);
+  font-weight:900;
+  font-size:.9rem;
+}
+
+.right-col{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  align-items:stretch;
+}
+
+
+
+
+
+/* ===== TOC Grid / Brand Cards (city Hub) ===== */
+.toc-title{text-align:center;margin:0 0 8px 0}
+.toc-sub{text-align:center;margin:0 0 14px 0;color:var(--muted)}
+
+.toc-brands{
+  display:grid;
+  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
+}
+.toc-brand{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(148,163,184,.16);
+  border-radius:16px;
+  padding:14px;
+  text-align:center;
+  box-shadow:0 10px 22px rgba(2,8,23,.18);
+}
+.toc-brand img{
+  max-height:52px;
+  margin:0 auto 10px;
+  filter:drop-shadow(0 12px 24px rgba(2,8,23,.35));
+}
+.toc-brand ul{list-style:none;padding:0;margin:0}
+.toc-brand li{margin:7px 0}
+.toc-brand a{
+  font-weight:950;
+  text-decoration:underline;
+  text-underline-offset:3px;
+  opacity:.95;
+}
+.toc-brand a:hover{opacity:1}
+
+/* ===== TOC Link-Hover (Glow wie Cards) ===== */
+.toc-brand a{
+  display:inline-block;
+  padding:6px 10px;
+  border-radius:999px;
+  background:transparent;
+  border:1px solid rgba(255,255,255,0.00);
+  transition:transform .14s ease, filter .14s ease, opacity .14s ease, box-shadow .14s ease, outline-color .14s ease, background .14s ease, border-color .14s ease;
+}
+.toc-brand a:hover{
+  opacity:1;
+  background:rgba(255,255,255,0.06);
+  border-color:rgba(246,176,66,.45);
+  box-shadow:
+    0 0 0 2px rgba(246,176,66,.55),
+    0 18px 42px rgba(2,8,23,.35);
+  transform:translateY(-1px) scale(1.02);
+}
+.toc-brand a:focus-visible{
+  outline:2px solid rgba(246,176,66,.65);
+  outline-offset:2px;
+}
+
+/* ===== HERO Foto links: ohne weissen Rahmen (optional) ===== */
+.partner-logo.photo{
+  width:260px;
+  height:170px;
+  object-fit:cover;
+  border-radius:16px;
+  border:1px solid rgba(148,163,184,.20);
+  box-shadow:0 18px 42px rgba(2,8,23,.38);
+}
+@media (max-width: 980px){
+  .partner-logo.photo{width:min(420px,100%); height:auto; aspect-ratio:16/9;}
+}
+/* Placeholder-Links (Buttons werden erst aktiv wenn ein richtiger Link drin ist) */.is-placeholder{opacity:.55 !important; pointer-events:none !important; filter:saturate(.65) brightness(.95);}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:14px 20px;border-radius:999px;font-weight:950;
+  border:1px solid rgba(255,255,255,0.12);
+  background:rgba(255,255,255,0.12);
+  box-shadow:0 10px 22px rgba(2,8,23,.25);
+  font-size:1.02rem;
+  transition:transform .14s ease, filter .14s ease, outline-color .14s ease;
+}
+.btn:hover{
+  filter:brightness(1.10);
+  transform:scale(1.04);
+  outline:2px solid rgba(246,176,66,.45);
+  outline-offset:2px;
+}
+.btn.yellow{
+  background:var(--btn-yellow);
+  color:#0b1220;
+  border-color:transparent;
+}
+
+.videos-cta-row{
+  margin-top:12px;
+  display:flex;
+  justify-content:center;   /* mittig */
+}
+.videos-cta-row{
+  margin-top:14px;
+  padding:10px 0 6px;
+  position:relative;
+  z-index:50;          /* nach vorn */
+}
+
+.videos-cta-row .btn{
+  position:relative;
+  z-index:51;
+}
+:root{
+  --btn-yellow:#f6b042;
+}
+
+/* ===== Lightbox (Galerie Zoom) ===== */
+.lightbox{
+  position:fixed; inset:0; z-index:9999;
+  display:none;
+  align-items:center; justify-content:center;
+  padding:24px;
+  background:rgba(2,6,23,.82);
+  backdrop-filter: blur(10px) saturate(130%);
+}
+.lightbox.show{display:flex;}
+.lightbox-inner{
+  width:min(1100px, 100%);
+  background: radial-gradient(900px 520px at 50% -40%, rgba(255,255,255,.10), transparent 60%),
+              linear-gradient(180deg, rgba(15,23,42,.92), rgba(2,6,23,.92));
+  border:1px solid rgba(148,163,184,.22);
+  border-radius:22px;
+  box-shadow: 0 30px 110px rgba(2,8,23,.70), 0 0 0 2px rgba(246,176,66,.65), 0 0 0 10px rgba(255,255,255,.05);
+  overflow:hidden;
+}
+.lightbox-top{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:12px;
+  padding:12px 14px;
+  border-bottom:1px solid rgba(148,163,184,.16);
+}
+.lightbox-top strong{font-weight:950; color:rgba(229,231,235,.92);}
+.lightbox-close{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:40px; height:40px;
+  border-radius:999px;
+  border:1px solid rgba(148,163,184,.22);
+  background:rgba(255,255,255,.08);
+  color:rgba(229,231,235,.92);
+  cursor:pointer;
+  transition:transform .14s ease, filter .14s ease, outline-color .14s ease;
+}
+.lightbox-close:hover{
+  filter:brightness(1.12);
+  transform:scale(1.05);
+  outline:2px solid rgba(246,176,66,.35);
+  outline-offset:2px;
+}
+.lightbox-img-wrap{background:#020617;}
+.lightbox-img{
+  width:100%;
+  max-height:78vh;
+  object-fit:contain;
+  display:block;
+}
+/* ===== Gallery Preview (unter dem Video) ===== */
+.gallery img.is-active{
+  outline:2px solid rgba(246,176,66,.95);
+  outline-offset:2px;
+  box-shadow:
+    0 0 0 2px rgba(2,6,23,.65),
+    0 18px 50px rgba(2,8,23,.55),
+    0 0 18px rgba(246,176,66,.38);
+}
+
+.gallery-preview{
+  margin-top:12px;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(148,163,184,.14);
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:var(--shadow-soft);
+}
+.gallery-preview.flash{
+  box-shadow: var(--shadow-soft), var(--glow);
+  outline: 2px solid rgba(246,176,66,.95);
+  outline-offset:2px;
+}
+.preview-head{
+  padding:10px 12px;
+  font-weight:950;
+  color:rgba(229,231,235,.85);
+  border-bottom:1px solid rgba(148,163,184,.14);
+}
+.preview-box{
+  position:relative;
+  width:100%;
+  background:#020617;
+}
+.preview-box::after{
+  content:"Klick zum Zoomen";
+  position:absolute;
+  right:10px;
+  bottom:10px;
+  font-size:.85rem;
+  font-weight:900;
+  color:rgba(229,231,235,.78);
+  background:rgba(2,6,23,.55);
+  border:1px solid rgba(148,163,184,.22);
+  padding:6px 10px;
+  border-radius:999px;
+  backdrop-filter: blur(10px) saturate(130%);
+}
+.preview-img{
+  display:block;
+  width:100%;
+  height:auto;
+  max-height:380px;
+  object-fit:contain;
+  cursor:zoom-in;
+}
+@media (max-width: 900px){
+  .preview-img{max-height:320px;}
+}
+
+/* Placeholder-Buttons: nur wenn href leer/# ist (wird per JS gesetzt) */
+.youtube-btn.is-placeholder,
+.amazon-btn.is-placeholder,
+.shop-btn.is-placeholder{
+  opacity:.55;
+  filter:saturate(.70);
+  pointer-events:none;
+}
+
+
+
+/* ===== Gallery thumbnails + Preview (Krank geil Glow) ===== */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:10px;
+  margin-top:10px;
+}
+.gallery img{
+  width:100%;
+  height:76px;
+  object-fit:cover;
+  border-radius:14px;
+  border:1px solid rgba(148,163,184,.18);
+  box-shadow:0 10px 24px rgba(2,8,23,.35);
+  cursor:pointer;
+  transition:transform .14s ease, filter .14s ease, box-shadow .14s ease, outline-color .14s ease;
+  outline:2px solid transparent;
+  outline-offset:2px;
+}
+.gallery img:hover{
+  transform:translateY(-3px) scale(1.03);
+  filter:brightness(1.07) saturate(1.05);
+  box-shadow:0 18px 50px rgba(2,8,23,.55);
+  outline-color:rgba(246,176,66,.9);
+}
+.gallery img.is-active{
+  outline-color:rgba(246,176,66,.98);
+  box-shadow:0 0 0 3px rgba(246,176,66,.25), 0 18px 55px rgba(2,8,23,.62);
+}
+
+.gallery-preview{
+  margin-top:12px;
+  border-radius:18px;
+  overflow:hidden;
+  border:1px solid rgba(148,163,184,.16);
+  background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+  box-shadow:0 16px 44px rgba(2,8,23,.55);
+}
+.gallery-preview-head{
+  padding:10px 12px;
+  font-weight:900;
+  color:rgba(229,231,235,.92);
+  background:rgba(2,6,23,.55);
+  border-bottom:1px solid rgba(148,163,184,.14);
+}
+.gallery-preview-box{
+  position:relative;
+  background:#0b1222;
+}
+.gallery-preview-img{
+  width:100%;
+  aspect-ratio:16/9;
+  object-fit:cover;
+  display:block;
+}
+.gallery-preview.flash{animation:previewFlash .22s ease;}
+@keyframes previewFlash{from{filter:brightness(1.18)}to{filter:brightness(1)}}
+
+@media (max-width: 780px){
+  .gallery{grid-template-columns:repeat(3,minmax(0,1fr));}
+  .gallery img{height:64px; border-radius:12px;}
+}
+@media (max-width: 420px){
+  .gallery{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .gallery img{height:62px;}
+}
+
+/* ===== Unsere Stadt: Simple Head (ohne Hersteller-Logo / ohne Badge) ===== */
+.project-head.simple{margin-bottom:10px;}
+.project-head.simple .brand-badge{display:none !important;}
+.project-head.simple .badges{display:none !important;}
+.project-head.simple .project-left{gap:0;}
+.project-head.simple .title-wrap h3{margin:0;font-size:1.35rem}
+.project-head.simple .title-wrap p{margin:6px 0 0 0;color:var(--muted);font-weight:900}
+
+
   </style>
 </head>
 
 <body>
-
 <header class="site-header">
   <div class="wrap headbar">
 
@@ -610,315 +1581,1132 @@
 </header>
 
 <main class="wrap">
+<!-- HERO: UNSERE STADT -->
+  <section class="card hero">
+    <div class="hero-left">
+      <h1>Unsere Stadt: BeanVillage</h1>
 
-  <!-- HERO: UNSERE STADT -->
-  <section class="card">
-    <div class="hero">
-      <div>
-        <h1>Unsere Stadt: BeanVillage</h1>
-        <p>
-          Willkommen in <strong>BeanVillage</strong> – unserer wachsenden <strong>LEGO®/Klemmbaustein-Stadt</strong>.
-          Hier sammeln wir Module, Highlights, Baustellen und alles, was zwischen <strong>City</strong>, <strong>Eisenbahn</strong>
-          und <strong>Beleuchtung</strong> passiert.
-          <br><br>
-          Wenn du direkt Videos sehen willst: <a class="inline-link" href="videos.html">Videos & Playlists</a>.
-        </p>
+<p>
+  Willkommen in <strong>BeanVillage</strong>, unserer wachsenden <strong>LEGO® und Klemmbaustein Stadt</strong>.
+  Aktuell stecken in BeanVillage rund <strong>50.000 Klemmbausteine</strong>: etwa <strong>85 Prozent LEGO®</strong> und der Rest ist ein Mix aus <strong>BlueBrixx</strong> (vor allem Slopes im Bergbereich) sowie <strong>Penny Bricks</strong>.
+  Das Projekt ist gemeinsam mit unserem YouTube Kanal im <strong>November 2022</strong> gestartet und wächst seitdem auf einer Fläche von rund <strong>3 mal 4 Metern</strong>, also ungefähr <strong>12 Quadratmetern</strong>.
+  Zusätzlich ist ein relativ großer <strong>Schattenbahnhof</strong> angebunden.
+  Welche Züge dort unterwegs sind, findest du gesammelt auf unserer
+  <a class="inline-link" href="eisenbahn.html">Eisenbahn Seite</a>
+  inklusive Videos zu Aufbau, Motorisierung, Beleuchtung und Anpassungen.
+  Wenn dich unsere Verkabelung, LED Sets und Adapter interessieren, schau auch in den
+  <a class="inline-link" href="beleuchtung.html">Beleuchtung Hub</a>.
+</p>
 
-        <div class="hero-badges">
-          <span class="badge">🏙️ BeanVillage</span>
-          <span class="badge">🧩 Modular</span>
-          <span class="badge">💡 Beleuchtet</span>
-        </div>
 
-        <div class="hero-actions">
-          <a class="btn home" href="index.html">← Zur Startseite</a>
-          <a class="btn mail" href="mailto:info@diebausteinklemmer.de">✉️ Kontakt</a>
-          <a class="btn coop" href="mailto:kooperation@diebausteinklemmer.de">🤝 Kooperation</a>
-        </div>
-
-        <!-- SMART JUMP LINKS -->
-        <p class="jump-line">
-          Direkt springen zu:
-          <a class="inline-link toc-jump" href="#highlights">Highlights</a> ·
-          <a class="inline-link toc-jump" href="#module">Module</a> ·
-          <a class="inline-link toc-jump" href="#stadtupdates">Stadt-Updates</a> ·
-          <a class="inline-link toc-jump" href="#comingsoon">Coming Soon</a> ·
-        </p>
-      </div>
-
-      <div class="hero-img" aria-label="BeanVillage Preview">
-        <!-- Tausche das Bild/Datei einfach aus -->
-        <img src="images/stadtmitGLOW.png" alt="BeanVillage – Stadtansicht">
+      <p><strong>DIREKT zur Videodokumentation:</strong></p>
+      <div class="videos-cta-row">
+        <a class="btn yellow" href="videos.html">Videos & Playlists →</a>
       </div>
     </div>
+
+<div class="hero-right">
+  <div class="hero-media">
+    <img src="images/stadtmitGLOW.png" alt="BeanVillage – Stadtansicht" />
+  </div>
+
+    <div class="hero-overlay">
+      <p class="jump-line">
+        Direkt springen zu:
+        <a class="inline-link toc-jump" href="#strassen-system">Straßen-System</a> ·
+        <a class="inline-link toc-jump" href="#schienen-kreis">Schienen-Kreis</a> ·
+        <a class="inline-link toc-jump" href="#gueterbahnhof">Güterbahnhof</a> ·
+        <a class="inline-link toc-jump" href="#polizei-gefaengnis">Polizei-Gefängnis</a> ·
+        <a class="inline-link toc-jump" href="#american-diner">American Diner</a> ·
+        <a class="inline-link toc-jump" href="#nachrichten-buero">Nachrichten-Büro</a> ·
+        <a class="inline-link toc-jump" href="#hotel">Hotel</a> ·
+        <a class="inline-link toc-jump" href="#italiener-imbiss">Italiener Imbiss</a> ·
+        <a class="inline-link toc-jump" href="#feuerwehr">Feuerwehr</a> ·
+        <a class="inline-link toc-jump" href="#beanvillage-bucht">BeanVillage Bucht</a> ·
+        <a class="inline-link toc-jump" href="#leuchtturm">Leuchtturm</a> ·
+        <a class="inline-link toc-jump" href="#beanvillage-mountains">BeanVillage Mountains</a> ·
+        <a class="inline-link toc-jump" href="#schallplatten-store">Schallplatten-Store</a> ·
+        <a class="inline-link toc-jump" href="#lego-store">LEGO® Store</a> ·
+        <a class="inline-link toc-jump" href="#asiatisches-restaurant">Asiatisches Restaurant</a> ·
+        <a class="inline-link toc-jump" href="#gauner-versteck">Gauner-Versteck</a> ·
+        <a class="inline-link toc-jump" href="#zwergen-schatzhoehle">Zwergen Schatzhöhle</a> ·
+        <a class="inline-link toc-jump" href="#piraten-hoehle">Piraten Höhle</a> ·
+        <a class="inline-link toc-jump" href="#dino-hoehle">Dinosaurier Höhle</a> ·
+        <a class="inline-link toc-jump" href="#berg-wanderweg">Berg-Wanderweg</a> ·
+        <a class="inline-link toc-jump" href="#platzhalter">Platzhalter</a> ·
+        <a class="inline-link toc-jump" href="#gallerie-story">Galerie (Storytelling)</a>
+      </p>
+  </div>
+</div>
+      <div class="hero-actions">
+        <a class="btn home" href="index.html">← Zur Startseite</a>
+        <a class="btn mail" href="mailto:info@diebausteinklemmer.de">✉️ Kontakt</a>
+        <a class="btn coop" href="mailto:kooperation@diebausteinklemmer.de">🤝 Kooperation</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
   </section>
 
-  <!-- HIGHLIGHTS -->
-  <section id="highlights" class="card anchor">
-    <div class="roadmap-head">
-      <div>
-        <h2 style="margin:0">✨ Highlights</h2>
-        <p class="muted" style="margin:6px 0 0 0">
-          Kleine „Ankerpunkte“, die BeanVillage ausmachen.
-        </p>
-      </div>
-      <div class="badge">🧱 Detail-Liebe</div>
-    </div>
-
-    <div class="roadmap-grid">
-      <!-- Links: Info/Übersicht -->
-      <div class="road-col">
-        <h3>🏙️ Was dich hier erwartet</h3>
-        <p class="muted" style="margin-top:-2px">
-          Diese Seite ist unser Stadt-Hub: schnell reinfinden, weiterklicken, stöbern.
-        </p>
-
-        <ul class="milestones" aria-label="Schnellzugriff">
-          <li>
-            <a href="videos.html">
-              <span class="ms-left"><span class="check ok">✓</span> Stadt-Updates (Videos)</span>
-              <span class="ms-right">Playlist</span>
-            </a>
-          </li>
-          <li>
-            <a href="eisenbahn.html">
-              <span class="ms-left"><span class="check ok">✓</span> Züge & Fahrbetrieb</span>
-              <span class="ms-right">Hub</span>
-            </a>
-          </li>
-          <li>
-            <a href="beleuchtung.html">
-              <span class="ms-left"><span class="check ok">✓</span> Beleuchtung & Strom</span>
-              <span class="ms-right">Hub</span>
-            </a>
-          </li>
-          <li>
-            <a href="#comingsoon" title="Coming Soon">
-              <span class="ms-left"><span class="check todo">⬜</span> Interaktive Karte</span>
-              <span class="ms-right">später</span>
-            </a>
-          </li>
-          <li>
-            <a href="#comingsoon" title="Coming Soon">
-              <span class="ms-left"><span class="check todo">⬜</span> Modul-Lexikon</span>
-              <span class="ms-right">später</span>
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <!-- 4 Spalten: frei anpassbar -->
-      <div class="road-col">
-        <h3>🧩 Module</h3>
-        <p class="muted" style="margin-top:-2px">Was gerade wächst</p>
-        <ul class="milestones" aria-label="Module">
-          <li><a href="#module"><span class="ms-left"><span class="check ok">✓</span> Übersicht</span></a></li>
-          <li><a href="#comingsoon"><span class="ms-left"><span class="check todo">⬜</span> Berg / Tunnel</span></a></li>
-          <li><a href="#comingsoon"><span class="ms-left"><span class="check todo">⬜</span> Hafen / Wasser</span></a></li>
-          <li><a href="#comingsoon"><span class="ms-left"><span class="check todo">⬜</span> Innenstadt</span></a></li>
-        </ul>
-      </div>
-
-      <div class="road-col">
-        <h3>🚆 Eisenbahn</h3>
-        <p class="muted" style="margin-top:-2px">Fahrbetrieb & Strecken</p>
-        <ul class="milestones" aria-label="Eisenbahn">
-          <li><a href="eisenbahn.html"><span class="ms-left"><span class="check ok">✓</span> Hub öffnen</span></a></li>
-          <li><a href="#comingsoon"><span class="ms-left"><span class="check todo">⬜</span> Streckenplan</span></a></li>
-          <li><a href="#comingsoon"><span class="ms-left"><span class="check todo">⬜</span> Bahnhof-Infos</span></a></li>
-          <li><a href="#comingsoon"><span class="ms-left"><span class="check todo">⬜</span> Rangierbereich</span></a></li>
-        </ul>
-      </div>
-
-      <div class="road-col">
-        <h3>💡 Beleuchtung</h3>
-        <p class="muted" style="margin-top:-2px">Licht & Atmosphäre</p>
-        <ul class="milestones" aria-label="Beleuchtung">
-          <li><a href="beleuchtung.html"><span class="ms-left"><span class="check ok">✓</span> Hub öffnen</span></a></li>
-          <li><a href="#comingsoon"><span class="ms-left"><span class="check todo">⬜</span> Nightshots</span></a></li>
-          <li><a href="#comingsoon"><span class="ms-left"><span class="check todo">⬜</span> Kabelmanagement</span></a></li>
-          <li><a href="#comingsoon"><span class="ms-left"><span class="check todo">⬜</span> Adapter-System</span></a></li>
-        </ul>
-      </div>
-
-      <div class="road-col">
-        <h3>📸 Galerie</h3>
-        <p class="muted" style="margin-top:-2px">Bilder & Momentaufnahmen</p>
-        <ul class="milestones" aria-label="Galerie">
-          <li><a href="#module"><span class="ms-left"><span class="check ok">✓</span> Teaser-Kacheln</span></a></li>
-          <li><a href="#comingsoon"><span class="ms-left"><span class="check todo">⬜</span> Vorher/Nachher</span></a></li>
-          <li><a href="#comingsoon"><span class="ms-left"><span class="check todo">⬜</span> Makro-Details</span></a></li>
-          <li><a href="#comingsoon"><span class="ms-left"><span class="check todo">⬜</span> Winter/Season</span></a></li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- MODULE / BEREICHE -->
-  <section id="module" class="card anchor">
-    <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:flex-end;margin-bottom:10px">
-      <div>
-        <h2 style="margin:0">🧩 Module & Bereiche</h2>
-        <p class="muted" style="margin:6px 0 0 0">
-          Hier kannst du nach und nach Module ergänzen (jede Kachel ist ein Platzhalter).
-        </p>
-      </div>
-      <div class="badge">➕ erweiterbar</div>
-    </div>
-
-    <div class="module-grid" aria-label="Module Kacheln">
-      <!-- Kachel 1 -->
-      <a class="module-card" href="#comingsoon" aria-label="Modul: Innenstadt (Platzhalter)">
-        <div class="module-img" style="background-image:linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.02));"></div>
-        <div class="module-body">
-          <h3 class="module-title">🏢 Innenstadt</h3>
-          <p class="module-text">Platzhalter – hier später Bild + Kurztext + Link.</p>
+<!-- Straßen-System -->
+  <section id="strassen-system" class="card anchor">
+    <div class="project-head simple">
+      <div class="project-left">
+        <div class="title-wrap">
+          <h3>Straßen-System</h3>
+          <p>Layout, Kreuzungen, Bordsteine, Details (Müll/Unkraut), Story-Spots & Verbesserungen.</p>
         </div>
-      </a>
-
-      <!-- Kachel 2 -->
-      <a class="module-card" href="#comingsoon" aria-label="Modul: Bahnhof & Gleise (Platzhalter)">
-        <div class="module-img" style="background-image:linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.02));"></div>
-        <div class="module-body">
-          <h3 class="module-title">🚉 Bahnhof & Gleise</h3>
-          <p class="module-text">Platzhalter – Strecken, Weichen, Details, Müll & Unkraut 😉</p>
-        </div>
-      </a>
-
-      <!-- Kachel 3 -->
-      <a class="module-card" href="#comingsoon" aria-label="Modul: Berg / Tunnel (Platzhalter)">
-        <div class="module-img" style="background-image:linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.02));"></div>
-        <div class="module-body">
-          <h3 class="module-title">⛰️ Berg / Tunnel</h3>
-          <p class="module-text">Platzhalter – modulare Bergmodule & Tunneleinfahrten.</p>
-        </div>
-      </a>
-
-      <!-- Kachel 4 -->
-      <a class="module-card" href="#comingsoon" aria-label="Modul: Hafen / Wasser (Platzhalter)">
-        <div class="module-img" style="background-image:linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.02));"></div>
-        <div class="module-body">
-          <h3 class="module-title">⚓ Hafen / Wasser</h3>
-          <p class="module-text">Platzhalter – später Schiffe, Docks, Wasserfläche.</p>
-        </div>
-      </a>
-
-      <!-- Kachel 5 -->
-      <a class="module-card" href="#comingsoon" aria-label="Modul: Industrie / Gewerbe (Platzhalter)">
-        <div class="module-img" style="background-image:linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.02));"></div>
-        <div class="module-body">
-          <h3 class="module-title">🏭 Industrie / Gewerbe</h3>
-          <p class="module-text">Platzhalter – Fabrik, Lager, Rangierbereich.</p>
-        </div>
-      </a>
-
-      <!-- Kachel 6 -->
-      <a class="module-card" href="#comingsoon" aria-label="Modul: Special Builds (Platzhalter)">
-        <div class="module-img" style="background-image:linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.02));"></div>
-        <div class="module-body">
-          <h3 class="module-title">🐉 Special Builds</h3>
-          <p class="module-text">Platzhalter – z. B. Schatzkammer, Events, Seasons.</p>
-        </div>
-      </a>
-    </div>
-
-    <div class="more-links" aria-label="Mehr entdecken">
-      <a class="header-chip" href="videos.html">▶ Videos & Playlists</a>
-      <a class="header-chip" href="eisenbahn.html">🚆 Eisenbahn Hub</a>
-      <a class="header-chip" href="beleuchtung.html">💡 Beleuchtung Hub</a>
-    </div>
-  </section>
-
-  <!-- STADT-UPDATES -->
-  <section id="stadtupdates" class="card anchor">
-    <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:flex-end;margin-bottom:10px">
-      <div>
-        <h2 style="margin:0">🎥 Stadt-Updates</h2>
-        <p class="muted" style="margin:6px 0 0 0">
-          Hier kannst du später eine Playlist oder einzelne Updates verlinken.
-        </p>
       </div>
-      <div class="badge">🧩 Update-Log</div>
     </div>
 
     <div class="project-grid">
       <div class="project-text">
-        <p style="margin:0;line-height:1.55">
-          Die <strong>Stadt-Updates</strong> sind das Herz unserer Doku: neue Module, Umbauten, kleine Details
-          und natürlich Fahrbetrieb. Du kannst hier entweder eine <strong>Playlist</strong> einbinden
-          oder pro Update eine Kachel anlegen.
-          <br><br>
-          👉 Schnellster Weg: <a class="inline-link" href="videos.html">Videos</a> öffnen und die Stadt-Playlist verlinken.
-        </p>
+        <p><strong>Beschreibung:</strong> Hier sammeln wir alles zum Straßennetz: Layout, Kreuzungen, Bordsteine, Details (Müll/Unkraut), Story-Spots & Verbesserungen.</p>
 
-        <div class="project-stats" aria-label="Stadt Update Fakten">
-          <div class="stat"><span>Status</span><b>läuft</b></div>
-          <div class="stat"><span>Format</span><b>Updates / Vlogs</b></div>
-          <div class="stat"><span>Schwerpunkt</span><b>Module + Details</b></div>
-          <div class="stat"><span>Bonus</span><b>Nightshots möglich 😄</b></div>
+        <div class="gallery" aria-label="Galerie">
+          <img src="images/comingsoon.png" alt="Straßen-System – Bild 1">
+          <img src="images/comingsoon.png" alt="Straßen-System – Bild 2">
+          <img src="images/comingsoon.png" alt="Straßen-System – Bild 3">
+          <img src="images/comingsoon.png" alt="Straßen-System – Bild 4">
         </div>
+
+        <div class="btn-row">
+          <a class="youtube-btn" href="#">▶ YouTube (folgt)</a>
+          <a class="amazon-btn" href="#">🛒 Amazon* (optional)</a>
+          <a class="shop-btn" href="#">🧩 Shop/Info (optional)</a>
+        </div>
+
+        <p class="affiliate-note">* Affiliate-Link: Für dich bleibt der Preis gleich.</p>
       </div>
 
-      <div>
-        <!-- Thumbnail/Playlist-Link -->
-        <a class="thumb-wrap" href="videos.html" aria-label="Zu Videos & Playlists">
-          <div class="video-thumb" style="background-image:linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.02));"></div>
-          <div class="thumb-caption">zu den Videos →</div>
-        </a>
-
-        <div class="more-links" aria-label="Mehr entdecken">
-          <a class="header-chip" href="videos.html">▶ Mehr Videos</a>
-          <a class="header-chip" href="#module">🧩 Module</a>
+      <div class="right-col">
+        <div class="thumb-wrap" aria-label="Placeholder">
+          <div class="video-thumb" style="background-image:url('images/comingsoon.png')"></div>
+          <div class="thumb-caption">Video / Thumbnail folgt</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- COMING SOON -->
-  <section id="comingsoon" class="card anchor">
-    <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:flex-end;margin-bottom:10px">
-      <div>
-        <h2 style="margin:0">🚧 Coming Soon</h2>
-        <p class="muted" style="margin:6px 0 0 0">
-          Platz für zukünftige Features: Stadt-Karte, Modul-Lexikon, „vorher/nachher“, Live-Fahrplan, etc.
-        </p>
+<!-- Schienen-Kreis -->
+  <section id="schienen-kreis" class="card anchor">
+    <div class="project-head simple">
+      <div class="project-left">
+        <div class="title-wrap">
+          <h3>Schienen-Kreis</h3>
+          <p>Rundkurs, Weichen, Übergänge & Optimierungen am Layout.</p>
+        </div>
       </div>
-      <div class="badge">🧩 wird gebaut</div>
     </div>
 
     <div class="project-grid">
-      <div class="project-stats" aria-label="Coming Soon Fakten">
-        <div class="stat"><span>Interaktive Stadt-Karte</span><b>geplant</b></div>
-        <div class="stat"><span>Modul-Lexikon</span><b>geplant</b></div>
-        <div class="stat"><span>Galerie / Nightshots</span><b>geplant</b></div>
-        <div class="stat"><span>„Update“-Archiv</span><b>geplant</b></div>
-      </div>
+      <div class="project-text">
+        <p><strong>Beschreibung:</strong> Coming Soon – hier kommt alles zu <strong>Schienen-Kreis</strong> rein.</p>
 
-      <div>
-        <div class="thumb-wrap" aria-label="Coming Soon Placeholder">
-          <div class="video-thumb no-play" style="background-image:linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.02));"></div>
-          <div class="thumb-caption">Mehr folgt…</div>
+        <div class="gallery" aria-label="Galerie">
+          <img src="images/comingsoon.png" alt="Schienen-Kreis – Bild 1">
+          <img src="images/comingsoon.png" alt="Schienen-Kreis – Bild 2">
+          <img src="images/comingsoon.png" alt="Schienen-Kreis – Bild 3">
+          <img src="images/comingsoon.png" alt="Schienen-Kreis – Bild 4">
         </div>
 
-        <div class="more-links" aria-label="Mehr entdecken">
-          <a class="header-chip" href="unsere-stadt.html">🏙️ Stadt</a>
-          <a class="header-chip" href="beleuchtung.html">💡 Beleuchtung</a>
+        <div class="btn-row">
+          <a class="youtube-btn" href="#">▶ YouTube (folgt)</a>
+          <a class="amazon-btn" href="#">🛒 Amazon* (optional)</a>
+          <a class="shop-btn" href="#">🧩 Shop/Info (optional)</a>
+        </div>
+
+        <p class="affiliate-note">* Affiliate-Link: Für dich bleibt der Preis gleich.</p>
+      </div>
+
+      <div class="right-col">
+        <div class="thumb-wrap" aria-label="Placeholder">
+          <div class="video-thumb" style="background-image:url('images/comingsoon.png')"></div>
+          <div class="thumb-caption">Video / Thumbnail folgt</div>
         </div>
       </div>
     </div>
   </section>
 
-  <footer>
+<!-- Güterbahnhof -->
+  <section id="gueterbahnhof" class="card anchor">
+    <div class="project-head simple">
+      <div class="project-left">
+        <div class="title-wrap">
+          <h3>Güterbahnhof</h3>
+          <p>Ladegleise, Rangierbetrieb, Details & Szenen.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-grid">
+      <div class="project-text">
+        <p><strong>Beschreibung:</strong> Coming Soon – hier kommt alles zu <strong>Güterbahnhof</strong> rein.</p>
+
+        <div class="gallery" aria-label="Galerie">
+          <img src="images/comingsoon.png" alt="Güterbahnhof – Bild 1">
+          <img src="images/comingsoon.png" alt="Güterbahnhof – Bild 2">
+          <img src="images/comingsoon.png" alt="Güterbahnhof – Bild 3">
+          <img src="images/comingsoon.png" alt="Güterbahnhof – Bild 4">
+        </div>
+
+        <div class="btn-row">
+          <a class="youtube-btn" href="#">▶ YouTube (folgt)</a>
+          <a class="amazon-btn" href="#">🛒 Amazon* (optional)</a>
+          <a class="shop-btn" href="#">🧩 Shop/Info (optional)</a>
+        </div>
+
+        <p class="affiliate-note">* Affiliate-Link: Für dich bleibt der Preis gleich.</p>
+      </div>
+
+      <div class="right-col">
+        <div class="thumb-wrap" aria-label="Placeholder">
+          <div class="video-thumb" style="background-image:url('images/comingsoon.png')"></div>
+          <div class="thumb-caption">Video / Thumbnail folgt</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Polizei-Gefängnis -->
+  <section id="polizei-gefaengnis" class="card anchor">
+    <div class="project-head simple">
+      <div class="project-left">
+        <div class="title-wrap">
+          <h3>Polizei-Gefängnis</h3>
+          <p>Wache, Zellen, Story-Events & Stadtleben.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-grid">
+      <div class="project-text">
+        <p><strong>Beschreibung:</strong> Coming Soon – hier kommt alles zu <strong>Polizei-Gefängnis</strong> rein.</p>
+
+        <div class="gallery" aria-label="Galerie">
+          <img src="images/comingsoon.png" alt="Polizei-Gefängnis – Bild 1">
+          <img src="images/comingsoon.png" alt="Polizei-Gefängnis – Bild 2">
+          <img src="images/comingsoon.png" alt="Polizei-Gefängnis – Bild 3">
+          <img src="images/comingsoon.png" alt="Polizei-Gefängnis – Bild 4">
+        </div>
+
+        <div class="btn-row">
+          <a class="youtube-btn" href="#">▶ YouTube (folgt)</a>
+          <a class="amazon-btn" href="#">🛒 Amazon* (optional)</a>
+          <a class="shop-btn" href="#">🧩 Shop/Info (optional)</a>
+        </div>
+
+        <p class="affiliate-note">* Affiliate-Link: Für dich bleibt der Preis gleich.</p>
+      </div>
+
+      <div class="right-col">
+        <div class="thumb-wrap" aria-label="Placeholder">
+          <div class="video-thumb" style="background-image:url('images/comingsoon.png')"></div>
+          <div class="thumb-caption">Video / Thumbnail folgt</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- American Diner -->
+  <section id="american-diner" class="card anchor">
+    <div class="project-head simple">
+      <div class="project-left">
+        <div class="title-wrap">
+          <h3>American Diner</h3>
+          <p>Diner-Spot, Deko, Figuren & Szenen.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-grid">
+      <div class="project-text">
+        <p><strong>Beschreibung:</strong> Coming Soon – hier kommt alles zu <strong>American Diner</strong> rein.</p>
+
+        <div class="gallery" aria-label="Galerie">
+          <img src="images/comingsoon.png" alt="American Diner – Bild 1">
+          <img src="images/comingsoon.png" alt="American Diner – Bild 2">
+          <img src="images/comingsoon.png" alt="American Diner – Bild 3">
+          <img src="images/comingsoon.png" alt="American Diner – Bild 4">
+        </div>
+
+        <div class="btn-row">
+          <a class="youtube-btn" href="#">▶ YouTube (folgt)</a>
+          <a class="amazon-btn" href="#">🛒 Amazon* (optional)</a>
+          <a class="shop-btn" href="#">🧩 Shop/Info (optional)</a>
+        </div>
+
+        <p class="affiliate-note">* Affiliate-Link: Für dich bleibt der Preis gleich.</p>
+      </div>
+
+      <div class="right-col">
+        <div class="thumb-wrap" aria-label="Placeholder">
+          <div class="video-thumb" style="background-image:url('images/comingsoon.png')"></div>
+          <div class="thumb-caption">Video / Thumbnail folgt</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Nachrichten-Büro -->
+  <section id="nachrichten-buero" class="card anchor">
+    <div class="project-head simple">
+      <div class="project-left">
+        <div class="title-wrap">
+          <h3>Nachrichten-Büro</h3>
+          <p>Newsroom, Story-Updates & Easter Eggs.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-grid">
+      <div class="project-text">
+        <p><strong>Beschreibung:</strong> Coming Soon – hier kommt alles zu <strong>Nachrichten-Büro</strong> rein.</p>
+
+        <div class="gallery" aria-label="Galerie">
+          <img src="images/comingsoon.png" alt="Nachrichten-Büro – Bild 1">
+          <img src="images/comingsoon.png" alt="Nachrichten-Büro – Bild 2">
+          <img src="images/comingsoon.png" alt="Nachrichten-Büro – Bild 3">
+          <img src="images/comingsoon.png" alt="Nachrichten-Büro – Bild 4">
+        </div>
+
+        <div class="btn-row">
+          <a class="youtube-btn" href="#">▶ YouTube (folgt)</a>
+          <a class="amazon-btn" href="#">🛒 Amazon* (optional)</a>
+          <a class="shop-btn" href="#">🧩 Shop/Info (optional)</a>
+        </div>
+
+        <p class="affiliate-note">* Affiliate-Link: Für dich bleibt der Preis gleich.</p>
+      </div>
+
+      <div class="right-col">
+        <div class="thumb-wrap" aria-label="Placeholder">
+          <div class="video-thumb" style="background-image:url('images/comingsoon.png')"></div>
+          <div class="thumb-caption">Video / Thumbnail folgt</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Hotel -->
+  <section id="hotel" class="card anchor">
+    <div class="project-head simple">
+      <div class="project-left">
+        <div class="title-wrap">
+          <h3>Hotel</h3>
+          <p>Zimmer, Lobby, Details & Stadt-Atmosphäre.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-grid">
+      <div class="project-text">
+        <p><strong>Beschreibung:</strong> Coming Soon – hier kommt alles zu <strong>Hotel</strong> rein.</p>
+
+        <div class="gallery" aria-label="Galerie">
+          <img src="images/comingsoon.png" alt="Hotel – Bild 1">
+          <img src="images/comingsoon.png" alt="Hotel – Bild 2">
+          <img src="images/comingsoon.png" alt="Hotel – Bild 3">
+          <img src="images/comingsoon.png" alt="Hotel – Bild 4">
+        </div>
+
+        <div class="btn-row">
+          <a class="youtube-btn" href="#">▶ YouTube (folgt)</a>
+          <a class="amazon-btn" href="#">🛒 Amazon* (optional)</a>
+          <a class="shop-btn" href="#">🧩 Shop/Info (optional)</a>
+        </div>
+
+        <p class="affiliate-note">* Affiliate-Link: Für dich bleibt der Preis gleich.</p>
+      </div>
+
+      <div class="right-col">
+        <div class="thumb-wrap" aria-label="Placeholder">
+          <div class="video-thumb" style="background-image:url('images/comingsoon.png')"></div>
+          <div class="thumb-caption">Video / Thumbnail folgt</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Italiener Imbiss -->
+  <section id="italiener-imbiss" class="card anchor">
+    <div class="project-head simple">
+      <div class="project-left">
+        <div class="title-wrap">
+          <h3>Italiener Imbiss</h3>
+          <p>Streetfood, Außenbereich & City-Vibes.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-grid">
+      <div class="project-text">
+        <p><strong>Beschreibung:</strong> Coming Soon – hier kommt alles zu <strong>Italiener Imbiss</strong> rein.</p>
+
+        <div class="gallery" aria-label="Galerie">
+          <img src="images/comingsoon.png" alt="Italiener Imbiss – Bild 1">
+          <img src="images/comingsoon.png" alt="Italiener Imbiss – Bild 2">
+          <img src="images/comingsoon.png" alt="Italiener Imbiss – Bild 3">
+          <img src="images/comingsoon.png" alt="Italiener Imbiss – Bild 4">
+        </div>
+
+        <div class="btn-row">
+          <a class="youtube-btn" href="#">▶ YouTube (folgt)</a>
+          <a class="amazon-btn" href="#">🛒 Amazon* (optional)</a>
+          <a class="shop-btn" href="#">🧩 Shop/Info (optional)</a>
+        </div>
+
+        <p class="affiliate-note">* Affiliate-Link: Für dich bleibt der Preis gleich.</p>
+      </div>
+
+      <div class="right-col">
+        <div class="thumb-wrap" aria-label="Placeholder">
+          <div class="video-thumb" style="background-image:url('images/comingsoon.png')"></div>
+          <div class="thumb-caption">Video / Thumbnail folgt</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Feuerwehr -->
+  <section id="feuerwehr" class="card anchor">
+    <div class="project-head simple">
+      <div class="project-left">
+        <div class="title-wrap">
+          <h3>Feuerwehr</h3>
+          <p>Einsätze, Fahrzeuge, Deko & Story.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-grid">
+      <div class="project-text">
+        <p><strong>Beschreibung:</strong> Coming Soon – hier kommt alles zu <strong>Feuerwehr</strong> rein.</p>
+
+        <div class="gallery" aria-label="Galerie">
+          <img src="images/comingsoon.png" alt="Feuerwehr – Bild 1">
+          <img src="images/comingsoon.png" alt="Feuerwehr – Bild 2">
+          <img src="images/comingsoon.png" alt="Feuerwehr – Bild 3">
+          <img src="images/comingsoon.png" alt="Feuerwehr – Bild 4">
+        </div>
+
+        <div class="btn-row">
+          <a class="youtube-btn" href="#">▶ YouTube (folgt)</a>
+          <a class="amazon-btn" href="#">🛒 Amazon* (optional)</a>
+          <a class="shop-btn" href="#">🧩 Shop/Info (optional)</a>
+        </div>
+
+        <p class="affiliate-note">* Affiliate-Link: Für dich bleibt der Preis gleich.</p>
+      </div>
+
+      <div class="right-col">
+        <div class="thumb-wrap" aria-label="Placeholder">
+          <div class="video-thumb" style="background-image:url('images/comingsoon.png')"></div>
+          <div class="thumb-caption">Video / Thumbnail folgt</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- BeanVillage Bucht -->
+  <section id="beanvillage-bucht" class="card anchor">
+    <div class="project-head simple">
+      <div class="project-left">
+        <div class="title-wrap">
+          <h3>BeanVillage Bucht</h3>
+          <p>Hafen-Vibes, Wasser & Deko.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-grid">
+      <div class="project-text">
+        <p><strong>Beschreibung:</strong> Coming Soon – hier kommt alles zu <strong>BeanVillage Bucht</strong> rein.</p>
+
+        <div class="gallery" aria-label="Galerie">
+          <img src="images/comingsoon.png" alt="BeanVillage Bucht – Bild 1">
+          <img src="images/comingsoon.png" alt="BeanVillage Bucht – Bild 2">
+          <img src="images/comingsoon.png" alt="BeanVillage Bucht – Bild 3">
+          <img src="images/comingsoon.png" alt="BeanVillage Bucht – Bild 4">
+        </div>
+
+        <div class="btn-row">
+          <a class="youtube-btn" href="#">▶ YouTube (folgt)</a>
+          <a class="amazon-btn" href="#">🛒 Amazon* (optional)</a>
+          <a class="shop-btn" href="#">🧩 Shop/Info (optional)</a>
+        </div>
+
+        <p class="affiliate-note">* Affiliate-Link: Für dich bleibt der Preis gleich.</p>
+      </div>
+
+      <div class="right-col">
+        <div class="thumb-wrap" aria-label="Placeholder">
+          <div class="video-thumb" style="background-image:url('images/comingsoon.png')"></div>
+          <div class="thumb-caption">Video / Thumbnail folgt</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Leuchtturm -->
+  <section id="leuchtturm" class="card anchor">
+    <div class="project-head simple">
+      <div class="project-left">
+        <div class="title-wrap">
+          <h3>Leuchtturm</h3>
+          <p>Küsten-Spot & Blickfang.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-grid">
+      <div class="project-text">
+        <p><strong>Beschreibung:</strong> Coming Soon – hier kommt alles zu <strong>Leuchtturm</strong> rein.</p>
+
+        <div class="gallery" aria-label="Galerie">
+          <img src="images/comingsoon.png" alt="Leuchtturm – Bild 1">
+          <img src="images/comingsoon.png" alt="Leuchtturm – Bild 2">
+          <img src="images/comingsoon.png" alt="Leuchtturm – Bild 3">
+          <img src="images/comingsoon.png" alt="Leuchtturm – Bild 4">
+        </div>
+
+        <div class="btn-row">
+          <a class="youtube-btn" href="#">▶ YouTube (folgt)</a>
+          <a class="amazon-btn" href="#">🛒 Amazon* (optional)</a>
+          <a class="shop-btn" href="#">🧩 Shop/Info (optional)</a>
+        </div>
+
+        <p class="affiliate-note">* Affiliate-Link: Für dich bleibt der Preis gleich.</p>
+      </div>
+
+      <div class="right-col">
+        <div class="thumb-wrap" aria-label="Placeholder">
+          <div class="video-thumb" style="background-image:url('images/comingsoon.png')"></div>
+          <div class="thumb-caption">Video / Thumbnail folgt</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- BeanVillage Mountains -->
+  <section id="beanvillage-mountains" class="card anchor">
+    <div class="project-head simple">
+      <div class="project-left">
+        <div class="title-wrap">
+          <h3>BeanVillage Mountains</h3>
+          <p>Berg-Module, Tunnel, Wanderweg & Details.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-grid">
+      <div class="project-text">
+        <p><strong>Beschreibung:</strong> Coming Soon – hier kommt alles zu <strong>BeanVillage Mountains</strong> rein.</p>
+
+        <div class="gallery" aria-label="Galerie">
+          <img src="images/comingsoon.png" alt="BeanVillage Mountains – Bild 1">
+          <img src="images/comingsoon.png" alt="BeanVillage Mountains – Bild 2">
+          <img src="images/comingsoon.png" alt="BeanVillage Mountains – Bild 3">
+          <img src="images/comingsoon.png" alt="BeanVillage Mountains – Bild 4">
+        </div>
+
+        <div class="btn-row">
+          <a class="youtube-btn" href="#">▶ YouTube (folgt)</a>
+          <a class="amazon-btn" href="#">🛒 Amazon* (optional)</a>
+          <a class="shop-btn" href="#">🧩 Shop/Info (optional)</a>
+        </div>
+
+        <p class="affiliate-note">* Affiliate-Link: Für dich bleibt der Preis gleich.</p>
+      </div>
+
+      <div class="right-col">
+        <div class="thumb-wrap" aria-label="Placeholder">
+          <div class="video-thumb" style="background-image:url('images/comingsoon.png')"></div>
+          <div class="thumb-caption">Video / Thumbnail folgt</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Schallplatten-Store -->
+  <section id="schallplatten-store" class="card anchor">
+    <div class="project-head simple">
+      <div class="project-left">
+        <div class="title-wrap">
+          <h3>Schallplatten-Store</h3>
+          <p>Record-Shop, Figuren & City-Details.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-grid">
+      <div class="project-text">
+        <p><strong>Beschreibung:</strong> Coming Soon – hier kommt alles zu <strong>Schallplatten-Store</strong> rein.</p>
+
+        <div class="gallery" aria-label="Galerie">
+          <img src="images/comingsoon.png" alt="Schallplatten-Store – Bild 1">
+          <img src="images/comingsoon.png" alt="Schallplatten-Store – Bild 2">
+          <img src="images/comingsoon.png" alt="Schallplatten-Store – Bild 3">
+          <img src="images/comingsoon.png" alt="Schallplatten-Store – Bild 4">
+        </div>
+
+        <div class="btn-row">
+          <a class="youtube-btn" href="#">▶ YouTube (folgt)</a>
+          <a class="amazon-btn" href="#">🛒 Amazon* (optional)</a>
+          <a class="shop-btn" href="#">🧩 Shop/Info (optional)</a>
+        </div>
+
+        <p class="affiliate-note">* Affiliate-Link: Für dich bleibt der Preis gleich.</p>
+      </div>
+
+      <div class="right-col">
+        <div class="thumb-wrap" aria-label="Placeholder">
+          <div class="video-thumb" style="background-image:url('images/comingsoon.png')"></div>
+          <div class="thumb-caption">Video / Thumbnail folgt</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- LEGO® Store -->
+  <section id="lego-store" class="card anchor">
+    <div class="project-head simple">
+      <div class="project-left">
+        <div class="title-wrap">
+          <h3>LEGO® Store</h3>
+          <p>Store-Front, Deko & Easter Eggs.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-grid">
+      <div class="project-text">
+        <p><strong>Beschreibung:</strong> Coming Soon – hier kommt alles zu <strong>LEGO® Store</strong> rein.</p>
+
+        <div class="gallery" aria-label="Galerie">
+          <img src="images/comingsoon.png" alt="LEGO® Store – Bild 1">
+          <img src="images/comingsoon.png" alt="LEGO® Store – Bild 2">
+          <img src="images/comingsoon.png" alt="LEGO® Store – Bild 3">
+          <img src="images/comingsoon.png" alt="LEGO® Store – Bild 4">
+        </div>
+
+        <div class="btn-row">
+          <a class="youtube-btn" href="#">▶ YouTube (folgt)</a>
+          <a class="amazon-btn" href="#">🛒 Amazon* (optional)</a>
+          <a class="shop-btn" href="#">🧩 Shop/Info (optional)</a>
+        </div>
+
+        <p class="affiliate-note">* Affiliate-Link: Für dich bleibt der Preis gleich.</p>
+      </div>
+
+      <div class="right-col">
+        <div class="thumb-wrap" aria-label="Placeholder">
+          <div class="video-thumb" style="background-image:url('images/comingsoon.png')"></div>
+          <div class="thumb-caption">Video / Thumbnail folgt</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Asiatisches Restaurant -->
+  <section id="asiatisches-restaurant" class="card anchor">
+    <div class="project-head simple">
+      <div class="project-left">
+        <div class="title-wrap">
+          <h3>Asiatisches Restaurant</h3>
+          <p>Restaurant-Spot, Innenleben & Details.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-grid">
+      <div class="project-text">
+        <p><strong>Beschreibung:</strong> Coming Soon – hier kommt alles zu <strong>Asiatisches Restaurant</strong> rein.</p>
+
+        <div class="gallery" aria-label="Galerie">
+          <img src="images/comingsoon.png" alt="Asiatisches Restaurant – Bild 1">
+          <img src="images/comingsoon.png" alt="Asiatisches Restaurant – Bild 2">
+          <img src="images/comingsoon.png" alt="Asiatisches Restaurant – Bild 3">
+          <img src="images/comingsoon.png" alt="Asiatisches Restaurant – Bild 4">
+        </div>
+
+        <div class="btn-row">
+          <a class="youtube-btn" href="#">▶ YouTube (folgt)</a>
+          <a class="amazon-btn" href="#">🛒 Amazon* (optional)</a>
+          <a class="shop-btn" href="#">🧩 Shop/Info (optional)</a>
+        </div>
+
+        <p class="affiliate-note">* Affiliate-Link: Für dich bleibt der Preis gleich.</p>
+      </div>
+
+      <div class="right-col">
+        <div class="thumb-wrap" aria-label="Placeholder">
+          <div class="video-thumb" style="background-image:url('images/comingsoon.png')"></div>
+          <div class="thumb-caption">Video / Thumbnail folgt</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Gauner-Versteck -->
+  <section id="gauner-versteck" class="card anchor">
+    <div class="project-head simple">
+      <div class="project-left">
+        <div class="title-wrap">
+          <h3>Gauner-Versteck</h3>
+          <p>Secret-Spot, Story & Verstecke.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-grid">
+      <div class="project-text">
+        <p><strong>Beschreibung:</strong> Coming Soon – hier kommt alles zu <strong>Gauner-Versteck</strong> rein.</p>
+
+        <div class="gallery" aria-label="Galerie">
+          <img src="images/comingsoon.png" alt="Gauner-Versteck – Bild 1">
+          <img src="images/comingsoon.png" alt="Gauner-Versteck – Bild 2">
+          <img src="images/comingsoon.png" alt="Gauner-Versteck – Bild 3">
+          <img src="images/comingsoon.png" alt="Gauner-Versteck – Bild 4">
+        </div>
+
+        <div class="btn-row">
+          <a class="youtube-btn" href="#">▶ YouTube (folgt)</a>
+          <a class="amazon-btn" href="#">🛒 Amazon* (optional)</a>
+          <a class="shop-btn" href="#">🧩 Shop/Info (optional)</a>
+        </div>
+
+        <p class="affiliate-note">* Affiliate-Link: Für dich bleibt der Preis gleich.</p>
+      </div>
+
+      <div class="right-col">
+        <div class="thumb-wrap" aria-label="Placeholder">
+          <div class="video-thumb" style="background-image:url('images/comingsoon.png')"></div>
+          <div class="thumb-caption">Video / Thumbnail folgt</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Zwergen Schatzhöhle -->
+  <section id="zwergen-schatzhoehle" class="card anchor">
+    <div class="project-head simple">
+      <div class="project-left">
+        <div class="title-wrap">
+          <h3>Zwergen Schatzhöhle</h3>
+          <p>Schatzkammer, Figuren & Storytelling.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-grid">
+      <div class="project-text">
+        <p><strong>Beschreibung:</strong> Coming Soon – hier kommt alles zu <strong>Zwergen Schatzhöhle</strong> rein.</p>
+
+        <div class="gallery" aria-label="Galerie">
+          <img src="images/comingsoon.png" alt="Zwergen Schatzhöhle – Bild 1">
+          <img src="images/comingsoon.png" alt="Zwergen Schatzhöhle – Bild 2">
+          <img src="images/comingsoon.png" alt="Zwergen Schatzhöhle – Bild 3">
+          <img src="images/comingsoon.png" alt="Zwergen Schatzhöhle – Bild 4">
+        </div>
+
+        <div class="btn-row">
+          <a class="youtube-btn" href="#">▶ YouTube (folgt)</a>
+          <a class="amazon-btn" href="#">🛒 Amazon* (optional)</a>
+          <a class="shop-btn" href="#">🧩 Shop/Info (optional)</a>
+        </div>
+
+        <p class="affiliate-note">* Affiliate-Link: Für dich bleibt der Preis gleich.</p>
+      </div>
+
+      <div class="right-col">
+        <div class="thumb-wrap" aria-label="Placeholder">
+          <div class="video-thumb" style="background-image:url('images/comingsoon.png')"></div>
+          <div class="thumb-caption">Video / Thumbnail folgt</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Piraten Höhle -->
+  <section id="piraten-hoehle" class="card anchor">
+    <div class="project-head simple">
+      <div class="project-left">
+        <div class="title-wrap">
+          <h3>Piraten Höhle</h3>
+          <p>Abenteuer-Spot & Szenen.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-grid">
+      <div class="project-text">
+        <p><strong>Beschreibung:</strong> Coming Soon – hier kommt alles zu <strong>Piraten Höhle</strong> rein.</p>
+
+        <div class="gallery" aria-label="Galerie">
+          <img src="images/comingsoon.png" alt="Piraten Höhle – Bild 1">
+          <img src="images/comingsoon.png" alt="Piraten Höhle – Bild 2">
+          <img src="images/comingsoon.png" alt="Piraten Höhle – Bild 3">
+          <img src="images/comingsoon.png" alt="Piraten Höhle – Bild 4">
+        </div>
+
+        <div class="btn-row">
+          <a class="youtube-btn" href="#">▶ YouTube (folgt)</a>
+          <a class="amazon-btn" href="#">🛒 Amazon* (optional)</a>
+          <a class="shop-btn" href="#">🧩 Shop/Info (optional)</a>
+        </div>
+
+        <p class="affiliate-note">* Affiliate-Link: Für dich bleibt der Preis gleich.</p>
+      </div>
+
+      <div class="right-col">
+        <div class="thumb-wrap" aria-label="Placeholder">
+          <div class="video-thumb" style="background-image:url('images/comingsoon.png')"></div>
+          <div class="thumb-caption">Video / Thumbnail folgt</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Dinosaurier Höhle -->
+  <section id="dino-hoehle" class="card anchor">
+    <div class="project-head simple">
+      <div class="project-left">
+        <div class="title-wrap">
+          <h3>Dinosaurier Höhle</h3>
+          <p>Dino-Story, Höhle & Details.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-grid">
+      <div class="project-text">
+        <p><strong>Beschreibung:</strong> Coming Soon – hier kommt alles zu <strong>Dinosaurier Höhle</strong> rein.</p>
+
+        <div class="gallery" aria-label="Galerie">
+          <img src="images/comingsoon.png" alt="Dinosaurier Höhle – Bild 1">
+          <img src="images/comingsoon.png" alt="Dinosaurier Höhle – Bild 2">
+          <img src="images/comingsoon.png" alt="Dinosaurier Höhle – Bild 3">
+          <img src="images/comingsoon.png" alt="Dinosaurier Höhle – Bild 4">
+        </div>
+
+        <div class="btn-row">
+          <a class="youtube-btn" href="#">▶ YouTube (folgt)</a>
+          <a class="amazon-btn" href="#">🛒 Amazon* (optional)</a>
+          <a class="shop-btn" href="#">🧩 Shop/Info (optional)</a>
+        </div>
+
+        <p class="affiliate-note">* Affiliate-Link: Für dich bleibt der Preis gleich.</p>
+      </div>
+
+      <div class="right-col">
+        <div class="thumb-wrap" aria-label="Placeholder">
+          <div class="video-thumb" style="background-image:url('images/comingsoon.png')"></div>
+          <div class="thumb-caption">Video / Thumbnail folgt</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Berg-Wanderweg -->
+  <section id="berg-wanderweg" class="card anchor">
+    <div class="project-head simple">
+      <div class="project-left">
+        <div class="title-wrap">
+          <h3>Berg-Wanderweg</h3>
+          <p>Wege, Vegetation & Story-Spots.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-grid">
+      <div class="project-text">
+        <p><strong>Beschreibung:</strong> Coming Soon – hier kommt alles zu <strong>Berg-Wanderweg</strong> rein.</p>
+
+        <div class="gallery" aria-label="Galerie">
+          <img src="images/comingsoon.png" alt="Berg-Wanderweg – Bild 1">
+          <img src="images/comingsoon.png" alt="Berg-Wanderweg – Bild 2">
+          <img src="images/comingsoon.png" alt="Berg-Wanderweg – Bild 3">
+          <img src="images/comingsoon.png" alt="Berg-Wanderweg – Bild 4">
+        </div>
+
+        <div class="btn-row">
+          <a class="youtube-btn" href="#">▶ YouTube (folgt)</a>
+          <a class="amazon-btn" href="#">🛒 Amazon* (optional)</a>
+          <a class="shop-btn" href="#">🧩 Shop/Info (optional)</a>
+        </div>
+
+        <p class="affiliate-note">* Affiliate-Link: Für dich bleibt der Preis gleich.</p>
+      </div>
+
+      <div class="right-col">
+        <div class="thumb-wrap" aria-label="Placeholder">
+          <div class="video-thumb" style="background-image:url('images/comingsoon.png')"></div>
+          <div class="thumb-caption">Video / Thumbnail folgt</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Platzhalter -->
+  <section id="platzhalter" class="card anchor">
+    <div class="project-head simple">
+      <div class="project-left">
+        <div class="title-wrap">
+          <h3>Platzhalter</h3>
+          <p>Coming Soon – neue Module folgen.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-grid">
+      <div class="project-text">
+        <p><strong>Beschreibung:</strong> Coming Soon – hier kommt alles zu <strong>Platzhalter</strong> rein.</p>
+
+        <div class="gallery" aria-label="Galerie">
+          <img src="images/comingsoon.png" alt="Platzhalter – Bild 1">
+          <img src="images/comingsoon.png" alt="Platzhalter – Bild 2">
+          <img src="images/comingsoon.png" alt="Platzhalter – Bild 3">
+          <img src="images/comingsoon.png" alt="Platzhalter – Bild 4">
+        </div>
+
+        <div class="btn-row">
+          <a class="youtube-btn" href="#">▶ YouTube (folgt)</a>
+          <a class="amazon-btn" href="#">🛒 Amazon* (optional)</a>
+          <a class="shop-btn" href="#">🧩 Shop/Info (optional)</a>
+        </div>
+
+        <p class="affiliate-note">* Affiliate-Link: Für dich bleibt der Preis gleich.</p>
+      </div>
+
+      <div class="right-col">
+        <div class="thumb-wrap" aria-label="Placeholder">
+          <div class="video-thumb" style="background-image:url('images/comingsoon.png')"></div>
+          <div class="thumb-caption">Video / Thumbnail folgt</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Galerie (Storytelling) -->
+  <section id="gallerie-story" class="card anchor">
+    <div class="project-head simple">
+      <div class="project-left">
+        <div class="title-wrap">
+          <h3>Galerie (Storytelling)</h3>
+          <p>Story-Bilder, Highlights & Szenen.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-grid">
+      <div class="project-text">
+        <p><strong>Beschreibung:</strong> Coming Soon – hier kommt alles zu <strong>Galerie (Storytelling)</strong> rein.</p>
+
+        <div class="gallery" aria-label="Galerie">
+          <img src="images/comingsoon.png" alt="Galerie (Storytelling) – Bild 1">
+          <img src="images/comingsoon.png" alt="Galerie (Storytelling) – Bild 2">
+          <img src="images/comingsoon.png" alt="Galerie (Storytelling) – Bild 3">
+          <img src="images/comingsoon.png" alt="Galerie (Storytelling) – Bild 4">
+          <img src="images/comingsoon.png" alt="Galerie (Storytelling) – Bild 5">
+          <img src="images/comingsoon.png" alt="Galerie (Storytelling) – Bild 6">
+          <img src="images/comingsoon.png" alt="Galerie (Storytelling) – Bild 7">
+          <img src="images/comingsoon.png" alt="Galerie (Storytelling) – Bild 8">
+          <img src="images/comingsoon.png" alt="Galerie (Storytelling) – Bild 9">
+          <img src="images/comingsoon.png" alt="Galerie (Storytelling) – Bild 10">
+        </div>
+
+        <div class="btn-row">
+          <a class="youtube-btn" href="#">▶ YouTube (folgt)</a>
+          <a class="amazon-btn" href="#">🛒 Amazon* (optional)</a>
+        </div>
+
+        <p class="affiliate-note">* Affiliate-Link: Für dich bleibt der Preis gleich.</p>
+      </div>
+
+      <div class="right-col">
+        <div class="thumb-wrap" aria-label="Placeholder">
+          <div class="video-thumb" style="background-image:url('images/comingsoon.png')"></div>
+          <div class="thumb-caption">Video / Thumbnail folgt</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<footer id="siteFooter">
     © <span id="y"></span> Die Bausteinklemmer ·
     <a href="impressum.html">Impressum</a> ·
     <a href="datenschutz.html">Datenschutz</a>
   </footer>
 
+  <!-- Back-to-Top -->
+  <button class="to-top" id="toTopBtn" type="button" aria-label="Nach oben">
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M12 5l-7 7m7-7l7 7M12 5v14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span>Nach oben</span>
+  </button>
 </main>
+
 
 <script>
   document.getElementById('y').textContent = new Date().getFullYear();
+
+      // ===== Back-to-Top (weicht Footer aus) =====
+    (function(){
+      const btn = document.getElementById('toTopBtn');
+      const footer = document.getElementById('siteFooter');
+      if(!btn) return;
+
+      const SHOW_AFTER = 500; // px Scrollhöhe, ab wann der Button erscheint
+      const BASE_BOTTOM = 16; // px Normalabstand
+      const SAFE_GAP = 12;    // px Abstand zum Footer
+
+      function update(){
+        const y = window.scrollY || 0;
+        if(y > SHOW_AFTER) btn.classList.add('show');
+        else btn.classList.remove('show');
+
+        // Footer-Ausweichen:
+        // Wenn der Button-Bereich den Footer schneiden würde, schieben wir ihn nach oben.
+        if(footer){
+          const btnRect = btn.getBoundingClientRect();
+          const footerRect = footer.getBoundingClientRect();
+          const overlap = (btnRect.bottom + SAFE_GAP) - footerRect.top; // >0 => kollidiert
+          const lift = Math.max(0, overlap);
+          btn.style.bottom = (BASE_BOTTOM + lift) + 'px';
+        } else {
+          btn.style.bottom = BASE_BOTTOM + 'px';
+        }
+      }
+
+      btn.addEventListener('click', ()=>{
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      window.addEventListener('scroll', update, { passive:true });
+      window.addEventListener('resize', update, { passive:true });
+      update();
+    })();  
 </script>
+
+<!-- Lightbox (Galerie Zoom) -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <div class="lightbox-inner" role="dialog" aria-modal="true" aria-label="Galerie Zoom">
+    <div class="lightbox-top">
+      <span class="lightbox-title" id="lightboxTitle">Galerie-Zoom</span>
+      <button class="lightbox-close" type="button" id="lightboxClose" aria-label="Schließen">✕</button>
+    </div>
+    <div class="lightbox-img-wrap">
+      <img id="lightboxImg" class="lightbox-img" src="" alt="">
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  function isPlaceholderHref(href){
+    if(!href) return true;
+    const h = href.trim();
+    return h === '#' || h === '' || h.toLowerCase().startsWith('javascript:');
+  }
+
+  // Placeholder-Buttons automatisch stylen
+  document.querySelectorAll('.btn-row a.youtube-btn, .btn-row a.amazon-btn, .btn-row a.shop-btn').forEach(a=>{
+    const href = a.getAttribute('href');
+    if(isPlaceholderHref(href)){
+      a.classList.add('is-placeholder');
+      a.setAttribute('aria-disabled','true');
+    }else{
+      a.classList.remove('is-placeholder');
+      a.removeAttribute('aria-disabled');
+    }
+  });
+
+  // Lightbox
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lightboxImg');
+  const lbTitle = document.getElementById('lightboxTitle');
+  const btnClose = document.getElementById('lightboxClose');
+
+  function openLightbox(src, alt){
+    if(!lb || !lbImg) return;
+    lbImg.src = src || '';
+    lbImg.alt = alt || '';
+    if(lbTitle) lbTitle.textContent = alt || 'Galerie-Zoom';
+    lb.classList.add('show');
+    lb.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+  }
+  function closeLightbox(){
+    if(!lb) return;
+    lb.classList.remove('show');
+    lb.setAttribute('aria-hidden','true');
+    if(lbImg) lbImg.src='';
+    document.body.style.overflow='';
+  }
+
+  if(btnClose) btnClose.addEventListener('click', closeLightbox);
+  if(lb) lb.addEventListener('click', (e)=>{ if(e.target===lb) closeLightbox(); });
+  document.addEventListener('keydown', (e)=>{ if(e.key==='Escape' && lb && lb.classList.contains('show')) closeLightbox(); });
+
+  // Pro Card: Thumbs -> Vorschau rechts
+  document.querySelectorAll('.project-grid').forEach(grid=>{
+    const thumbs = grid.querySelectorAll('.gallery img');
+    const right = grid.querySelector('.right-col');
+    if(!right || thumbs.length===0) return;
+
+    let preview = right.querySelector('.gallery-preview');
+    if(!preview){
+      preview = document.createElement('div');
+      preview.className = 'gallery-preview';
+      preview.innerHTML = `
+        <div class="gallery-preview-head">📷 Galerie (Großansicht)</div>
+        <div class="gallery-preview-box">
+          <img class="gallery-preview-img" src="" alt="">
+        </div>
+      `;
+      right.insertBefore(preview, right.firstElementChild);
+    }
+
+    const previewImg = preview.querySelector('.gallery-preview-img');
+    if(!previewImg) return;
+
+    function setActiveThumb(el){
+      thumbs.forEach(t=>t.classList.remove('is-active'));
+      el.classList.add('is-active');
+    }
+    function setPreviewFromThumb(t){
+      const src = t.getAttribute('data-full') || t.getAttribute('src');
+      previewImg.src = src;
+      previewImg.alt = t.getAttribute('alt') || 'Galerie-Bild';
+      setActiveThumb(t);
+      preview.classList.add('flash');
+      setTimeout(()=>preview.classList.remove('flash'), 220);
+    }
+
+    setPreviewFromThumb(thumbs[0]);
+
+    thumbs.forEach(t=>{
+      t.tabIndex = 0;
+      t.addEventListener('click', ()=> setPreviewFromThumb(t));
+      t.addEventListener('keydown', (e)=>{
+        if(e.key==='Enter' || e.key===' ') {
+          e.preventDefault();
+          setPreviewFromThumb(t);
+        }
+      });
+    });
+
+    previewImg.style.cursor='zoom-in';
+    previewImg.addEventListener('click', ()=> openLightbox(previewImg.src, previewImg.alt));
+  });
+})();
+</script>
+
 
 </body>
 </html>
+

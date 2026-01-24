@@ -5,292 +5,656 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- ===== SEO: Title / Description ===== -->
-  <title>Beleuchtung · Die Bausteinklemmer</title>
-  <meta name="description" content="Beleuchtung, Strom, Adapter, Kabelmanagement und unsere Lösungen: Magnet-Adapter, LED-Setups, Verkabelung & Tipps für deine Klemmbaustein-Stadt." />
+  <title>Beleuchtung Hub · LEGO® und Klemmbaustein Stadt selbst beleuchten · Die Bausteinklemmer</title>
+  <meta name="description" content="Beleuchtung Hub von Die Bausteinklemmer: So beleuchten wir unsere LEGO® und Klemmbaustein Stadt BeanVillage. LEDs, Widerstände, Löten, Kabelmanagement, Magnet Adapter, Stromversorgung, Laternen und Zugbeleuchtung. Mit Playlist, Videos, Galerien und Tools." />
 
   <!-- ===== SEO: Robots / Canonical ===== -->
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <link rel="canonical" href="https://diebausteinklemmer.de/beleuchtung.html" />
-
-  <meta name="theme-color" content="#0ea5e9" />
   <link rel="icon" href="images/logo.png" />
 
   <!-- ===== Social Preview (OG / Twitter) ===== -->
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="de_DE" />
-  <meta property="og:title" content="Beleuchtung · Die Bausteinklemmer" />
-  <meta property="og:description" content="Beleuchtung, Strom, Adapter, Kabelmanagement & unsere Lösungen für BeanVillage und deine Klemmbaustein-Projekte." />
+  <meta property="og:title" content="Beleuchtung Hub · Die Bausteinklemmer" />
+  <meta property="og:description" content="LEGO® und Klemmbaustein Stadt selbst beleuchten: LEDs, Löten, Kabelmanagement, Magnet Adapter, Stromversorgung und Zugbeleuchtung. Mit Playlist und Videos." />
   <meta property="og:url" content="https://diebausteinklemmer.de/beleuchtung.html" />
   <meta property="og:image" content="https://diebausteinklemmer.de/images/logo.png" />
-  <meta property="og:image:alt" content="Die Bausteinklemmer – Logo" />
+  <meta property="og:image:alt" content="Die Bausteinklemmer Logo" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Beleuchtung · Die Bausteinklemmer" />
-  <meta name="twitter:description" content="Beleuchtung, Strom, Adapter, Kabelmanagement & unsere Lösungen." />
+  <meta name="twitter:title" content="Beleuchtung Hub · Die Bausteinklemmer" />
+  <meta name="twitter:description" content="LEGO® und Klemmbaustein Stadt selbst beleuchten: LEDs, Löten, Kabelmanagement, Magnet Adapter, Stromversorgung und Zugbeleuchtung." />
   <meta name="twitter:image" content="https://diebausteinklemmer.de/images/logo.png" />
 
   <!-- ===== Structured Data (JSON-LD) ===== -->
   <script type="application/ld+json">
   {
-    "@context":"https://schema.org",
-    "@graph":[
+    "@context": "https://schema.org",
+    "@graph": [
       {
-        "@type":"Organization",
-        "name":"Die Bausteinklemmer",
-        "url":"https://diebausteinklemmer.de/",
-        "logo":"https://diebausteinklemmer.de/images/logo.png"
+        "@type": "WebSite",
+        "@id": "https://diebausteinklemmer.de/#website",
+        "name": "Die Bausteinklemmer",
+        "url": "https://diebausteinklemmer.de/"
       },
       {
-        "@type":"WebPage",
-        "name":"Beleuchtung · Die Bausteinklemmer",
-        "url":"https://diebausteinklemmer.de/beleuchtung.html",
-        "inLanguage":"de",
-        "isPartOf":{
-          "@type":"WebSite",
-          "name":"Die Bausteinklemmer",
-          "url":"https://diebausteinklemmer.de/"
-        }
+        "@type": "WebPage",
+        "name": "Beleuchtung Hub",
+        "url": "https://diebausteinklemmer.de/beleuchtung.html",
+        "isPartOf": {"@id": "https://diebausteinklemmer.de/#website"}
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://diebausteinklemmer.de/"},
+          {"@type": "ListItem", "position": 2, "name": "Beleuchtung", "item": "https://diebausteinklemmer.de/beleuchtung.html"}
+        ]
       }
     ]
   }
   </script>
 
   <style>
-    :root{
-      --bg:#f6b042; --panel:#111827; --panel2:#0f172a;
-      --text:#e5e7eb; --muted:#9ca3af;
-      --brand:#0ea5e9; --brand2:#38bdf8;
-      --radius:18px; --shadow:0 10px 30px rgba(2,8,23,.45);
+:root{
+  --bg:#f6b042;
+  --panel:#111827;
+  --panel2:#0f172a;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+  --radius:18px;
+  --shadow:0 10px 30px rgba(2,8,23,.45);
 
-      --chip-bg: rgba(255,255,255,0.08);
-      --chip-border: rgba(148,163,184,.18);
-      --card-hover: 0 22px 60px rgba(2,8,23,.65);
-      --yellow-outline: 2px solid rgba(246,176,66,.95);
+  --btn-lumibricks:#fde68a;
+  --btn-lesdiy:#7dd3fc;
+  --btn-youtube:#ff0033;
+  --btn-home:#f6b042;
+  --btn-home-text:#111827;
+  --btn-yellow:#f6b042;
 
-      --btn-home:#f6b042;
-      --btn-home-text:#111827;
-      --btn-mail:#7dd3fc;
-      --btn-coop:#86efac;
-    }
+  --chip-bg: rgba(255,255,255,0.08);
+  --chip-border: rgba(148,163,184,.18);
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth;}
-    html,body{
-      margin:0;padding:0;background:var(--bg);color:var(--text);
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif
-    }
-    a{text-decoration:none;color:inherit}
-    .wrap{max-width:1100px;margin:0 auto;padding:18px}
-    .muted{color:var(--muted)}
+  --card-hover: 0 22px 60px rgba(2,8,23,.65);
+  --yellow-outline: 2px solid rgba(246,176,66,.95);
+  --glow: 0 0 0 2px rgba(246,176,66,.85), 0 0 0 8px rgba(255,255,255,.06);
 
-    /* ===== HEADER (wie Vorlage) ===== */
-    .site-header{
-      position:sticky;top:0;z-index:50;
-      backdrop-filter:blur(10px) saturate(130%);
-      background:linear-gradient(180deg,rgba(2,6,23,.92),rgba(2,6,23,.62));
-      border-bottom:1px solid rgba(148,163,184,.15);
-      box-shadow:0 10px 18px rgba(2,8,23,.22);
-    }
-    .headbar{
-      display:grid;
-      grid-template-columns: 1fr auto 1fr;
-      align-items:center;
-      gap:14px;
-      padding:10px 0;
-    }
-    .brand-center{
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      gap:6px;
-      font-weight:900;
-      letter-spacing:.2px;
-      text-align:center;
-    }
-    .brand-center img{
-      width:64px;height:64px;border-radius:50%;
-      object-fit:cover;box-shadow:var(--shadow)
-    }
-    .brand-text{display:flex;flex-direction:column;line-height:1.05}
-    .brand-top{font-size:1.05rem;font-weight:950;letter-spacing:.2px}
+  --header-pad: 10px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;}
+html,body{
+  margin:0;padding:0;background:var(--bg);color:var(--text);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif
+}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;height:auto;display:block}
+.wrap{max-width:1100px;margin:0 auto;padding:18px}
+.muted{color:var(--muted)}
+p, h1, h2, h3, small, code, a, span{
+  overflow-wrap:anywhere;
+  word-break:break-word;
+}
+.anchor{scroll-margin-top:120px}
 
-    .header-block{display:flex;align-items:flex-start;justify-content:flex-start}
-    .header-block.right{justify-content:flex-end}
+/* ===== HEADER (Desktop + Mobile-Dropdown) ===== */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  backdrop-filter:blur(10px) saturate(130%);
+  background:linear-gradient(180deg,rgba(2,6,23,.92),rgba(2,6,23,.62));
+  border-bottom:1px solid rgba(148,163,184,.15);
+  box-shadow:0 10px 18px rgba(2,8,23,.22);
+}
+.headbar{
+  display:grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items:center;
+  gap:14px;
+  padding: var(--header-pad) 0;
+}
+.brand-center{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  font-weight:900;
+  letter-spacing:.2px;
+  text-align:center;
+}
+.brand-center img{
+  width:64px;height:64px;border-radius:50%;
+  object-fit:cover;
+  box-shadow:var(--shadow);
+}
+.brand-text{display:flex;flex-direction:column;line-height:1.05;}
+.brand-top{font-size:1.05rem;font-weight:950;letter-spacing:.2px;}
 
-    .header-title{
-      font-size:.82rem;
-      font-weight:950;
-      color:rgba(229,231,235,.92);
-      opacity:.92;
-      margin:0 0 6px 0;
-      white-space:nowrap;
-      display:flex;
-      align-items:center;
-      gap:8px;
-    }
-    .header-list{display:grid;gap:8px;align-items:center}
-    .header-list.hubs{ grid-template-columns: repeat(3, max-content); }
-    .header-list.partners{ grid-template-columns: repeat(3, max-content); }
+.header-block{display:flex;align-items:flex-start;justify-content:flex-start}
+.header-block.right{justify-content:flex-end}
 
-    .header-chip{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      padding:7px 10px;
-      border-radius:999px;
-      background:var(--chip-bg);
-      border:1px solid var(--chip-border);
-      font-weight:800;
-      font-size:.84rem;
-      opacity:.95;
-      transition:transform .14s ease, filter .14s ease, opacity .14s ease, box-shadow .14s ease, outline-color .14s ease;
-      transform-origin:center;
-      white-space:nowrap;
-    }
-    .header-chip:hover{
-      filter:brightness(1.10);
-      opacity:1;
-      transform:scale(1.07);
-      outline: 2px solid rgba(246,176,66,.65);
-      outline-offset:2px;
-    }
-    .header-chip.active{
-      background:rgba(255,255,255,0.16);
-      border-color:rgba(255,255,255,0.30);
-      opacity:1;
-      outline:1px solid rgba(246,176,66,.95);
-      outline-offset:2px;
-      box-shadow:
-        0 0 0 2px rgba(2,6,23,.65),
-        0 10px 26px rgba(2,8,23,.35),
-        0 0 18px rgba(246,176,66,.45);
-    }
+.header-title{
+  font-size:.82rem;
+  font-weight:950;
+  color:rgba(229,231,235,.92);
+  opacity:.92;
+  margin:0 0 6px 0;
+  white-space:nowrap;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.header-list{display:grid;gap:8px;align-items:center;}
+.header-list.hubs{ grid-template-columns: repeat(3, max-content); }
+.header-list.partners{ grid-template-columns: repeat(3, max-content); }
 
-    .header-chip.partner img{
-      width:20px;height:20px;
-      border-radius:8px;
-      object-fit:contain;
-      background:#fff;
-      padding:2px;
-      box-shadow:0 6px 14px rgba(2,8,23,.25);
-    }
+.header-chip{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:7px 10px;
+  border-radius:999px;
+  background:var(--chip-bg);
+  border:1px solid var(--chip-border);
+  font-weight:800;
+  font-size:.84rem;
+  opacity:.95;
+  transition:transform .14s ease, filter .14s ease, opacity .14s ease, box-shadow .14s ease, outline-color .14s ease;
+  transform-origin:center;
+  white-space:nowrap;
+}
+.header-chip:hover{
+  filter:brightness(1.10);
+  opacity:1;
+  transform:scale(1.07);
+  outline: 2px solid rgba(246,176,66,.65);
+  outline-offset:2px;
+}
+.header-chip.active{
+  background:rgba(255,255,255,0.16);
+  border-color:rgba(255,255,255,0.30);
+  opacity:1;
+  outline:1px solid rgba(246,176,66,.95);
+  outline-offset:2px;
+  box-shadow:
+    0 0 0 2px rgba(2,6,23,.65),
+    0 10px 26px rgba(2,8,23,.35),
+    0 0 18px rgba(246,176,66,.45);
+}
+.header-chip.partner img{
+  width:20px;height:20px;
+  border-radius:8px;
+  object-fit:contain;
+  background:#fff;
+  padding:2px;
+  box-shadow:0 6px 14px rgba(2,8,23,.25);
+}
 
-    @media (max-width: 1180px){
-      .header-chip{font-size:.80rem;padding:7px 9px}
-    }
-    @media (max-width: 980px){
-      .headbar{grid-template-columns: 1fr; justify-items:center;}
-      .header-block, .header-block.right{justify-content:center; text-align:center}
-      .header-list.hubs, .header-list.partners{grid-template-columns: repeat(2, max-content); justify-content:center;}
-    }
+/* Mobile Dropdown (optional vorbereitet wie bei dir, aber nicht zwingend) */
+@media (max-width: 980px){
+  .headbar{grid-template-columns: 1fr; justify-items:center;}
+  .header-block, .header-block.right{display:none;}
+}
 
-    /* ===== CARDS ===== */
-    .card{
-      background:linear-gradient(180deg,var(--panel),var(--panel2));
-      border:1px solid rgba(148,163,184,.15);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:18px;
-      margin:22px 0;
-      transition:transform .16s ease, box-shadow .16s ease, filter .16s ease, outline-color .16s ease;
-    }
-    .card:hover{
-      transform:translateY(-4px) scale(1.006);
-      box-shadow:var(--card-hover);
-      filter:brightness(1.05);
-      outline:var(--yellow-outline);
-      outline-offset:2px;
-    }
-    .card:focus-within{
-      box-shadow:var(--card-hover);
-      outline:var(--yellow-outline);
-      outline-offset:2px;
-    }
+/* ===== CARDS ===== */
+.card{
+  background:linear-gradient(180deg,var(--panel),var(--panel2));
+  border:1px solid rgba(148,163,184,.15);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:18px;
+  margin:22px 0;
+  transition:transform .16s ease, box-shadow .16s ease, filter .16s ease, outline-color .16s ease;
+  overflow:hidden;
+}
+.card:hover{
+  transform:translateY(-4px) scale(1.006);
+  box-shadow:var(--card-hover);
+  filter:brightness(1.05);
+  outline:var(--yellow-outline);
+  outline-offset:2px;
+}
+.card:focus-within{
+  box-shadow:var(--card-hover);
+  outline:var(--yellow-outline);
+  outline-offset:2px;
+}
 
-    footer{margin:24px 0 40px 0;text-align:center;color:var(--muted);font-size:14px}
+footer{margin:24px 0 40px 0;text-align:center;color:var(--muted);font-size:14px}
 
-    .inline-link{
-      text-decoration:underline;
-      text-underline-offset:3px;
-      opacity:.95;
-    }
-    .inline-link:hover{opacity:1}
+.inline-link{
+  text-decoration:underline;
+  text-underline-offset:3px;
+  opacity:.95;
+}
+.inline-link:hover{opacity:1}
 
-    /* ===== HERO (kurz, passend zum HUB) ===== */
-    .hero{
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap:18px;
-      align-items:center;
-    }
-    @media (max-width: 900px){
-      .hero{grid-template-columns:1fr;}
-    }
-    .hero h1{margin:0;font-size:2rem;letter-spacing:.2px}
-    .hero p{margin:10px 0 0 0; line-height:1.55}
+/* ===== HERO (einmalig, clean) ===== */
+.hero{
+  display:grid;
+  grid-template-columns: 1.25fr .95fr;
+  gap:22px;
+  align-items:stretch;
+}
+.hero-left{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:center;
+}
+.hero-right{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  align-items:stretch;
+}
+.hero-media{
+  width:100%;
+  border-radius:18px;
+  overflow:hidden;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(148,163,184,.18);
+  box-shadow:var(--shadow);
+  padding:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.hero-media img{
+  width:100%;
+  height:auto;
+  display:block;
+  object-fit:cover;
+  border-radius:14px;
+}
+.hero-overlay{
+  padding:12px;
+  border-radius:16px;
+  background:linear-gradient(180deg, rgba(2,6,23,.78), rgba(2,6,23,.56));
+  border:1px solid rgba(148,163,184,.18);
+  box-shadow:0 18px 60px rgba(2,8,23,.35);
+  backdrop-filter: blur(10px) saturate(130%);
+}
+.hero-overlay .jump-line{
+  margin:0;
+  text-align:left;
+  line-height:1.35;
+  font-size:.92rem;
+  color:rgba(229,231,235,.90);
+  font-weight:900;
+}
+.hero-actions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  justify-content:flex-start;
+  margin:0;
+}
+@media (max-width: 900px){
+  .hero{grid-template-columns:1fr;}
+}
 
-    .hero-actions{
-      margin-top:14px;
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
+/* ===== Buttons ===== */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:14px 20px;border-radius:999px;font-weight:950;
+  border:1px solid rgba(255,255,255,0.12);
+  background:rgba(255,255,255,0.12);
+  box-shadow:0 10px 22px rgba(2,8,23,.25);
+  font-size:1.02rem;
+  transition:transform .14s ease, filter .14s ease, outline-color .14s ease;
+}
+.btn:hover{
+  filter:brightness(1.10);
+  transform:scale(1.04);
+  outline:2px solid rgba(246,176,66,.45);
+  outline-offset:2px;
+}
+.btn.yellow{background:var(--btn-yellow);color:#0b1220;border-color:transparent;}
+.btn.youtube{background:var(--btn-youtube);color:#fff;border-color:transparent;}
+.btn.home{background:var(--btn-home);color:var(--btn-home-text);border-color:transparent;}
 
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding:14px 22px;
-      border-radius:999px;
-      font-weight:950;
-      border:1px solid rgba(255,255,255,0.12);
-      background:rgba(255,255,255,0.12);
-      box-shadow:0 10px 22px rgba(2,8,23,.25);
-      font-size:1.05rem;
-      transition:transform .14s ease, filter .14s ease, outline-color .14s ease;
-    }
-    .btn:hover{filter:brightness(1.10); transform:scale(1.04); outline:2px solid rgba(246,176,66,.45); outline-offset:2px;}
-    .btn.home{background:var(--btn-home); color:var(--btn-home-text); border-color:transparent}
-    .btn.mail{background:var(--btn-mail); color:#04131f; border-color:transparent}
-    .btn.coop{background:var(--btn-coop); color:#052013; border-color:transparent}
+/* ===== Kombi Card (wie Index: Playlist links + Tools rechts) ===== */
+.combo{
+  display:grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap:18px;
+  align-items:stretch;
+}
+@media (max-width: 900px){ .combo{grid-template-columns:1fr;} }
 
-    .hero-img{
-      border-radius:18px;
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(148,163,184,.14);
-      padding:18px;
-      display:grid;
-      place-items:center;
-      min-height:240px;
-      overflow:hidden;
-    }
-    .hero-img img{
-      width:100%;
-      max-width:520px;
-      height:auto;
-      filter:drop-shadow(0 18px 28px rgba(0,0,0,.55));
-      display:block;
-    }
+.tag-wrap{
+  display:block;
+  border-radius:18px;
+  overflow:hidden;
+  border:1px solid rgba(148,163,184,.18);
+  box-shadow:var(--shadow);
+  background:#0a1220;
+}
+.tag-image{
+  width:100%;
+  aspect-ratio: 16/9;
+  background-image:url('images/city.jpg');
+  background-size:cover;
+  background-position:center;
+  filter:saturate(1.05) contrast(1.05);
+}
+.collage{
+  width:100%;
+  border-radius:18px;
+  border:1px solid rgba(148,163,184,.18);
+  box-shadow:var(--shadow);
+  background:#fff;
+}
+.mini-products{
+  margin-top:12px;
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap:10px;
+}
+@media (max-width: 520px){ .mini-products{grid-template-columns: repeat(2, minmax(0,1fr));} }
 
-    .hero-badges{
-      margin-top:14px;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-    .badge{
-      font-size:12px; font-weight:900;
-      padding:7px 12px; border-radius:999px;
-      background:rgba(255,255,255,.10);
-      border:1px solid rgba(255,255,255,.12);
-      opacity:.95;
-    }
+.mini-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:10px 12px;
+  border-radius:14px;
+  font-weight:950;
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(148,163,184,.18);
+  text-align:center;
+  transition:transform .14s ease, filter .14s ease, outline-color .14s ease;
+}
+.mini-link:hover{
+  filter:brightness(1.10);
+  transform:scale(1.03);
+  outline:2px solid rgba(246,176,66,.35);
+  outline-offset:2px;
+}
+.affiliate-note{
+  margin-top:10px;
+  text-align:left;
+  font-size:.9rem;
+  color:rgba(229,231,235,.72);
+  font-weight:900;
+}
+
+/* ===== Project Sections Layout (wie Unsere Stadt) ===== */
+.project-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-bottom:10px;
+}
+.project-left h3{margin:0;font-size:1.35rem}
+.project-left p{margin:6px 0 0 0;color:var(--muted);font-weight:900}
+
+.project-grid{
+  display:grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, .90fr);
+  gap:16px;
+  align-items:start;
+}
+.project-grid > *{min-width:0;}
+@media (max-width: 900px){ .project-grid{grid-template-columns:1fr;} }
+
+.project-text{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(148,163,184,.14);
+  border-radius:16px;
+  padding:14px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  min-width:0;
+  overflow:hidden;
+}
+.project-text p{margin:0;line-height:1.6}
+
+.btn-row{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap:10px;
+}
+@media (max-width: 520px){
+  .btn-row{grid-template-columns: repeat(2, minmax(0,1fr));}
+  .btn-row a:last-child{grid-column: 1 / -1;}
+}
+.amazon-btn, .shop-btn, .youtube-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:10px 12px;
+  border-radius:999px;
+  font-weight:950;
+  font-size:.92rem;
+  transition:transform .14s ease, filter .14s ease, outline-color .14s ease;
+  min-width:0;
+  text-align:center;
+  border:1px solid rgba(255,255,255,.10);
+}
+.amazon-btn{background:#ff9900; color:#111}
+.shop-btn{background:#7dd3fc; color:#04131f}
+.youtube-btn{background:var(--btn-youtube); color:#fff}
+.amazon-btn:hover,.shop-btn:hover,.youtube-btn:hover{
+  filter:brightness(1.10);
+  transform:scale(1.04);
+  outline:2px solid rgba(246,176,66,.35);
+  outline-offset:2px;
+}
+
+/* ===== Gallery thumbs + Preview ===== */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:10px;
+}
+.gallery img{
+  width:100%;
+  height:76px;
+  object-fit:cover;
+  border-radius:14px;
+  border:1px solid rgba(148,163,184,.18);
+  box-shadow:0 10px 24px rgba(2,8,23,.35);
+  cursor:pointer;
+  transition:transform .14s ease, filter .14s ease, box-shadow .14s ease, outline-color .14s ease;
+  outline:2px solid transparent;
+  outline-offset:2px;
+}
+.gallery img:hover{
+  transform:translateY(-3px) scale(1.03);
+  filter:brightness(1.07) saturate(1.05);
+  box-shadow:0 18px 50px rgba(2,8,23,.55);
+  outline-color:rgba(246,176,66,.9);
+}
+.gallery img.is-active{
+  outline-color:rgba(246,176,66,.98);
+  box-shadow:0 0 0 3px rgba(246,176,66,.25), 0 18px 55px rgba(2,8,23,.62);
+}
+@media (max-width: 780px){
+  .gallery{grid-template-columns:repeat(3,minmax(0,1fr));}
+  .gallery img{height:64px; border-radius:12px;}
+}
+@media (max-width: 420px){
+  .gallery{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .gallery img{height:62px;}
+}
+
+.gallery-preview{
+  margin-top:12px;
+  border-radius:18px;
+  overflow:hidden;
+  border:1px solid rgba(148,163,184,.16);
+  background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+  box-shadow:0 16px 44px rgba(2,8,23,.55);
+}
+.gallery-preview-head{
+  padding:10px 12px;
+  font-weight:900;
+  color:rgba(229,231,235,.92);
+  background:rgba(2,6,23,.55);
+  border-bottom:1px solid rgba(148,163,184,.14);
+}
+.gallery-preview-box{
+  position:relative;
+  background:#0b1222;
+}
+.gallery-preview-img{
+  width:100%;
+  aspect-ratio:16/9;
+  object-fit:cover;
+  display:block;
+}
+.gallery-preview.flash{animation:previewFlash .22s ease;}
+@keyframes previewFlash{from{filter:brightness(1.18)}to{filter:brightness(1)}}
+
+/* Video Thumb rechts */
+.thumb-wrap{
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid rgba(148,163,184,.20);
+  background:#0a1220;
+  box-shadow:var(--shadow);
+  transition:transform .16s ease, filter .16s ease, box-shadow .16s ease;
+  display:block;
+}
+.thumb-wrap:hover{
+  transform:translateY(-4px) scale(1.01);
+  filter:brightness(1.06);
+  box-shadow:
+    0 22px 60px rgba(2,8,23,.58),
+    0 0 0 2px rgba(246,176,66,.75),
+    0 0 0 8px rgba(255,255,255,.05);
+}
+.video-thumb{
+  position:relative;
+  width:100%;
+  padding-top:56.25%;
+  background-size:cover;
+  background-position:center;
+}
+.video-thumb::after{
+  content:"▶";
+  position:absolute; inset:0;
+  display:grid; place-items:center;
+  font-size:52px; color:#fff;
+  text-shadow:0 8px 22px rgba(0,0,0,.75);
+}
+.thumb-caption{
+  padding:10px 12px;
+  color:var(--muted);
+  font-weight:900;
+  font-size:.9rem;
+}
+.right-col{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  align-items:stretch;
+}
+
+/* ===== Lightbox ===== */
+.lightbox{
+  position:fixed; inset:0; z-index:9999;
+  display:none;
+  align-items:center; justify-content:center;
+  padding:24px;
+  background:rgba(2,6,23,.82);
+  backdrop-filter: blur(10px) saturate(130%);
+}
+.lightbox.show{display:flex;}
+.lightbox-inner{
+  width:min(1100px, 100%);
+  background: radial-gradient(900px 520px at 50% -40%, rgba(255,255,255,.10), transparent 60%),
+              linear-gradient(180deg, rgba(15,23,42,.92), rgba(2,6,23,.92));
+  border:1px solid rgba(148,163,184,.22);
+  border-radius:22px;
+  box-shadow: 0 30px 110px rgba(2,8,23,.70), 0 0 0 2px rgba(246,176,66,.65), 0 0 0 10px rgba(255,255,255,.05);
+  overflow:hidden;
+}
+.lightbox-top{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:12px;
+  padding:12px 14px;
+  border-bottom:1px solid rgba(148,163,184,.16);
+}
+.lightbox-top strong{font-weight:950; color:rgba(229,231,235,.92);}
+.lightbox-close{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:40px; height:40px;
+  border-radius:999px;
+  border:1px solid rgba(148,163,184,.22);
+  background:rgba(255,255,255,.08);
+  color:rgba(229,231,235,.92);
+  cursor:pointer;
+  transition:transform .14s ease, filter .14s ease, outline-color .14s ease;
+}
+.lightbox-close:hover{
+  filter:brightness(1.12);
+  transform:scale(1.05);
+  outline:2px solid rgba(246,176,66,.35);
+  outline-offset:2px;
+}
+.lightbox-img-wrap{background:#020617;}
+.lightbox-img{
+  width:100%;
+  max-height:78vh;
+  object-fit:contain;
+  display:block;
+}
+
+/* Placeholder-Buttons */
+.is-placeholder{opacity:.55 !important; pointer-events:none !important; filter:saturate(.65) brightness(.95);}
+
+/* ===== Back-to-Top ===== */
+.to-top{
+  position:fixed;
+  right:16px;
+  bottom:16px;
+  z-index:60;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:12px 14px;
+  border-radius:999px;
+  background:rgba(2,6,23,.72);
+  border:1px solid rgba(148,163,184,.25);
+  color:rgba(229,231,235,.95);
+  box-shadow:0 18px 42px rgba(2,8,23,.45);
+  backdrop-filter: blur(10px) saturate(130%);
+  cursor:pointer;
+  opacity:0;
+  transform:translateY(8px) scale(.98);
+  pointer-events:none;
+  transition:opacity .16s ease, transform .16s ease, filter .16s ease, outline-color .16s ease, bottom .16s ease;
+}
+.to-top:hover{
+  filter:brightness(1.12);
+  transform:translateY(0) scale(1.03);
+  outline:2px solid rgba(246,176,66,.45);
+  outline-offset:2px;
+}
+.to-top.show{
+  opacity:1;
+  transform:translateY(0) scale(1);
+  pointer-events:auto;
+}
+.to-top svg{width:18px;height:18px;opacity:.95}
+.to-top span{font-weight:950; font-size:.92rem}
+@media (max-width: 520px){
+  .to-top span{display:none;}
+  .to-top{padding:12px;}
+}
   </style>
 </head>
 
 <body>
-
 <header class="site-header">
   <div class="wrap headbar">
 
@@ -350,61 +714,536 @@
 <main class="wrap">
 
   <!-- HERO: BELEUCHTUNG -->
-  <section class="card">
-    <div class="hero">
-      <div>
-        <h1>Beleuchtung: unsere Lösungen</h1>
-        <p class="muted">
-          Hier sammeln wir alles rund um <strong>LED-Beleuchtung</strong>, <strong>Stromversorgung</strong>,
-          <strong>Magnet-Adapter</strong> und <strong>Kabelmanagement</strong> – so wie wir es in BeanVillage umsetzen.
-          <br><br>
-          Weitere Hubs: <a class="inline-link" href="eisenbahn.html">Eisenbahn</a> ·
-          <a class="inline-link" href="unsere-stadt.html">Unsere Stadt</a> ·
-          <a class="inline-link" href="videos.html">Videos</a>
-        </p>
+  <section class="card hero">
+    <div class="hero-left">
+      <h1>Beleuchtung: So bringen wir BeanVillage zum Leuchten</h1>
 
-        <div class="hero-badges">
-          <span class="badge">💡 LED-Setups</span>
-          <span class="badge">🧲 Magnet-Adapter</span>
-          <span class="badge">🧰 Kabelmanagement</span>
-        </div>
+      <p>
+        In diesem Hub zeigen wir dir, wie wir unsere <strong>LEGO® und Klemmbaustein Stadt BeanVillage</strong> Schritt für Schritt beleuchten.
+        Du findest hier unsere Playlist, Videos, Tools und Beispiele aus der Praxis.
+        Von den ersten LED Tests über sauberes Löten bis zum Kabelmanagement unter der Stadt.
+      </p>
 
-        <div class="hero-actions">
-          <a class="btn home" href="index.html">← Zur Startseite</a>
-          <a class="btn mail" href="mailto:info@diebausteinklemmer.de">✉️ Kontakt</a>
-          <a class="btn coop" href="mailto:kooperation@diebausteinklemmer.de">🤝 Kooperation</a>
-        </div>
+      <p>
+        Wenn du erstmal sehen willst, wie die Stadt aussieht und wie alles zusammenhängt, schau in den
+        <a class="inline-link" href="unsere-stadt.html">Unsere Stadt Hub</a>.
+        Die fahrenden Züge und Umbauten findest du im
+        <a class="inline-link" href="eisenbahn.html">Eisenbahn Hub</a>.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn youtube" href="https://www.youtube.com/playlist?list=PLNn6aDPjB4S2zXoXOnfngjE91cENYaOT0" target="_blank" rel="noopener">▶ Beleuchtungs Playlist</a>
+        <a class="btn home" href="index.html">← Zur Startseite</a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-media">
+        <img src="images/city.jpg" alt="BeanVillage Beleuchtung: Stadtansicht" />
       </div>
 
-      <div class="hero-img" aria-label="Beleuchtung Visual">
-        <!-- Optional: tausche das Bild aus (z.B. LED/Magnet-Adapter Visual). Logo geht immer. -->
-        <img src="images/logo.png" alt="Die Bausteinklemmer Logo">
+      <div class="hero-overlay">
+        <p class="jump-line">
+          Direkt springen zu:
+          <a class="inline-link" href="#starterset">Starterset und Tools</a> ·
+          <a class="inline-link" href="#stadtbeleuchtung">Stadt Beleuchtung</a> ·
+          <a class="inline-link" href="#laternen">Laternen und Außenfassaden</a> ·
+          <a class="inline-link" href="#magnetadapter">Magnet Adapter</a> ·
+          <a class="inline-link" href="#stromquelle">Stromquelle</a> ·
+          <a class="inline-link" href="#zugbeleuchtung">Zug Beleuchtung</a>
+        </p>
+      </div>
+
+      <div class="hero-actions">
+        <a class="btn" href="mailto:info@diebausteinklemmer.de">✉️ Kontakt</a>
+        <a class="btn" href="mailto:kooperation@diebausteinklemmer.de">🤝 Kooperation</a>
       </div>
     </div>
   </section>
 
-  <!-- CONTENT (kurz, wie gewünscht) -->
-  <section class="card">
-    <h2 style="margin:0 0 8px 0">Was du hier bald findest</h2>
-    <p class="muted" style="margin:0; line-height:1.55">
-      • Unsere Standard-Stromverteilung (z.B. pro Modul / pro Straße) <br>
-      • Adapter-Prinzip (Magnet-Kupplung für Licht in Waggons & Gebäuden) <br>
-      • Kabelwege, Verteiler, Sicherung & “unsichtbare” Führung <br>
-      • Partner-Lösungen (Briksmax, Lumibricks, Lightailing/Briksmax-Style etc.) <br>
-      • Video-Links + Teilelisten / Empfehlungen
-    </p>
+  <!-- Card: Starterset + Playlist Kombi (wie Index) -->
+  <section id="starterset" class="card anchor">
+    <h2>Wie beleuchten wir unsere LEGO® und Klemmbaustein Stadt ganz einfach</h2>
+
+    <div class="combo">
+      <div>
+        <a href="https://www.youtube.com/playlist?list=PLNn6aDPjB4S2zXoXOnfngjE91cENYaOT0"
+           target="_blank" rel="noopener"
+           class="tag-wrap"
+           aria-label="YouTube Playlist: Stadt selbst beleuchten"
+           title="Stadt selbst beleuchten Schritt für Schritt">
+          <div class="tag-image"></div>
+        </a>
+
+        <p class="muted" style="margin:10px 0 6px 0; font-weight:800; text-align:center;">
+          ☝️ Klick aufs Bild: Beleuchtungs Playlist
+        </p>
+
+        <p class="muted">
+          <strong>
+            Unsere Playlist zeigt dir Schritt für Schritt, wie wir unsere
+            <a class="inline-link" href="unsere-stadt.html">LEGO® und Klemmbaustein Stadt BeanVillage</a>
+            ohne Fertigsets zum Leuchten bringen.
+          </strong>
+        </p>
+
+        <p class="muted">
+          Du siehst echte Praxis: vom ersten LED Test über sauberes Löten bis hin zu cleverem Kabelmanagement unter der Stadt.
+        </p>
+
+        <p class="muted">
+          Wir erklären verständlich, welche LEDs, Widerstände und Spannungen wirklich Sinn machen, ganz ohne Elektronik Studium.
+        </p>
+
+        <p class="muted">
+          Perfekt für alle, die ihre LEGO® oder Klemmbaustein Stadt realistischer, lebendiger und einfach fantastischer machen wollen. ✨
+        </p>
+      </div>
+
+      <div>
+        <p class="muted" style="margin:0; font-weight:850;">Unser kleiner Schnellstart: Das brauchst du fürs Selbst Beleuchten 👇</p>
+        <img src="images/lighting-collage.jpg" alt="Beleuchtungs Komponenten" class="collage">
+
+        <div class="mini-products" aria-label="Beleuchtungs Tools">
+          <a class="mini-link" href="https://amzn.to/41HTFhb" target="_blank" rel="noopener">Lötstation *</a>
+          <a class="mini-link" href="https://amzn.to/49eUyBf" target="_blank" rel="noopener">LED und Dioden Set *</a>
+          <a class="mini-link" href="https://amzn.to/3RKkYmm" target="_blank" rel="noopener">Widerstände 470Ω *</a>
+          <a class="mini-link" href="https://amzn.to/4aQ59n4" target="_blank" rel="noopener">Widerstände 560Ω *</a>
+          <a class="mini-link" href="https://amzn.to/3Tlosgb" target="_blank" rel="noopener">SMD kaltweiß *</a>
+          <a class="mini-link" href="https://amzn.to/3Tlot3J" target="_blank" rel="noopener">SMD warmweiß *</a>
+          <a class="mini-link" href="https://amzn.to/3Mkzy1V" target="_blank" rel="noopener">Schaltlitze schwarz *</a>
+          <a class="mini-link" href="https://amzn.to/3Sn9g2V" target="_blank" rel="noopener">Schaltlitze rot *</a>
+          <a class="mini-link" href="https://amzn.to/3SoOTmg" target="_blank" rel="noopener">Batterie Box 12V *</a>
+        </div>
+
+        <p class="affiliate-note">* Affiliate Link: Für dich bleibt der Preis gleich.</p>
+      </div>
+    </div>
   </section>
 
-  <footer>
+  <!-- Card 1: Stadt Beleuchtung -->
+  <section id="stadtbeleuchtung" class="card anchor">
+    <div class="project-head">
+      <div class="project-left">
+        <div>
+          <h3>Stadt Beleuchtung selbst gemacht</h3>
+          <p>LEDs, Kabelwege, Fehler, Tricks und unsere Praxis Lösung in BeanVillage.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-grid">
+      <div class="project-text">
+        <p>
+          <strong>Worum geht es:</strong>
+          Wir zeigen dir unseren Ansatz, wie wir Gebäude, Wege und Details so beleuchten, dass die Stadt nachts richtig lebt.
+          Du siehst typische Stolperfallen, clevere Abzweigungen und wie wir das Ganze modular halten, damit die Stadt weiter wachsen kann.
+        </p>
+
+        <div class="gallery" aria-label="Galerie Stadt Beleuchtung">
+          <img src="images/comingsoon.png" alt="Stadt Beleuchtung Bild 1">
+          <img src="images/comingsoon.png" alt="Stadt Beleuchtung Bild 2">
+          <img src="images/comingsoon.png" alt="Stadt Beleuchtung Bild 3">
+          <img src="images/comingsoon.png" alt="Stadt Beleuchtung Bild 4">
+        </div>
+
+        <div class="btn-row">
+          <a class="youtube-btn" href="https://youtu.be/KAjwzWlhy1Q" target="_blank" rel="noopener">▶ Video</a>
+          <a class="amazon-btn" href="#" target="_blank" rel="noopener">🛒 Amazon* optional</a>
+          <a class="shop-btn" href="#" target="_blank" rel="noopener">🧩 Shop und Info optional</a>
+        </div>
+
+        <p class="affiliate-note">* Affiliate Link: Für dich bleibt der Preis gleich.</p>
+      </div>
+
+      <div class="right-col">
+        <a class="thumb-wrap" href="https://youtu.be/KAjwzWlhy1Q" target="_blank" rel="noopener" aria-label="Video öffnen">
+          <div class="video-thumb" style="background-image:url('images/city.jpg')"></div>
+          <div class="thumb-caption">Video öffnen</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Card 2: Laternen / Außenfassaden -->
+  <section id="laternen" class="card anchor">
+    <div class="project-head">
+      <div class="project-left">
+        <div>
+          <h3>Laternen und Außenfassaden</h3>
+          <p>Außenwirkung, Spots, Lichtfarbe und realistische Stadt Stimmung.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-grid">
+      <div class="project-text">
+        <p>
+          <strong>Worum geht es:</strong>
+          Außenlicht macht sofort Atmosphäre. Hier sammeln wir Laternen, Fassaden Spots und Lichtideen,
+          die dein Stadtbild deutlich realistischer wirken lassen.
+        </p>
+
+        <div class="gallery" aria-label="Galerie Laternen und Außenfassaden">
+          <img src="images/comingsoon.png" alt="Laternen Bild 1">
+          <img src="images/comingsoon.png" alt="Laternen Bild 2">
+          <img src="images/comingsoon.png" alt="Laternen Bild 3">
+          <img src="images/comingsoon.png" alt="Laternen Bild 4">
+        </div>
+
+        <div class="btn-row">
+          <a class="youtube-btn" href="#" target="_blank" rel="noopener">▶ Video folgt</a>
+          <a class="amazon-btn" href="#" target="_blank" rel="noopener">🛒 Amazon* optional</a>
+          <a class="shop-btn" href="#" target="_blank" rel="noopener">🧩 Shop und Info optional</a>
+        </div>
+
+        <p class="affiliate-note">* Affiliate Link: Für dich bleibt der Preis gleich.</p>
+      </div>
+
+      <div class="right-col">
+        <div class="thumb-wrap" aria-label="Platzhalter">
+          <div class="video-thumb" style="background-image:url('images/comingsoon.png')"></div>
+          <div class="thumb-caption">Video folgt</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Card 3: Magnet Adapter -->
+  <section id="magnetadapter" class="card anchor">
+    <div class="project-head">
+      <div class="project-left">
+        <div>
+          <h3>Magnet Adapter modular</h3>
+          <p>Steckbar statt löten, Waggons verbinden und Module schnell trennen.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-grid">
+      <div class="project-text">
+        <p>
+          <strong>Worum geht es:</strong>
+          Wir lieben modulare Lösungen. Mit Magnet Adaptern kannst du Beleuchtung schnell verbinden und wieder trennen,
+          ohne jedes Mal Kabel neu zu verlegen. Das spart Zeit und Nerven, besonders bei wachsenden Städten und langen Zügen.
+        </p>
+
+        <div class="gallery" aria-label="Galerie Magnet Adapter">
+          <img src="images/comingsoon.png" alt="Magnet Adapter Bild 1">
+          <img src="images/comingsoon.png" alt="Magnet Adapter Bild 2">
+          <img src="images/comingsoon.png" alt="Magnet Adapter Bild 3">
+          <img src="images/comingsoon.png" alt="Magnet Adapter Bild 4">
+        </div>
+
+        <div class="btn-row">
+          <a class="youtube-btn" href="#" target="_blank" rel="noopener">▶ Video folgt</a>
+          <a class="amazon-btn" href="#" target="_blank" rel="noopener">🛒 Amazon* optional</a>
+          <a class="shop-btn" href="#" target="_blank" rel="noopener">🧩 Shop und Info optional</a>
+        </div>
+
+        <p class="affiliate-note">* Affiliate Link: Für dich bleibt der Preis gleich.</p>
+      </div>
+
+      <div class="right-col">
+        <div class="thumb-wrap" aria-label="Platzhalter">
+          <div class="video-thumb" style="background-image:url('images/comingsoon.png')"></div>
+          <div class="thumb-caption">Video folgt</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Card 4: Stromquelle -->
+  <section id="stromquelle" class="card anchor">
+    <div class="project-head">
+      <div class="project-left">
+        <div>
+          <h3>Stromquelle und Solar Setup</h3>
+          <p>Camper Solar, Batterie, Spannungswandler, Sicherung und Hauptschalter.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-grid">
+      <div class="project-text">
+        <p>
+          <strong>Worum geht es:</strong>
+          Hier zeigen wir unsere Stromversorgung für die Stadt. Von Solarpanels über Batterie und Spannungswandler
+          bis zu Ein und Ausschalter und sauberer Verteilung. Ziel: stabil, sicher und erweiterbar.
+        </p>
+
+        <div class="gallery" aria-label="Galerie Stromquelle">
+          <img src="images/comingsoon.png" alt="Stromquelle Bild 1">
+          <img src="images/comingsoon.png" alt="Stromquelle Bild 2">
+          <img src="images/comingsoon.png" alt="Stromquelle Bild 3">
+          <img src="images/comingsoon.png" alt="Stromquelle Bild 4">
+        </div>
+
+        <div class="btn-row">
+          <a class="youtube-btn" href="#" target="_blank" rel="noopener">▶ Video folgt</a>
+          <a class="amazon-btn" href="#" target="_blank" rel="noopener">🛒 Amazon* optional</a>
+          <a class="shop-btn" href="#" target="_blank" rel="noopener">🧩 Shop und Info optional</a>
+        </div>
+
+        <p class="affiliate-note">* Affiliate Link: Für dich bleibt der Preis gleich.</p>
+      </div>
+
+      <div class="right-col">
+        <div class="thumb-wrap" aria-label="Platzhalter">
+          <div class="video-thumb" style="background-image:url('images/comingsoon.png')"></div>
+          <div class="thumb-caption">Video folgt</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Card 5: Zug Beleuchtung -->
+  <section id="zugbeleuchtung" class="card anchor">
+    <div class="project-head">
+      <div class="project-left">
+        <div>
+          <h3>Zug Beleuchtung mit und ohne Magnet Adapter</h3>
+          <p>Waggons verbinden, Kupplungen, Strom durchreichen und sauberer Look.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-grid">
+      <div class="project-text">
+        <p>
+          <strong>Worum geht es:</strong>
+          Zug Beleuchtung ist ein eigenes Level. Hier sammeln wir Lösungen für Waggons, Innenlicht und Effekte,
+          sowohl klassisch verkabelt als auch modular mit Magnet Adaptern. Alles so, dass Züge alltagstauglich bleiben.
+        </p>
+
+        <div class="gallery" aria-label="Galerie Zug Beleuchtung">
+          <img src="images/comingsoon.png" alt="Zug Beleuchtung Bild 1">
+          <img src="images/comingsoon.png" alt="Zug Beleuchtung Bild 2">
+          <img src="images/comingsoon.png" alt="Zug Beleuchtung Bild 3">
+          <img src="images/comingsoon.png" alt="Zug Beleuchtung Bild 4">
+        </div>
+
+        <div class="btn-row">
+          <a class="youtube-btn" href="#" target="_blank" rel="noopener">▶ Video folgt</a>
+          <a class="amazon-btn" href="#" target="_blank" rel="noopener">🛒 Amazon* optional</a>
+          <a class="shop-btn" href="#" target="_blank" rel="noopener">🧩 Shop und Info optional</a>
+        </div>
+
+        <p class="affiliate-note">* Affiliate Link: Für dich bleibt der Preis gleich.</p>
+      </div>
+
+      <div class="right-col">
+        <div class="thumb-wrap" aria-label="Platzhalter">
+          <div class="video-thumb" style="background-image:url('images/comingsoon.png')"></div>
+          <div class="thumb-caption">Video folgt</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Card 6: Platzhalter -->
+  <section id="platzhalter" class="card anchor">
+    <div class="project-head">
+      <div class="project-left">
+        <div>
+          <h3>Platzhalter</h3>
+          <p>Neue Beleuchtungs Themen kommen als Nächstes.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-grid">
+      <div class="project-text">
+        <p><strong>Worum geht es:</strong> Coming Soon. Hier kommen neue Kapitel und Projekte rein.</p>
+
+        <div class="gallery" aria-label="Galerie Platzhalter">
+          <img src="images/comingsoon.png" alt="Platzhalter Bild 1">
+          <img src="images/comingsoon.png" alt="Platzhalter Bild 2">
+          <img src="images/comingsoon.png" alt="Platzhalter Bild 3">
+          <img src="images/comingsoon.png" alt="Platzhalter Bild 4">
+        </div>
+
+        <div class="btn-row">
+          <a class="youtube-btn" href="#" target="_blank" rel="noopener">▶ Video folgt</a>
+          <a class="amazon-btn" href="#" target="_blank" rel="noopener">🛒 Amazon* optional</a>
+          <a class="shop-btn" href="#" target="_blank" rel="noopener">🧩 Shop und Info optional</a>
+        </div>
+
+        <p class="affiliate-note">* Affiliate Link: Für dich bleibt der Preis gleich.</p>
+      </div>
+
+      <div class="right-col">
+        <div class="thumb-wrap" aria-label="Platzhalter">
+          <div class="video-thumb" style="background-image:url('images/comingsoon.png')"></div>
+          <div class="thumb-caption">Video folgt</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="siteFooter">
     © <span id="y"></span> Die Bausteinklemmer ·
     <a href="impressum.html">Impressum</a> ·
     <a href="datenschutz.html">Datenschutz</a>
   </footer>
 
+  <!-- Back-to-Top -->
+  <button class="to-top" id="toTopBtn" type="button" aria-label="Nach oben">
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M12 5l-7 7m7-7l7 7M12 5v14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span>Nach oben</span>
+  </button>
+
 </main>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <div class="lightbox-inner" role="dialog" aria-modal="true" aria-label="Galerie Zoom">
+    <div class="lightbox-top">
+      <strong id="lightboxTitle">Galerie Zoom</strong>
+      <button class="lightbox-close" type="button" id="lightboxClose" aria-label="Schließen">✕</button>
+    </div>
+    <div class="lightbox-img-wrap">
+      <img id="lightboxImg" class="lightbox-img" src="" alt="">
+    </div>
+  </div>
+</div>
 
 <script>
   document.getElementById('y').textContent = new Date().getFullYear();
+
+  // ===== Back-to-Top (weicht Footer aus) =====
+  (function(){
+    const btn = document.getElementById('toTopBtn');
+    const footer = document.getElementById('siteFooter');
+    if(!btn) return;
+
+    const SHOW_AFTER = 500;
+    const BASE_BOTTOM = 16;
+    const SAFE_GAP = 12;
+
+    function update(){
+      const y = window.scrollY || 0;
+      if(y > SHOW_AFTER) btn.classList.add('show');
+      else btn.classList.remove('show');
+
+      if(footer){
+        const btnRect = btn.getBoundingClientRect();
+        const footerRect = footer.getBoundingClientRect();
+        const overlap = (btnRect.bottom + SAFE_GAP) - footerRect.top;
+        const lift = Math.max(0, overlap);
+        btn.style.bottom = (BASE_BOTTOM + lift) + 'px';
+      } else {
+        btn.style.bottom = BASE_BOTTOM + 'px';
+      }
+    }
+
+    btn.addEventListener('click', ()=> window.scrollTo({ top: 0, behavior: 'smooth' }));
+    window.addEventListener('scroll', update, { passive:true });
+    window.addEventListener('resize', update, { passive:true });
+    update();
+  })();
+
+  // ===== Helper: Placeholder Hrefs =====
+  function isPlaceholderHref(href){
+    if(!href) return true;
+    const h = href.trim();
+    return h === '#' || h === '' || h.toLowerCase().startsWith('javascript:');
+  }
+
+  // Placeholder Buttons automatisch stylen
+  document.querySelectorAll('.btn-row a.youtube-btn, .btn-row a.amazon-btn, .btn-row a.shop-btn').forEach(a=>{
+    const href = a.getAttribute('href');
+    if(isPlaceholderHref(href)){
+      a.classList.add('is-placeholder');
+      a.setAttribute('aria-disabled','true');
+    }else{
+      a.classList.remove('is-placeholder');
+      a.removeAttribute('aria-disabled');
+    }
+  });
+
+  // ===== Lightbox =====
+  (function(){
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightboxImg');
+    const lbTitle = document.getElementById('lightboxTitle');
+    const btnClose = document.getElementById('lightboxClose');
+
+    function openLightbox(src, alt){
+      if(!lb || !lbImg) return;
+      lbImg.src = src || '';
+      lbImg.alt = alt || '';
+      if(lbTitle) lbTitle.textContent = alt || 'Galerie Zoom';
+      lb.classList.add('show');
+      lb.setAttribute('aria-hidden','false');
+      document.body.style.overflow='hidden';
+    }
+    function closeLightbox(){
+      if(!lb) return;
+      lb.classList.remove('show');
+      lb.setAttribute('aria-hidden','true');
+      if(lbImg) lbImg.src='';
+      document.body.style.overflow='';
+    }
+
+    if(btnClose) btnClose.addEventListener('click', closeLightbox);
+    if(lb) lb.addEventListener('click', (e)=>{ if(e.target===lb) closeLightbox(); });
+    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape' && lb && lb.classList.contains('show')) closeLightbox(); });
+
+    // Pro Card: Thumbs -> Preview rechts + Click zoom
+    document.querySelectorAll('.project-grid').forEach(grid=>{
+      const thumbs = grid.querySelectorAll('.gallery img');
+      const right = grid.querySelector('.right-col');
+      if(!right || thumbs.length===0) return;
+
+      let preview = right.querySelector('.gallery-preview');
+      if(!preview){
+        preview = document.createElement('div');
+        preview.className = 'gallery-preview';
+        preview.innerHTML = `
+          <div class="gallery-preview-head">📷 Galerie Großansicht</div>
+          <div class="gallery-preview-box">
+            <img class="gallery-preview-img" src="" alt="">
+          </div>
+        `;
+        right.insertBefore(preview, right.firstElementChild);
+      }
+
+      const previewImg = preview.querySelector('.gallery-preview-img');
+      if(!previewImg) return;
+
+      function setActiveThumb(el){
+        thumbs.forEach(t=>t.classList.remove('is-active'));
+        el.classList.add('is-active');
+      }
+      function setPreviewFromThumb(t){
+        const src = t.getAttribute('data-full') || t.getAttribute('src');
+        previewImg.src = src;
+        previewImg.alt = t.getAttribute('alt') || 'Galerie Bild';
+        setActiveThumb(t);
+        preview.classList.add('flash');
+        setTimeout(()=>preview.classList.remove('flash'), 220);
+      }
+
+      setPreviewFromThumb(thumbs[0]);
+
+      thumbs.forEach(t=>{
+        t.tabIndex = 0;
+        t.addEventListener('click', ()=> setPreviewFromThumb(t));
+        t.addEventListener('keydown', (e)=>{
+          if(e.key==='Enter' || e.key===' ') {
+            e.preventDefault();
+            setPreviewFromThumb(t);
+          }
+        });
+      });
+
+      previewImg.style.cursor='zoom-in';
+      previewImg.addEventListener('click', ()=> openLightbox(previewImg.src, previewImg.alt));
+    });
+  })();
 </script>
 
 </body>
