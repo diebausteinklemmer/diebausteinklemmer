@@ -95,112 +95,109 @@ a{text-decoration:none;color:inherit}
 }
 .inline-link:hover{opacity:1}
 
-/* ===== HEADER ===== */
-.site-header{
-  position:sticky;top:0;z-index:50;
-  backdrop-filter:blur(10px) saturate(130%);
-  background:linear-gradient(180deg,rgba(2,6,23,.92),rgba(2,6,23,.62));
-  border-bottom:1px solid rgba(148,163,184,.15);
-  box-shadow:0 10px 18px rgba(2,8,23,.22);
-}
-.headbar{
-  display:grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items:center;
-  gap:14px;
-  padding:10px 0;
-}
+    /* ===== HEADER (wie andere HUBs) ===== */
+    .site-header{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:blur(10px) saturate(130%);
+      background:linear-gradient(180deg,rgba(2,6,23,.92),rgba(2,6,23,.62));
+      border-bottom:1px solid rgba(148,163,184,.15);
+      box-shadow:0 10px 18px rgba(2,8,23,.22);
+    }
+    .headbar{
+      display:grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items:center;
+      gap:14px;
+      padding:var(--header-pad) 0;
+    }
+    .brand-center{
+      display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
+      font-weight:900;letter-spacing:.2px;text-align:center;
+    }
+    .brand-center img{
+      width:64px;height:64px;border-radius:50%;object-fit:cover;box-shadow:var(--shadow)
+    }
+    .brand-top{font-size:1.05rem;font-weight:950;letter-spacing:.2px}
 
-.brand-center{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:6px;
-  font-weight:900;
-  letter-spacing:.2px;
-  text-align:center;
-}
-.brand-center img{
-  width:64px;
-  height:64px;
-  border-radius:50%;
-  object-fit:cover;
-  box-shadow:var(--shadow);
-}
-.brand-text{display:flex;flex-direction:column;line-height:1.05;}
-.brand-top{font-size:1.05rem;font-weight:950;letter-spacing:.2px;}
+    .header-block{display:flex;align-items:flex-start;justify-content:flex-start;min-width:0;}
+    .header-block.right{justify-content:flex-end;min-width:0;}
+    .header-title{
+      font-size:.82rem;font-weight:950;color:rgba(229,231,235,.92);opacity:.92;margin:0 0 6px 0;
+      white-space:nowrap;display:flex;align-items:center;gap:8px;
+    }
+    .header-list{display:grid;gap:8px;align-items:center;}
+    .header-list.hubs{ grid-template-columns: repeat(3, max-content); }
+    .header-list.partners{ grid-template-columns: repeat(3, max-content); }
 
-.header-block{display:flex;align-items:flex-start;justify-content:flex-start}
-.header-block.right{justify-content:flex-end}
+    .header-chip{
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      padding:7px 10px;border-radius:999px;
+      background:var(--chip-bg);
+      border:1px solid var(--chip-border);
+      font-weight:800;font-size:.84rem;opacity:.95;white-space:nowrap;
+      transition:transform .14s ease, filter .14s ease, opacity .14s ease, box-shadow .14s ease, outline-color .14s ease;
+      transform-origin:center;
+    }
+    .header-chip:hover{
+      filter:brightness(1.10);opacity:1;transform:scale(1.07);
+      outline: 2px solid rgba(246,176,66,.65);outline-offset:2px;
+    }
+    .header-chip.active{
+      background:rgba(255,255,255,0.16);
+      border-color:rgba(255,255,255,0.30);
+      opacity:1;
+      outline:1px solid rgba(246,176,66,.95);
+      outline-offset:2px;
+      box-shadow:
+        0 0 0 2px rgba(2,6,23,.65),
+        0 10px 26px rgba(2,8,23,.35),
+        0 0 18px rgba(246,176,66,.45);
+    }
+    .header-chip.partner img{
+      width:20px;height:20px;border-radius:8px;object-fit:contain;background:#fff;padding:2px;
+      box-shadow:0 6px 14px rgba(2,8,23,.25);
+    }
 
-.header-title{
-  font-size:.82rem;
-  font-weight:950;
-  color:rgba(229,231,235,.92);
-  opacity:.92;
-  margin:0 0 6px 0;
-  white-space:nowrap;
-  display:flex;
-  align-items:center;
-  gap:8px;
-}
+    /* Mobile dropdown (wichtig: Desktop-Blocks ausblenden, sonst "doppelt") */
+    .header-mobile-row{display:none;width:100%;gap:10px;align-items:center;justify-content:center;padding: 0 0 var(--header-pad) 0;}
+    .header-toggle{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:10px 14px;border-radius:999px;font-weight:950;font-size:.92rem;
+      background:rgba(255,255,255,0.10);
+      border:1px solid rgba(148,163,184,.20);
+      color:rgba(229,231,235,.95);
+      cursor:pointer;
+      transition:transform .14s ease, filter .14s ease, outline-color .14s ease;
+    }
+    .header-toggle:hover{filter:brightness(1.10);transform:scale(1.03);outline:2px solid rgba(246,176,66,.35);outline-offset:2px;}
+    .header-toggle .chev{display:inline-block;transform:rotate(0deg);transition:transform .16s ease;opacity:.9;}
 
-.header-list{display:grid;gap:8px;align-items:center;}
-.header-list.hubs{ grid-template-columns: repeat(3, max-content); }
-.header-list.partners{ grid-template-columns: repeat(3, max-content); }
+    .mobile-panels{display:none;padding: 0 0 12px 0;}
+    .mobile-panel{
+      margin-top:10px;border-radius:16px;padding:12px;
+      border:1px solid rgba(148,163,184,.16);background:rgba(255,255,255,0.06);
+    }
+    .mobile-panel .header-title{margin-bottom:10px;}
+    .mobile-panel .header-list{justify-content:center;}
+    .mobile-panel .header-list.hubs,
+    .mobile-panel .header-list.partners{grid-template-columns: repeat(2, max-content);justify-content:center;}
 
-.header-chip{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  padding:7px 10px;
-  border-radius:999px;
-  background:var(--chip-bg);
-  border:1px solid var(--chip-border);
-  font-weight:800;
-  font-size:.84rem;
-  opacity:.95;
-  transition:transform .14s ease, filter .14s ease, opacity .14s ease, box-shadow .14s ease, outline-color .14s ease;
-  transform-origin:center;
-  white-space:nowrap;
-}
-.header-chip:hover{
-  filter:brightness(1.10);
-  opacity:1;
-  transform:scale(1.07);
-  outline: 2px solid rgba(246,176,66,.65);
-  outline-offset:2px;
-}
-.header-chip.active{
-  background:rgba(255,255,255,0.16);
-  border-color:rgba(255,255,255,0.30);
-  opacity:1;
-  outline:1px solid rgba(246,176,66,.95);
-  outline-offset:2px;
-  box-shadow:
-    0 0 0 2px rgba(2,6,23,.65),
-    0 10px 26px rgba(2,8,23,.35),
-    0 0 18px rgba(246,176,66,.45);
-}
-.header-chip.partner img{
-  width:20px;height:20px;
-  border-radius:8px;
-  object-fit:contain;
-  background:#fff;
-  padding:2px;
-  box-shadow:0 6px 14px rgba(2,8,23,.25);
-}
+    .site-header.is-hubs-open .mobile-panels{display:block;}
+    .site-header.is-partners-open .mobile-panels{display:block;}
+    .site-header.is-hubs-open .mobile-panel.hubs{display:block;}
+    .site-header.is-partners-open .mobile-panel.partners{display:block;}
+    .mobile-panel{display:none;}
+    .site-header.is-hubs-open .header-toggle[data-toggle="hubs"] .chev{transform:rotate(180deg);}
+    .site-header.is-partners-open .header-toggle[data-toggle="partners"] .chev{transform:rotate(180deg);}
 
-@media (max-width: 1180px){
-  .header-chip{font-size:.80rem;padding:7px 9px}
-}
-@media (max-width: 980px){
-  .headbar{grid-template-columns: 1fr; justify-items:center;}
-  .header-block, .header-block.right{justify-content:center; text-align:center}
-  .header-list.hubs, .header-list.partners{grid-template-columns: repeat(2, max-content); justify-content:center;}
-}
+    @media (max-width: 1180px){
+      .header-chip{font-size:.80rem;padding:7px 9px}
+    }
+    @media (max-width: 980px){
+      .headbar{grid-template-columns: 1fr; justify-items:center;}
+      .header-block, .header-block.right{display:none;} /* <- Fix für "doppelt" */
+      .header-mobile-row{display:flex;}
+    }
 
 /* ===== CARDS ===== */
 .card{
@@ -455,15 +452,36 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
   font-size:.92rem;
 }
 .notice strong{color:#fff}
+
+/* ===== Back-to-Top ===== */
+    .to-top{
+      position:fixed;right:16px;bottom:16px;z-index:60;
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:12px 14px;border-radius:999px;
+      background:rgba(2,6,23,.72);
+      border:1px solid rgba(148,163,184,.25);
+      color:rgba(229,231,235,.95);
+      box-shadow:0 18px 42px rgba(2,8,23,.45);
+      backdrop-filter: blur(10px) saturate(130%);
+      cursor:pointer;
+      opacity:0;transform:translateY(8px) scale(.98);pointer-events:none;
+      transition:opacity .16s ease, transform .16s ease, filter .16s ease, outline-color .16s ease, bottom .16s ease;
+    }
+    .to-top:hover{filter:brightness(1.12);transform:translateY(0) scale(1.03);outline:2px solid rgba(246,176,66,.45);outline-offset:2px;}
+    .to-top.show{opacity:1;transform:translateY(0) scale(1);pointer-events:auto;}
+    .to-top svg{width:18px;height:18px;opacity:.95}
+    .to-top span{font-weight:950; font-size:.92rem}
+    @media (max-width: 520px){ .to-top span{display:none;} .to-top{padding:12px;} }
+    
   </style>
 </head>
 
 <body>
 
-<header class="site-header">
+<header class="site-header" id="siteHeader">
   <div class="wrap headbar">
 
-    <!-- LINKS: HUBS -->
+    <!-- LINKS: HUBS (Desktop) -->
     <div class="header-block" aria-label="Hubs">
       <div>
         <div class="header-title">📌 Profil</div>
@@ -481,12 +499,10 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
     <!-- MITTE -->
     <a class="brand-center" href="index.html" aria-label="Zur Startseite">
       <img src="images/logo.png" alt="Die Bausteinklemmer Logo">
-      <span class="brand-text">
-        <span class="brand-top">Die Bausteinklemmer</span>
-      </span>
+      <span class="brand-top">Die Bausteinklemmer</span>
     </a>
 
-    <!-- RECHTS: PARTNER -->
+    <!-- RECHTS: PARTNER (Desktop) -->
     <div class="header-block right" aria-label="Partner">
       <div>
         <div class="header-title">🏭 Hersteller</div>
@@ -513,6 +529,55 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
       </div>
     </div>
 
+  </div>
+
+  <!-- Mobile Toggle Row -->
+  <div class="wrap header-mobile-row" aria-label="Mobile Navigation">
+    <button class="header-toggle" type="button" data-toggle="hubs" aria-expanded="false" aria-controls="mobilePanels">
+      📌 Profil <span class="chev">▾</span>
+    </button>
+    <button class="header-toggle" type="button" data-toggle="partners" aria-expanded="false" aria-controls="mobilePanels">
+      🏭 Hersteller <span class="chev">▾</span>
+    </button>
+  </div>
+
+  <!-- Mobile Panels -->
+  <div class="wrap mobile-panels" id="mobilePanels">
+    <div class="mobile-panel hubs" aria-label="Mobile Hubs">
+      <div class="header-title">📌 Profil</div>
+      <div class="header-list hubs">
+        <a class="header-chip" href="ueber-uns.html">Über uns</a>
+        <a class="header-chip active" href="videos.html">Videos</a>
+        <a class="header-chip" href="unsere-stadt.html">Unsere Stadt</a>
+        <a class="header-chip" href="eisenbahn.html">Eisenbahn</a>
+        <a class="header-chip" href="beleuchtung.html">Beleuchtung</a>
+        <a class="header-chip" href="merch.html">Merch</a>
+      </div>
+    </div>
+
+    <div class="mobile-panel partners" aria-label="Mobile Partner">
+      <div class="header-title">🏭 Hersteller</div>
+      <div class="header-list partners">
+        <a class="header-chip partner" href="partner-lesdiy.html">
+          <img src="images/lesdiy_logo.jpg" alt="LESDIY"><span>LESDIY</span>
+        </a>
+        <a class="header-chip partner" href="partner-lumibricks.html">
+          <img src="images/Lumibricks.png" alt="Lumibricks"><span>Lumibricks</span>
+        </a>
+        <a class="header-chip partner" href="partner-briksmax.html">
+          <img src="images/briksmax.png" alt="Briksmax"><span>Briksmax</span>
+        </a>
+        <a class="header-chip partner" href="partner-jmbricklayer.html">
+          <img src="images/jmbricklayer_logo.jpg" alt="JMBricklayer"><span>JMBricklayer</span>
+        </a>
+        <a class="header-chip partner" href="partner-bluebrixx.html">
+          <img src="images/blue_brixx_logo.png" alt="BlueBrixx"><span>BlueBrixx</span>
+        </a>
+        <a class="header-chip partner" href="partner-lego.html">
+          <img src="images/lego_logo.png" alt="LEGO"><span>LEGO®</span>
+        </a>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -686,17 +751,97 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
     </div>
   </section>
 
-  <footer>
-    © <span id="y"></span> Die Bausteinklemmer ·
-    <a href="impressum.html">Impressum</a> ·
-    <a href="datenschutz.html">Datenschutz</a>
-  </footer>
+<footer id="siteFooter">
+  © <span id="y"></span> Die Bausteinklemmer ·
+  <a href="impressum.html">Impressum</a> ·
+  <a href="datenschutz.html">Datenschutz</a>
+</footer>
 
-  <script>
+<button class="to-top" id="toTopBtn" type="button" aria-label="Nach oben">
+  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M12 5l-7 7m7-7l7 7M12 5v14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  <span>Nach oben</span>
+</button>
+
+<script>
+  // Jahr
+  document.getElementById('y').textContent = new Date().getFullYear();
+
+  // ===== Mobile Header Toggle =====
+  (function(){
+    const header = document.getElementById('siteHeader');
+    if(!header) return;
+
+    const btns = header.querySelectorAll('.header-toggle[data-toggle]');
+    function setExpanded(btn, isOpen){ btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false'); }
+
+    function closeAll(){
+      header.classList.remove('is-hubs-open','is-partners-open');
+      btns.forEach(b=>setExpanded(b,false));
+    }
+
+    btns.forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const type = btn.getAttribute('data-toggle');
+        const isHubs = type === 'hubs';
+        const openClass = isHubs ? 'is-hubs-open' : 'is-partners-open';
+        const otherClass = isHubs ? 'is-partners-open' : 'is-hubs-open';
+
+        const isOpen = header.classList.contains(openClass);
+        header.classList.remove(otherClass);
+        header.classList.toggle(openClass, !isOpen);
+
+        btns.forEach(b=>{
+          const t = b.getAttribute('data-toggle');
+          const shouldOpen = header.classList.contains(t === 'hubs' ? 'is-hubs-open' : 'is-partners-open');
+          setExpanded(b, shouldOpen);
+        });
+
+        if(!header.classList.contains('is-hubs-open') && !header.classList.contains('is-partners-open')) closeAll();
+      });
+    });
+
+    window.addEventListener('resize', ()=>{ if(window.innerWidth > 980) closeAll(); });
+    header.querySelectorAll('.mobile-panels a').forEach(a=>a.addEventListener('click', ()=>closeAll()));
+  })();
+
+  // ===== Back-to-Top (weicht Footer aus) =====
+  (function(){
+    const btn = document.getElementById('toTopBtn');
+    const footer = document.getElementById('siteFooter');
+    if(!btn) return;
+
+    const SHOW_AFTER = 500;
+    const BASE_BOTTOM = 16;
+    const SAFE_GAP = 12;
+
+    function update(){
+      const y = window.scrollY || 0;
+      if(y > SHOW_AFTER) btn.classList.add('show');
+      else btn.classList.remove('show');
+
+      if(footer){
+        const btnRect = btn.getBoundingClientRect();
+        const footerRect = footer.getBoundingClientRect();
+        const overlap = (btnRect.bottom + SAFE_GAP) - footerRect.top;
+        const lift = Math.max(0, overlap);
+        btn.style.bottom = (BASE_BOTTOM + lift) + 'px';
+      } else {
+        btn.style.bottom = BASE_BOTTOM + 'px';
+      }
+    }
+
+    btn.addEventListener('click', ()=>window.scrollTo({ top:0, behavior:'smooth' }));
+    window.addEventListener('scroll', update, { passive:true });
+    window.addEventListener('resize', update, { passive:true });
+    update();
+  })();
+
     // =========================================================
     // 1) API KEY HIER EINTRAGEN (YouTube Data API v3)
     // =========================================================
-    const YT_API_KEY = "AIzaSyBklNNJb22j-M1PKi4c-WGjGGy26kp9ytM"; // <-- HIER echten Key rein (lokal), nicht öffentlich posten
+    const YT_API_KEY = "zquvlzopwvfqjafc"; // <-- HIER echten Key rein (lokal), nicht öffentlich posten
 
     // =========================================================
     // 2) PLAYLIST-IDs
@@ -775,18 +920,23 @@ function ytEmbedUrlVideo(videoId, { autoplay=false, playlistId=null, index=null 
 }
 
 
-    function ytEmbedUrlPlaylist(playlistId, { autoplay=false } = {}){
-      const origin = encodeURIComponent(location.origin);
-      const base = `https://www.youtube-nocookie.com/embed/videoseries`;
-      const params = new URLSearchParams();
-      params.set("list", playlistId);
-      params.set("rel","0");
-      params.set("modestbranding","1");
-      params.set("playsinline","1");
-      params.set("origin", origin);
-      if(autoplay) params.set("autoplay","1");
-      return `${base}?${params.toString()}`;
-    }
+function ytEmbedUrlPlaylist(playlistId, { autoplay=false } = {}){
+  const base = `https://www.youtube-nocookie.com/embed/videoseries`;
+  const params = new URLSearchParams();
+
+  params.set("list", playlistId);
+  params.set("rel","0");
+  params.set("modestbranding","1");
+  params.set("playsinline","1");
+
+  const safeOrigin = getSafeOrigin();
+  if (safeOrigin) params.set("origin", safeOrigin);
+
+  if (autoplay) params.set("autoplay","1");
+
+  return `${base}?${params.toString()}`;
+}
+
 
     function truncate(s, n){
       const t = String(s || "");
@@ -1033,45 +1183,53 @@ function ytEmbedUrlVideo(videoId, { autoplay=false, playlistId=null, index=null 
     // 6) Start: Playlists rendern
     // =========================================================
     (function initPlaylists(){
-      if(!YT_API_KEY || YT_API_KEY.includes("AIzaSyBklNNJb22j-M1PKi4c-WGjGGy26kp9ytM")){
-        console.warn("YouTube API Key fehlt noch.");
-        document.getElementById("open-stadt").href = `https://www.youtube.com/playlist?list=${CITY_PLAYLIST_ID}`;
-        document.getElementById("open-licht").href = `https://www.youtube.com/playlist?list=${LIGHT_PLAYLIST_ID}`;
-        document.getElementById("open-zug").href   = `https://www.youtube.com/playlist?list=${TRAIN_PLAYLIST_ID}`;
+  // Links + Player immer setzen (auch ohne API Key)
+  document.getElementById("open-stadt").href = `https://www.youtube.com/playlist?list=${CITY_PLAYLIST_ID}`;
+  document.getElementById("open-licht").href = `https://www.youtube.com/playlist?list=${LIGHT_PLAYLIST_ID}`;
+  document.getElementById("open-zug").href   = `https://www.youtube.com/playlist?list=${TRAIN_PLAYLIST_ID}`;
 
-        setPlayer(document.getElementById("player-stadt"), ytEmbedUrlPlaylist(CITY_PLAYLIST_ID));
-        setPlayer(document.getElementById("player-licht"), ytEmbedUrlPlaylist(LIGHT_PLAYLIST_ID));
-        setPlayer(document.getElementById("player-zug"),   ytEmbedUrlPlaylist(TRAIN_PLAYLIST_ID));
-        return;
-      }
+  setPlayer(document.getElementById("player-stadt"), ytEmbedUrlPlaylist(CITY_PLAYLIST_ID));
+  setPlayer(document.getElementById("player-licht"), ytEmbedUrlPlaylist(LIGHT_PLAYLIST_ID));
+  setPlayer(document.getElementById("player-zug"),   ytEmbedUrlPlaylist(TRAIN_PLAYLIST_ID));
 
-      renderPlaylistSection({
-        playlistId: CITY_PLAYLIST_ID,
-        openLinkElId: "open-stadt",
-        playAllBtnId: "playall-stadt",
-        playerElId: "player-stadt",
-        trackElId: "track-stadt",
-        sectionName: "Stadt"
-      });
+  // Thumbnails nur mit API Key laden
+  if(!YT_API_KEY || YT_API_KEY.includes("zquvlzopwvfqjafc")){
+    // optional: kleine Hinweise in die Tracks
+    const msg = `<div class="notice"><strong>Hinweis:</strong> Thumbnails laden erst, wenn der YouTube API Key eingesetzt ist.</div>`;
+    document.getElementById("track-stadt").innerHTML = msg;
+    document.getElementById("track-licht").innerHTML = msg;
+    document.getElementById("track-zug").innerHTML   = msg;
+    return;
+  }
 
-      renderPlaylistSection({
-        playlistId: LIGHT_PLAYLIST_ID,
-        openLinkElId: "open-licht",
-        playAllBtnId: "playall-licht",
-        playerElId: "player-licht",
-        trackElId: "track-licht",
-        sectionName: "Beleuchten"
-      });
+  renderPlaylistSection({
+    playlistId: CITY_PLAYLIST_ID,
+    openLinkElId: "open-stadt",
+    playAllBtnId: "playall-stadt",
+    playerElId: "player-stadt",
+    trackElId: "track-stadt",
+    sectionName: "Stadt"
+  });
 
-      renderPlaylistSection({
-        playlistId: TRAIN_PLAYLIST_ID,
-        openLinkElId: "open-zug",
-        playAllBtnId: "playall-zug",
-        playerElId: "player-zug",
-        trackElId: "track-zug",
-        sectionName: "Eisenbahn"
-      });
-    })();
+  renderPlaylistSection({
+    playlistId: LIGHT_PLAYLIST_ID,
+    openLinkElId: "open-licht",
+    playAllBtnId: "playall-licht",
+    playerElId: "player-licht",
+    trackElId: "track-licht",
+    sectionName: "Beleuchten"
+  });
+
+  renderPlaylistSection({
+    playlistId: TRAIN_PLAYLIST_ID,
+    openLinkElId: "open-zug",
+    playAllBtnId: "playall-zug",
+    playerElId: "player-zug",
+    trackElId: "track-zug",
+    sectionName: "Eisenbahn"
+  });
+})();
+
   </script>
 
 </main>
