@@ -55,7 +55,7 @@
 }
 </script>
 
-  <style>
+<style>
 :root{
   --bg:#f6b042;
   --panel:#111827;
@@ -70,6 +70,7 @@
   --btn-youtube:#ff0033;
   --btn-home:#f6b042;
   --btn-home-text:#111827;
+  --btn-yellow:#f6b042;
 
   --chip-bg: rgba(255,255,255,0.08);
   --chip-border: rgba(148,163,184,.18);
@@ -82,6 +83,7 @@
   --hero-klemmer-size: 130px;
 
   --header-pad: 10px;
+  --shadow-soft: 0 12px 26px rgba(2,8,23,.35);
 }
 
 *{box-sizing:border-box}
@@ -94,14 +96,10 @@ a{text-decoration:none;color:inherit}
 img{max-width:100%;height:auto;display:block}
 .wrap{max-width:1100px;margin:0 auto;padding:18px}
 .muted{color:var(--muted)}
-p, h1, h2, h3, small, code, a, span{
-  overflow-wrap:anywhere;
-  word-break:break-word;
-}
-
+p,h1,h2,h3,small,code,a,span{overflow-wrap:anywhere;word-break:break-word;}
 .anchor{scroll-margin-top:120px}
 
-/* ===== HEADER (Desktop + Mobile-Dropdown) ===== */
+/* ===== HEADER (wie andere HUBs) ===== */
 .site-header{
   position:sticky;top:0;z-index:50;
   backdrop-filter:blur(10px) saturate(130%);
@@ -114,68 +112,39 @@ p, h1, h2, h3, small, code, a, span{
   grid-template-columns: 1fr auto 1fr;
   align-items:center;
   gap:14px;
-  padding: var(--header-pad) 0;
+  padding:var(--header-pad) 0;
 }
-
 .brand-center{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:6px;
-  font-weight:900;
-  letter-spacing:.2px;
-  text-align:center;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
+  font-weight:900;letter-spacing:.2px;text-align:center;
 }
 .brand-center img{
-  width:64px;height:64px;border-radius:50%;
-  object-fit:cover;
-  box-shadow:var(--shadow);
+  width:64px;height:64px;border-radius:50%;object-fit:cover;box-shadow:var(--shadow)
 }
-.brand-text{display:flex;flex-direction:column;line-height:1.05;}
-.brand-top{font-size:1.05rem;font-weight:950;letter-spacing:.2px;}
+.brand-top{font-size:1.05rem;font-weight:950;letter-spacing:.2px}
 
-.header-block{display:flex;align-items:flex-start;justify-content:flex-start}
-.header-block.right{justify-content:flex-end}
-
+.header-block{display:flex;align-items:flex-start;justify-content:flex-start;min-width:0;}
+.header-block.right{justify-content:flex-end;min-width:0;}
 .header-title{
-  font-size:.82rem;
-  font-weight:950;
-  color:rgba(229,231,235,.92);
-  opacity:.92;
-  margin:0 0 6px 0;
-  white-space:nowrap;
-  display:flex;
-  align-items:center;
-  gap:8px;
+  font-size:.82rem;font-weight:950;color:rgba(229,231,235,.92);opacity:.92;margin:0 0 6px 0;
+  white-space:nowrap;display:flex;align-items:center;gap:8px;
 }
-
 .header-list{display:grid;gap:8px;align-items:center;}
 .header-list.hubs{ grid-template-columns: repeat(3, max-content); }
 .header-list.partners{ grid-template-columns: repeat(3, max-content); }
 
 .header-chip{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  padding:7px 10px;
-  border-radius:999px;
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:7px 10px;border-radius:999px;
   background:var(--chip-bg);
   border:1px solid var(--chip-border);
-  font-weight:800;
-  font-size:.84rem;
-  opacity:.95;
+  font-weight:800;font-size:.84rem;opacity:.95;white-space:nowrap;
   transition:transform .14s ease, filter .14s ease, opacity .14s ease, box-shadow .14s ease, outline-color .14s ease;
   transform-origin:center;
-  white-space:nowrap;
 }
 .header-chip:hover{
-  filter:brightness(1.10);
-  opacity:1;
-  transform:scale(1.07);
-  outline: 2px solid rgba(246,176,66,.65);
-  outline-offset:2px;
+  filter:brightness(1.10);opacity:1;transform:scale(1.07);
+  outline: 2px solid rgba(246,176,66,.65);outline-offset:2px;
 }
 .header-chip.active{
   background:rgba(255,255,255,0.16);
@@ -189,32 +158,18 @@ p, h1, h2, h3, small, code, a, span{
     0 0 18px rgba(246,176,66,.45);
 }
 .header-chip.partner img{
-  width:20px;height:20px;
-  border-radius:8px;
-  object-fit:contain;
-  background:#fff;
-  padding:2px;
+  width:20px;height:20px;border-radius:8px;object-fit:contain;background:#fff;padding:2px;
   box-shadow:0 6px 14px rgba(2,8,23,.25);
 }
 
-/* --- Mobile Dropdown Controls --- */
+/* Mobile dropdown */
 .header-mobile-row{
-  display:none;
-  width:100%;
-  gap:10px;
-  align-items:center;
-  justify-content:center;
+  display:none;width:100%;gap:10px;align-items:center;justify-content:center;
   padding: 0 0 var(--header-pad) 0;
 }
 .header-toggle{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  padding:10px 14px;
-  border-radius:999px;
-  font-weight:950;
-  font-size:.92rem;
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:10px 14px;border-radius:999px;font-weight:950;font-size:.92rem;
   background:rgba(255,255,255,0.10);
   border:1px solid rgba(148,163,184,.20);
   color:rgba(229,231,235,.95);
@@ -222,40 +177,27 @@ p, h1, h2, h3, small, code, a, span{
   transition:transform .14s ease, filter .14s ease, outline-color .14s ease;
 }
 .header-toggle:hover{
-  filter:brightness(1.10);
-  transform:scale(1.03);
-  outline:2px solid rgba(246,176,66,.35);
-  outline-offset:2px;
+  filter:brightness(1.10);transform:scale(1.03);
+  outline:2px solid rgba(246,176,66,.35);outline-offset:2px;
 }
-.header-toggle .chev{
-  display:inline-block;
-  transform:rotate(0deg);
-  transition:transform .16s ease;
-  opacity:.9;
-}
+.header-toggle .chev{display:inline-block;transform:rotate(0deg);transition:transform .16s ease;opacity:.9;}
 
 .mobile-panels{display:none;padding: 0 0 12px 0;}
 .mobile-panel{
-  margin-top:10px;
-  border-radius:16px;
-  padding:12px;
-  border:1px solid rgba(148,163,184,.16);
-  background:rgba(255,255,255,0.06);
+  margin-top:10px;border-radius:16px;padding:12px;
+  border:1px solid rgba(148,163,184,.16);background:rgba(255,255,255,0.06);
+  display:none;
 }
 .mobile-panel .header-title{margin-bottom:10px;}
 .mobile-panel .header-list{justify-content:center;}
 .mobile-panel .header-list.hubs,
-.mobile-panel .header-list.partners{
-  grid-template-columns: repeat(2, max-content);
-  justify-content:center;
-}
+.mobile-panel .header-list.partners{grid-template-columns: repeat(2, max-content);justify-content:center;}
 
 /* state classes */
 .site-header.is-hubs-open .mobile-panels{display:block;}
 .site-header.is-partners-open .mobile-panels{display:block;}
 .site-header.is-hubs-open .mobile-panel.hubs{display:block;}
 .site-header.is-partners-open .mobile-panel.partners{display:block;}
-.mobile-panel{display:none;}
 .site-header.is-hubs-open .header-toggle[data-toggle="hubs"] .chev{transform:rotate(180deg);}
 .site-header.is-partners-open .header-toggle[data-toggle="partners"] .chev{transform:rotate(180deg);}
 
@@ -299,30 +241,32 @@ p, h1, h2, h3, small, code, a, span{
 
 footer{margin:24px 0 40px 0;text-align:center;color:var(--muted);font-size:14px}
 
-/* ===== HERO (Unsere Stadt) ===== */
+/* ===== HERO ===== */
 .hero{
   display:grid;
-  grid-template-columns: 1.25fr .95fr; /* links Text | rechts Bild */
+  grid-template-columns: 1.25fr .95fr;
   gap:22px;
   align-items:stretch;
 }
-
 .hero-left{
   display:flex;
   flex-direction:column;
   align-items:flex-start;
   justify-content:center;
 }
-
-/* rechte Spalte: Bild oben, Links + Buttons darunter */
 .hero-right{
   display:flex;
   flex-direction:column;
   gap:12px;
-  align-items:stretch;
+  position:static;
+}
+@media (max-width: 900px){
+  .hero{grid-template-columns:1fr;text-align:left;}
+  .hero-left{align-items:flex-start}
+  .hero-right{justify-content:center}
 }
 
-/* Bild-Card */
+/* Hero Bildcontainer */
 .hero-media{
   width:100%;
   border-radius:18px;
@@ -335,7 +279,6 @@ footer{margin:24px 0 40px 0;text-align:center;color:var(--muted);font-size:14px}
   align-items:center;
   justify-content:center;
 }
-
 .hero-media img{
   width:100%;
   height:auto;
@@ -343,52 +286,7 @@ footer{margin:24px 0 40px 0;text-align:center;color:var(--muted);font-size:14px}
   object-fit:contain;
 }
 
-/* Overlay-Box (immer UNTER dem Bild) */
-.hero-overlay{
-  padding:12px;
-  border-radius:16px;
-  background:linear-gradient(180deg, rgba(2,6,23,.78), rgba(2,6,23,.56));
-  border:1px solid rgba(148,163,184,.18);
-  box-shadow:0 18px 60px rgba(2,8,23,.35);
-  backdrop-filter: blur(10px) saturate(130%);
-}
-
-/* Jump-Links im Overlay */
-.hero-overlay .jump-line{
-  margin:0 0 10px 0;
-  text-align:left;
-  line-height:1.35;
-  font-size:.92rem;
-  color:rgba(229,231,235,.90);
-  font-weight:900;
-}
-
-/* Buttons im Overlay */
-.hero-overlay .hero-actions{
-  margin:0;
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  justify-content:flex-start;
-}
-
-/* (optional) globale Jump-Line außerhalb vom Hero – falls du die woanders nutzt */
-.jump-line{
-  margin:12px 0 0 0;
-  text-align:center;
-  color:var(--muted);
-  font-weight:800;
-}
-
-/* Links */
-.inline-link{
-  text-decoration:underline;
-  text-underline-offset:3px;
-  opacity:.95;
-}
-.inline-link:hover{opacity:1}
-
-/* Buttons (allgemein) */
+/* Buttons */
 .hero-actions{
   margin-top:14px;
   display:flex;
@@ -397,18 +295,30 @@ footer{margin:24px 0 40px 0;text-align:center;color:var(--muted);font-size:14px}
   justify-content:flex-start;
 }
 
+/* Partner-Foto Tile */
+.partner-logo.photo{
+  width:260px;
+  height:170px;
+  object-fit:cover;
+  border-radius:16px;
+  border:1px solid rgba(148,163,184,.20);
+  box-shadow:0 18px 42px rgba(2,8,23,.38);
+}
+@media (max-width: 980px){
+  .partner-logo.photo{width:min(420px,100%); height:auto; aspect-ratio:16/9;}
+}
+
+/* Placeholder (Buttons/Links) */
+.is-placeholder{opacity:.55 !important; pointer-events:none !important; filter:saturate(.65) brightness(.95);}
+
+/* Base Button (die finale Version) */
 .btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  padding:14px 22px;
-  border-radius:999px;
-  font-weight:950;
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:14px 20px;border-radius:999px;font-weight:950;
   border:1px solid rgba(255,255,255,0.12);
   background:rgba(255,255,255,0.12);
   box-shadow:0 10px 22px rgba(2,8,23,.25);
-  font-size:1.05rem;
+  font-size:1.02rem;
   transition:transform .14s ease, filter .14s ease, outline-color .14s ease;
 }
 .btn:hover{
@@ -417,29 +327,23 @@ footer{margin:24px 0 40px 0;text-align:center;color:var(--muted);font-size:14px}
   outline:2px solid rgba(246,176,66,.45);
   outline-offset:2px;
 }
-
-/* Button-Farben */
 .btn.lumibricks{background:var(--btn-lumibricks); color:#111827; border-color:transparent}
 .btn.lesdiy{background:var(--btn-lesdiy); color:#04131f; border-color:transparent}
 .btn.youtube{background:var(--btn-youtube); color:#fff; border-color:transparent}
 .btn.home{background:var(--btn-home); color:var(--btn-home-text); border-color:transparent}
+.btn.yellow{background:var(--btn-yellow); color:#0b1220; border-color:transparent}
 
 hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
 
-/* Responsive */
-@media (max-width: 900px){
-  .hero{
-    grid-template-columns:1fr;
-    text-align:left;
-  }
-  .hero-left{align-items:flex-start}
-  .hero-right{justify-content:center}
-}
+.inline-link{text-decoration:underline;text-underline-offset:3px;opacity:.95;}
+.inline-link:hover{opacity:1}
 
+.jump-line{margin:12px 0 0 0;text-align:center;color:var(--muted);font-weight:800;}
 
 /* ===== TOC ===== */
 .toc-title{text-align:center;margin:0 0 8px 0}
 .toc-sub{text-align:center;margin:0 0 14px 0;color:var(--muted)}
+
 .toc{
   display:grid;
   grid-template-columns: repeat(2, minmax(0,1fr));
@@ -471,11 +375,7 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
   justify-content:center;
   overflow:hidden;
 }
-.toc-img img{
-  width:100%;
-  height:100%;
-  object-fit:contain;
-}
+.toc-img img{width:100%;height:100%;object-fit:contain;}
 .toc-body{
   padding:12px 14px;
   display:flex;
@@ -486,434 +386,7 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
 .toc-body strong{display:block}
 .toc-body small{color:var(--muted); font-weight:800}
 
-/* ===== PROJECT SECTIONS ===== */
-.project-head{
-  display:flex; justify-content:space-between; align-items:flex-start; gap:12px; flex-wrap:wrap;
-  margin-bottom:10px;
-}
-.badges{display:flex; gap:8px; flex-wrap:wrap}
-.badge{
-  font-size:12px; font-weight:900;
-  padding:6px 10px; border-radius:999px;
-  background:rgba(255,255,255,.10);
-  border:1px solid rgba(255,255,255,.12);
-}
-.badge.test{background:rgba(245,158,11,.16); border-color:rgba(245,158,11,.25)}
-
-.project-grid{
-  display:grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(0, .95fr);
-  gap:16px;
-  align-items:stretch;
-}
-.project-grid > *{min-width:0;}
-@media (max-width: 900px){ .project-grid{grid-template-columns:1fr;} }
-
-.project-text{
-  background:rgba(255,255,255,0.04);
-  border:1px solid rgba(148,163,184,.14);
-  border-radius:16px;
-  padding:14px;
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-  min-width:0;
-  overflow:hidden;
-}
-.project-text p{margin:0}
-
-.rating{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  margin:0;
-  flex-wrap:wrap;
-}
-.rating .label{font-weight:950;color:rgba(229,231,235,.9);}
-.stars{font-size:1.12rem;letter-spacing:.08em;line-height:1;}
-.rating small{color:var(--muted);font-weight:800;}
-
-.btn-row{
-  display:grid;
-  grid-template-columns: repeat(3, minmax(0,1fr));
-  gap:10px;
-  margin-top:0;
-}
-@media (max-width: 520px){
-  .btn-row{grid-template-columns: repeat(2, minmax(0,1fr));}
-  .btn-row a:last-child{grid-column: 1 / -1;}
-}
-
-.amazon-btn, .lumibricks-btn, .youtube-btn, .ig-btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  padding:10px 12px;
-  border-radius:999px;
-  font-weight:950;
-  font-size:.92rem;
-  transition:transform .14s ease, filter .14s ease, outline-color .14s ease;
-  min-width:0;
-  text-align:center;
-}
-.amazon-btn{background:#ff9900; color:#111}
-.lumibricks-btn{background:var(--btn-lumibricks); color:#111827; border:1px solid rgba(255,255,255,.10)}
-.youtube-btn{background:var(--btn-youtube); color:#fff; border:1px solid rgba(255,255,255,.10)}
-.ig-btn{background:rgba(255,255,255,0.14); color:#fff; border:1px solid rgba(255,255,255,0.16)}
-.amazon-btn:hover,.lumibricks-btn:hover,.youtube-btn:hover,.ig-btn:hover{
-  filter:brightness(1.10);
-  transform:scale(1.04);
-  outline:2px solid rgba(246,176,66,.45);
-  outline-offset:2px;
-}
-
-.more-links{
-  margin-top:12px;
-  display:flex;
-  gap:10px;
-  justify-content:center;
-  flex-wrap:wrap;
-}
-.more-links .header-chip{
-  font-size:.82rem;
-  padding:6px 10px;
-  opacity:.92;
-}
-.more-links .header-chip:hover{opacity:1;}
-
-.coupon{
-  margin:0;
-  display:flex;
-  align-items:center;
-  justify-content:flex-start;
-  gap:10px;
-  flex-wrap:wrap;
-  padding:10px 10px;
-  border-radius:12px;
-  background:rgba(255,255,255,0.035);
-  border:1px solid rgba(148,163,184,.14);
-  min-width:0;
-}
-.coupon .tag{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  font-weight:900;
-  color:rgba(229,231,235,.90);
-  opacity:.88;
-  white-space:nowrap;
-}
-.coupon code{
-  font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
-  font-weight:950;
-  font-size:.92rem;
-  padding:4px 10px;
-  border-radius:999px;
-  background:rgba(255,255,255,0.06);
-  border:1px solid rgba(148,163,184,.18);
-  color:rgba(229,231,235,.95);
-  max-width:100%;
-  overflow:hidden;
-  text-overflow:ellipsis;
-  white-space:nowrap;
-}
-.coupon .coupon-link{
-  margin-left:auto;
-  font-weight:900;
-  font-size:.88rem;
-  color:rgba(253,230,138,.95);
-  opacity:.92;
-  white-space:nowrap;
-  text-decoration:underline;
-  text-underline-offset:3px;
-}
-.coupon .coupon-link:hover{opacity:1}
-@media (max-width: 520px){
-  .coupon .coupon-link{margin-left:0;}
-}
-
-.copy-btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:6px 8px;
-  border-radius:999px;
-  background:rgba(255,255,255,0.06);
-  border:1px solid rgba(148,163,184,.18);
-  color:rgba(229,231,235,.95);
-  cursor:pointer;
-  transition:transform .14s ease, filter .14s ease, outline-color .14s ease;
-  flex:0 0 auto;
-  line-height:1;
-}
-.copy-btn:hover{
-  filter:brightness(1.10);
-  transform:scale(1.04);
-  outline:2px solid rgba(246,176,66,.35);
-  outline-offset:2px;
-}
-.copy-btn svg{width:15px;height:15px;opacity:.95}
-.copy-btn .sr-only{
-  position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
-  clip:rect(0,0,0,0);white-space:nowrap;border:0;
-}
-.hero-center .coupon{justify-content:center;}
-.hero-center .coupon .coupon-link{margin-left:0;}
-
-/* ===== Mini-Galerie ===== */
-.gallery-xl .gallery-main{
-  display:block;
-  position:relative;
-  background:#0a1220;
-}
-.gallery-main::after{
-  content:"🖼️";
-  position:absolute;
-  right:10px; top:10px;
-  font-size:18px;
-  opacity:.85;
-  background:rgba(2,6,23,.55);
-  border:1px solid rgba(148,163,184,.18);
-  border-radius:999px;
-  padding:6px 10px;
-}
-.gallery-main-img{
-  width:100%;
-  height:290px;
-  object-fit:contain;
-  object-position:center;
-  background:#0a1220;
-}
-@media (max-width: 900px){
-  .gallery-main-img{height:260px;}
-}
-.gallery-cap{
-  padding:10px 12px;
-  color:var(--muted);
-  font-weight:800;
-  font-size:.9rem;
-  border-top:1px solid rgba(148,163,184,.15);
-}
-
-.gallery-xl .gallery-thumbs{
-  display:grid;
-  grid-template-columns: repeat(4, minmax(0,1fr));
-  gap:10px;
-  padding:12px;
-  border-top:1px solid rgba(148,163,184,.12);
-  background:rgba(255,255,255,0.02);
-}
-@media (max-width: 520px){
-  .gallery-thumbs{grid-template-columns: repeat(3, minmax(0,1fr));}
-}
-
-.gthumb{
-  border:1px solid rgba(148,163,184,.22);
-  background:rgba(255,255,255,0.04);
-  border-radius:12px;
-  padding:0;
-  cursor:pointer;
-  width:100%;
-  aspect-ratio: 4 / 3;
-  overflow:hidden;
-  transition:transform .14s ease, filter .14s ease, outline-color .14s ease, border-color .14s ease;
-}
-.gthumb img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  background:#0a1220;
-}
-.gthumb:hover{
-  filter:brightness(1.10);
-  transform:scale(1.03);
-  outline:2px solid rgba(246,176,66,.35);
-  outline-offset:2px;
-}
-.gthumb.active{
-  border-color:rgba(253,230,138,.65);
-  outline:2px solid rgba(253,230,138,.35);
-  outline-offset:2px;
-}
-
-/* ===== Rechts: 9:16 Reel/Short Preview ===== */
-.reel-wrap{
-  border-radius:16px;
-  overflow:hidden;
-  border:1px solid rgba(148,163,184,.22);
-  background:#0a1220;
-  box-shadow:var(--shadow);
-  display:block;
-  min-width:0;
-}
-.reel-thumb{
-  position:relative;
-  width:100%;
-  padding-top:56.25%;   /* ✅ 16:9 */
-  background-size:cover;
-  background-position:center;
-}
-
-.reel-thumb::after{
-  content:"▶";
-  position:absolute; inset:0;
-  display:grid; place-items:center;
-  font-size:56px; color:#fff;
-  text-shadow:0 8px 22px rgba(0,0,0,.75);
-}
-.reel-cap{
-  padding:10px 12px;
-  color:var(--muted);
-  font-weight:800;
-  font-size:.9rem;
-}
-
-.right-col{
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-  align-items:stretch;
-  min-width:0;
-  overflow:hidden;
-}
-.affiliate-note{
-  margin-top:2px;
-  text-align:center;
-  font-size:.9rem;
-  color:rgba(229,231,235,.75);
-  font-weight:800;
-}
-
-/* ===== Back-to-Top Button (weicht Footer aus) ===== */
-.to-top{
-  position:fixed;
-  right:16px;
-  bottom:16px; /* wird per JS dynamisch erhöht, sobald Footer kollidiert */
-  z-index:60;
-
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-
-  padding:12px 14px;
-  border-radius:999px;
-
-  background:rgba(2,6,23,.72);
-  border:1px solid rgba(148,163,184,.25);
-  color:rgba(229,231,235,.95);
-
-  box-shadow:0 18px 42px rgba(2,8,23,.45);
-  backdrop-filter: blur(10px) saturate(130%);
-  cursor:pointer;
-
-  opacity:0;
-  transform:translateY(8px) scale(.98);
-  pointer-events:none;
-
-  transition:opacity .16s ease, transform .16s ease, filter .16s ease, outline-color .16s ease, bottom .16s ease;
-}
-.to-top:hover{
-  filter:brightness(1.12);
-  transform:translateY(0) scale(1.03);
-  outline:2px solid rgba(246,176,66,.45);
-  outline-offset:2px;
-}
-.to-top.show{
-  opacity:1;
-  transform:translateY(0) scale(1);
-  pointer-events:auto;
-}
-.to-top svg{width:18px;height:18px;opacity:.95}
-.to-top span{font-weight:950; font-size:.92rem}
-@media (max-width: 520px){
-  .to-top span{display:none;}
-  .to-top{padding:12px;}
-}
-  
-/* ===== Unsere Stadt: Hero Foto als Tile ===== */
-.partner-logo.photo{
-  background:transparent;
-  padding:0;
-  border-radius:18px;
-  width: 320px;
-  height: 220px;
-  object-fit:cover;
-  border:1px solid rgba(148,163,184,.18);
-  box-shadow:var(--shadow);
-}
-@media (max-width: 900px){
-  .partner-logo.photo{width:100%; max-width:520px; height:auto; aspect-ratio: 16/10;}
-}
-
-/* ===== TOC Links: Hover-Glow wie Cards ===== */
-.toc-brand a{
-  display:inline-flex;
-  padding:6px 10px;
-  border-radius:999px;
-  background:rgba(255,255,255,0.04);
-  border:1px solid rgba(148,163,184,.14);
-  box-shadow:0 10px 22px rgba(2,8,23,.18);
-  transition:transform .14s ease, filter .14s ease, box-shadow .14s ease, outline-color .14s ease;
-}
-.toc-brand a:hover{
-  filter:brightness(1.08);
-  transform:translateY(-2px) scale(1.02);
-  box-shadow:0 22px 60px rgba(2,8,23,.58), 0 0 0 2px rgba(246,176,66,.75), 0 0 0 8px rgba(255,255,255,.05);
-  outline:2px solid rgba(246,176,66,.55);
-  outline-offset:2px;
-}
-
-
-
-/* === Unsere Stadt Zusatzstyles (TOC/Projekt-Cards) === */
-/* ===== TOC (compact: Logos + Titles only) ===== */
-.toc-title{text-align:center;margin:0 0 8px 0}
-.toc-sub{text-align:center;margin:0 0 14px 0;color:var(--muted)}
-
-/* ===== TOC Links: Hover wie Cards (Glow + orange Kontur) ===== */
-
-.toc-brand ul{display:flex; flex-direction:column; gap:10px;}
-
-.toc-brand a.toc-jump{
-  display:block;
-  padding:10px 12px;
-  border-radius:12px;
-
-  background:rgba(255,255,255,.06);
-  border:1px solid rgba(148,163,184,.18);
-
-  font-weight:950;
-  text-decoration:underline;
-  text-underline-offset:3px;
-  color:rgba(229,231,235,.92);
-
-  transition:transform .14s ease, filter .14s ease, box-shadow .14s ease, outline-color .14s ease, background .14s ease;
-}
-
-.toc-brand a.toc-jump:hover{
-  filter:brightness(1.08);
-  transform:translateY(-2px) scale(1.01);
-
-  /* orange Kontur + Glow wie bei deinen Cards */
-  outline:2px solid rgba(246,176,66,.75);
-  outline-offset:2px;
-  box-shadow:
-    0 18px 44px rgba(2,8,23,.55),
-    0 0 0 2px rgba(246,176,66,.45),
-    0 0 0 10px rgba(255,255,255,.04);
-}
-
-.toc-brand a.toc-jump:focus-visible{
-  outline:2px solid rgba(246,176,66,.95);
-  outline-offset:3px;
-  box-shadow:
-    0 18px 44px rgba(2,8,23,.55),
-    0 0 0 2px rgba(246,176,66,.55),
-    0 0 0 12px rgba(255,255,255,.05);
-}
-
+/* TOC Brand / Jump Liste (compact) */
 .toc-brand{
   background:rgba(255,255,255,.05);
   border:1px solid rgba(148,163,184,.16);
@@ -927,46 +400,41 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
   margin:0 auto 10px;
   filter:drop-shadow(0 12px 24px rgba(2,8,23,.35));
 }
-.toc-brand ul{
-  list-style:none;
-  padding:0;
-  margin:0;
-}
-.toc-brand li{margin:7px 0}
-.toc-brand a{
+.toc-brand ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
+.toc-brand li{margin:0}
+
+.toc-brand a.toc-jump{
+  display:block;
+  padding:10px 12px;
+  border-radius:12px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(148,163,184,.18);
   font-weight:950;
   text-decoration:underline;
   text-underline-offset:3px;
-  opacity:.95;
+  color:rgba(229,231,235,.92);
+  transition:transform .14s ease, filter .14s ease, box-shadow .14s ease, outline-color .14s ease, background .14s ease;
 }
-.toc-brand a:hover{opacity:1}
+.toc-brand a.toc-jump:hover{
+  filter:brightness(1.08);
+  transform:translateY(-2px) scale(1.01);
+  outline:2px solid rgba(246,176,66,.75);
+  outline-offset:2px;
+  box-shadow:
+    0 18px 44px rgba(2,8,23,.55),
+    0 0 0 2px rgba(246,176,66,.45),
+    0 0 0 10px rgba(255,255,255,.04);
+}
+.toc-brand a.toc-jump:focus-visible{
+  outline:2px solid rgba(246,176,66,.95);
+  outline-offset:3px;
+  box-shadow:
+    0 18px 44px rgba(2,8,23,.55),
+    0 0 0 2px rgba(246,176,66,.55),
+    0 0 0 12px rgba(255,255,255,.05);
+}
 
-/* ===== Brand Sections ===== */
-.brand-section-head{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  flex-wrap:wrap;
-  margin-bottom:10px;
-}
-.brand-title{
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
-.brand-title img{
-  height:42px;
-  width:auto;
-  background:#fff;
-  border-radius:14px;
-  padding:6px 10px;
-  box-shadow:0 10px 22px rgba(2,8,23,.22);
-}
-.brand-title h2{margin:0}
-.brand-sub{margin:6px 0 0 0;color:var(--muted);font-weight:900}
-
-/* ===== Project Card Layout ===== */
+/* ===== PROJECT SECTIONS (final / neuere Version) ===== */
 .project-head{
   display:flex;
   align-items:flex-start;
@@ -975,11 +443,7 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
   flex-wrap:wrap;
   margin-bottom:10px;
 }
-.project-left{
-  display:flex;
-  align-items:flex-start;
-  gap:12px;
-}
+.project-left{display:flex;align-items:flex-start;gap:12px;}
 .brand-badge{
   display:inline-flex;
   align-items:center;
@@ -990,19 +454,15 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
   padding:8px 10px;
 }
 .brand-badge img{
-  height:26px;
-  width:auto;
-  background:#fff;
-  border-radius:10px;
-  padding:4px 8px;
+  height:26px;width:auto;background:#fff;border-radius:10px;padding:4px 8px;
 }
 .project-left h3{margin:0;font-size:1.35rem}
 .project-left p{margin:6px 0 0 0;color:var(--muted);font-weight:900}
 
 .badges{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .badge{
-  font-size:12px; font-weight:950;
-  padding:6px 10px; border-radius:999px;
+  font-size:12px;font-weight:950;
+  padding:6px 10px;border-radius:999px;
   background:rgba(255,255,255,.10);
   border:1px solid rgba(255,255,255,.12);
 }
@@ -1032,11 +492,7 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
 }
 .project-text p{margin:0;line-height:1.6}
 
-.info-grid{
-  display:grid;
-  grid-template-columns: repeat(2, minmax(0,1fr));
-  gap:10px;
-}
+.info-grid{display:grid;grid-template-columns: repeat(2, minmax(0,1fr));gap:10px;}
 @media (max-width: 520px){ .info-grid{grid-template-columns:1fr;} }
 .info-box{
   background:rgba(255,255,255,.04);
@@ -1048,27 +504,18 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
 .info-box strong{display:block;color:rgba(229,231,235,.92);margin-bottom:2px}
 .info-box span{color:rgba(229,231,235,.86);font-weight:900}
 
-.rating{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  flex-wrap:wrap;
-}
+.rating{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
 .rating .label{font-weight:950;color:rgba(229,231,235,.9);}
 .stars{font-size:1.12rem;letter-spacing:.08em;line-height:1;}
 .rating small{color:var(--muted);font-weight:900;}
 
-.btn-row{
-  display:grid;
-  grid-template-columns: repeat(3, minmax(0,1fr));
-  gap:10px;
-}
+.btn-row{display:grid;grid-template-columns: repeat(3, minmax(0,1fr));gap:10px;}
 @media (max-width: 520px){
   .btn-row{grid-template-columns: repeat(2, minmax(0,1fr));}
   .btn-row a:last-child{grid-column: 1 / -1;}
 }
 
-.amazon-btn, .shop-btn, .youtube-btn{
+.amazon-btn,.shop-btn,.youtube-btn,.ig-btn{
   display:inline-flex;
   align-items:center;
   justify-content:center;
@@ -1085,12 +532,22 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
 .amazon-btn{background:#ff9900; color:#111}
 .shop-btn{background:#7dd3fc; color:#04131f}
 .youtube-btn{background:var(--btn-youtube); color:#fff}
-.amazon-btn:hover,.shop-btn:hover,.youtube-btn:hover{
+.ig-btn{background:rgba(255,255,255,0.14); color:#fff; border:1px solid rgba(255,255,255,0.16)}
+.amazon-btn:hover,.shop-btn:hover,.youtube-btn:hover,.ig-btn:hover{
   filter:brightness(1.10);
   transform:scale(1.04);
   outline:2px solid rgba(246,176,66,.35);
   outline-offset:2px;
 }
+
+/* Placeholder-Buttons (für Buttons, die per JS deaktiviert werden) */
+.youtube-btn.is-placeholder,
+.amazon-btn.is-placeholder,
+.shop-btn.is-placeholder{opacity:.55;filter:saturate(.70);pointer-events:none;}
+
+.more-links{margin-top:12px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+.more-links .header-chip{font-size:.82rem;padding:6px 10px;opacity:.92;}
+.more-links .header-chip:hover{opacity:1;}
 
 .affiliate-note{
   margin-top:2px;
@@ -1098,59 +555,6 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
   font-size:.9rem;
   color:rgba(229,231,235,.72);
   font-weight:900;
-}
-
-/* ===== GALERIE (Vorschau links) ===== */
-/* bewusst kleiner, damit rechts die Großansicht Sinn macht */
-.gallery{
-  display:grid;
-  grid-template-columns: repeat(4, minmax(0,1fr));
-  gap:10px;
-}
-@media (max-width: 900px){
-  .gallery{grid-template-columns: repeat(3, minmax(0,1fr));}
-}
-@media (max-width: 520px){
-  .gallery{grid-template-columns: repeat(2, minmax(0,1fr));}
-}
-.gallery img{
-  width:100%;
-  height:clamp(64px, 10vw, 92px);
-  border-radius:12px;
-  border:1px solid rgba(148,163,184,.25);
-  background:#0a1220;
-  object-fit:cover;
-  cursor:pointer;
-  transition:transform .14s ease, filter .14s ease, box-shadow .14s ease, outline-color .14s ease;
-}
-.gallery img:hover{
-  filter:brightness(1.08);
-  transform:translateY(-2px) scale(1.02);
-  outline:2px solid rgba(246,176,66,.35);
-  outline-offset:2px;
-  box-shadow:0 18px 50px rgba(2,8,23,.55);
-}
-.gallery img.is-active{
-  outline:2px solid rgba(246,176,66,.95);
-  outline-offset:2px;
-  box-shadow:
-    0 0 0 2px rgba(2,6,23,.65),
-    0 18px 50px rgba(2,8,23,.55),
-    0 0 18px rgba(246,176,66,.38);
-}
-.gallery img:hover{
-  filter:brightness(1.06);
-  transform:translateY(-2px) scale(1.01);
-  box-shadow:0 18px 46px rgba(2,8,23,.55);
-  outline:2px solid rgba(246,176,66,.55);
-  outline-offset:2px;
-}
-.gallery img.is-active{
-  outline:2px solid rgba(246,176,66,.95);
-  outline-offset:2px;
-  box-shadow:
-    0 18px 46px rgba(2,8,23,.55),
-    0 0 0 8px rgba(255,255,255,.05);
 }
 
 .faq-box{
@@ -1208,120 +612,82 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
   flex-direction:column;
   gap:12px;
   align-items:stretch;
+  min-width:0;
+  overflow:hidden;
 }
 
-
-
-
-
-/* ===== TOC Grid / Brand Cards (city Hub) ===== */
-.toc-title{text-align:center;margin:0 0 8px 0}
-.toc-sub{text-align:center;margin:0 0 14px 0;color:var(--muted)}
-
-.toc-brands{
-  display:grid;
-  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-  gap:18px;
+/* ===== Mini-Galerie (XL) ===== */
+.gallery-xl .gallery-main{
+  display:block;
+  position:relative;
+  background:#0a1220;
 }
-.toc-brand{
-  background:rgba(255,255,255,.05);
-  border:1px solid rgba(148,163,184,.16);
-  border-radius:16px;
-  padding:14px;
-  text-align:center;
-  box-shadow:0 10px 22px rgba(2,8,23,.18);
-}
-.toc-brand img{
-  max-height:52px;
-  margin:0 auto 10px;
-  filter:drop-shadow(0 12px 24px rgba(2,8,23,.35));
-}
-.toc-brand ul{list-style:none;padding:0;margin:0}
-.toc-brand li{margin:7px 0}
-.toc-brand a{
-  font-weight:950;
-  text-decoration:underline;
-  text-underline-offset:3px;
-  opacity:.95;
-}
-.toc-brand a:hover{opacity:1}
-
-/* ===== TOC Link-Hover (Glow wie Cards) ===== */
-.toc-brand a{
-  display:inline-block;
-  padding:6px 10px;
+.gallery-main::after{
+  content:"🖼️";
+  position:absolute;
+  right:10px; top:10px;
+  font-size:18px;
+  opacity:.85;
+  background:rgba(2,6,23,.55);
+  border:1px solid rgba(148,163,184,.18);
   border-radius:999px;
-  background:transparent;
-  border:1px solid rgba(255,255,255,0.00);
-  transition:transform .14s ease, filter .14s ease, opacity .14s ease, box-shadow .14s ease, outline-color .14s ease, background .14s ease, border-color .14s ease;
+  padding:6px 10px;
 }
-.toc-brand a:hover{
-  opacity:1;
-  background:rgba(255,255,255,0.06);
-  border-color:rgba(246,176,66,.45);
-  box-shadow:
-    0 0 0 2px rgba(246,176,66,.55),
-    0 18px 42px rgba(2,8,23,.35);
-  transform:translateY(-1px) scale(1.02);
+.gallery-main-img{
+  width:100%;
+  height:290px;
+  object-fit:contain;
+  object-position:center;
+  background:#0a1220;
 }
-.toc-brand a:focus-visible{
-  outline:2px solid rgba(246,176,66,.65);
-  outline-offset:2px;
+@media (max-width: 900px){
+  .gallery-main-img{height:260px;}
 }
-
-/* ===== HERO Foto links: ohne weissen Rahmen (optional) ===== */
-.partner-logo.photo{
-  width:260px;
-  height:170px;
+.gallery-cap{
+  padding:10px 12px;
+  color:var(--muted);
+  font-weight:800;
+  font-size:.9rem;
+  border-top:1px solid rgba(148,163,184,.15);
+}
+.gallery-xl .gallery-thumbs{
+  display:grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  gap:10px;
+  padding:12px;
+  border-top:1px solid rgba(148,163,184,.12);
+  background:rgba(255,255,255,0.02);
+}
+@media (max-width: 520px){
+  .gallery-thumbs{grid-template-columns: repeat(3, minmax(0,1fr));}
+}
+.gthumb{
+  border:1px solid rgba(148,163,184,.22);
+  background:rgba(255,255,255,0.04);
+  border-radius:12px;
+  padding:0;
+  cursor:pointer;
+  width:100%;
+  aspect-ratio: 4 / 3;
+  overflow:hidden;
+  transition:transform .14s ease, filter .14s ease, outline-color .14s ease, border-color .14s ease;
+}
+.gthumb img{
+  width:100%;
+  height:100%;
   object-fit:cover;
-  border-radius:16px;
-  border:1px solid rgba(148,163,184,.20);
-  box-shadow:0 18px 42px rgba(2,8,23,.38);
+  background:#0a1220;
 }
-@media (max-width: 980px){
-  .partner-logo.photo{width:min(420px,100%); height:auto; aspect-ratio:16/9;}
-}
-/* Placeholder-Links (Buttons werden erst aktiv wenn ein richtiger Link drin ist) */.is-placeholder{opacity:.55 !important; pointer-events:none !important; filter:saturate(.65) brightness(.95);}
-
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:10px;
-  padding:14px 20px;border-radius:999px;font-weight:950;
-  border:1px solid rgba(255,255,255,0.12);
-  background:rgba(255,255,255,0.12);
-  box-shadow:0 10px 22px rgba(2,8,23,.25);
-  font-size:1.02rem;
-  transition:transform .14s ease, filter .14s ease, outline-color .14s ease;
-}
-.btn:hover{
+.gthumb:hover{
   filter:brightness(1.10);
-  transform:scale(1.04);
-  outline:2px solid rgba(246,176,66,.45);
+  transform:scale(1.03);
+  outline:2px solid rgba(246,176,66,.35);
   outline-offset:2px;
 }
-.btn.yellow{
-  background:var(--btn-yellow);
-  color:#0b1220;
-  border-color:transparent;
-}
-
-.videos-cta-row{
-  margin-top:12px;
-  display:flex;
-  justify-content:center;   /* mittig */
-}
-.videos-cta-row{
-  margin-top:14px;
-  padding:10px 0 6px;
-  position:relative;
-  z-index:50;          /* nach vorn */
-}
-
-.videos-cta-row .btn{
-  position:relative;
-  z-index:51;
-}
-:root{
-  --btn-yellow:#f6b042;
+.gthumb.active{
+  border-color:rgba(253,230,138,.65);
+  outline:2px solid rgba(253,230,138,.35);
+  outline-offset:2px;
 }
 
 /* ===== Lightbox (Galerie Zoom) ===== */
@@ -1372,79 +738,10 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
   max-height:78vh;
   object-fit:contain;
   display:block;
-}
-/* ===== Gallery Preview (unter dem Video) ===== */
-.gallery img.is-active{
-  outline:2px solid rgba(246,176,66,.95);
-  outline-offset:2px;
-  box-shadow:
-    0 0 0 2px rgba(2,6,23,.65),
-    0 18px 50px rgba(2,8,23,.55),
-    0 0 18px rgba(246,176,66,.38);
+  cursor:zoom-out;
 }
 
-.gallery-preview{
-  margin-top:12px;
-  background:rgba(255,255,255,0.04);
-  border:1px solid rgba(148,163,184,.14);
-  border-radius:16px;
-  overflow:hidden;
-  box-shadow:var(--shadow-soft);
-}
-.gallery-preview.flash{
-  box-shadow: var(--shadow-soft), var(--glow);
-  outline: 2px solid rgba(246,176,66,.95);
-  outline-offset:2px;
-}
-.preview-head{
-  padding:10px 12px;
-  font-weight:950;
-  color:rgba(229,231,235,.85);
-  border-bottom:1px solid rgba(148,163,184,.14);
-}
-.preview-box{
-  position:relative;
-  width:100%;
-  background:#020617;
-}
-.preview-box::after{
-  content:"Klick zum Zoomen";
-  position:absolute;
-  right:10px;
-  bottom:10px;
-  font-size:.85rem;
-  font-weight:900;
-  color:rgba(229,231,235,.78);
-  background:rgba(2,6,23,.55);
-  border:1px solid rgba(148,163,184,.22);
-  padding:6px 10px;
-  border-radius:999px;
-  backdrop-filter: blur(10px) saturate(130%);
-}
-.preview-img{
-  display:block;
-  width:100%;
-  height:auto;
-  max-height:380px;
-  object-fit:contain;
-  cursor:zoom-in;
-}
-@media (max-width: 900px){
-  .preview-img{max-height:320px;}
-}
-
-/* Placeholder-Buttons: nur wenn href leer/# ist (wird per JS gesetzt) */
-.youtube-btn.is-placeholder,
-.amazon-btn.is-placeholder,
-.shop-btn.is-placeholder{
-  opacity:.55;
-  filter:saturate(.70);
-  pointer-events:none;
-}
-
-
-
-/* ===== Gallery thumbnails + Preview (Krank geil Glow) ===== */
+/* ===== Gallery thumbnails + Preview (final, passend zu deinem JS) ===== */
 .gallery{
   display:grid;
   grid-template-columns:repeat(4,minmax(0,1fr));
@@ -1489,15 +786,13 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
   background:rgba(2,6,23,.55);
   border-bottom:1px solid rgba(148,163,184,.14);
 }
-.gallery-preview-box{
-  position:relative;
-  background:#0b1222;
-}
+.gallery-preview-box{position:relative;background:#0b1222;}
 .gallery-preview-img{
   width:100%;
   aspect-ratio:16/9;
   object-fit:cover;
   display:block;
+  cursor:zoom-in;
 }
 .gallery-preview.flash{animation:previewFlash .22s ease;}
 @keyframes previewFlash{from{filter:brightness(1.18)}to{filter:brightness(1)}}
@@ -1511,7 +806,59 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
   .gallery img{height:62px;}
 }
 
-/* ===== Unsere Stadt: Simple Head (ohne Hersteller-Logo / ohne Badge) ===== */
+/* ===== Videos CTA Row (zusammengeführt) ===== */
+.videos-cta-row{
+  margin-top:14px;
+  padding:10px 0 6px;
+  display:flex;
+  justify-content:center;
+  position:relative;
+  z-index:50;
+}
+.videos-cta-row .btn{position:relative;z-index:51;}
+
+/* ===== Back-to-Top Button ===== */
+.to-top{
+  position:fixed;
+  right:16px;
+  bottom:16px;
+  z-index:60;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:12px 14px;
+  border-radius:999px;
+  background:rgba(2,6,23,.72);
+  border:1px solid rgba(148,163,184,.25);
+  color:rgba(229,231,235,.95);
+  box-shadow:0 18px 42px rgba(2,8,23,.45);
+  backdrop-filter: blur(10px) saturate(130%);
+  cursor:pointer;
+  opacity:0;
+  transform:translateY(8px) scale(.98);
+  pointer-events:none;
+  transition:opacity .16s ease, transform .16s ease, filter .16s ease, outline-color .16s ease, bottom .16s ease;
+}
+.to-top:hover{
+  filter:brightness(1.12);
+  transform:translateY(0) scale(1.03);
+  outline:2px solid rgba(246,176,66,.45);
+  outline-offset:2px;
+}
+.to-top.show{
+  opacity:1;
+  transform:translateY(0) scale(1);
+  pointer-events:auto;
+}
+.to-top svg{width:18px;height:18px;opacity:.95}
+.to-top span{font-weight:950; font-size:.92rem}
+@media (max-width: 520px){
+  .to-top span{display:none;}
+  .to-top{padding:12px;}
+}
+
+/* ===== Unsere Stadt: Simple Head ===== */
 .project-head.simple{margin-bottom:10px;}
 .project-head.simple .brand-badge{display:none !important;}
 .project-head.simple .badges{display:none !important;}
@@ -1519,15 +866,40 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
 .project-head.simple .title-wrap h3{margin:0;font-size:1.35rem}
 .project-head.simple .title-wrap p{margin:6px 0 0 0;color:var(--muted);font-weight:900}
 
+/* ===== HERO Overlay: unter dem Bild ===== */
+.hero-overlay{
+  position:static;
+  max-width:100%;
+  padding:12px 12px;
+  border-radius:16px;
+  background:linear-gradient(180deg, rgba(2,6,23,.74), rgba(2,6,23,.52));
+  border:1px solid rgba(148,163,184,.18);
+  box-shadow:0 18px 60px rgba(2,8,23,.35);
+  backdrop-filter: blur(10px) saturate(130%);
+}
+.hero-overlay .jump-line{
+  margin:0 0 10px 0;
+  text-align:left;
+  color:rgba(229,231,235,.88);
+  font-weight:900;
+  line-height:1.35;
+}
+.hero-overlay .hero-actions{
+  margin-top:0;
+  justify-content:flex-start;
+}
+@media (max-width: 900px){
+  .hero-overlay{margin-top:12px;max-width:100%;}
+}
+</style>
 
-  </style>
 </head>
 
 <body>
-<header class="site-header">
+<header class="site-header" id="siteHeader">
   <div class="wrap headbar">
 
-    <!-- LINKS: HUBS -->
+    <!-- LINKS: HUBS (Desktop) -->
     <div class="header-block" aria-label="Hubs">
       <div>
         <div class="header-title">📌 Profil</div>
@@ -1545,12 +917,10 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
     <!-- MITTE -->
     <a class="brand-center" href="index.html" aria-label="Zur Startseite">
       <img src="images/logo.png" alt="Die Bausteinklemmer Logo">
-      <span class="brand-text">
-        <span class="brand-top">Die Bausteinklemmer</span>
-      </span>
+      <span class="brand-top">Die Bausteinklemmer</span>
     </a>
 
-    <!-- RECHTS: PARTNER -->
+    <!-- RECHTS: PARTNER (Desktop) -->
     <div class="header-block right" aria-label="Partner">
       <div>
         <div class="header-title">🏭 Hersteller</div>
@@ -1578,74 +948,151 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
     </div>
 
   </div>
+
+  <!-- Mobile Toggle Row -->
+  <div class="wrap header-mobile-row" aria-label="Mobile Navigation">
+    <button class="header-toggle" type="button" data-toggle="hubs" aria-expanded="false" aria-controls="mobilePanels">
+      📌 Profil <span class="chev">▾</span>
+    </button>
+    <button class="header-toggle" type="button" data-toggle="partners" aria-expanded="false" aria-controls="mobilePanels">
+      🏭 Hersteller <span class="chev">▾</span>
+    </button>
+  </div>
+
+  <!-- Mobile Panels -->
+  <div class="wrap mobile-panels" id="mobilePanels">
+    <div class="mobile-panel hubs" aria-label="Mobile Hubs">
+      <div class="header-title">📌 Profil</div>
+      <div class="header-list hubs">
+        <a class="header-chip" href="ueber-uns.html">Über uns</a>
+        <a class="header-chip" href="videos.html">Videos</a>
+        <a class="header-chip active" href="unsere-stadt.html">Unsere Stadt</a>
+        <a class="header-chip" href="eisenbahn.html">Eisenbahn</a>
+        <a class="header-chip" href="beleuchtung.html">Beleuchtung</a>
+        <a class="header-chip" href="merch.html">Merch</a>
+      </div>
+    </div>
+
+    <div class="mobile-panel partners" aria-label="Mobile Partner">
+      <div class="header-title">🏭 Hersteller</div>
+      <div class="header-list partners">
+        <a class="header-chip partner" href="partner-lesdiy.html">
+          <img src="images/lesdiy_logo.jpg" alt="LESDIY"><span>LESDIY</span>
+        </a>
+        <a class="header-chip partner" href="partner-lumibricks.html">
+          <img src="images/Lumibricks.png" alt="Lumibricks"><span>Lumibricks</span>
+        </a>
+        <a class="header-chip partner" href="partner-briksmax.html">
+          <img src="images/briksmax.png" alt="Briksmax"><span>Briksmax</span>
+        </a>
+        <a class="header-chip partner" href="partner-jmbricklayer.html">
+          <img src="images/jmbricklayer_logo.jpg" alt="JMBricklayer"><span>JMBricklayer</span>
+        </a>
+        <a class="header-chip partner" href="partner-bluebrixx.html">
+          <img src="images/blue_brixx_logo.png" alt="BlueBrixx"><span>BlueBrixx</span>
+        </a>
+        <a class="header-chip partner" href="partner-lego.html">
+          <img src="images/lego_logo.png" alt="LEGO"><span>LEGO®</span>
+        </a>
+      </div>
+    </div>
+  </div>
 </header>
 
 <main class="wrap">
+
 <!-- HERO: UNSERE STADT -->
   <section class="card hero">
     <div class="hero-left">
       <h1>Unsere Stadt: BeanVillage</h1>
 
 <p>
-  Willkommen in <strong>BeanVillage</strong>, unserer wachsenden <strong>LEGO® und Klemmbaustein Stadt</strong>.
-  Aktuell stecken in BeanVillage rund <strong>50.000 Klemmbausteine</strong>: etwa <strong>85 Prozent LEGO®</strong> und der Rest ist ein Mix aus <strong>BlueBrixx</strong> (vor allem Slopes im Bergbereich) sowie <strong>Penny Bricks</strong>.
-  Das Projekt ist gemeinsam mit unserem YouTube Kanal im <strong>November 2022</strong> gestartet und wächst seitdem auf einer Fläche von rund <strong>3 mal 4 Metern</strong>, also ungefähr <strong>12 Quadratmetern</strong>.
-  Zusätzlich ist ein relativ großer <strong>Schattenbahnhof</strong> angebunden.
-  Welche Züge dort unterwegs sind, findest du gesammelt auf unserer
-  <a class="inline-link" href="eisenbahn.html">Eisenbahn Seite</a>
-  inklusive Videos zu Aufbau, Motorisierung, Beleuchtung und Anpassungen.
-  Wenn dich unsere Verkabelung, LED Sets und Adapter interessieren, schau auch in den
-  <a class="inline-link" href="beleuchtung.html">Beleuchtung Hub</a>.
+Willkommen in <strong>BeanVillage</strong>, unserer stetig wachsenden <strong>LEGO® und Klemmbaustein-Stadt</strong>.
+In unserer Stadt verbauen wir aktuell rund <strong>50.000 Klemmbausteine</strong>, davon etwa
+<strong>85 % LEGO®</strong>, ergänzt durch ausgewählte Elemente von
+<strong>BlueBrixx</strong> (vor allem Slopes im Bergbereich)
+sowie <strong>Penny Bricks</strong>.
+</p>
+
+<p>
+Das Projekt <strong>BeanVillage</strong> ist im <strong>November 2022</strong> gemeinsam mit unserem
+<strong>YouTube-Kanal „Die Bausteinklemmer“</strong> gestartet und wächst seitdem kontinuierlich.
+Die Stadt erstreckt sich aktuell über eine Fläche von etwa <strong>3 × 4 Metern</strong>,
+also rund <strong>12 Quadratmeter</strong>, und wird modular erweitert.
+</p>
+
+<p>
+Ein zentraler Bestandteil von BeanVillage ist der angeschlossene
+<strong>Schattenbahnhof</strong>, über den mehrere Züge gleichzeitig verkehren.
+Alle eingesetzten Züge, Umbauten und Testfahrten findest du gesammelt
+in unserem <a class="inline-link" href="eisenbahn.html"><strong>Eisenbahn-Hub</strong></a>
+,
+inklusive Videos zu <strong>Aufbau, Motorisierung, Beleuchtung</strong> und
+technischen Anpassungen.
+</p>
+
+<p>
+Wenn dich besonders unsere Lösungen rund um
+<strong>LED-Beleuchtung, Verkabelung, Stromversorgung</strong> und
+<strong>magnetische Adapter</strong> interessieren,
+schau unbedingt in unseren
+<a class="inline-link" href="beleuchtung.html"><strong>Beleuchtung-Hub</strong></a>
+.
+Dort zeigen wir detailliert, wie wir BeanVillage Schritt für Schritt zum Leuchten bringen.
 </p>
 
 
       <p><strong>DIREKT zur Videodokumentation:</strong></p>
       <div class="videos-cta-row">
-        <a class="btn yellow" href="videos.html">Videos & Playlists →</a>
+        <a class="youtube-btn" href="videos.html">Videos & Playlists →</a>
       </div>
+
+          <div class="hero-actions">
+      <a class="btn home" href="index.html">← Zur Startseite</a>
+      <a class="btn coop" href="mailto:kooperation@diebausteinklemmer.de">🤝 Kooperation</a>
     </div>
 
+    </div>
+
+    
 <div class="hero-right">
+
+  <!-- Bild -->
   <div class="hero-media">
-    <img src="images/stadtmitGLOW.png" alt="BeanVillage – Stadtansicht" />
+    <img src="images/stadtmitGLOW.png" alt="BeanVillage – Stadtansicht">
   </div>
 
-    <div class="hero-overlay">
-      <p class="jump-line">
-        Direkt springen zu:
-        <a class="inline-link toc-jump" href="#strassen-system">Straßen-System</a> ·
-        <a class="inline-link toc-jump" href="#schienen-kreis">Schienen-Kreis</a> ·
-        <a class="inline-link toc-jump" href="#gueterbahnhof">Güterbahnhof</a> ·
-        <a class="inline-link toc-jump" href="#polizei-gefaengnis">Polizei-Gefängnis</a> ·
-        <a class="inline-link toc-jump" href="#american-diner">American Diner</a> ·
-        <a class="inline-link toc-jump" href="#nachrichten-buero">Nachrichten-Büro</a> ·
-        <a class="inline-link toc-jump" href="#hotel">Hotel</a> ·
-        <a class="inline-link toc-jump" href="#italiener-imbiss">Italiener Imbiss</a> ·
-        <a class="inline-link toc-jump" href="#feuerwehr">Feuerwehr</a> ·
-        <a class="inline-link toc-jump" href="#beanvillage-bucht">BeanVillage Bucht</a> ·
-        <a class="inline-link toc-jump" href="#leuchtturm">Leuchtturm</a> ·
-        <a class="inline-link toc-jump" href="#beanvillage-mountains">BeanVillage Mountains</a> ·
-        <a class="inline-link toc-jump" href="#schallplatten-store">Schallplatten-Store</a> ·
-        <a class="inline-link toc-jump" href="#lego-store">LEGO® Store</a> ·
-        <a class="inline-link toc-jump" href="#asiatisches-restaurant">Asiatisches Restaurant</a> ·
-        <a class="inline-link toc-jump" href="#gauner-versteck">Gauner-Versteck</a> ·
-        <a class="inline-link toc-jump" href="#zwergen-schatzhoehle">Zwergen Schatzhöhle</a> ·
-        <a class="inline-link toc-jump" href="#piraten-hoehle">Piraten Höhle</a> ·
-        <a class="inline-link toc-jump" href="#dino-hoehle">Dinosaurier Höhle</a> ·
-        <a class="inline-link toc-jump" href="#berg-wanderweg">Berg-Wanderweg</a> ·
-        <a class="inline-link toc-jump" href="#platzhalter">Platzhalter</a> ·
-        <a class="inline-link toc-jump" href="#gallerie-story">Galerie (Storytelling)</a>
-      </p>
-  </div>
-</div>
-      <div class="hero-actions">
-        <a class="btn home" href="index.html">← Zur Startseite</a>
-        <a class="btn mail" href="mailto:info@diebausteinklemmer.de">✉️ Kontakt</a>
-        <a class="btn coop" href="mailto:kooperation@diebausteinklemmer.de">🤝 Kooperation</a>
-      </div>
-    </div>
+  <!-- Box UNTER dem Bild -->
+  <div class="hero-overlay">
+    <p class="jump-line">
+      Direkt springen zu:
+      <a class="inline-link toc-jump" href="#strassen-system">Straßen-System</a> ·
+      <a class="inline-link toc-jump" href="#schienen-kreis">Schienen-Kreis</a> ·
+      <a class="inline-link toc-jump" href="#gueterbahnhof">Güterbahnhof</a> ·
+      <a class="inline-link toc-jump" href="#polizei-gefaengnis">Polizei-Gefängnis</a> ·
+      <a class="inline-link toc-jump" href="#american-diner">American Diner</a> ·
+      <a class="inline-link toc-jump" href="#nachrichten-buero">Nachrichten-Büro</a> ·
+      <a class="inline-link toc-jump" href="#hotel">Hotel</a> ·
+      <a class="inline-link toc-jump" href="#italiener-imbiss">Italiener Imbiss</a> ·
+      <a class="inline-link toc-jump" href="#feuerwehr">Feuerwehr</a> ·
+      <a class="inline-link toc-jump" href="#beanvillage-bucht">BeanVillage Bucht</a> ·
+      <a class="inline-link toc-jump" href="#leuchtturm">Leuchtturm</a> ·
+      <a class="inline-link toc-jump" href="#beanvillage-mountains">BeanVillage Mountains</a> ·
+      <a class="inline-link toc-jump" href="#schallplatten-store">Schallplatten-Store</a> ·
+      <a class="inline-link toc-jump" href="#lego-store">LEGO® Store</a> ·
+      <a class="inline-link toc-jump" href="#asiatisches-restaurant">Asiatisches Restaurant</a> ·
+      <a class="inline-link toc-jump" href="#gauner-versteck">Gauner-Versteck</a> ·
+      <a class="inline-link toc-jump" href="#zwergen-schatzhoehle">Zwergen Schatzhöhle</a> ·
+      <a class="inline-link toc-jump" href="#piraten-hoehle">Piraten Höhle</a> ·
+      <a class="inline-link toc-jump" href="#dino-hoehle">Dinosaurier Höhle</a> ·
+      <a class="inline-link toc-jump" href="#berg-wanderweg">Berg-Wanderweg</a> ·
+      <a class="inline-link toc-jump" href="#platzhalter">Platzhalter</a> ·
+      <a class="inline-link toc-jump" href="#gallerie-story">Galerie (Storytelling)</a>
+    </p>
+
 
   </div>
+
 </div>
 
   </section>
@@ -2510,17 +1957,12 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
           <img src="images/comingsoon.png" alt="Galerie (Storytelling) – Bild 2">
           <img src="images/comingsoon.png" alt="Galerie (Storytelling) – Bild 3">
           <img src="images/comingsoon.png" alt="Galerie (Storytelling) – Bild 4">
-          <img src="images/comingsoon.png" alt="Galerie (Storytelling) – Bild 5">
-          <img src="images/comingsoon.png" alt="Galerie (Storytelling) – Bild 6">
-          <img src="images/comingsoon.png" alt="Galerie (Storytelling) – Bild 7">
-          <img src="images/comingsoon.png" alt="Galerie (Storytelling) – Bild 8">
-          <img src="images/comingsoon.png" alt="Galerie (Storytelling) – Bild 9">
-          <img src="images/comingsoon.png" alt="Galerie (Storytelling) – Bild 10">
         </div>
 
         <div class="btn-row">
           <a class="youtube-btn" href="#">▶ YouTube (folgt)</a>
           <a class="amazon-btn" href="#">🛒 Amazon* (optional)</a>
+          <a class="shop-btn" href="#">🧩 Shop/Info (optional)</a>
         </div>
 
         <p class="affiliate-note">* Affiliate-Link: Für dich bleibt der Preis gleich.</p>
@@ -2552,7 +1994,48 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
 
 
 <script>
+  // Jahr
   document.getElementById('y').textContent = new Date().getFullYear();
+
+  // ===== Mobile Header Toggle =====
+  (function(){
+    const header = document.getElementById('siteHeader');
+    if(!header) return;
+
+    const btns = header.querySelectorAll('.header-toggle[data-toggle]');
+    function setExpanded(btn, isOpen){ btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false'); }
+
+    function closeAll(){
+      header.classList.remove('is-hubs-open','is-partners-open');
+      btns.forEach(b=>setExpanded(b,false));
+    }
+
+    btns.forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const type = btn.getAttribute('data-toggle');
+        const isHubs = type === 'hubs';
+        const openClass = isHubs ? 'is-hubs-open' : 'is-partners-open';
+        const otherClass = isHubs ? 'is-partners-open' : 'is-hubs-open';
+
+        const isOpen = header.classList.contains(openClass);
+        header.classList.remove(otherClass);
+        header.classList.toggle(openClass, !isOpen);
+
+        btns.forEach(b=>{
+          const t = b.getAttribute('data-toggle');
+          const shouldOpen = header.classList.contains(t === 'hubs' ? 'is-hubs-open' : 'is-partners-open');
+          setExpanded(b, shouldOpen);
+        });
+
+        if(!header.classList.contains('is-hubs-open') && !header.classList.contains('is-partners-open')) closeAll();
+      });
+    });
+
+    window.addEventListener('resize', ()=>{ if(window.innerWidth > 980) closeAll(); });
+    header.querySelectorAll('.mobile-panels a').forEach(a=>a.addEventListener('click', ()=>closeAll()));
+  })();
+
+
 
       // ===== Back-to-Top (weicht Footer aus) =====
     (function(){
