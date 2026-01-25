@@ -4,17 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- ===== SEO: Title / Description ===== -->
   <title>Videos & Playlists: Stadt, Eisenbahn & Beleuchtung · Die Bausteinklemmer</title>
   <meta name="description" content="Alle Videos, Playlists & Highlights von Die Bausteinklemmer: LEGO®/Klemmbaustein-Stadt, Eisenbahn, Beleuchtung, Updates & Shorts – alles an einem Ort." />
-
-  <!-- ===== SEO: Robots / Canonical ===== -->
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <link rel="canonical" href="https://diebausteinklemmer.de/videos.html" />
-
   <link rel="icon" href="images/logo.png" />
 
-  <!-- ===== Social Preview (OG / Twitter) ===== -->
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="de_DE" />
   <meta property="og:title" content="Videos & Playlists · Die Bausteinklemmer" />
@@ -28,7 +23,6 @@
   <meta name="twitter:description" content="Alle Videos, Playlists & Highlights: Stadt, Eisenbahn, Beleuchtung, Updates & Shorts." />
   <meta name="twitter:image" content="https://diebausteinklemmer.de/images/logo.png" />
 
-  <!-- ===== Structured Data (JSON-LD) ===== -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -69,13 +63,12 @@
 
   --card-hover: 0 22px 60px rgba(2,8,23,.65);
   --yellow-outline: 2px solid rgba(246,176,66,.95);
-  --glow: 0 0 0 2px rgba(246,176,66,.85), 0 0 0 8px rgba(255,255,255,.06);
 
   --hero-klemmer-size: 110px;
-
   --btn-youtube:#ff0033;
   --btn-home:#f6b042;
   --btn-home-text:#111827;
+  --header-pad: 10px;
 }
 
 *{box-sizing:border-box}
@@ -88,116 +81,102 @@ a{text-decoration:none;color:inherit}
 .wrap{max-width:1100px;margin:0 auto;padding:18px}
 .muted{color:var(--muted)}
 
-.inline-link{
-  text-decoration:underline;
-  text-underline-offset:3px;
-  opacity:.95;
-}
+.inline-link{ text-decoration:underline; text-underline-offset:3px; opacity:.95; }
 .inline-link:hover{opacity:1}
 
-    /* ===== HEADER (wie andere HUBs) ===== */
-    .site-header{
-      position:sticky;top:0;z-index:50;
-      backdrop-filter:blur(10px) saturate(130%);
-      background:linear-gradient(180deg,rgba(2,6,23,.92),rgba(2,6,23,.62));
-      border-bottom:1px solid rgba(148,163,184,.15);
-      box-shadow:0 10px 18px rgba(2,8,23,.22);
-    }
-    .headbar{
-      display:grid;
-      grid-template-columns: 1fr auto 1fr;
-      align-items:center;
-      gap:14px;
-      padding:var(--header-pad) 0;
-    }
-    .brand-center{
-      display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
-      font-weight:900;letter-spacing:.2px;text-align:center;
-    }
-    .brand-center img{
-      width:64px;height:64px;border-radius:50%;object-fit:cover;box-shadow:var(--shadow)
-    }
-    .brand-top{font-size:1.05rem;font-weight:950;letter-spacing:.2px}
+/* ===== HEADER ===== */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  backdrop-filter:blur(10px) saturate(130%);
+  background:linear-gradient(180deg,rgba(2,6,23,.92),rgba(2,6,23,.62));
+  border-bottom:1px solid rgba(148,163,184,.15);
+  box-shadow:0 10px 18px rgba(2,8,23,.22);
+}
+.headbar{
+  display:grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items:center;
+  gap:14px;
+  padding:var(--header-pad) 0;
+}
+.brand-center{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
+  font-weight:900;letter-spacing:.2px;text-align:center;
+}
+.brand-center img{ width:64px;height:64px;border-radius:50%;object-fit:cover;box-shadow:var(--shadow) }
+.brand-top{font-size:1.05rem;font-weight:950;letter-spacing:.2px}
 
-    .header-block{display:flex;align-items:flex-start;justify-content:flex-start;min-width:0;}
-    .header-block.right{justify-content:flex-end;min-width:0;}
-    .header-title{
-      font-size:.82rem;font-weight:950;color:rgba(229,231,235,.92);opacity:.92;margin:0 0 6px 0;
-      white-space:nowrap;display:flex;align-items:center;gap:8px;
-    }
-    .header-list{display:grid;gap:8px;align-items:center;}
-    .header-list.hubs{ grid-template-columns: repeat(3, max-content); }
-    .header-list.partners{ grid-template-columns: repeat(3, max-content); }
+.header-block{display:flex;align-items:flex-start;justify-content:flex-start;min-width:0;}
+.header-block.right{justify-content:flex-end;min-width:0;}
+.header-title{
+  font-size:.82rem;font-weight:950;color:rgba(229,231,235,.92);opacity:.92;margin:0 0 6px 0;
+  white-space:nowrap;display:flex;align-items:center;gap:8px;
+}
+.header-list{display:grid;gap:8px;align-items:center;}
+.header-list.hubs{ grid-template-columns: repeat(3, max-content); }
+.header-list.partners{ grid-template-columns: repeat(3, max-content); }
 
-    .header-chip{
-      display:inline-flex;align-items:center;justify-content:center;gap:8px;
-      padding:7px 10px;border-radius:999px;
-      background:var(--chip-bg);
-      border:1px solid var(--chip-border);
-      font-weight:800;font-size:.84rem;opacity:.95;white-space:nowrap;
-      transition:transform .14s ease, filter .14s ease, opacity .14s ease, box-shadow .14s ease, outline-color .14s ease;
-      transform-origin:center;
-    }
-    .header-chip:hover{
-      filter:brightness(1.10);opacity:1;transform:scale(1.07);
-      outline: 2px solid rgba(246,176,66,.65);outline-offset:2px;
-    }
-    .header-chip.active{
-      background:rgba(255,255,255,0.16);
-      border-color:rgba(255,255,255,0.30);
-      opacity:1;
-      outline:1px solid rgba(246,176,66,.95);
-      outline-offset:2px;
-      box-shadow:
-        0 0 0 2px rgba(2,6,23,.65),
-        0 10px 26px rgba(2,8,23,.35),
-        0 0 18px rgba(246,176,66,.45);
-    }
-    .header-chip.partner img{
-      width:20px;height:20px;border-radius:8px;object-fit:contain;background:#fff;padding:2px;
-      box-shadow:0 6px 14px rgba(2,8,23,.25);
-    }
+.header-chip{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:7px 10px;border-radius:999px;
+  background:var(--chip-bg);
+  border:1px solid var(--chip-border);
+  font-weight:800;font-size:.84rem;opacity:.95;white-space:nowrap;
+  transition:transform .14s ease, filter .14s ease, opacity .14s ease, box-shadow .14s ease, outline-color .14s ease;
+  transform-origin:center;
+}
+.header-chip:hover{ filter:brightness(1.10);opacity:1;transform:scale(1.07); outline:2px solid rgba(246,176,66,.65);outline-offset:2px; }
+.header-chip.active{
+  background:rgba(255,255,255,0.16);
+  border-color:rgba(255,255,255,0.30);
+  opacity:1;
+  outline:1px solid rgba(246,176,66,.95);
+  outline-offset:2px;
+  box-shadow:0 0 0 2px rgba(2,6,23,.65), 0 10px 26px rgba(2,8,23,.35), 0 0 18px rgba(246,176,66,.45);
+}
+.header-chip.partner img{
+  width:20px;height:20px;border-radius:8px;object-fit:contain;background:#fff;padding:2px;
+  box-shadow:0 6px 14px rgba(2,8,23,.25);
+}
 
-    /* Mobile dropdown (wichtig: Desktop-Blocks ausblenden, sonst "doppelt") */
-    .header-mobile-row{display:none;width:100%;gap:10px;align-items:center;justify-content:center;padding: 0 0 var(--header-pad) 0;}
-    .header-toggle{
-      display:inline-flex;align-items:center;justify-content:center;gap:10px;
-      padding:10px 14px;border-radius:999px;font-weight:950;font-size:.92rem;
-      background:rgba(255,255,255,0.10);
-      border:1px solid rgba(148,163,184,.20);
-      color:rgba(229,231,235,.95);
-      cursor:pointer;
-      transition:transform .14s ease, filter .14s ease, outline-color .14s ease;
-    }
-    .header-toggle:hover{filter:brightness(1.10);transform:scale(1.03);outline:2px solid rgba(246,176,66,.35);outline-offset:2px;}
-    .header-toggle .chev{display:inline-block;transform:rotate(0deg);transition:transform .16s ease;opacity:.9;}
+/* Mobile dropdown */
+.header-mobile-row{display:none;width:100%;gap:10px;align-items:center;justify-content:center;padding: 0 0 var(--header-pad) 0;}
+.header-toggle{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:10px 14px;border-radius:999px;font-weight:950;font-size:.92rem;
+  background:rgba(255,255,255,0.10);
+  border:1px solid rgba(148,163,184,.20);
+  color:rgba(229,231,235,.95);
+  cursor:pointer;
+  transition:transform .14s ease, filter .14s ease, outline-color .14s ease;
+}
+.header-toggle:hover{filter:brightness(1.10);transform:scale(1.03);outline:2px solid rgba(246,176,66,.35);outline-offset:2px;}
+.header-toggle .chev{display:inline-block;transform:rotate(0deg);transition:transform .16s ease;opacity:.9;}
 
-    .mobile-panels{display:none;padding: 0 0 12px 0;}
-    .mobile-panel{
-      margin-top:10px;border-radius:16px;padding:12px;
-      border:1px solid rgba(148,163,184,.16);background:rgba(255,255,255,0.06);
-    }
-    .mobile-panel .header-title{margin-bottom:10px;}
-    .mobile-panel .header-list{justify-content:center;}
-    .mobile-panel .header-list.hubs,
-    .mobile-panel .header-list.partners{grid-template-columns: repeat(2, max-content);justify-content:center;}
+.mobile-panels{display:none;padding: 0 0 12px 0;}
+.mobile-panel{
+  margin-top:10px;border-radius:16px;padding:12px;
+  border:1px solid rgba(148,163,184,.16);background:rgba(255,255,255,0.06);
+}
+.mobile-panel .header-title{margin-bottom:10px;}
+.mobile-panel .header-list{justify-content:center;}
+.mobile-panel .header-list.hubs,
+.mobile-panel .header-list.partners{grid-template-columns: repeat(2, max-content);justify-content:center;}
 
-    .site-header.is-hubs-open .mobile-panels{display:block;}
-    .site-header.is-partners-open .mobile-panels{display:block;}
-    .site-header.is-hubs-open .mobile-panel.hubs{display:block;}
-    .site-header.is-partners-open .mobile-panel.partners{display:block;}
-    .mobile-panel{display:none;}
-    .site-header.is-hubs-open .header-toggle[data-toggle="hubs"] .chev{transform:rotate(180deg);}
-    .site-header.is-partners-open .header-toggle[data-toggle="partners"] .chev{transform:rotate(180deg);}
+.site-header.is-hubs-open .mobile-panels{display:block;}
+.site-header.is-partners-open .mobile-panels{display:block;}
+.site-header.is-hubs-open .mobile-panel.hubs{display:block;}
+.site-header.is-partners-open .mobile-panel.partners{display:block;}
+.mobile-panel{display:none;}
+.site-header.is-hubs-open .header-toggle[data-toggle="hubs"] .chev{transform:rotate(180deg);}
+.site-header.is-partners-open .header-toggle[data-toggle="partners"] .chev{transform:rotate(180deg);}
 
-    @media (max-width: 1180px){
-      .header-chip{font-size:.80rem;padding:7px 9px}
-    }
-    @media (max-width: 980px){
-      .headbar{grid-template-columns: 1fr; justify-items:center;}
-      .header-block, .header-block.right{display:none;} /* <- Fix für "doppelt" */
-      .header-mobile-row{display:flex;}
-    }
+@media (max-width: 1180px){ .header-chip{font-size:.80rem;padding:7px 9px} }
+@media (max-width: 980px){
+  .headbar{grid-template-columns: 1fr; justify-items:center;}
+  .header-block, .header-block.right{display:none;}
+  .header-mobile-row{display:flex;}
+}
 
 /* ===== CARDS ===== */
 .card{
@@ -218,43 +197,20 @@ a{text-decoration:none;color:inherit}
 }
 footer{margin:24px 0 40px 0;text-align:center;color:var(--muted);font-size:14px}
 
-/* ===== HERO (behalten) ===== */
-.hero{
-  display:grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items:center;
-  gap:16px;
-}
-@media (max-width: 900px){
-  .hero{grid-template-columns:1fr; text-align:center}
-  .hero-left,.hero-right{justify-content:center}
-}
+/* ===== HERO ===== */
+.hero{ display:grid; grid-template-columns: 1fr auto 1fr; align-items:center; gap:16px; }
+@media (max-width: 900px){ .hero{grid-template-columns:1fr; text-align:center} .hero-left,.hero-right{justify-content:center} }
 .hero-left,.hero-right{display:flex;align-items:center;justify-content:center}
 
-.klemmer-logo{
-  height:var(--hero-klemmer-size);
-  width:auto;
-  border-radius:25px;
-  box-shadow:var(--shadow);
-}
-
+.klemmer-logo{ height:var(--hero-klemmer-size); width:auto; border-radius:25px; box-shadow:var(--shadow); }
 .hero-center{text-align:center;}
 .hero-center h1{margin:0;font-size:1.85rem;letter-spacing:.2px}
 .hero-center p{margin:8px 0 0 0; font-size:1.05rem}
 
-.hero-actions{
-  margin-top:14px;
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-  justify-content:center;
-}
-
+.hero-actions{ margin-top:14px; display:flex; gap:12px; flex-wrap:wrap; justify-content:center; }
 .btn{
   display:inline-flex; align-items:center; justify-content:center; gap:10px;
-  padding:14px 22px;
-  border-radius:999px;
-  font-weight:950;
+  padding:14px 22px; border-radius:999px; font-weight:950;
   border:1px solid rgba(255,255,255,0.12);
   background:rgba(255,255,255,0.12);
   box-shadow:0 10px 22px rgba(2,8,23,.25);
@@ -266,12 +222,7 @@ footer{margin:24px 0 40px 0;text-align:center;color:var(--muted);font-size:14px}
 .btn.home{background:var(--btn-home); color:var(--btn-home-text); border-color:transparent}
 
 hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
-.jump-line{
-  margin:12px 0 0 0;
-  text-align:center;
-  color:var(--muted);
-  font-weight:800;
-}
+.jump-line{ margin:12px 0 0 0; text-align:center; color:var(--muted); font-weight:800; }
 
 /* ===== Pills ===== */
 .pill{
@@ -287,11 +238,8 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
 
 /* ===== Playlist Sections ===== */
 .section-head{
-  display:flex;
-  align-items:flex-start;
-  justify-content:space-between;
-  gap:14px;
-  flex-wrap:wrap;
+  display:flex; align-items:flex-start; justify-content:space-between;
+  gap:14px; flex-wrap:wrap;
 }
 .section-head h2{margin:0}
 .section-head p{margin:6px 0 0 0;color:var(--muted);font-weight:800}
@@ -305,21 +253,12 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
   background:#0a1220;
   box-shadow:var(--shadow);
 }
-.player{
-  width:100%;
-  aspect-ratio:16/9;
-  border:0;
-  display:block;
-}
+.player{ width:100%; aspect-ratio:16/9; border:0; display:block; }
 
-/* ===== Video Carousel (Thumbnails) ===== */
-.carousel{
-  position:relative;
-  margin-top:14px;
-}
+/* ===== Video Carousel ===== */
+.carousel{ position:relative; margin-top:14px; }
 .carousel-track{
-  display:flex;
-  gap:12px;
+  display:flex; gap:12px;
   overflow:auto;
   scroll-snap-type:x mandatory;
   scroll-padding: 12px;
@@ -327,19 +266,12 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
   scrollbar-width: thin;
 }
 .carousel-track::-webkit-scrollbar{height:10px}
-.carousel-track::-webkit-scrollbar-thumb{
-  background:rgba(255,255,255,0.18);
-  border-radius:999px;
-}
-.carousel-track::-webkit-scrollbar-track{
-  background:rgba(255,255,255,0.06);
-  border-radius:999px;
-}
+.carousel-track::-webkit-scrollbar-thumb{ background:rgba(255,255,255,0.18); border-radius:999px; }
+.carousel-track::-webkit-scrollbar-track{ background:rgba(255,255,255,0.06); border-radius:999px; }
 
 .vcard{
   scroll-snap-align:start;
-  min-width: 240px;
-  width: 240px;
+  min-width: 240px; width: 240px;
   border-radius:16px;
   background:rgba(255,255,255,0.04);
   border:1px solid rgba(148,163,184,.14);
@@ -366,12 +298,7 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
   justify-content:center;
   position:relative;
 }
-.vthumb img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-}
+.vthumb img{ width:100%; height:100%; object-fit:cover; display:block; }
 .play-badge{
   position:absolute;
   inset:auto auto 10px 10px;
@@ -386,11 +313,7 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
   font-size:.86rem;
   box-shadow:0 10px 20px rgba(2,8,23,.25);
 }
-.vbody{
-  padding:10px 12px 12px 12px;
-  display:grid;
-  gap:6px;
-}
+.vbody{ padding:10px 12px 12px 12px; display:grid; gap:6px; }
 .vtitle{
   font-weight:950;
   font-size:.95rem;
@@ -400,11 +323,7 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
   -webkit-box-orient:vertical;
   overflow:hidden;
 }
-.vmeta{
-  color:var(--muted);
-  font-weight:800;
-  font-size:.82rem;
-}
+.vmeta{ color:var(--muted); font-weight:800; font-size:.82rem; }
 
 .carousel-btn{
   position:absolute;
@@ -429,9 +348,7 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
 }
 .carousel-btn.prev{left:-6px}
 .carousel-btn.next{right:-6px}
-@media (max-width: 900px){
-  .carousel-btn{display:none;}
-}
+@media (max-width: 900px){ .carousel-btn{display:none;} }
 
 .carousel-hint{
   margin-top:10px;
@@ -440,7 +357,6 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
   font-weight:800;
   font-size:.92rem;
 }
-
 .notice{
   margin-top:12px;
   padding:10px 12px;
@@ -454,25 +370,24 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
 .notice strong{color:#fff}
 
 /* ===== Back-to-Top ===== */
-    .to-top{
-      position:fixed;right:16px;bottom:16px;z-index:60;
-      display:inline-flex;align-items:center;justify-content:center;gap:10px;
-      padding:12px 14px;border-radius:999px;
-      background:rgba(2,6,23,.72);
-      border:1px solid rgba(148,163,184,.25);
-      color:rgba(229,231,235,.95);
-      box-shadow:0 18px 42px rgba(2,8,23,.45);
-      backdrop-filter: blur(10px) saturate(130%);
-      cursor:pointer;
-      opacity:0;transform:translateY(8px) scale(.98);pointer-events:none;
-      transition:opacity .16s ease, transform .16s ease, filter .16s ease, outline-color .16s ease, bottom .16s ease;
-    }
-    .to-top:hover{filter:brightness(1.12);transform:translateY(0) scale(1.03);outline:2px solid rgba(246,176,66,.45);outline-offset:2px;}
-    .to-top.show{opacity:1;transform:translateY(0) scale(1);pointer-events:auto;}
-    .to-top svg{width:18px;height:18px;opacity:.95}
-    .to-top span{font-weight:950; font-size:.92rem}
-    @media (max-width: 520px){ .to-top span{display:none;} .to-top{padding:12px;} }
-    
+.to-top{
+  position:fixed;right:16px;bottom:16px;z-index:60;
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:12px 14px;border-radius:999px;
+  background:rgba(2,6,23,.72);
+  border:1px solid rgba(148,163,184,.25);
+  color:rgba(229,231,235,.95);
+  box-shadow:0 18px 42px rgba(2,8,23,.45);
+  backdrop-filter: blur(10px) saturate(130%);
+  cursor:pointer;
+  opacity:0;transform:translateY(8px) scale(.98);pointer-events:none;
+  transition:opacity .16s ease, transform .16s ease, filter .16s ease, outline-color .16s ease, bottom .16s ease;
+}
+.to-top:hover{filter:brightness(1.12);transform:translateY(0) scale(1.03);outline:2px solid rgba(246,176,66,.45);outline-offset:2px;}
+.to-top.show{opacity:1;transform:translateY(0) scale(1);pointer-events:auto;}
+.to-top svg{width:18px;height:18px;opacity:.95}
+.to-top span{font-weight:950; font-size:.92rem}
+@media (max-width: 520px){ .to-top span{display:none;} .to-top{padding:12px;} }
   </style>
 </head>
 
@@ -480,8 +395,6 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
 
 <header class="site-header" id="siteHeader">
   <div class="wrap headbar">
-
-    <!-- LINKS: HUBS (Desktop) -->
     <div class="header-block" aria-label="Hubs">
       <div>
         <div class="header-title">📌 Profil</div>
@@ -496,52 +409,31 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
       </div>
     </div>
 
-    <!-- MITTE -->
     <a class="brand-center" href="index.html" aria-label="Zur Startseite">
       <img src="images/logo.png" alt="Die Bausteinklemmer Logo">
       <span class="brand-top">Die Bausteinklemmer</span>
     </a>
 
-    <!-- RECHTS: PARTNER (Desktop) -->
     <div class="header-block right" aria-label="Partner">
       <div>
         <div class="header-title">🏭 Hersteller</div>
         <div class="header-list partners">
-          <a class="header-chip partner" href="partner-lesdiy.html">
-            <img src="images/lesdiy_logo.jpg" alt="LESDIY"><span>LESDIY</span>
-          </a>
-          <a class="header-chip partner" href="partner-lumibricks.html">
-            <img src="images/Lumibricks.png" alt="Lumibricks"><span>Lumibricks</span>
-          </a>
-          <a class="header-chip partner" href="partner-briksmax.html">
-            <img src="images/briksmax.png" alt="Briksmax"><span>Briksmax</span>
-          </a>
-          <a class="header-chip partner" href="partner-jmbricklayer.html">
-            <img src="images/jmbricklayer_logo.jpg" alt="JMBricklayer"><span>JMBricklayer</span>
-          </a>
-          <a class="header-chip partner" href="partner-bluebrixx.html">
-            <img src="images/blue_brixx_logo.png" alt="BlueBrixx"><span>BlueBrixx</span>
-          </a>
-          <a class="header-chip partner" href="partner-lego.html">
-            <img src="images/lego_logo.png" alt="LEGO"><span>LEGO®</span>
-          </a>
+          <a class="header-chip partner" href="partner-lesdiy.html"><img src="images/lesdiy_logo.jpg" alt="LESDIY"><span>LESDIY</span></a>
+          <a class="header-chip partner" href="partner-lumibricks.html"><img src="images/Lumibricks.png" alt="Lumibricks"><span>Lumibricks</span></a>
+          <a class="header-chip partner" href="partner-briksmax.html"><img src="images/briksmax.png" alt="Briksmax"><span>Briksmax</span></a>
+          <a class="header-chip partner" href="partner-jmbricklayer.html"><img src="images/jmbricklayer_logo.jpg" alt="JMBricklayer"><span>JMBricklayer</span></a>
+          <a class="header-chip partner" href="partner-bluebrixx.html"><img src="images/blue_brixx_logo.png" alt="BlueBrixx"><span>BlueBrixx</span></a>
+          <a class="header-chip partner" href="partner-lego.html"><img src="images/lego_logo.png" alt="LEGO"><span>LEGO®</span></a>
         </div>
       </div>
     </div>
-
   </div>
 
-  <!-- Mobile Toggle Row -->
   <div class="wrap header-mobile-row" aria-label="Mobile Navigation">
-    <button class="header-toggle" type="button" data-toggle="hubs" aria-expanded="false" aria-controls="mobilePanels">
-      📌 Profil <span class="chev">▾</span>
-    </button>
-    <button class="header-toggle" type="button" data-toggle="partners" aria-expanded="false" aria-controls="mobilePanels">
-      🏭 Hersteller <span class="chev">▾</span>
-    </button>
+    <button class="header-toggle" type="button" data-toggle="hubs" aria-expanded="false" aria-controls="mobilePanels">📌 Profil <span class="chev">▾</span></button>
+    <button class="header-toggle" type="button" data-toggle="partners" aria-expanded="false" aria-controls="mobilePanels">🏭 Hersteller <span class="chev">▾</span></button>
   </div>
 
-  <!-- Mobile Panels -->
   <div class="wrap mobile-panels" id="mobilePanels">
     <div class="mobile-panel hubs" aria-label="Mobile Hubs">
       <div class="header-title">📌 Profil</div>
@@ -558,24 +450,12 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
     <div class="mobile-panel partners" aria-label="Mobile Partner">
       <div class="header-title">🏭 Hersteller</div>
       <div class="header-list partners">
-        <a class="header-chip partner" href="partner-lesdiy.html">
-          <img src="images/lesdiy_logo.jpg" alt="LESDIY"><span>LESDIY</span>
-        </a>
-        <a class="header-chip partner" href="partner-lumibricks.html">
-          <img src="images/Lumibricks.png" alt="Lumibricks"><span>Lumibricks</span>
-        </a>
-        <a class="header-chip partner" href="partner-briksmax.html">
-          <img src="images/briksmax.png" alt="Briksmax"><span>Briksmax</span>
-        </a>
-        <a class="header-chip partner" href="partner-jmbricklayer.html">
-          <img src="images/jmbricklayer_logo.jpg" alt="JMBricklayer"><span>JMBricklayer</span>
-        </a>
-        <a class="header-chip partner" href="partner-bluebrixx.html">
-          <img src="images/blue_brixx_logo.png" alt="BlueBrixx"><span>BlueBrixx</span>
-        </a>
-        <a class="header-chip partner" href="partner-lego.html">
-          <img src="images/lego_logo.png" alt="LEGO"><span>LEGO®</span>
-        </a>
+        <a class="header-chip partner" href="partner-lesdiy.html"><img src="images/lesdiy_logo.jpg" alt="LESDIY"><span>LESDIY</span></a>
+        <a class="header-chip partner" href="partner-lumibricks.html"><img src="images/Lumibricks.png" alt="Lumibricks"><span>Lumibricks</span></a>
+        <a class="header-chip partner" href="partner-briksmax.html"><img src="images/briksmax.png" alt="Briksmax"><span>Briksmax</span></a>
+        <a class="header-chip partner" href="partner-jmbricklayer.html"><img src="images/jmbricklayer_logo.jpg" alt="JMBricklayer"><span>JMBricklayer</span></a>
+        <a class="header-chip partner" href="partner-bluebrixx.html"><img src="images/blue_brixx_logo.png" alt="BlueBrixx"><span>BlueBrixx</span></a>
+        <a class="header-chip partner" href="partner-lego.html"><img src="images/lego_logo.png" alt="LEGO"><span>LEGO®</span></a>
       </div>
     </div>
   </div>
@@ -583,17 +463,13 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
 
 <main class="wrap">
 
-  <!-- HERO (behalten) -->
   <section class="card">
     <div class="hero">
       <div class="hero-left"></div>
 
       <div class="hero-center">
         <h1>Videos & Playlists</h1>
-        <p class="muted">
-          Alles an einem Ort: Stadt, Eisenbahn, Beleuchtung, Updates & Highlights –
-          inklusive Shorts für den schnellen Kick.
-        </p>
+        <p class="muted">Alles an einem Ort: Stadt, Eisenbahn, Beleuchtung, Updates & Highlights – inklusive Shorts für den schnellen Kick.</p>
 
         <div class="hero-actions">
           <a class="btn youtube" href="https://www.youtube.com/@DieBausteinklemmer" target="_blank" rel="noopener noreferrer">▶ YouTube Kanal</a>
@@ -622,9 +498,6 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
     </p>
   </section>
 
-  <!-- =======================
-       1) HIGHLIGHTS (Top 5)
-       ======================= -->
   <section id="highlights" class="card">
     <div class="section-head">
       <div>
@@ -635,11 +508,8 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
     </div>
 
     <div class="player-wrap">
-      <iframe class="player" id="player-highlights"
-        src=""
-        title="Highlights Player"
-        loading="lazy"
-        referrerpolicy="origin-when-cross-origin"
+      <iframe class="player" id="player-highlights" src="" title="Highlights Player"
+        loading="lazy" referrerpolicy="origin-when-cross-origin"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowfullscreen></iframe>
     </div>
@@ -652,14 +522,11 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
     </div>
   </section>
 
-  <!-- =======================
-       2) STADT (Playlist Auto)
-       ======================= -->
   <section id="stadt" class="card">
     <div class="section-head">
       <div>
         <h2>🏙️ LEGO®/Klemmbaustein Stadt – Stadt Updates</h2>
-        <p>Videos werden automatisch aus der Playlist geladen (neue Videos kommen von selbst dazu).</p>
+        <p>Player läuft als Playlist. Darunter: automatisch geladene Video-Liste (ohne API-Key) via YouTube-Feed.</p>
       </div>
       <div class="section-actions">
         <a class="pill youtube" id="open-stadt" href="#" target="_blank" rel="noopener noreferrer">▶ Playlist öffnen</a>
@@ -668,11 +535,8 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
     </div>
 
     <div class="player-wrap">
-      <iframe class="player" id="player-stadt"
-        src=""
-        title="Stadt Updates Player"
-        loading="lazy"
-        referrerpolicy="origin-when-cross-origin"
+      <iframe class="player" id="player-stadt" src="" title="Stadt Updates Player"
+        loading="lazy" referrerpolicy="origin-when-cross-origin"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowfullscreen></iframe>
     </div>
@@ -685,14 +549,11 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
     </div>
   </section>
 
-  <!-- =======================
-       3) SELBST BELEUCHTEN
-       ======================= -->
   <section id="beleuchten" class="card">
     <div class="section-head">
       <div>
         <h2>💡 Selbst Beleuchten</h2>
-        <p>Automatisch aus der Playlist geladen – ideal zum Binge-Watchen.</p>
+        <p>Automatisch geladene Video-Liste (ohne API-Key) via YouTube-Feed.</p>
       </div>
       <div class="section-actions">
         <a class="pill youtube" id="open-licht" href="#" target="_blank" rel="noopener noreferrer">▶ Playlist öffnen</a>
@@ -701,11 +562,8 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
     </div>
 
     <div class="player-wrap">
-      <iframe class="player" id="player-licht"
-        src=""
-        title="Selbst Beleuchten Player"
-        loading="lazy"
-        referrerpolicy="origin-when-cross-origin"
+      <iframe class="player" id="player-licht" src="" title="Selbst Beleuchten Player"
+        loading="lazy" referrerpolicy="origin-when-cross-origin"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowfullscreen></iframe>
     </div>
@@ -718,14 +576,11 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
     </div>
   </section>
 
-  <!-- =======================
-       4) EISENBAHN
-       ======================= -->
   <section id="eisenbahn" class="card">
     <div class="section-head">
       <div>
         <h2>🚆 Eisenbahn</h2>
-        <p>Alle Videos automatisch aus der Playlist geladen.</p>
+        <p>Automatisch geladene Video-Liste (ohne API-Key) via YouTube-Feed.</p>
       </div>
       <div class="section-actions">
         <a class="pill youtube" id="open-zug" href="#" target="_blank" rel="noopener noreferrer">▶ Playlist öffnen</a>
@@ -734,11 +589,8 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
     </div>
 
     <div class="player-wrap">
-      <iframe class="player" id="player-zug"
-        src=""
-        title="Eisenbahn Player"
-        loading="lazy"
-        referrerpolicy="origin-when-cross-origin"
+      <iframe class="player" id="player-zug" src="" title="Eisenbahn Player"
+        loading="lazy" referrerpolicy="origin-when-cross-origin"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowfullscreen></iframe>
     </div>
@@ -751,18 +603,18 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
     </div>
   </section>
 
-<footer id="siteFooter">
-  © <span id="y"></span> Die Bausteinklemmer ·
-  <a href="impressum.html">Impressum</a> ·
-  <a href="datenschutz.html">Datenschutz</a>
-</footer>
+  <footer id="siteFooter">
+    © <span id="y"></span> Die Bausteinklemmer ·
+    <a href="impressum.html">Impressum</a> ·
+    <a href="datenschutz.html">Datenschutz</a>
+  </footer>
 
-<button class="to-top" id="toTopBtn" type="button" aria-label="Nach oben">
-  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-    <path d="M12 5l-7 7m7-7l7 7M12 5v14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-  </svg>
-  <span>Nach oben</span>
-</button>
+  <button class="to-top" id="toTopBtn" type="button" aria-label="Nach oben">
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M12 5l-7 7m7-7l7 7M12 5v14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span>Nach oben</span>
+  </button>
 
 <script>
   // Jahr
@@ -838,158 +690,121 @@ hr.sep{border:0;border-top:1px solid rgba(148,163,184,.15);margin:16px 0}
     update();
   })();
 
-    // =========================================================
-    // 1) API KEY HIER EINTRAGEN (YouTube Data API v3)
-    // =========================================================
-    const YT_API_KEY = "zquvlzopwvfqjafc"; // <-- HIER echten Key rein (lokal), nicht öffentlich posten
+  // =========================================================
+  // PLAYLIST-IDs
+  // =========================================================
+  const CITY_PLAYLIST_ID  = "PLNn6aDPjB4S3whqwyzUL3iq_5kAcJ5XlU";
+  const LIGHT_PLAYLIST_ID = "PLNn6aDPjB4S2zXoXOnfngjE91cENYaOT0";
+  const TRAIN_PLAYLIST_ID = "PLNn6aDPjB4S3CCRWvOOMZBW3V2-W5wVLN";
 
-    // =========================================================
-    // 2) PLAYLIST-IDs
-    // =========================================================
-    const CITY_PLAYLIST_ID  = "PLNn6aDPjB4S3whqwyzUL3iq_5kAcJ5XlU";
-    const LIGHT_PLAYLIST_ID = "PLNn6aDPjB4S2zXoXOnfngjE91cENYaOT0";
-    const TRAIN_PLAYLIST_ID = "PLNn6aDPjB4S3CCRWvOOMZBW3V2-W5wVLN";
+  // =========================================================
+  // HIGHLIGHTS (Top 5) – einfach austauschen
+  // =========================================================
+  const HIGHLIGHTS = [
+    "https://youtu.be/sMwF_vJnM4Q",
+    "https://youtu.be/Qw7U9OAzU00",
+    "https://youtu.be/MG-xcBTHXi0",
+    "https://youtu.be/hmqVL7onbdw",
+    "https://youtu.be/h9RZR4KfpPU"
+  ];
 
-    // =========================================================
-    // 3) HIGHLIGHTS (Top 5) – einfach austauschen
-    // =========================================================
-    const HIGHLIGHTS = [
-      "https://youtu.be/sMwF_vJnM4Q",
-      "https://youtu.be/Qw7U9OAzU00",
-      "https://youtu.be/MG-xcBTHXi0",
-      "https://youtu.be/hmqVL7onbdw",
-      "https://youtu.be/h9RZR4KfpPU"
-    ];
-
-    // ---------- Helpers ----------
-    document.getElementById('y').textContent = new Date().getFullYear();
-
-    function escapeHtml(str){
-      return String(str || "")
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-    }
-
-    function parseVideoId(input){
-      if(!input) return "";
-      const s = String(input).trim();
-      if(/^[a-zA-Z0-9_-]{11}$/.test(s)) return s;
-
-      try{
-        const u = new URL(s);
-        if(u.hostname.includes("youtu.be")){
-          const id = u.pathname.replace("/","").slice(0,11);
-          return id;
-        }
-        const v = u.searchParams.get("v");
-        if(v) return v.slice(0,11);
-        const m = u.pathname.match(/\/embed\/([a-zA-Z0-9_-]{11})/);
-        if(m && m[1]) return m[1];
-      }catch(e){}
-      return "";
-    }
-function getSafeOrigin(){
-  if (location.protocol === "file:" || !location.origin || location.origin === "null") {
-    return null;
+  // ---------- Helpers ----------
+  function escapeHtml(str){
+    return String(str || "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
   }
-  return location.origin;
-}
-
-function ytEmbedUrlVideo(videoId, { autoplay=false, playlistId=null, index=null } = {}){
-  const base = `https://www.youtube-nocookie.com/embed/${videoId}`;
-  const params = new URLSearchParams();
-
-  params.set("rel","0");
-  params.set("modestbranding","1");
-  params.set("playsinline","1");
-
-  const safeOrigin = getSafeOrigin();
-  if (safeOrigin) params.set("origin", safeOrigin);
-
-  if (autoplay) params.set("autoplay","1");
-
-  if (playlistId){
+  function parseVideoId(input){
+    if(!input) return "";
+    const s = String(input).trim();
+    if(/^[a-zA-Z0-9_-]{11}$/.test(s)) return s;
+    try{
+      const u = new URL(s);
+      if(u.hostname.includes("youtu.be")){
+        const id = u.pathname.replace("/","").slice(0,11);
+        return id;
+      }
+      const v = u.searchParams.get("v");
+      if(v) return v.slice(0,11);
+      const m = u.pathname.match(/\/embed\/([a-zA-Z0-9_-]{11})/);
+      if(m && m[1]) return m[1];
+    }catch(e){}
+    return "";
+  }
+  function getSafeOrigin(){
+    if (location.protocol === "file:" || !location.origin || location.origin === "null") return null;
+    return location.origin;
+  }
+  function ytEmbedUrlVideo(videoId, { autoplay=false, playlistId=null, index=null } = {}){
+    const base = `https://www.youtube-nocookie.com/embed/${videoId}`;
+    const params = new URLSearchParams();
+    params.set("rel","0");
+    params.set("modestbranding","1");
+    params.set("playsinline","1");
+    const safeOrigin = getSafeOrigin();
+    if (safeOrigin) params.set("origin", safeOrigin);
+    if (autoplay) params.set("autoplay","1");
+    if (playlistId){
+      params.set("list", playlistId);
+      if (index != null) params.set("index", String(index));
+    }
+    return `${base}?${params.toString()}`;
+  }
+  function ytEmbedUrlPlaylist(playlistId, { autoplay=false } = {}){
+    const base = `https://www.youtube-nocookie.com/embed/videoseries`;
+    const params = new URLSearchParams();
     params.set("list", playlistId);
-    if (index != null) params.set("index", String(index));
+    params.set("rel","0");
+    params.set("modestbranding","1");
+    params.set("playsinline","1");
+    const safeOrigin = getSafeOrigin();
+    if (safeOrigin) params.set("origin", safeOrigin);
+    if (autoplay) params.set("autoplay","1");
+    return `${base}?${params.toString()}`;
+  }
+  function truncate(s, n){
+    const t = String(s || "");
+    return t.length > n ? t.slice(0, n-1) + "…" : t;
+  }
+  function setPlayer(iframeEl, url){
+    if(!iframeEl) return;
+    iframeEl.src = url;
   }
 
-  return `${base}?${params.toString()}`;
-}
-
-
-function ytEmbedUrlPlaylist(playlistId, { autoplay=false } = {}){
-  const base = `https://www.youtube-nocookie.com/embed/videoseries`;
-  const params = new URLSearchParams();
-
-  params.set("list", playlistId);
-  params.set("rel","0");
-  params.set("modestbranding","1");
-  params.set("playsinline","1");
-
-  const safeOrigin = getSafeOrigin();
-  if (safeOrigin) params.set("origin", safeOrigin);
-
-  if (autoplay) params.set("autoplay","1");
-
-  return `${base}?${params.toString()}`;
-}
-
-
-    function truncate(s, n){
-      const t = String(s || "");
-      return t.length > n ? t.slice(0, n-1) + "…" : t;
-    }
-
-    function setPlayer(iframeEl, url){
-      if(!iframeEl) return;
-      iframeEl.src = url;
-    }
-
-    // ---------- Carousel Buttons (FIX: .vcard statt .yt-card) ----------
-    (function(){
-      document.querySelectorAll('.carousel-btn').forEach(btn=>{
-        btn.addEventListener('click', ()=>{
-          const trackId = btn.getAttribute('data-track');
-          const track = document.getElementById(trackId);
-          if(!track) return;
-
-          const dir = btn.classList.contains('prev') ? -1 : 1;
-
-          const card = track.querySelector('.vcard');
-          const step = card ? (card.getBoundingClientRect().width + 12) : 280;
-          track.scrollBy({ left: dir * step, behavior: 'smooth' });
-        });
+  // ---------- Carousel Buttons ----------
+  (function(){
+    document.querySelectorAll('.carousel-btn').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const trackId = btn.getAttribute('data-track');
+        const track = document.getElementById(trackId);
+        if(!track) return;
+        const dir = btn.classList.contains('prev') ? -1 : 1;
+        const card = track.querySelector('.vcard');
+        const step = card ? (card.getBoundingClientRect().width + 12) : 280;
+        track.scrollBy({ left: dir * step, behavior: 'smooth' });
       });
-    })();
+    });
+  })();
 
-// =========================================================
-// 4) HIGHLIGHTS bauen (mit API Titel, aber bricht nie die Seite)
-// =========================================================
-(function initHighlights(){
-  try{
+  // =========================================================
+  // HIGHLIGHTS bauen (ohne API Key) — Titel = "Highlight X"
+  // =========================================================
+  (function initHighlights(){
     const track  = document.getElementById("track-highlights");
     const player = document.getElementById("player-highlights");
     if(!track || !player) return;
 
-    const escapeHtml = (s="") => String(s)
-      .replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;")
-      .replaceAll('"',"&quot;").replaceAll("'","&#039;");
-
     const ids = (HIGHLIGHTS || []).map(parseVideoId).filter(Boolean);
-
-    // Fallback: wenn keine IDs da sind, wenigstens nicht crashen
     if(ids.length === 0){
       track.innerHTML = `<div class="notice"><strong>Hinweis:</strong> Keine Highlight-IDs gefunden.</div>`;
       return;
     }
 
-    // Default Player
     setPlayer(player, ytEmbedUrlVideo(ids[0], { autoplay:false }));
 
-    // Erstmal schnelle Cards bauen (mit Platzhalter-Titel)
     track.innerHTML = ids.map((id, i)=>`
       <button class="vcard" type="button" data-vid="${id}" aria-label="Highlight ${i+1}">
         <div class="vthumb">
@@ -997,13 +812,12 @@ function ytEmbedUrlPlaylist(playlistId, { autoplay=false } = {}){
           <span class="play-badge">▶ Play</span>
         </div>
         <div class="vbody">
-          <div class="vtitle" data-title-for="${id}">Highlight ${i+1}</div>
+          <div class="vtitle">Highlight ${i+1}</div>
           <div class="vmeta">Klick = abspielen</div>
         </div>
       </button>
     `).join("");
 
-    // Klick -> Player
     track.querySelectorAll('.vcard').forEach(card=>{
       card.addEventListener('click', ()=>{
         const vid = card.getAttribute('data-vid');
@@ -1012,225 +826,127 @@ function ytEmbedUrlPlaylist(playlistId, { autoplay=false } = {}){
         player.scrollIntoView({ behavior:'smooth', block:'center' });
       });
     });
+  })();
 
-    // Wenn kein API Key: dann nur Platzhalter-Titel lassen (aber Seite läuft!)
-    if(!YT_API_KEY || YT_API_KEY.includes("DEIN_API_KEY_HIER")){
-      console.warn("YT_API_KEY fehlt – Highlights-Titel bleiben Platzhalter.");
-      return;
-    }
+  // =========================================================
+  // Playlist-Items OHNE API: YouTube Feed (XML)
+  // - Vorteil: kein API-Key nötig
+  // - Hinweis: Der Feed liefert i.d.R. die neuesten ~15 Videos der Playlist
+  // =========================================================
+  async function fetchPlaylistFromFeed(playlistId){
+    const feedUrl = `https://www.youtube.com/feeds/videos.xml?playlist_id=${encodeURIComponent(playlistId)}`;
+    const res = await fetch(feedUrl, { cache: "no-store" });
+    if(!res.ok) throw new Error(`Feed nicht erreichbar (${res.status})`);
+    const xmlText = await res.text();
+    const doc = new DOMParser().parseFromString(xmlText, "application/xml");
+    const entries = Array.from(doc.getElementsByTagName("entry"));
+    if(entries.length === 0) throw new Error("Feed leer – Playlist evtl. privat oder keine Einträge gefunden.");
 
-    // Jetzt echte Titel ziehen
-    const url = new URL("https://www.googleapis.com/youtube/v3/videos");
-    url.searchParams.set("part","snippet");
-    url.searchParams.set("id", ids.join(","));
-    url.searchParams.set("key", YT_API_KEY);
-
-    fetch(url.toString())
-      .then(r => r.ok ? r.json() : r.text().then(t=>{ throw new Error(t); }))
-      .then(data=>{
-        const map = new Map();
-        (data.items || []).forEach(it=>{
-          map.set(it.id, it.snippet?.title || "");
-        });
-
-        ids.forEach(id=>{
-          const t = map.get(id);
-          if(!t) return;
-          const el = track.querySelector(`[data-title-for="${id}"]`);
-          if(el) el.innerHTML = escapeHtml(t);
-        });
-      })
-      .catch(err=>{
-        console.warn("Highlights-Titel konnten nicht geladen werden:", err);
-        // bewusst: NICHTS kaputt machen
-      });
-
-  }catch(e){
-    console.error("initHighlights crashed:", e);
-    // bewusst: nicht throwen → damit Playlists weiter laden können
+    return entries.map((entry)=>{
+      const titleEl = entry.getElementsByTagName("title")[0];
+      // yt:videoId ist im Namespace – DOMParser liefert es trotzdem als TagName "yt:videoId" (Browserabhängig),
+      // daher: beide Varianten checken.
+      const vidEl = entry.getElementsByTagName("yt:videoId")[0] || entry.getElementsByTagName("videoId")[0];
+      const linkEl = entry.getElementsByTagName("link")[0];
+      const title = titleEl ? titleEl.textContent : "Video";
+      const videoId = vidEl ? vidEl.textContent : "";
+      const href = linkEl ? linkEl.getAttribute("href") : "";
+      const thumb = videoId ? `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg` : "";
+      return { videoId, title, href, thumbnail: thumb };
+    }).filter(x=>x.videoId);
   }
-})();
 
+  function renderPlaylistSectionFromFeed({
+    playlistId,
+    openLinkElId,
+    playAllBtnId,
+    playerElId,
+    trackElId,
+    sectionName
+  }){
+    const openA = document.getElementById(openLinkElId);
+    const playAllBtn = document.getElementById(playAllBtnId);
+    const player = document.getElementById(playerElId);
+    const track = document.getElementById(trackElId);
 
+    if(openA) openA.href = `https://www.youtube.com/playlist?list=${playlistId}`;
+    if(player) setPlayer(player, ytEmbedUrlPlaylist(playlistId, { autoplay:false }));
 
-    // =========================================================
-    // 5) Playlists automatisch laden (YouTube Data API v3)
-    // =========================================================
-    async function fetchAllPlaylistItems(playlistId){
-      const all = [];
-      let pageToken = "";
-
-      while(true){
-        const url = new URL("https://www.googleapis.com/youtube/v3/playlistItems");
-        url.searchParams.set("part", "snippet,contentDetails");
-        url.searchParams.set("maxResults", "50");
-        url.searchParams.set("playlistId", playlistId);
-        url.searchParams.set("key", YT_API_KEY);
-        if(pageToken) url.searchParams.set("pageToken", pageToken);
-
-        const res = await fetch(url.toString());
-        if(!res.ok){
-          const txt = await res.text().catch(()=> "");
-          throw new Error(`YouTube API Fehler (${res.status}): ${txt.slice(0,220)}`);
-        }
-
-        const data = await res.json();
-        const items = (data.items || []).map(it=>{
-          const sn = it.snippet || {};
-          const cd = it.contentDetails || {};
-          const vid = (cd.videoId) || (sn.resourceId && sn.resourceId.videoId) || "";
-          const thumbs = sn.thumbnails || {};
-          const thumb =
-            (thumbs.maxres && thumbs.maxres.url) ||
-            (thumbs.standard && thumbs.standard.url) ||
-            (thumbs.high && thumbs.high.url) ||
-            (thumbs.medium && thumbs.medium.url) ||
-            (thumbs.default && thumbs.default.url) ||
-            (vid ? `https://i.ytimg.com/vi/${vid}/hqdefault.jpg` : "");
-
-          return {
-            videoId: vid,
-            title: sn.title || "Video",
-            thumbnail: thumb
-          };
-        }).filter(x=>x.videoId);
-
-        all.push(...items);
-        pageToken = data.nextPageToken || "";
-        if(!pageToken) break;
-      }
-
-      return all;
+    if(playAllBtn && player){
+      playAllBtn.addEventListener('click', ()=>{
+        setPlayer(player, ytEmbedUrlPlaylist(playlistId, { autoplay:true }));
+        player.scrollIntoView({ behavior:'smooth', block:'center' });
+      });
     }
 
-    function renderPlaylistSection({
-      playlistId,
-      openLinkElId,
-      playAllBtnId,
-      playerElId,
-      trackElId,
-      sectionName
-    }){
-      const openA = document.getElementById(openLinkElId);
-      const playAllBtn = document.getElementById(playAllBtnId);
-      const player = document.getElementById(playerElId);
-      const track = document.getElementById(trackElId);
+    if(!track) return;
 
-      if(openA) openA.href = `https://www.youtube.com/playlist?list=${playlistId}`;
+    track.innerHTML = `
+      <div class="notice"><strong>Lade Liste…</strong> (YouTube-Feed)</div>
+    `;
 
-      if(player){
-        setPlayer(player, ytEmbedUrlPlaylist(playlistId, { autoplay:false }));
-      }
-
-      if(playAllBtn && player){
-        playAllBtn.addEventListener('click', ()=>{
-          setPlayer(player, ytEmbedUrlPlaylist(playlistId, { autoplay:true }));
-          player.scrollIntoView({ behavior:'smooth', block:'center' });
-        });
-      }
-
-      if(!track) return;
-
-      track.innerHTML = Array.from({length:6}).map(()=>`
-        <div class="vcard" style="opacity:.55">
-          <div class="vthumb"></div>
-          <div class="vbody">
-            <div class="vtitle">Lade…</div>
-            <div class="vmeta">${escapeHtml(sectionName)}</div>
+    return fetchPlaylistFromFeed(playlistId).then(items=>{
+      track.innerHTML = items.map((it, idx)=>`
+        <button class="vcard" type="button"
+          data-vid="${it.videoId}"
+          data-index="${idx+1}"
+          aria-label="${escapeHtml(it.title)}">
+          <div class="vthumb">
+            <img src="${escapeHtml(it.thumbnail)}" alt="Thumbnail">
+            <span class="play-badge">▶ Play</span>
           </div>
-        </div>
+          <div class="vbody">
+            <div class="vtitle">${escapeHtml(truncate(it.title, 78))}</div>
+            <div class="vmeta">Neu · ${escapeHtml(sectionName)}</div>
+          </div>
+        </button>
       `).join("");
 
-      return fetchAllPlaylistItems(playlistId).then(items=>{
-        track.innerHTML = items.map((it, idx)=>`
-          <button class="vcard" type="button"
-            data-vid="${it.videoId}"
-            data-index="${idx+1}"
-            aria-label="${escapeHtml(it.title)}">
-            <div class="vthumb">
-              <img src="${escapeHtml(it.thumbnail)}" alt="Thumbnail">
-              <span class="play-badge">▶ Play</span>
-            </div>
-            <div class="vbody">
-              <div class="vtitle">${escapeHtml(truncate(it.title, 78))}</div>
-              <div class="vmeta">Video ${idx+1}</div>
-            </div>
-          </button>
-        `).join("");
-
-        track.querySelectorAll('.vcard').forEach(card=>{
-          card.addEventListener('click', ()=>{
-            if(!player) return;
-            const vid = card.getAttribute('data-vid');
-            const index = Number(card.getAttribute('data-index') || "1");
-            setPlayer(player, ytEmbedUrlVideo(vid, { autoplay:true, playlistId, index }));
-            player.scrollIntoView({ behavior:'smooth', block:'center' });
-          });
+      track.querySelectorAll('.vcard').forEach(card=>{
+        card.addEventListener('click', ()=>{
+          if(!player) return;
+          const vid = card.getAttribute('data-vid');
+          const index = Number(card.getAttribute('data-index') || "1");
+          // index im Feed ist "Neueste zuerst" — trotzdem okay fürs Weiterlaufen
+          setPlayer(player, ytEmbedUrlVideo(vid, { autoplay:true, playlistId, index }));
+          player.scrollIntoView({ behavior:'smooth', block:'center' });
         });
-      }).catch(err=>{
-        console.error(err);
-        track.innerHTML = `
-          <div class="notice">
-            <strong>Ups:</strong> Playlist konnte nicht geladen werden.<br>
-            <span style="opacity:.9">${escapeHtml(err.message || String(err))}</span><br><br>
-            Prüfe: <strong>API Key</strong> eingesetzt? Referrer-Restriktion korrekt? YouTube Data API v3 aktiviert? Playlist öffentlich?
-          </div>
-        `;
       });
-    }
-
-    // =========================================================
-    // 6) Start: Playlists rendern
-    // =========================================================
-    (function initPlaylists(){
-  // Links + Player immer setzen (auch ohne API Key)
-  document.getElementById("open-stadt").href = `https://www.youtube.com/playlist?list=${CITY_PLAYLIST_ID}`;
-  document.getElementById("open-licht").href = `https://www.youtube.com/playlist?list=${LIGHT_PLAYLIST_ID}`;
-  document.getElementById("open-zug").href   = `https://www.youtube.com/playlist?list=${TRAIN_PLAYLIST_ID}`;
-
-  setPlayer(document.getElementById("player-stadt"), ytEmbedUrlPlaylist(CITY_PLAYLIST_ID));
-  setPlayer(document.getElementById("player-licht"), ytEmbedUrlPlaylist(LIGHT_PLAYLIST_ID));
-  setPlayer(document.getElementById("player-zug"),   ytEmbedUrlPlaylist(TRAIN_PLAYLIST_ID));
-
-  // Thumbnails nur mit API Key laden
-  if(!YT_API_KEY || YT_API_KEY.includes("zquvlzopwvfqjafc")){
-    // optional: kleine Hinweise in die Tracks
-    const msg = `<div class="notice"><strong>Hinweis:</strong> Thumbnails laden erst, wenn der YouTube API Key eingesetzt ist.</div>`;
-    document.getElementById("track-stadt").innerHTML = msg;
-    document.getElementById("track-licht").innerHTML = msg;
-    document.getElementById("track-zug").innerHTML   = msg;
-    return;
+    }).catch(err=>{
+      console.error(err);
+      track.innerHTML = `
+        <div class="notice">
+          <strong>Ups:</strong> Video-Liste konnte nicht geladen werden.<br>
+          <span style="opacity:.9">${escapeHtml(err.message || String(err))}</span><br><br>
+          Mögliche Gründe: Browser blockt den YouTube-Feed (CORS), Playlist ist nicht öffentlich, oder YouTube liefert gerade nichts.<br>
+          <span style="opacity:.9">Workaround: In dem Fall bleibt der Player trotzdem nutzbar (Playlist im Player + „Playlist öffnen“).</span>
+        </div>
+      `;
+    });
   }
 
-  renderPlaylistSection({
-    playlistId: CITY_PLAYLIST_ID,
-    openLinkElId: "open-stadt",
-    playAllBtnId: "playall-stadt",
-    playerElId: "player-stadt",
-    trackElId: "track-stadt",
-    sectionName: "Stadt"
-  });
+  // =========================================================
+  // Start
+  // =========================================================
+  (function init(){
+    // Links + Player
+    const openStadt = document.getElementById("open-stadt");
+    const openLicht = document.getElementById("open-licht");
+    const openZug   = document.getElementById("open-zug");
+    if(openStadt) openStadt.href = `https://www.youtube.com/playlist?list=${CITY_PLAYLIST_ID}`;
+    if(openLicht) openLicht.href = `https://www.youtube.com/playlist?list=${LIGHT_PLAYLIST_ID}`;
+    if(openZug)   openZug.href   = `https://www.youtube.com/playlist?list=${TRAIN_PLAYLIST_ID}`;
 
-  renderPlaylistSection({
-    playlistId: LIGHT_PLAYLIST_ID,
-    openLinkElId: "open-licht",
-    playAllBtnId: "playall-licht",
-    playerElId: "player-licht",
-    trackElId: "track-licht",
-    sectionName: "Beleuchten"
-  });
+    setPlayer(document.getElementById("player-stadt"), ytEmbedUrlPlaylist(CITY_PLAYLIST_ID));
+    setPlayer(document.getElementById("player-licht"), ytEmbedUrlPlaylist(LIGHT_PLAYLIST_ID));
+    setPlayer(document.getElementById("player-zug"),   ytEmbedUrlPlaylist(TRAIN_PLAYLIST_ID));
 
-  renderPlaylistSection({
-    playlistId: TRAIN_PLAYLIST_ID,
-    openLinkElId: "open-zug",
-    playAllBtnId: "playall-zug",
-    playerElId: "player-zug",
-    trackElId: "track-zug",
-    sectionName: "Eisenbahn"
-  });
-})();
-
-  </script>
+    // Carousels via Feed
+    renderPlaylistSectionFromFeed({ playlistId:CITY_PLAYLIST_ID,  openLinkElId:"open-stadt", playAllBtnId:"playall-stadt", playerElId:"player-stadt", trackElId:"track-stadt", sectionName:"Stadt" });
+    renderPlaylistSectionFromFeed({ playlistId:LIGHT_PLAYLIST_ID, openLinkElId:"open-licht", playAllBtnId:"playall-licht", playerElId:"player-licht", trackElId:"track-licht", sectionName:"Beleuchten" });
+    renderPlaylistSectionFromFeed({ playlistId:TRAIN_PLAYLIST_ID, openLinkElId:"open-zug",   playAllBtnId:"playall-zug",   playerElId:"player-zug",   trackElId:"track-zug",   sectionName:"Eisenbahn" });
+  })();
+</script>
 
 </main>
 </body>
